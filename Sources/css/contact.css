@@ -1,0 +1,38 @@
+.banner-img{
+    position:relative;
+  }
+  .banner-tittle{
+    position:absolute;
+    top:0;
+  }
+  .contact-inner{
+    padding-top:50px;
+    padding-bottom:50px;
+    margin-top:50px;
+    margin-bottom:100px;
+    background:#E1DCD6;
+  }
+  .contact-form{
+  
+  }
+  .mess-user{
+    margin-bottom:60px;
+    margin-top:20px;
+  }
+  .contact-text p{
+    margin-top:10px;
+  }
+  .aguri-info{
+    margin-bottom:40px;
+  }
+  
+  agm-map {
+    height: 480px;
+  }
+  .mail-info{
+   padding-top:195px;
+    font-weight: 500;
+  }
+  
+  
+  

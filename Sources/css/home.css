@@ -1,0 +1,126 @@
+
+/*New Arrivals*/
+.new-arrivals{
+    padding-top:100px;
+  }
+  /*showcase*/
+  .ctg .ctg-inner .ctg-left{
+    padding-right:5px !important;
+    padding-left:0 !important;
+  }
+  .ctg-left-top .left-top{
+    padding-right:5px;
+  }
+  .ctg-left-top .center-top{
+    padding-left:5px;
+  }
+  .ctg-left-top{
+    padding-bottom:10px;
+  }
+  .ctg-left-btm .left-btm{
+    padding-right:5px;
+  }
+  .ctg-left-btm .center-btm{
+    padding-left:5px;
+  }
+  .ctg-img-inner{
+    overflow: hidden;
+  }
+  .ctg-img-inner img{
+    transition: transform 0.5s ease-out;
+  }
+  .ctg-img-inner:hover img{
+    transform: scale(1.03);
+    filter: brightness(80%);
+  }
+  .image-ctg{
+    position: relative;
+  }
+  .image-ctg:hover .name-ctg{
+    opacity:1;
+  }
+  .image-ctg:hover .name-ctg > a{
+    text-decoration: underline;
+  }
+  .name-ctg{
+    position: absolute;
+    top:43%;
+    left:30%;
+    color:#fff;
+    opacity:0;
+  }
+  .right-btm{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 295px;
+  }
+  .right-btm img{
+    max-height: 285px;
+  }
+  /*RIGHT*/
+  .ctg .ctg-inner .ctg-right{
+    padding-right:0 !important;
+    padding-left:5px !important;
+  }
+  /*All jewellery*/
+  .item-box-content a{
+    color:#fff;
+  }
+  .item-box-content a:hover{
+    color:#fff;
+    text-decoration: underline;
+  }
+  .all-top{
+    position: relative;
+  }
+  .all-top .item-box-all{
+    position: absolute;
+    bottom: 0;
+  }
+  .box-ring{
+    padding-right:12.5px;
+  }
+  /*Best seller*/
+  .best-seller{
+    background-color: #fff;
+    padding-top:80px;
+  }
+  .change-bg{
+    background:#fff;
+  }
+  /*about*/
+  .about{
+    background-image: url("https://i.imgur.com/knqjiqp.png");
+    background-size: cover;
+    padding-top:130px;
+    padding-bottom:130px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  /*New Collection*/
+  .new-collection-bottom{
+    display:flex;
+    padding-top:40px;
+  }
+  .new-collection-content{
+    margin:auto;
+    padding: 0px 40px;
+  }
+  .feature-img2 img{
+    padding-top:210px;
+  }
+  .new-collection-img:hover > .collection-img{
+    transform:scale(105%);
+    filter:brightness(90%);
+    transition:0.4s all;
+  }
+  .shop-all-new{
+    text-decoration: underline;
+  }
+  /*experiences*/
+  .experiences{
+    background-color: #E1DCD6;
+    padding-top:80px;
+    padding-bottom:80px;
+  }  

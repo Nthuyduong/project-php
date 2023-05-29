@@ -1,0 +1,84 @@
+/*DETAIL*/
+.bag{
+    margin-bottom:20px;
+    margin-top:20px;
+  }
+  .ask-advisor{
+    margin-bottom:20px;
+  }
+  
+  /*ADD CART*/
+  .offcanvas-checkbox{
+    padding-left:0;
+  }
+  .offcanvas-cart{
+    padding-right:0;
+  }
+  .offcanvas-btn{
+    margin-top: 220px;
+  }
+  .prd-name{
+    margin-right:auto;
+  }
+  
+  /*SELECT FORM*/
+  /*Breadcrumb*/
+  .breadcrumb{
+    margin-top:20px;
+  }
+  .breadcrumb .breadcrumb-item a{
+    font-size:13px;
+  }
+  /*FIND SIZE*/
+  .mx12{
+    padding-left:25px;
+    padding-right:25px;
+  }
+  .size-title th{
+    font-size:14px;
+    font-weight: 500;
+  }
+  .ring-size td{
+    padding:10px 0px;
+  }
+  .measure-content{
+    padding-top:40px;
+  }
+  /*Ask a client advisor*/
+  
+  .review-name{
+    margin-bottom:40px;
+  }
+  /*Compare*/
+  .simi-prod{
+    margin-top:100px;
+    margin-bottom:100px;
+  }
+  .compare-title{
+    font-weight: 500;
+  }
+  .itm{
+    margin-top:40px;
+    margin-bottom:10px;
+  }
+  .simi-left{
+    padding-left:0px;
+  }
+  .simi-right{
+    padding-right:0px;
+  }
+  /*Review*/
+  .review{
+    margin-bottom:80px;
+  }
+  .review-start{
+    justify-content: center;
+    margin-bottom:30px;
+  }
+  .rate-start{
+    margin-bottom:20px;
+  }
+  .review-box{
+    margin-top:60px;
+  }
+  

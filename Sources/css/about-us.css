@@ -1,0 +1,57 @@
+
+.about-us {
+    margin-top: 100px;
+  }
+  /*Dear*/
+  .dear-info p{
+    color:#999;
+  }
+  /*the-brand*/
+  .who{
+    position:relative;
+  }
+  .who .who-left{
+    padding-left:0;
+  }
+  .who-right{
+    position:absolute;
+    right:0px;
+    top:120px;
+  }
+  .who-content{
+    padding-top:90px;
+  }
+  .sub-info{
+    padding-left:0px !important;
+  }
+  .note-first{
+    padding-left:0px !important;
+  }
+  .about-image{
+    margin-top:140px;
+  }
+  .abt-img-inner{
+    padding-right:0px !important;
+  }
+  .sub-info{
+    position: relative;
+  }
+  .sub-info-inner{
+    position: absolute;
+    bottom: 0%;
+    width: 100%
+  }
+  /*our-vision*/
+  .vision-section{
+    margin-top: 160px;
+  }
+  .vision-right{
+    padding-right:0px !important;
+  }
+  /*our mission*/
+  .mision-section{
+    padding-top:160px;
+  }
+  .mision-left{
+    padding-left:0px !important;
+  }

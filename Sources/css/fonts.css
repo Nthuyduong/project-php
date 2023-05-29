@@ -1,0 +1,13 @@
+@font-face{
+    src:url("../fonts/merchant/Merchant-Regular.otf"),
+    url("../fonts/merchant/Merchant-Regular.ttf"),
+    url("../fonts/merchant/Merchant-Bold.otf"),
+    url("../fonts/merchant/Merchant-Bold.ttf");
+    font-family:'Merchant';
+}
+@font-face {
+    src: url("../fonts/futura/FuturaPTBook.otf"),
+    url("../fonts/futura/FuturaPTMedium.otf");
+    font-family: 'Futura';
+}
+  
