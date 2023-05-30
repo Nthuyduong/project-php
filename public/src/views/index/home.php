@@ -27,7 +27,7 @@
                                 </a>
                                 <div class="name-ctg text-center">
                                 <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" routerLink="/category/1">Shop Rings Now</a>
+                                <a class="text-light" href="category.php">Shop Rings Now</a>
                                 </div>
                             </div>
                             </div>
@@ -58,7 +58,7 @@
                                 </a>
                                 <div class="name-ctg text-center">
                                 <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" routerLink="/category/1">Shop Necklaces Now</a>
+                                <a class="text-light" href="category.php">Shop Necklaces Now</a>
                                 </div>
                             </div>
                             </div>
@@ -75,7 +75,7 @@
                             </a>
                             <div class="name-ctg text-center">
                             <h6 class="mb-2">Beaufille Collection</h6>
-                            <a class="text-light" routerLink="/category/1">Shop Earrings Now</a>
+                            <a class="text-light" href="category.php">Shop Earrings Now</a>
                             </div>
                         </div>
                         </div>
@@ -584,7 +584,7 @@
                         <i class="fas fa-truck fa-2xl"></i>
                         <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
                         <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
-                        <a class="decor-text" >Learn more <i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="decor-text" >Learn more <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="col-4 text-center">
@@ -592,7 +592,7 @@
                         <i class="fas fa-calendar fa-2xl"></i>
                         <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
                         <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
-                        <a class="decor-text" >Book now <i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="decor-text" >Book now <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="col-4 text-center pe-0">
@@ -600,7 +600,7 @@
                         <i class="fas fa-gift fa-2xl"></i>
                         <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
                         <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
-                        <a class="decor-text" >Explore gift <i class="fa-solid fa-arrow-right"></i></a>
+                        <a class="decor-text" >Explore gift <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     </div>

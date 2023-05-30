@@ -45,7 +45,7 @@
                                     <div class="search-box">
                                         <input type="text" placeholder="search...">
                                         <a href="search.php" class="iconsearch">
-                                        <i class="fa fa-searc fa-lg"></i>
+                                        <i class="fab fa-search fa-lg"></i>
                                         </a>
                                     </div>
                                     <!--search-button-end-->
