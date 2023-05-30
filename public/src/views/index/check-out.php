@@ -81,9 +81,9 @@
                     </div>
                     <p class="mdt">Please choose the payment method</p>
                     <ul class="pay d-flex mb-4">
-                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/"/></li>
-                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/"/></li>
-                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../../../images/check-out/Mastercard.webp"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../../../images/check-out/PayPal.webp"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../../../images/check-out/Visa.webp"/></li>
                     </ul>
                     <div class="px-0 user-input mb-4">
                         <label>Card number (*)</label>
@@ -159,7 +159,7 @@
                 <div class="row place-order">
                 <div class="col"></div>
                 <div class="col-10">
-                    <p class="text-center mb-4">By clicking Pay and Place Order, you agree to purchase your item(s) from
+                    <p class="text-center my-5">By clicking Pay and Place Order, you agree to purchase your item(s) from
                     Global-e as merchant of record for this transaction, on Global-e's Terms and Conditions and Pivacy Policy
                     Global-e is an international fulfilment service provider to AGURI.</p>
                 </div>
@@ -167,7 +167,9 @@
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4">
-                    <input type="submit" class="btn btn-pri btnlg w-100" value="Place order">
+                        <a href="thank-you.php">
+                            <input type="submit" class="btn btn-pri btnlg w-100" value="Place order"/>
+                        </a>
                     </div>
                     <div class="col-4"></div>
                 </div>
