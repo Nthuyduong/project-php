@@ -458,11 +458,10 @@
     /*for test scroll back to top*/
     scroll-behavior: smooth;
   }
-  .headnav{
+  #headnav{
     background: #FAF8F6;
     position: fixed;
     top: 0px;
-    left: 0px;
     width:100%;
     z-index: 100;
     height: var(--nav-height);
