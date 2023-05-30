@@ -36,7 +36,7 @@
                 </div>
                 <div class="t-row1 row">
                 <div class="col-2">
-                    <img src="../../../images/product-detail/bag-prd1.png">
+                    <img src="../../../public/images/product-detail/bag-prd1.png">
                 </div>
                 <div class="col-3">
                     <p>Amel Earring</p>
@@ -55,7 +55,7 @@
                 <div class="line my-3"></div>
                 <div class="t-row2 row">
                 <div class="col-2">
-                    <img src="../../../images/product-detail/bag-prd2.png">
+                    <img src="../../../public/images/product-detail/bag-prd2.png">
                 </div>
                 <div class="col-3">
                     <p class="">Lavie Ring</p>
@@ -117,7 +117,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like1.webp">
+                                <img src="../../../public/images/product-detail/also-like1.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -135,7 +135,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like2.webp">
+                                <img src="../../../public/images/product-detail/also-like2.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -153,7 +153,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like3.webp">
+                                <img src="../../../public/images/product-detail/also-like3.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -171,7 +171,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like4.webp">
+                                <img src="../../../public/images/product-detail/also-like4.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -193,7 +193,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like5.webp">
+                                <img src="../../../public/images/product-detail/also-like5.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -211,7 +211,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like6.webp">
+                                <img src="../../../public/images/product-detail/also-like6.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -229,7 +229,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like7.webp">
+                                <img src="../../../public/images/product-detail/also-like7.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -247,7 +247,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like8.webp">
+                                <img src="../../../public/images/product-detail/also-like8.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -269,7 +269,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like5.webp">
+                                <img src="../../../public/images/product-detail/also-like5.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -287,7 +287,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like6.webp">
+                                <img src="../../../public/images/product-detail/also-like6.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -305,7 +305,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like7.webp">
+                                <img src="../../../public/images/product-detail/also-like7.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -323,7 +323,7 @@
                         <div class="card-prd">
                             <div class="img">
                             <a href="#">
-                                <img src="../../../images/product-detail/also-like8.webp">
+                                <img src="../../../public/images/product-detail/also-like8.webp">
                             </a>
                             </div>
                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">

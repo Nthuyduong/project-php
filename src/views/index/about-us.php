@@ -15,7 +15,7 @@
         <div>
             <div class="banner-img mbt-120">
                 <div class="">
-                    <img src="../../../images/about-us/1.png" />
+                    <img src="../../../public/images/about-us/1.png" />
                 </div>
                 <div class="banner-img-text text-center">
                     <h3>AGURI BRAND</h4>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col"></div>
                     <div class="col-11 abt-img-inner">
-                    <img src="../../../images/about-us/2.png" />
+                    <img src="../../../public/images/about-us/2.png" />
                     </div>
                 </div>
                 </div>
@@ -99,14 +99,14 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="col-4 vision-right">
-                    <img src="../../../images/about-us/3.png" />
+                    <img src="../../../public/images/about-us/3.png" />
                     </div>
                 </div>
                 </div>
                 <div class="mision-section">
                 <div class="row">
                     <div class="col-6 mision-left">
-                    <img src="../../../images/about-us/4.png"/>
+                    <img src="../../../public/images/about-us/4.png"/>
                     </div>
                     <div class="col-2"></div>
                     <div class="col-3">

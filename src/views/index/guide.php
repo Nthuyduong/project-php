@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-5">
                     <div>
-                    <img src="../../../images/guide/2.webp"/>
+                    <img src="../../../public/images/guide/2.webp"/>
                     </div>
                 </div>
                 <div class="col-5 content">
@@ -60,7 +60,7 @@
                 <!--natural-jewellery-->
                 <div class="row mbt-120 natural-j">
                 <div class="col-7 ps-0 natural-j-img">
-                    <img src="../../../images/guide/3.png"/>
+                    <img src="../../../public/images/guide/3.png"/>
                 </div>
                 <div class="col-5 pe-0 natural-j-content">
                     <div class="natural-d natural-inner">
@@ -172,7 +172,7 @@
                             of a laboratory environment. The most common color ranges are D through F and G through J.</p>
                         </div>
                         <div class="col-6">
-                            <img src="../../../images/guide/color.webp"/>
+                            <img src="../../../public/images/guide/color.webp"/>
                         </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                             manifestations of its formation.</p>
                         </div>
                         <div class="col-6">
-                            <img src="../../../images/guide/clarity.webp"/>
+                            <img src="../../../public/images/guide/clarity.webp"/>
                         </div>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                             to 1/100th of a millimeter allowing the perfect balance of proportions to reveal a diamond's beauty.</p>
                         </div>
                         <div class="col-6">
-                            <img src="../../../images/guide/shape.webp"/>
+                            <img src="../../../public/images/guide/shape.webp"/>
                         </div>
                     </div>
                     </div>

@@ -23,7 +23,7 @@
                             <div class="ctg-img-inner">
                             <div class="image-ctg">
                                 <a>
-                                <img src="../../../images/shop-all/ctg1.webp">
+                                <img src="../../../public/images/shop-all/ctg1.webp">
                                 </a>
                                 <div class="name-ctg text-center">
                                 <h6 class="mb-2">Beaufille Collection</h6>
@@ -35,7 +35,7 @@
                         <div class="center-top">
                             <div class="ctg-img-inner">
                             <a>
-                                <img src="../../../images/shop-all/ctg2.webp">
+                                <img src="../../../public/images/shop-all/ctg2.webp">
                             </a>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="left-btm">
                             <div class="ctg-img-inner">
                             <a>
-                                <img src="../../../images/shop-all/ctg4.webp">
+                                <img src="../../../public/images/shop-all/ctg4.webp">
                             </a>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             <div class="ctg-img-inner">
                             <div class="image-ctg">
                                 <a>
-                                <img src="../../../images/shop-all/ctg5.webp">
+                                <img src="../../../public/images/shop-all/ctg5.webp">
                                 </a>
                                 <div class="name-ctg text-center">
                                 <h6 class="mb-2">Beaufille Collection</h6>
@@ -71,7 +71,7 @@
                         <div class="ctg-img-inner">
                         <div class="image-ctg">
                             <a>
-                            <img src="../../../images/shop-all/ctg3.webp">
+                            <img src="../../../public/images/shop-all/ctg3.webp">
                             </a>
                             <div class="name-ctg text-center">
                             <h6 class="mb-2">Beaufille Collection</h6>
@@ -83,7 +83,7 @@
                     <div class="right-btm">
                         <div class="ctg-img-inner">
                         <a>
-                            <img src="../../../images/shop-all/ctg6.webp">
+                            <img src="../../../public/images/shop-all/ctg6.webp">
                         </a>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="product-detail.php">
-                                        <img src="../../../images/home/new1.webp">
+                                        <img src="../../../public/images/home/new1.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -125,7 +125,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="product-detail.php">
-                                        <img src="../../../images/home/new2.webp">
+                                        <img src="../../../public/images/home/new2.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -139,7 +139,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="product-detail.php">
-                                        <img src="../../../images/home/new3.webp">
+                                        <img src="../../../public/images/home/new3.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -157,7 +157,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="product-detail.php">
-                                        <img src="../../../images/home/new4.webp">
+                                        <img src="../../../public/images/home/new4.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -171,7 +171,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="product-detail.php">
-                                        <img src="../../../images/home/new5.webp">
+                                        <img src="../../../public/images/home/new5.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -185,7 +185,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="product-detail.php">
-                                        <img src="../../../images/home/new6.webp">
+                                        <img src="../../../public/images/home/new6.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -213,7 +213,7 @@
                         <div class="item-box-all">
                         <div class="item-box-img box-ring">
                             <a href="category.php">
-                            <img src="../../../images/home/all-j1.webp"/>
+                            <img src="../../../public/images/home/all-j1.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
@@ -227,7 +227,7 @@
                         <div class="item-box-all">
                         <div class="item-box-img">
                             <a href="category.php">
-                            <img src="../../../images/home/all-j2.webp"/>
+                            <img src="../../../public/images/home/all-j2.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
@@ -248,7 +248,7 @@
                         <div class="item-box-all">
                         <div class="item-box-img">
                             <a href="category.php">
-                            <img src="../../../images/home/all-j3.webp"/>
+                            <img src="../../../public/images/home/all-j3.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
@@ -262,7 +262,7 @@
                         <div class="item-box-all">
                         <div class="item-box-img">
                             <a href="category.php">
-                            <img src="../../../images/home/all-j4.webp"/>
+                            <img src="../../../public/images/home/all-j4.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
@@ -288,7 +288,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like1.webp">
+                                    <img src="../../../public/images/product-detail/also-like1.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -306,7 +306,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like2.webp">
+                                    <img src=".../../../public/images/product-detail/also-like2.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -324,7 +324,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like3.webp">
+                                    <img src="../../../public/images/product-detail/also-like3.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -342,7 +342,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like4.webp">
+                                    <img src="../../../public/images/product-detail/also-like4.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -364,7 +364,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like5.webp">
+                                    <img src="../../../public/images/product-detail/also-like5.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -382,7 +382,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like6.webp">
+                                    <img src="../../../public/images/product-detail/also-like6.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -400,7 +400,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like7.webp">
+                                    <img src="../../../public/images/product-detail/also-like7.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -418,7 +418,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like8.webp">
+                                    <img src="../../../public/images/product-detail/also-like8.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -440,7 +440,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like5.webp">
+                                    <img src="../../../public/images/product-detail/also-like5.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -458,7 +458,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images//product-detail/also-like6.webp">
+                                    <img src="../../../public/images//product-detail/also-like6.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -476,7 +476,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like7.webp">
+                                    <img src="../../../public/images/product-detail/also-like7.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -494,7 +494,7 @@
                                 <div class="card-prd">
                                 <div class="img">
                                     <a href="#">
-                                    <img src="../../../images/product-detail/also-like8.webp">
+                                    <img src="../../../public/images/product-detail/also-like8.webp">
                                     </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -540,7 +540,7 @@
                     <div class="row">
                     <div class="col-5 new-collection-left ps-0">
                         <a href="#">
-                        <img src="../../../images/home/feature1.png">
+                        <img src="../../../public/images/home/feature1.png">
                         </a>
                     </div>
                     <div class="col"></div>
@@ -549,14 +549,14 @@
                         <div class="col-6 feature-img2 ps-0 new-collection-img">
                             <div class="collection-img">
                             <a href="#">
-                                <img src="../../../images/home/feature2.png">
+                                <img src="../../../public/images/home/feature2.png">
                             </a>
                             </div>
                         </div>
                         <div class="col-6 pe-0 new-collection-img">
                             <div class="collection-img">
                             <a href="#">
-                                <img src="../../../images/home/feature3.png">
+                                <img src="../../../public/images/home/feature3.png">
                             </a>
                             </div>
                         </div>
@@ -652,48 +652,48 @@
                     <div class="carousel-item active" data-bs-interval="2000">
                         <div class="row">
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow1.webp"/>
+                            <img src="../../../public/images/home/follow1.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow2.webp"/>
+                            <img src="../../../public/images/home/follow2.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow3.webp"/>
+                            <img src="../../../public/images/home/follow3.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow4.webp"/>
+                            <img src="../../../public/images/home/follow4.webp"/>
                         </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <div class="row">
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow5.webp"/>
+                            <img src="../../../public/images/home/follow5.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images//home/follow6.webp"/>
+                            <img src="../../../public/images//home/follow6.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow7.webp"/>
+                            <img src="../../../public/images/home/follow7.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow8.webp"/>
+                            <img src="../../../public/images/home/follow8.webp"/>
                         </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <div class="row">
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow9.webp"/>
+                            <img src="../../../public/images/home/follow9.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow10.webp"/>
+                            <img src="../../../public/images/home/follow10.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow11.webp"/>
+                            <img src="../../../public/images/home/follow11.webp"/>
                         </div>
                         <div class="col-3 px-0">
-                            <img src="../../../images/home/follow12.webp"/>
+                            <img src="../../../public/images/home/follow12.webp"/>
                         </div>
                         </div>
                     </div>

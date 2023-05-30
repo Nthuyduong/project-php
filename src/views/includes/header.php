@@ -28,7 +28,7 @@
                             <!--logo-->
                             <div class="col-6 d-flex justify-content-center">
                                 <a href="home.php">
-                                    <img id="logo" src="../../../images/logo.svg" alt="aguri-logo"/>
+                                    <img id="logo" src="../../../public/images/logo.svg" alt="aguri-logo"/>
                                 </a>
                             </div>
                             <!--top-page-right-->

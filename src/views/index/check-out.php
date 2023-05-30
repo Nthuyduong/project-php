@@ -81,9 +81,9 @@
                     </div>
                     <p class="mdt">Please choose the payment method</p>
                     <ul class="pay d-flex mb-4">
-                        <li class="col-2 px-0" tabindex="0"><img src="../../../images/check-out/Mastercard.webp"/></li>
-                        <li class="col-2 px-0" tabindex="0"><img src="../../../images/check-out/PayPal.webp"/></li>
-                        <li class="col-2 px-0" tabindex="0"><img src="../../../images/check-out/Visa.webp"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../../../public/images/check-out/Mastercard.webp"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../../../public/images/check-out/PayPal.webp"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../../../public/images/check-out/Visa.webp"/></li>
                     </ul>
                     <div class="px-0 user-input mb-4">
                         <label>Card number (*)</label>
