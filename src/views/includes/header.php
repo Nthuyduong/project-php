@@ -12,6 +12,7 @@
         <div>
             <?php include 'bag.php'; ?>
         </div>
+    
             <div id="headnav">
                 <!--HEADER-->
                 <header class="section top-page">
@@ -76,6 +77,7 @@
                     </div>
                 </nav>
             </div>
+            
             <script>
                 var prevScrollpos = window.pageYOffset;
                 window.onscroll = function() {

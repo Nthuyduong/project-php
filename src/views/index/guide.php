@@ -11,7 +11,7 @@
         <div>
             <?php require_once '../includes/header.php';?>
         </div> 
-        <div>
+        <div class="container-fluid">
             <!--Banner-->
             <div class="banner-img mbt-120">
             <div class="">
@@ -258,10 +258,10 @@
                     production and genuine materials.</h5>
             </div>
             </div>
-            <!--Back to top-->
+            <!-- Back to top
             <div class="to-top" (click)="scrollToTop()" [ngClass]="{ 'show-scrollTop': windowScrolled }">
                 <i class="fa-solid fa-circle-arrow-up fa-2xl"></i>
-            </div>
+            </div> -->
         </div>
         <div>
             <?php require_once '../includes/footer.php';?>
