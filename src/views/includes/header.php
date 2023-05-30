@@ -16,7 +16,7 @@
             <div id="headnav">
                 <!--HEADER-->
                 <header class="section top-page">
-                    <div class="header card-header border-0 container">
+                    <div class="header card-header border-0 container-fluid">
                         <div class="row header-inner">
                             <!--top-page-left-->
                             <div class="col-3 top-page-start">
