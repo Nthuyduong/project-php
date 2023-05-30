@@ -603,6 +603,12 @@
                 </div>
             </div>
         </div>
+        <script>
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                }
+        </script>
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
