@@ -15,7 +15,7 @@
             <!--Banner-->
             <div class="banner-img mbt-120">
             <div class="">
-                <img src="../../../images/guide/banner.png"/>
+                <img src="../../../public/images/guide/banner.png"/>
             </div>
             <div class="banner-img-text">
                 <h2 class="text-center">Jewellery Guide</h2>
