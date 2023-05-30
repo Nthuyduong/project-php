@@ -41,9 +41,9 @@
                     <ul class="follow-us">
                     <li><p class="mdt">Follow us</p></li>
                     <li>
-                        <a href="https://www.facebook.com/aguri-jewellery"><i class="fa-brands fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com/aguri-jewellery"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                        <a href="https://www.pinterest.com/aguri-jewellery"><i class="fa-brands fa-pinterest fa-lg"></i></a>
+                        <a href="https://www.facebook.com/aguri-jewellery"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/aguri-jewellery"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.pinterest.com/aguri-jewellery"><i class="fab fa-pinterest fa-lg"></i></a>
                     </li>
                     </ul>
                 </div>

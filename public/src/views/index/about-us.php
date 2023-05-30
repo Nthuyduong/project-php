@@ -3,6 +3,7 @@
     <head>
         <title>Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/about-us.css">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
@@ -17,9 +18,9 @@
                     <img src="../../../images/about-us/1.png" />
                 </div>
                 <div class="banner-img-text text-center">
-                    <h4>AGURI BRAND</h4>
+                    <h3>AGURI BRAND</h4>
                     <h1>&</h1>
-                    <h3>PASCAL IMITATION JEWELLERY</h3>
+                    <h2>PASCAL IMITATION JEWELLERY</h3>
                 </div>
                 </div>
                 <div class="about-aguri">
@@ -28,7 +29,7 @@
                     <div class="col-10 abt-contain">
                     <div>
                         <h6>About</h6>
-                        <h1>AGURI JEWELRY</h1>
+                        <h2>AGURI JEWELRY</h1>
                     </div>
                     <div class="row">
                         <div class="col-6 sub-info">
