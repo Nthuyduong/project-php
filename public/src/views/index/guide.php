@@ -2,20 +2,20 @@
 <html>
     <head>
         <title>Guide</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../css/fonts.css">
-        <Link rel="stylesheet" type="text/css" href="../css/guide.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/guide.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
     </head>
     <body>
-        <div class="">
-            <?php include 'header.php';?>
-        </div>
+        <div>
+            <?php require_once '../includes/header.php';?>
+        </div> 
         <div>
             <!--Banner-->
             <div class="banner-img mbt-120">
             <div class="">
-                <img src="../images/guide/banner.png"/>
+                <img src="../../../images/guide/banner.png"/>
             </div>
             <div class="banner-img-text">
                 <h2 class="text-center">Jewellery Guide</h2>
@@ -36,11 +36,11 @@
                 <div class="row mbt-120">
                 <div class="col-2">
                     <h4 class="text-right">About</h4>
-                    <h4 class="text-right">Lab - Grown Jewellery</h4>
+                    <h3 class="text-right">Lab - Grown Jewellery</h3>
                 </div>
                 <div class="col-5">
                     <div>
-                    <img src="../images/guide/2.webp"/>
+                    <img src="../../../images/guide/2.webp"/>
                     </div>
                 </div>
                 <div class="col-5 content">
@@ -60,7 +60,7 @@
                 <!--natural-jewellery-->
                 <div class="row mbt-120 natural-j">
                 <div class="col-7 ps-0 natural-j-img">
-                    <img src="../images/guide/3.png"/>
+                    <img src="../../../images/guide/3.png"/>
                 </div>
                 <div class="col-5 pe-0 natural-j-content">
                     <div class="natural-d natural-inner">
@@ -172,7 +172,7 @@
                             of a laboratory environment. The most common color ranges are D through F and G through J.</p>
                         </div>
                         <div class="col-6">
-                            <img src="../images/guide/color.webp"/>
+                            <img src="../../../images/guide/color.webp"/>
                         </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                             manifestations of its formation.</p>
                         </div>
                         <div class="col-6">
-                            <img src="../images/guide/clarity.webp"/>
+                            <img src="../../../images/guide/clarity.webp"/>
                         </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                     <div class="card card-body">
                         <div class="row">
                         <div class="col-6 color-left">
-                            <h6 class="text-center mb-4">DIAMOND COLOR GRADING</h6>
+                            <h6 class="text-end mb-4">DIAMOND COLOR GRADING</h6>
                             <p class="mb-3 text-center">Gemological laboratories study a modern diamond’s cut based on how its facets interact with light,
                             prescribing an excellent, very good, good, fair, or poor grade. Excellent and very good sparkle the most.
                             Since this C determines the overall appearance of the modern day brilliant cut diamond, we consider it
@@ -223,7 +223,7 @@
                             to 1/100th of a millimeter allowing the perfect balance of proportions to reveal a diamond's beauty.</p>
                         </div>
                         <div class="col-6">
-                            <img src="../images/guide/shape.webp"/>
+                            <img src="../../../images/guide/shape.webp"/>
                         </div>
                     </div>
                     </div>
@@ -233,7 +233,7 @@
             </div>
             <!--jewellery-Care-->
             <div class="care mbt-120">
-                <div class="text-end care-content">
+                <div class="text-right care-content">
                     <h5 class="mb-4">Jewellery Care</h5>
                     <p class="mtp type-j">Jewellery: Gold plated over sterling silver or brass</p>
                     <ul>
@@ -263,10 +263,10 @@
                 <i class="fa-solid fa-circle-arrow-up fa-2xl"></i>
             </div>
         </div>
-        <div class="">
-            <?php include 'footer.php';?>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <div>
+            <?php require_once '../includes/footer.php';?>
+        </div> 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>

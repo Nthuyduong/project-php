@@ -2,16 +2,16 @@
 <html>
     <head>
         <title>Check-out</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="../css/fonts.css">
-        <Link rel="stylesheet" type="text/css" href="../css/check-out.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/check-out.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
     </head>
     <body>
-        <div class="">
-            <?php include 'header.php';?>
-        </div>
+        <div>
+            <?php require_once '../includes/header.php';?>
+        </div> 
         <div class="container-fluid checkout-all">
             <form ngNativeValidate (submit)="placeOrder()">
                 <div class="row">
@@ -81,9 +81,9 @@
                     </div>
                     <p class="mdt">Please choose the payment method</p>
                     <ul class="pay d-flex mb-4">
-                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/Mastercard.webp"/></li>
-                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/PayPal.webp"/></li>
-                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/Visa.webp"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/"/></li>
+                        <li class="col-2 px-0" tabindex="0"><img src="../images/check-out/"/></li>
                     </ul>
                     <div class="px-0 user-input mb-4">
                         <label>Card number (*)</label>
@@ -174,10 +174,10 @@
                 </div>
             </form>
         </div>
-        <div class="">
-            <?php include 'footer.php';?>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <div>
+            <?php require_once '../includes/footer.php';?>
+        </div> 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>

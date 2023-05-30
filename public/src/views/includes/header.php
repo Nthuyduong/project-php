@@ -2,7 +2,8 @@
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
     </head>
     <body>
         <div>
@@ -19,15 +20,15 @@
                             <!--top-page-left-->
                             <div class="col-3 top-page-start">
                                 <ul class="d-flex justify-content-start">
-                                    <li class="py-1"><a href="https://www.facebook.com/aguri-jewellery"><i class="fa-brands fa-facebook"></i></a></li>
-                                    <li class="py-1 px-3"><a href="https://www.instagram.com/aguri-jewellery"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li class="py-1"><a href="https://www.pinterest.com/aguri-jewellery"><i class="fa-brands fa-pinterest"></i></a></li>
+                                    <li class="py-1"><a href="https://www.facebook.com/aguri-jewellery"><i class="fab fa-facebook"></i></a></li>
+                                    <li class="py-1 px-3"><a href="https://www.instagram.com/aguri-jewellery"><i class="fab fa-instagram"></i></a></li>
+                                    <li class="py-1"><a href="https://www.pinterest.com/aguri-jewellery"><i class="fab fa-pinterest"></i></a></li>
                                 </ul>
                             </div>
                             <!--logo-->
                             <div class="col-6 d-flex justify-content-center">
                                 <a href="home.php">
-                                    <img id="logo" src="../images/logo.svg" alt="aguri-logo"/>
+                                    <img id="logo" src="../../../images/logo.svg" alt="aguri-logo"/>
                                 </a>
                             </div>
                             <!--top-page-right-->
@@ -38,13 +39,13 @@
                                     <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">Sign in</a>
                                     </li>
                                     <div>
-                                        <li class="px-3 py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
+                                        <li class="px-3 py-1"><i class="fa fa-shopping-cart" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
                                     </div>
                                     <!--search-button-start-->
                                     <div class="search-box">
                                         <input type="text" placeholder="search...">
                                         <a href="search.php" class="iconsearch">
-                                        <i class="fa fa-search fa-lg"></i>
+                                        <i class="fa fa-search"></i>
                                         </a>
                                     </div>
                                     <!--search-button-end-->

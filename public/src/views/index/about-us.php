@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About us</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="../css/fonts.css">
-        <Link rel="stylesheet" type="text/css" href="../css/about-us.css">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <title>Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/about-us.css">
+        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
     </head>
     <body>
-        <div class="">
-            <?php include 'header.php';?>
-        </div>
+        <div>
+            <?php require_once '../includes/header.php';?>
+        </div> 
         <div>
             <div class="banner-img mbt-120">
                 <div class="">
-                    <img src="../images/about-us/1.png" />
+                    <img src="../../../images/about-us/1.png" />
                 </div>
                 <div class="banner-img-text text-center">
-                    <h5>AGURI BRAND</h5>
-                    <h2>&</h2>
-                    <h4>PASCAL IMITATION JEWELLERY</h4>
+                    <h4>AGURI BRAND</h4>
+                    <h1>&</h1>
+                    <h3>PASCAL IMITATION JEWELLERY</h3>
                 </div>
                 </div>
                 <div class="about-aguri">
@@ -29,7 +28,7 @@
                     <div class="col-10 abt-contain">
                     <div>
                         <h6>About</h6>
-                        <h2>AGURI JEWELRY</h2>
+                        <h1>AGURI JEWELRY</h1>
                     </div>
                     <div class="row">
                         <div class="col-6 sub-info">
@@ -78,7 +77,7 @@
                 <div class="row">
                     <div class="col"></div>
                     <div class="col-11 abt-img-inner">
-                    <img src="../images/about-us/2.png" />
+                    <img src="../../../images/about-us/2.png" />
                     </div>
                 </div>
                 </div>
@@ -99,14 +98,14 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="col-4 vision-right">
-                    <img src="../images/about-us/3.png" />
+                    <img src="../../../images/about-us/3.png" />
                     </div>
                 </div>
                 </div>
                 <div class="mision-section">
                 <div class="row">
                     <div class="col-6 mision-left">
-                    <img src="../images/about-us/4.png"/>
+                    <img src="../../../images/about-us/4.png"/>
                     </div>
                     <div class="col-2"></div>
                     <div class="col-3">
@@ -124,10 +123,10 @@
                 </div>
             </div>
         </div>
-        <div class="">
-            <?php include 'footer.php';?>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <div>
+            <?php require_once '../includes/footer.php';?>
+        </div> 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>

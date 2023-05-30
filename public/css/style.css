@@ -10,6 +10,9 @@
     font-family: 'Futura PT', sans-serif;
     background-color: #FAF8F6;
   }
+  a{
+    color: #333 !important;
+  }
   .container-fluid
   {
     padding-left:110px !important;
