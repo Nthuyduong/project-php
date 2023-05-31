@@ -5,13 +5,13 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/guide.css">
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
         <div>
             <?php require_once '../includes/header.php';?>
         </div> 
-        <div class="container-fluid">
+        <div>
             <!--Banner-->
             <div class="banner-img mbt-120">
             <div class="">
@@ -29,7 +29,7 @@
                 </div>
             </div>
             </div>
-            <div class="container mbt-120">
+            <div class="container-fluid mbt-120">
             <!--Jewelery-type-->
             <div class="jewellery-type">
                 <!--lab-jewellery-->
@@ -233,7 +233,7 @@
             </div>
             <!--jewellery-Care-->
             <div class="care mbt-120">
-                <div class="text-right care-content">
+                <div class="text-end care-content">
                     <h5 class="mb-4">Jewellery Care</h5>
                     <p class="mtp type-j">Jewellery: Gold plated over sterling silver or brass</p>
                     <ul>

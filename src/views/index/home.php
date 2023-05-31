@@ -6,7 +6,7 @@
         <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/home.css">
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
 
     </head>
     <body>     
@@ -630,13 +630,13 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="1000">
-                            <img src="../../../images/home/showroom1.webp"/>
+                            <img src="../../../public/images/home/showroom1.webp"/>
                             </div>
                             <div class="carousel-item" data-bs-interval="1000">
-                            <img src="../../../images/home/showroom2.webp"/>
+                            <img src="../../../public/images/home/showroom2.webp"/>
                             </div>
                             <div class="carousel-item" data-bs-interval="1000">
-                            <img src="../../../images/home/showroom3.webp"/>
+                            <img src="../../../public/images/home/showroom3.webp"/>
                             </div>
                         </div>
                         </div>

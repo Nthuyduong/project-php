@@ -24,7 +24,7 @@
                         <div class="card-prd">
                         <div class="img">
                             <a href="product-detail.php">
-                            <img src="../../../images/search/search1.png">
+                            <img src="../../../public/images/search/search1.png">
                             </a>
                         </div>
                         <div class="compare card-prd-bt smt">
@@ -46,7 +46,7 @@
                         <div class="card-prd">
                         <div class="img">
                             <a href="product-detail.php">
-                            <img src="../../../images/search/search2.png">
+                            <img src="../../../public/images/search/search2.png">
                             </a>
                         </div>
                         <div class="compare card-prd-bt smt">
@@ -68,7 +68,7 @@
                         <div class="card-prd">
                         <div class="img">
                             <a href="product-detail.php">
-                            <img src="../../../images/search/search3.png">
+                            <img src="../../../public/images/search/search3.png">
                             </a>
                         </div>
                         <div class="compare card-prd-bt smt">
@@ -90,7 +90,7 @@
                         <div class="card-prd">
                         <div class="img">
                             <a href="product-detail.php">
-                            <img src="../../../images/search/search4.png">
+                            <img src="../../../public/images/search/search4.png">
                             </a>
                         </div>
                         <div class="compare card-prd-bt smt">
@@ -112,7 +112,7 @@
                         <div class="card-prd">
                         <div class="img">
                             <a href="product-detail.php">
-                            <img src="../../../images/search/search5.png">
+                            <img src="../../../public/images/search/search5.png">
                             </a>
                         </div>
                         <div class="compare card-prd-bt smt">

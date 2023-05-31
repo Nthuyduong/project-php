@@ -7,7 +7,7 @@
     </head>
     <body>
         <!--FOOTER-->
-        <footer>
+        <footer class="container-fluid">
             <div class="border-bottom-0 border-left-0 border-right-0 container">
                 <div class="card-footer row">
                 <div class="col-2">

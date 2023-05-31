@@ -15,15 +15,15 @@
         <div class="modal-dialog modal-dialog-centered first-steps">
             <div class="modal-content first-steps-inner">
                 <h5 class="modal-title mb-4 text-center">Hello, Friend!</h5>
-                <form>
+                <form name="frmsignup" id="frmsignup" method="post" action="">
                     <div class="row">
                         <div class="col-6 ps-0">
                             <label>First name</label>
-                            <input class="inpu" type="text" required><br>
+                            <input class="inpu" type="text" name="fname" id="fname" required><br>
                         </div>
                         <div class="col-6 pe-0">
                             <label>Last name</label>
-                            <input class="inpu" type="text" required><br>
+                            <input class="inpu" type="text" name="lname" id="lname" required><br>
                         </div>
                     </div>
                     <div class="my-3">

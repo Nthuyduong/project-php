@@ -5,7 +5,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
         <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/product-detail.css">
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/style.css">
+        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
         <div>
@@ -23,23 +23,23 @@
                     <div class="col-2">
                         <div class="mbt">
                         <a href="#">
-                            <img src="../../../images/product-detail/detail1.webp">
+                            <img src="../../../public/images/product-detail/detail1.webp">
                         </a>
                         </div>
                         <div class="mbt">
                         <a href="#">
-                            <img src="../../../images/product-detail/detail2.webp">
+                            <img src="../../../public/images/product-detail/detail2.webp">
                         </a>
                         </div>
                         <div class="mbt">
                         <a href="#">
-                            <img src="../../../images/product-detail/detail3.webp">
+                            <img src="../../../public/images/product-detail/detail3.webp">
                         </a>
                         </div>
                     </div>
                     <div class="col-6">
                         <a href="#">
-                        <img src="../../../images/product-detail/detail4.webp">
+                        <img src="../../../public/images/product-detail/detail4.webp">
                         </a>
                     </div>
                     <div class="col-4">
@@ -190,7 +190,7 @@
                             <div class="row product-add1 mb-3">
                                 <div class="col-4 ps-0">
                                 <a href="#">
-                                    <img src="assets/img/product-detail/add-product1.png">
+                                    <img src="../../../public/images/product-detail/add-product1.png">
                                 </a>
                                 </div>
                                 <div class="col-8">
@@ -207,7 +207,7 @@
                             <div class="row product-add2 mb-3">
                                 <div class="col-4 ps-0">
                                 <a href="#">
-                                    <img src="assets/img/product-detail/add-product2.png">
+                                    <img src="../../../public/images/product-detail/add-product2.png">
                                 </a>
                                 </div>
                                 <div class="col-8">
@@ -313,7 +313,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="#">
-                                        <img src="../../../images/home/new1.webp">
+                                        <img src="../../../public/images/home/new1.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
@@ -327,7 +327,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="#">
-                                        <img src="../../../images/home/new2.webp">
+                                        <img src="../../../public/images/home/new2.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
@@ -341,7 +341,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="#">
-                                        <img src="../../../images/home/new3.webp">
+                                        <img src="../../../public/images/home/new3.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
@@ -359,7 +359,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="#">
-                                        <img src="../../../images/home/new4.webp">
+                                        <img src="../../../public/images/home/new4.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
@@ -373,7 +373,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="#">
-                                        <img src="../../../images/home/new5.webp">
+                                        <img src="../../../public/images/home/new5.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
@@ -387,7 +387,7 @@
                                     <div class="card-prd">
                                     <div class="img">
                                         <a href="#">
-                                        <img src="../../../images/home/new6.webp">
+                                        <img src="../../../public/images/home/new6.webp">
                                         </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
@@ -412,7 +412,7 @@
                         <div class="col-6 simi-left">
                             <div class="itm">
                             <a href="#">
-                                <img src="../../../images/product-detail/compare1.png">
+                                <img src="../../../public/images/product-detail/compare1.png">
                             </a>
                             <div class="item-inf text-center">
                                 <p class="mdt my-2">Diamond Spark Ring</p>
@@ -436,7 +436,7 @@
                         <div class="col-6 simi-right">
                             <div class="itm">
                             <a href="#">
-                                <img src="../../../images/product-detail/compare2.png">
+                                <img src="../../../public/images/product-detail/compare2.png">
                             </a>
                             <div class="item-inf text-center">
                                 <p class="mdt my-2">Enternity Diamond Ring</p>
@@ -475,7 +475,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like1.webp">
+                                    <img src="../../../public/images/product-detail/also-like1.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -493,7 +493,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like2.webp">
+                                    <img src="../../../public/images/product-detail/also-like2.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -511,7 +511,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like3.webp">
+                                    <img src="../../../public/images/product-detail/also-like3.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -529,7 +529,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like4.webp">
+                                    <img src="../../../public/images/product-detail/also-like4.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -551,7 +551,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like5.webp">
+                                    <img src="../../../public/images/product-detail/also-like5.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -569,7 +569,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like6.webp">
+                                    <img src="../../../public/images/product-detail/also-like6.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -587,7 +587,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like7.webp">
+                                    <img src="../../../public/images/product-detail/also-like7.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -605,7 +605,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like8.webp">
+                                    <img src="../../../public/images/product-detail/also-like8.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -627,7 +627,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like5.webp">
+                                    <img src="../../../public/images/product-detail/also-like5.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -645,7 +645,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like6.webp">
+                                    <img src="../../../public/images/product-detail/also-like6.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -663,7 +663,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like7.webp">
+                                    <img src="../../../public/images/product-detail/also-like7.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -681,7 +681,7 @@
                             <div class="card-prd">
                                 <div class="img">
                                 <a href="#">
-                                    <img src="../../../images/product-detail/also-like8.webp">
+                                    <img src="../../../public/images/product-detail/also-like8.webp">
                                 </a>
                                 </div>
                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
@@ -712,11 +712,11 @@
                 <div class="d-flex review-start">
                     <h3>4,9</h3>
                     <div class="d-flex mx-3 my-auto">
-                    <i class="fa-solid fa-star fa-xl pr-1"></i>
-                    <i class="fa-solid fa-star fa-xl pr-1"></i>
-                    <i class="fa-solid fa-star fa-xl pr-1"></i>
-                    <i class="fa-solid fa-star fa-xl pr-1"></i>
-                    <i class="fa-solid fa-star fa-xl"></i>
+                    <i class="fa fa-star fa-xl pr-1"></i>
+                    <i class="fa fa-star fa-xl pr-1"></i>
+                    <i class="fa fa-star fa-xl pr-1"></i>
+                    <i class="fa fa-star fa-xl pr-1"></i>
+                    <i class="fa fa-star fa-xl"></i>
                     </div>
                     <p class="mdt my-auto">16 Reviews</p>
                 </div>
@@ -733,11 +733,11 @@
                             <h5 class="modal-title mb-4">Write A Review</h5>
                             <p class="mdt">Select your rating</p>
                             <div class="d-flex mb-5">
-                            <i class="fa-regular fa-star fa-lg"></i>
-                            <i class="fa-regular fa-star fa-lg"></i>
-                            <i class="fa-regular fa-star fa-lg"></i>
-                            <i class="fa-regular fa-star fa-lg"></i>
-                            <i class="fa-regular fa-star fa-lg"></i>
+                            <i class="fa fa-star fa-lg"></i>
+                            <i class="fa fa-star fa-lg"></i>
+                            <i class="fa fa-star fa-lg"></i>
+                            <i class="fa fa-star fa-lg"></i>
+                            <i class="fa fa-star fa-lg"></i>
                             </div>
                             <label>Message (*)</label>
                             <textarea class="inpu" rows="4" required></textarea>
@@ -773,7 +773,7 @@
                 <div class="review-box">
                     <div class="d-flex review-inner">
                     <div class="review-ava">
-                        <img src="../../../images/product-detail/user1.png">
+                        <img src="../../../public/images/product-detail/user1.png">
                     </div>
                     <div class="review-content w-100 ms-3">
                         <div class="d-flex">
@@ -782,11 +782,11 @@
                         </div>
                         <div>
                         <div class="d-flex rate-start">
-                            <i class="fa-solid fa-star fa"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-star fa"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                         </div>
                         <div class="d-flex">
@@ -802,7 +802,7 @@
                     <div class="line mb-3"></div>
                     <div class="d-flex review-inner">
                     <div class="review-ava">
-                        <img src="../../../images/product-detail/user1.png">
+                        <img src="../../../public/images/product-detail/user1.png">
                     </div>
                     <div class="review-content w-100 ms-3">
                         <div class="d-flex">
@@ -831,7 +831,7 @@
                     <div class="line mb-3"></div>
                     <div class="d-flex review-inner">
                     <div class="review-ava">
-                        <img src="../../../images/product-detail/user1.png">
+                        <img src="../../../public/images/product-detail/user1.png">
                     </div>
                     <div class="review-content w-100 ms-3">
                         <div class="d-flex">
@@ -840,11 +840,11 @@
                         </div>
                         <div>
                         <div class="d-flex rate-start">
-                            <i class="fa-solid fa-star fa"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                         </div>
                         <div class="d-flex">
@@ -860,7 +860,7 @@
                     <div class="line mb-3"></div>
                     <div class="d-flex review-inner">
                     <div class="review-ava">
-                        <img src="../../../images/product-detail/user1.png">
+                        <img src="../../../public/images/product-detail/user1.png">
                     </div>
                     <div class="review-content w-100 ms-3">
                         <div class="d-flex">
@@ -869,11 +869,11 @@
                         </div>
                         <div>
                         <div class="d-flex rate-start">
-                            <i class="fa-solid fa-star fa"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-star fa"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                         </div>
                         <div class="d-flex">
@@ -889,7 +889,7 @@
                     <div class="line mb-3"></div>
                     <div class="d-flex review-inner">
                     <div class="review-ava">
-                        <img src="../../../images/product-detail/user1.png">
+                        <img src="../../../public/images/product-detail/user1.png">
                     </div>
                     <div class="review-content w-100 ms-3">
                         <div class="d-flex">
@@ -898,11 +898,11 @@
                         </div>
                         <div>
                         <div class="d-flex rate-start">
-                            <i class="fa-solid fa-star fa"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-star fa"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                         </div>
                         <div class="d-flex">
