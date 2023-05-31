@@ -22,16 +22,16 @@
                         </div>
                         <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="2000">
-                            <img src="../../../images/product-detail/quickview1.png">
+                            <img src="../../../public/images/product-detail/quickview1.png">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="../../../images/product-detail/quickview2.png">
+                            <img src="../../../public/images/product-detail/quickview2.png">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="../../../images/product-detail/quickview3.png">
+                            <img src="../../../public/images/product-detail/quickview3.png">
                         </div>
                         <div class="carousel-item">
-                            <img src="../../../images/product-detail/quickview4.png">
+                            <img src="../../../public/images/product-detail/quickview4.png">
                         </div>
                         </div>
                     </div>
@@ -43,9 +43,9 @@
                         <p class="mdt me-auto">Quantity</p>
                         <div class="quantity">
                         <form id='myform' method='POST' class='quantity' action='#'>
-                            <i class="fa-solid fa-minus"></i>
+                            <i class="fa fa-minus"></i>
                             <input type='text' name='quantity' value='1' class='qty' />
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa fa-plus"></i>
                         </form>
                         </div>
                     </div>

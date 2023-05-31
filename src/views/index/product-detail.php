@@ -721,7 +721,7 @@
                     <p class="mdt my-auto">16 Reviews</p>
                 </div>
                 <div class="d-flex">
-                    <div class="mr-auto">
+                    <div class="me-auto">
                     <h5>Reviews</h5>
                     </div>
                     <div class="">
@@ -757,7 +757,7 @@
                 </div>
                 <div class="line my-3"></div>
                 <div class="d-flex select-review">
-                    <div class="mr-auto">
+                    <div class="me-auto">
                     <h6>16 Reviews</h6>
                     </div>
                     <div class="">
