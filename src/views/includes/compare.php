@@ -15,7 +15,7 @@
                     <div class="col-6 simi-left">
                         <div class="itm">
                         <a href="#">
-                            <img src="../../../images/product-detail/compare1.png">
+                            <img src="../../../public/images/product-detail/compare1.png">
                         </a>
                         <div class="item-inf text-center">
                             <p class="mdt my-2">Diamond Spark Ring</p>
@@ -39,7 +39,7 @@
                     <div class="col-6 simi-right">
                         <div class="itm">
                         <a href="#">
-                            <img src="../../../imagesproduct-detail/compare2.png">
+                            <img src="../../../public/imagesproduct-detail/compare2.png">
                         </a>
                         <div class="item-inf text-center">
                             <p class="mdt my-2">Enternity Diamond Ring</p>

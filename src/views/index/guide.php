@@ -1,10 +1,11 @@
+<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Guide</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/guide.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/guide.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
@@ -155,58 +156,59 @@
                 <div class="line my-3"></div>
                 <!--Jewellery Color-->
                 <div class="color-collapse">
-                    <a class="title-4cs" data-bs-toggle="collapse" href="#caratcollapse3" role="button" aria-expanded="false" aria-controls="caratcollapse3">
-                    <h5 class="text-center">Jewellery Color</h5>
-                    </a>
-                    <div class="collapse multi-collapse" id="caratcollapse3">
-                    <div class="card card-body my-5 px-0 py-0">
-                        <div class="row">
-                        <div class="col-6 color-left">
-                            <h6 class="text-center mb-4">DIAMOND COLOR GRADING</h6>
-                            <p class="mb-3 text-center">Gemological institutes grade white diamonds based on the absence of color. Though diamonds are primarily
-                            carbon, they often include trace elements that can affect their color. The most common trace element is
-                            nitrogen, which gives off a subtle shade of yellow. The richer the yellow hue, the more common the diamond crystal, which decreases their value.</p>
-                            <p class="text-center">To grade white diamond color, gemological institutes use letters of the alphabet, starting from D
-                            (colorless) all the way to Z (light yellow). Truly colorless diamonds are quite rare, therefore are
-                            the most expensive. However, you should note that subtle hints of color are difficult to spot outside
-                            of a laboratory environment. The most common color ranges are D through F and G through J.</p>
+                    <button onclick="toggleElement('myDIV1')">Jewellery Color</button>
+                    <!-- <a class="title-4cs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="caratcollapse3" data-bs-target="#caratcollapse3"> -->
+                    <div id="myDIV1" class="toggle-element">
+                        <div>
+                            <div class="card card-body my-5 px-0 py-0">
+                                <div class="row">
+                                    <div class="col-6 color-left">
+                                        <h6 class="text-center mb-4">DIAMOND COLOR GRADING</h6>
+                                        <p class="mb-3 text-center">Gemological institutes grade white diamonds based on the absence of color. Though diamonds are primarily
+                                        carbon, they often include trace elements that can affect their color. The most common trace element is
+                                        nitrogen, which gives off a subtle shade of yellow. The richer the yellow hue, the more common the diamond crystal, which decreases their value.</p>
+                                        <p class="text-center">To grade white diamond color, gemological institutes use letters of the alphabet, starting from D
+                                        (colorless) all the way to Z (light yellow). Truly colorless diamonds are quite rare, therefore are
+                                        the most expensive. However, you should note that subtle hints of color are difficult to spot outside
+                                        of a laboratory environment. The most common color ranges are D through F and G through J.</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="../../../public/images/guide/color.webp"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <img src="../../../public/images/guide/color.webp"/>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <div class="line my-3"></div>
                 <!--Jewellery Clarity-->
                 <div class="clarity-collapse">
-                    <a class="title-4cs" data-bs-toggle="collapse" href="#caratcollapse4" role="button" aria-expanded="false" aria-controls="caratcollapse4">
-                    <h5 class="text-center">Jewellery Clarity</h5>
-                    </a>
-                    <div class="collapse multi-collapse" id="caratcollapse4">
-                    <div class="card card-body my-5 px-0 py-0">
-                        <div class="row">
-                        <div class="col-6 color-left">
-                            <h6 class="text-center mb-4">DIAMOND COLOR GRADING</h6>
-                            <p class="mb-3 text-center">From formation of the crystal to cutting and polishing, diamonds undergo a long journey, leaving an
-                            individual mark on each stone. The diamond’s internal markings are called inclusions, while surface
-                            irregularities are called blemishes. Together, they’re called clarity characteristics. Gemologists grade diamond clarity based on the absence of inclusions and blemishes. After thorough examination, they prescribe a rating from flawless (no inclusions or blemishes) to included (some clarity characteristics will be visible even with the naked eye).  </p>
-                            <p class="text-center">The fewer inclusions and blemishes the diamond has, the more valuable it is considered to be. Nonetheless,
-                            clarity characteristics are like a natural diamond's 'birth marks' and are extraordinary gemological
-                            manifestations of its formation.</p>
+                    <button onclick="toggleElement('myDIV2')">Jewellery Clarity</button>
+                    <div id="myDIV2" class="toggle-element">
+                        <div>
+                            <div class="card card-body my-5 px-0 py-0">
+                                <div class="row">
+                                    <div class="col-6 color-left">
+                                        <h6 class="text-center mb-4">DIAMOND COLOR GRADING</h6>
+                                        <p class="mb-3 text-center">From formation of the crystal to cutting and polishing, diamonds undergo a long journey, leaving an
+                                        individual mark on each stone. The diamond’s internal markings are called inclusions, while surface
+                                        irregularities are called blemishes. Together, they’re called clarity characteristics. Gemologists grade diamond clarity based on the absence of inclusions and blemishes. After thorough examination, they prescribe a rating from flawless (no inclusions or blemishes) to included (some clarity characteristics will be visible even with the naked eye).  </p>
+                                        <p class="text-center">The fewer inclusions and blemishes the diamond has, the more valuable it is considered to be. Nonetheless,
+                                        clarity characteristics are like a natural diamond's 'birth marks' and are extraordinary gemological
+                                        manifestations of its formation.</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="../../../public/images/guide/clarity.webp"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <img src="../../../public/images/guide/clarity.webp"/>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <div class="line my-3"></div>
                 <!--Jewellery Shape-->
                 <div class="clarity-collapse">
-                    <a class="title-4cs" data-bs-toggle="collapse" href="#caratcollapse5" role="button" aria-expanded="false" aria-controls="caratcollapse5">
+                    <a class="title-4cs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="caratcollapse5" data-bs-target="#caratcollapse5">
                     <h5 class="text-center">Jewellery Shape</h5>
                     </a>
                     <div class="collapse multi-collapse" id="caratcollapse5">
@@ -266,6 +268,23 @@
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
+        <!-- Toggle function -->
+        <script>
+            function toggleElement(elementId) {
+                var x = document.getElementById(elementId);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+            window.addEventListener("DOMContentLoaded", function() {
+                var elementId = "myElement"; // Replace "myElement" with the desired ID
+                var x = document.getElementById(elementId);
+                x.style.display = "none";
+            });
+        </script>
+
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>

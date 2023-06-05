@@ -1,11 +1,13 @@
+<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/fonts.css">
-        <link rel="stylesheet" href="http://localhost:8888/project-php/public/css/home.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
+        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/home.css">
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
 
     </head>
