@@ -65,4 +65,16 @@
     padding-top:30px;
     color:#333;
   }
-  
+  /* Toggle style */
+  .togglebtn
+  {
+    border: none;
+    background-color:transparent;
+    font-size: 20px;
+    font-weight:500;
+  }
+  .togglebox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

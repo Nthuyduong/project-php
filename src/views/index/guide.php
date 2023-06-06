@@ -95,70 +95,73 @@
                 <div class="line my-3"></div>
                 <!--Jewellery Carat-->
                 <div class="carat-collapse">
-                    <a class="title-4cs" data-bs-toggle="collapse" href="#caratcollapse2" role="button" aria-expanded="false" aria-controls="caratcollapse2">
-                    <h5 class="text-center">Jewellery Carat</h5>
-                    </a>
-                    <div class="collapse multi-collapse" id="caratcollapse2">
-                    <div class="card card-body my-5 px-0 py-0">
-                        <div class="row">
-                        <div class="col-6 diamond-granding">
-                            <h6 class="text-center mb-4">DIAMOND CARAT GRADING</h6>
-                            <p class="mb-3 text-center">Diamond carat (ct) refers to a diamond’s weight. The most common and popular diamonds in the jewelry
-                            industry range up to 1 carat. Prices increase exponentially as the diamond's weight increases, as larger
-                            diamond crystals over 1 carat are more difficult to find.</p>
-                            <p class="text-center">Diamond cutters today use advanced technology to achieve the best proportions, ensuring that each diamond
-                            is cut following similar ratios. This allows them to estimate the diamond's diameter based on its carat weight.
-                            Though this is still an approximation, it can help you identify the best carat weight for your desired size.</p>
-                        </div>
-                        <div class="col-6 carat-tb">
-                            <div>
-                            <h6 class="text-center mb-3">DIAMOND CARAT SIZE CHART</h6>
-                            <p class="text-center smt">Below is a list of diamond carat weights and their approximate diameters to help determine the carat
-                                weight that might be the best size for you.</p>
-                            </div>
-                            <div class="line mb-3"></div>
-                            <div class="carat-table-inner row">
-                            <div class="col text-center">
-                                <p class="decor-text">0.25CT</p>
-                                <p class="smt">4mm</p>
-                            </div>
-                            <div class="col text-center">
-                                <p class="decor-text">0.25CT</p>
-                                <p class="smt">4mm</p>
-                            </div>
-                            <div class="col text-center">
-                                <p class="decor-text">0.25CT</p>
-                                <p class="smt">4mm</p>
-                            </div>
-                            <div class="col text-center">
-                                <p class="decor-text">0.25CT</p>
-                                <p class="smt">4mm</p>
-                            </div>
-                            <div class="col text-center">
-                                <p class="decor-text">0.25CT</p>
-                                <p class="smt">4mm</p>
-                            </div>
-                            </div>
-                            <div class="line my-3"></div>
-                            <p class="text-center mdt mt-3">Need a millimeter ruler? We’ll send you one.</p>
-                            <div class="row">
-                            <div class="col-3"></div>
-                            <div class="col-6">
-                                <button class="btn btn-pri w-100">Contact Us</button>
-                            </div>
-                            <div class="col-3"></div>
-                            </div>
-                        </div>
-                        </div>
+                    <div class="togglebox">
+                        <button class="togglebtn" onclick="toggleElement('myDIV4')">Jewellery Carat</button>
                     </div>
+                    <div id="myDIV4" class="toggle-element mt-4">
+                        <div class="">
+                            <div class="card card-body my-5 px-0 py-0">
+                                <div class="row">
+                                    <div class="col-6 diamond-granding">
+                                        <h6 class="text-center mb-4">DIAMOND CARAT GRADING</h6>
+                                        <p class="mb-3 text-center">Diamond carat (ct) refers to a diamond’s weight. The most common and popular diamonds in the jewelry
+                                        industry range up to 1 carat. Prices increase exponentially as the diamond's weight increases, as larger
+                                        diamond crystals over 1 carat are more difficult to find.</p>
+                                        <p class="text-center">Diamond cutters today use advanced technology to achieve the best proportions, ensuring that each diamond
+                                        is cut following similar ratios. This allows them to estimate the diamond's diameter based on its carat weight.
+                                        Though this is still an approximation, it can help you identify the best carat weight for your desired size.</p>
+                                    </div>
+                                    <div class="col-6 carat-tb">
+                                        <div>
+                                        <h6 class="text-center mb-3">DIAMOND CARAT SIZE CHART</h6>
+                                        <p class="text-center smt">Below is a list of diamond carat weights and their approximate diameters to help determine the carat
+                                            weight that might be the best size for you.</p>
+                                        </div>
+                                        <div class="line mb-3"></div>
+                                        <div class="carat-table-inner row">
+                                        <div class="col text-center">
+                                            <p class="decor-text">0.25CT</p>
+                                            <p class="smt">4mm</p>
+                                        </div>
+                                        <div class="col text-center">
+                                            <p class="decor-text">0.25CT</p>
+                                            <p class="smt">4mm</p>
+                                        </div>
+                                        <div class="col text-center">
+                                            <p class="decor-text">0.25CT</p>
+                                            <p class="smt">4mm</p>
+                                        </div>
+                                        <div class="col text-center">
+                                            <p class="decor-text">0.25CT</p>
+                                            <p class="smt">4mm</p>
+                                        </div>
+                                        <div class="col text-center">
+                                            <p class="decor-text">0.25CT</p>
+                                            <p class="smt">4mm</p>
+                                        </div>
+                                        </div>
+                                        <div class="line my-3"></div>
+                                        <p class="text-center mdt mt-3">Need a millimeter ruler? We’ll send you one.</p>
+                                        <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6">
+                                            <button class="btn btn-pri w-100">Contact Us</button>
+                                        </div>
+                                        <div class="col-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="line my-3"></div>
                 <!--Jewellery Color-->
                 <div class="color-collapse">
-                    <button onclick="toggleElement('myDIV1')">Jewellery Color</button>
-                    <!-- <a class="title-4cs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="caratcollapse3" data-bs-target="#caratcollapse3"> -->
-                    <div id="myDIV1" class="toggle-element">
+                    <div class="togglebox">
+                        <button class="togglebtn" onclick="toggleElement('myDIV1')">Jewellery Color</button>
+                    </div>
+                    <div id="myDIV1" class="toggle-element mt-4">
                         <div>
                             <div class="card card-body my-5 px-0 py-0">
                                 <div class="row">
@@ -183,8 +186,10 @@
                 <div class="line my-3"></div>
                 <!--Jewellery Clarity-->
                 <div class="clarity-collapse">
-                    <button onclick="toggleElement('myDIV2')">Jewellery Clarity</button>
-                    <div id="myDIV2" class="toggle-element">
+                    <div class="togglebox">
+                        <button class="togglebtn" onclick="toggleElement('myDIV2')">Jewellery Clarity</button>
+                    </div>
+                    <div id="myDIV2" class="toggle-element mt-4">
                         <div>
                             <div class="card card-body my-5 px-0 py-0">
                                 <div class="row">
@@ -208,26 +213,27 @@
                 <div class="line my-3"></div>
                 <!--Jewellery Shape-->
                 <div class="clarity-collapse">
-                    <a class="title-4cs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="caratcollapse5" data-bs-target="#caratcollapse5">
-                    <h5 class="text-center">Jewellery Shape</h5>
-                    </a>
-                    <div class="collapse multi-collapse" id="caratcollapse5">
-                    <div class="card card-body">
-                        <div class="row">
-                        <div class="col-6 color-left">
-                            <h6 class="text-end mb-4">DIAMOND COLOR GRADING</h6>
-                            <p class="mb-3 text-center">Gemological laboratories study a modern diamond’s cut based on how its facets interact with light,
-                            prescribing an excellent, very good, good, fair, or poor grade. Excellent and very good sparkle the most.
-                            Since this C determines the overall appearance of the modern day brilliant cut diamond, we consider it
-                            to be one of the most important. We recommend only selecting diamonds with an 'excellent' grading.</p>
-                            <p class="text-center">The modern round brilliant cut diamond has 57 facets, or sometimes 58 if the cutter included a culet,
-                            which is an additional facet at the bottom of the pavilion. Today, diamonds are cut with a precision up
-                            to 1/100th of a millimeter allowing the perfect balance of proportions to reveal a diamond's beauty.</p>
-                        </div>
-                        <div class="col-6">
-                            <img src="../../../public/images/guide/shape.webp"/>
-                        </div>
+                    <div class="togglebox">
+                        <button class="togglebtn" onclick="toggleElement('myDIV3')">Jewellery Shape</button>
                     </div>
+                    <div id="myDIV3" class="toggle-element mt-4">
+                        <div class="card card-body">
+                            <div class="row">
+                                <div class="col-6 color-left">
+                                    <h6 class="text-end mb-4">DIAMOND COLOR GRADING</h6>
+                                    <p class="mb-3 text-center">Gemological laboratories study a modern diamond’s cut based on how its facets interact with light,
+                                    prescribing an excellent, very good, good, fair, or poor grade. Excellent and very good sparkle the most.
+                                    Since this C determines the overall appearance of the modern day brilliant cut diamond, we consider it
+                                    to be one of the most important. We recommend only selecting diamonds with an 'excellent' grading.</p>
+                                    <p class="text-center">The modern round brilliant cut diamond has 57 facets, or sometimes 58 if the cutter included a culet,
+                                    which is an additional facet at the bottom of the pavilion. Today, diamonds are cut with a precision up
+                                    to 1/100th of a millimeter allowing the perfect balance of proportions to reveal a diamond's beauty.</p>
+                                </div>
+                                <div class="col-6">
+                                    <img src="../../../public/images/guide/shape.webp"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="line mt-3"></div>
