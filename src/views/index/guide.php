@@ -284,11 +284,11 @@
                     x.style.display = "none";
                 }
             }
-            window.addEventListener("DOMContentLoaded", function() {
-                var elementId = "myElement"; // Replace "myElement" with the desired ID
-                var x = document.getElementById(elementId);
-                x.style.display = "none";
-            });
+            // window.addEventListener("DOMContentLoaded", function() {
+            //     var elementId = "myElement"; // Replace "myElement" with the desired ID
+            //     var x = document.getElementById(elementId);
+            //     x.style.display = "none";
+            // });
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

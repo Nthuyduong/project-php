@@ -78,3 +78,7 @@
     justify-content: center;
     align-items: center;
   }
+  #myDIV3, #myDIV4, #myDIV2, #myDIV1
+  {
+    display: none;
+  }
