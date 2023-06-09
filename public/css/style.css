@@ -125,6 +125,8 @@
     font-size: 14px;
     border:2px #000 solid;
     border-radius: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .btn-pri:hover{
     background:none;
@@ -146,10 +148,14 @@
   .btnlg{
     padding-top:10px;
     padding-bottom:10px;
+    padding-left:40px;
+    padding-right:40px;
   }
   .btnsm{
     padding-top:5px;
     padding-bottom:5px;
+    padding-left:30px;
+    padding-right:30px;
   }
   .btn-more {
     width: 20%;

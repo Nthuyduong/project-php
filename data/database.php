@@ -19,5 +19,13 @@
             echo "<p>" .$ex->getMessage(). "</p>";
             die();
         }
+        return $conn;
+    }
+
+    public function set_query($sql = '', array $param == null)
+    {
+        $this->sql;
+        $this->param = $param;
+
     }
  }
