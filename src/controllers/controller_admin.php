@@ -1,15 +1,9 @@
 <?php 
-
-//Require one cho nhung trang co lien quan
-// require_one('models/model_admin.php');
-
+//require_one('models/model_admin.php');
 
 namespace App\Controllers;
 
-use App\Models\Product;
-use Symfony\Component\Routing\RouteCollection;
-
-class ProductController
+class Controller_admin
 {
     // Show the product attributes based on the id.
 	public function Getallfromlist()

@@ -25,7 +25,7 @@
                 <div class="col-3">
                 <div class="sub-cate-box">
                     <div class="sub-cate-img">
-                    <a href="/sub-category/1">
+                    <a href="sub-category.php">
                         <img src="../../../public/images/cate-deco/1.1.webp" />
                     </a>
                     </div>

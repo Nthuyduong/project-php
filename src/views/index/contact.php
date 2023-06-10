@@ -11,7 +11,7 @@
     <body>
         <div>
             <?php require_once '../includes/header.php';?>
-        </div> 
+        </div>
         <div class="container-fluid contact-form">
             <div class="contact-inner">
                 <div class="row">
