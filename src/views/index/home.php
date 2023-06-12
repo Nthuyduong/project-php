@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
 
     </head>
-    <body>     
+    <body>
         <div>
             <?php require_once '../includes/header.php';?>
         </div> 
