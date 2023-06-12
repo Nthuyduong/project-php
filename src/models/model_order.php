@@ -8,13 +8,13 @@ class model_order
     //Tinh tong tien san pham (GRAND TOTAL)
 
     //$code la ma hoa don
-    public function GrandTotal($code)
+    public function GrandTotal()
     {
         
     }
 
     //Tim hoa don
-    public function SearchOrder($code)
+    public function FindOrder($code)
     {
         $sql = "SELECT * FROM Order WHERE id=?";
         $data[] = $code;
@@ -24,5 +24,8 @@ class model_order
             $this->data = $this->conn->pdo_stm->fetch();
         return $ketqua;
     }
+
+    //Chi tiet hoa don
+    
 }
 ?>

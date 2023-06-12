@@ -1,0 +1,115 @@
+
+h1{
+    font-family: 'Futura PT', sans-serif;
+    font-size:90px;
+    font-weight: 600;
+  }
+  h2, h3, h4, h5 {
+    font-family: 'Merchant', sans-serif;
+    font-weight: 400;
+  }
+  h6{
+    font-family: 'Futura PT', sans-serif;
+    font-size:22px;
+    font-weight: 400;
+  }
+  .mdt{
+    font-family: 'Futura PT', sans-serif;
+    font-size:16px;
+    font-weight: 600;
+  }
+  .smt{
+    font-family: 'Futura PT', sans-serif;
+    font-size: 14px;
+  }
+  .decor-text{
+    font-family: 'Futura PT', sans-serif;
+    font-size:14px;
+    font-weight: 400;
+  }
+
+  .overview-card{
+    text-align: center;
+  }
+  .card-1{
+    background-color: #6A7CE9;
+  }
+  .cart-2{
+    background-color: #F0905A;
+  }
+  .cart-3{
+    background-color: #55BF9C;
+  }
+ul{
+    list-style-type: none;
+}
+.sideNav-content{
+    padding-left: 20px;
+}
+.catalog-dropdown{
+    background-color: #2E303A;
+    margin-top:8px;
+    margin-bottom: 8px;
+}
+.catalog-dropdown li{
+    color: #999999;
+}
+.catalog-dropdown li:hover{
+    color: #f1f1f1;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 18px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 0px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .nav-close .text-light{
+    padding-top: 8px;
+  }
+  .nav-close{
+    padding-bottom: 16px;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  .admin-nav{
+    padding-top:16px;
+    padding-bottom: 16px;
+    border-bottom: 1px #6A7CE9 solid;
+  }
