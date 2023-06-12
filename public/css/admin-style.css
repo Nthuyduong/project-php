@@ -1,7 +1,10 @@
-
-h1{
+body{
+  background-color: #121317;
+  color: #fff;
+}
+.db-title{
     font-family: 'Futura PT', sans-serif;
-    font-size:90px;
+    font-size:40px;
     font-weight: 600;
   }
   h2, h3, h4, h5 {
@@ -34,10 +37,10 @@ h1{
   .card-1{
     background-color: #6A7CE9;
   }
-  .cart-2{
+  .card-2{
     background-color: #F0905A;
   }
-  .cart-3{
+  .card-3{
     background-color: #55BF9C;
   }
 ul{
