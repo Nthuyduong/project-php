@@ -81,20 +81,22 @@
                     <div class="row">
                         <div class="col-4 overview-card">
                             <div class="card-1">
-                                <h4>Today order</h4>
-                                <h2>$0.000</h2>
-                                <div class="d-flex">
-                                    <div>
-                                        <p>Paypal</p>
-                                        <p>$0.000</p>
-                                    </div>
-                                    <div>
-                                        <p>Visa</p>
-                                        <p>$0.000</p>
-                                    </div>
-                                    <div>
-                                        <p>Master Card</p>
-                                        <p>$0.000</p>
+                                <div class="overview-inner">
+                                    <h4>Today order</h4>
+                                    <h2>$0.000</h2>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>Paypal</p>
+                                            <p>$0.000</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <p>Visa</p>
+                                            <p>$0.000</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <p>Master Card</p>
+                                            <p>$0.000</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -104,16 +106,16 @@
                                 <div class="overview-inner">
                                     <h4>Today order</h4>
                                     <h2>$0.000</h2>
-                                    <div class="d-flex">
-                                        <div>
+                                    <div class="row">
+                                        <div class="col-4">
                                             <p>Paypal</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div>
+                                        <div class="col-4">
                                             <p>Visa</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div>
+                                        <div class="col-4">
                                             <p>Master Card</p>
                                             <p>$0.000</p>
                                         </div>
@@ -126,16 +128,16 @@
                                 <div class="overview-inner">
                                     <h4>Today order</h4>
                                     <h2>$0.000</h2>
-                                    <div class="d-flex">
-                                        <div>
+                                    <div class="row">
+                                        <div class="col-4">
                                             <p>Paypal</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div>
+                                        <div class="col-4">
                                             <p>Visa</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div>
+                                        <div class="col-4">
                                             <p>Master Card</p>
                                             <p>$0.000</p>
                                         </div>
@@ -147,10 +149,10 @@
                 </div>
             </div>
             <div class="my-3">
-                <h6>Order view</h3>
+                <h6>Order View</h3>
                 <div class="row">
                     <div class="col-3">
-                        <div class="d-flex">
+                        <div class="d-flex order-inner">
                             <div>icon</div>
                             <div>
                                 <p>Order total</p>
@@ -159,7 +161,7 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-flex">
+                        <div class="d-flex order-inner">
                             <div>icon</div>
                             <div>
                                 <p>Order total</p>
@@ -168,7 +170,7 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-flex">
+                        <div class="d-flex order-inner">
                             <div>icon</div>
                             <div>
                                 <p>Order total</p>
@@ -177,13 +179,28 @@
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-flex">
+                        <div class="d-flex order-inner">
                             <div>icon</div>
                             <div>
                                 <p>Order total</p>
                                 <h5>25</h5>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h6>Recently Orders</h6>
+                <div class="order-table">
+                    <div class="d-flex">
+                        <div>ORDER ID</div>
+                        <div>ORDER TiME</div>
+                        <div>CUSTOMER'S NAME</div>
+                        <div>METHOD</div>
+                        <div>AMOUNT</div>
+                        <div>STATUS</div>
+                        <div>ACTION</div>
+                        <div></div>
                     </div>
                 </div>
             </div>
