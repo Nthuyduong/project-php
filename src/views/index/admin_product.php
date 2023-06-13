@@ -121,59 +121,128 @@
                     <!-- Product table -->
                     <div class="tbl">
                         <div class="tb-row title-row">
-                            <div class="cell mdt">
-                                ORDER ID
+                            <div class="cell-ssm">
+                                check
                             </div>
-                            <div class="cell mdt">
-                                ORDER TiME
+                            <div class="cell-sm">
+                                IMAGE
                             </div>
-                            <div class="cel mdt">
-                                CUSTOMER'S NAME
+                            <div class="cell">
+                                PRODUCT'S NAME
                             </div>
-                            <div class="cell mdt">
-                                METHOD
+                            <div class="cell-sm">
+                                CATEGORY
                             </div>
-                            <div class="cell mdt">
-                                AMOUNT
+                            <div class="cell">
+                                SUB-CATEGORY
                             </div>
-                            <div class="cell mdt">
+                            <div class="cell">
+                                PRICE
+                            </div>
+                            <div class="cell-sm">
+                                STOCK
+                            </div>
+                            <div class="cell">
                                 STATUS
                             </div>
-                            <div class="cell mdt">
-                                ACTION
+                            <div class="cell-sm">
+                                PUBLISHED
                             </div>
-                            <div class="cell"></div>
+                            <div class="cell-sm">
+                                
+                            </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell">12/04/2023</div>
-                            <div class="cell">Nguyen Thuy Duong</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$30.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell-ssm">check</div>
+                            <div class="cell-sm">img</div>
+                            <div class="cell">Amee Diamond Ring</div>
+                            <div class="cell-sm">Ring</div>
+                            <div class="cell">Eternity</div>
+                            <div class="cell">$20.000</div>
+                            <div class="cell-sm">5</div>
+                            <div class="cell">
+                                Sold out
+                            </div>
+                            <div class="cell-sm">
+                                toggle
+                            </div>
+                            <div class="cell-sm">
+                                icon
+                            </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell">10124</div>
-                            <div class="cell">14/05/2023</div>
-                            <div class="cell">Vu Thi Hue</div>
-                            <div class="cell">Master Card</div>
-                            <div class="cell">$40.000</div>
-                            <div class="cell">Processing</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell-ssm">check</div>
+                            <div class="cell-sm">img</div>
+                            <div class="cell">Amee Diamond Ring</div>
+                            <div class="cell-sm">Ring</div>
+                            <div class="cell">Eternity</div>
+                            <div class="cell">$20.000</div>
+                            <div class="cell-sm">5</div>
+                            <div class="cell">
+                                Sold out
+                            </div>
+                            <div class="cell-sm">
+                                toggle
+                            </div>
+                            <div class="cell-sm">
+                                icon
+                            </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell">10/04/2023</div>
-                            <div class="cell">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell-ssm">check</div>
+                            <div class="cell-sm">img</div>
+                            <div class="cell">Amee Diamond Ring</div>
+                            <div class="cell-sm">Ring</div>
+                            <div class="cell">Eternity</div>
+                            <div class="cell">$20.000</div>
+                            <div class="cell-sm">5</div>
+                            <div class="cell">
+                                Sold out
+                            </div>
+                            <div class="cell-sm">
+                                toggle
+                            </div>
+                            <div class="cell-sm">
+                                icon
+                            </div>
                         </div>
+                        <div class="tb-row">
+                            <div class="cell-ssm">check</div>
+                            <div class="cell-sm">img</div>
+                            <div class="cell">Amee Diamond Ring</div>
+                            <div class="cell-sm">Ring</div>
+                            <div class="cell">Eternity</div>
+                            <div class="cell">$20.000</div>
+                            <div class="cell-sm">5</div>
+                            <div class="cell">
+                                Sold out
+                            </div>
+                            <div class="cell-sm">
+                                toggle
+                            </div>
+                            <div class="cell-sm">
+                                icon
+                            </div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell-ssm">check</div>
+                            <div class="cell-sm">img</div>
+                            <div class="cell">Amee Diamond Ring</div>
+                            <div class="cell-sm">Ring</div>
+                            <div class="cell">Eternity</div>
+                            <div class="cell">$20.000</div>
+                            <div class="cell-sm">5</div>
+                            <div class="cell">
+                                Sold out
+                            </div>
+                            <div class="cell-sm">
+                                toggle
+                            </div>
+                            <div class="cell-sm">
+                                icon
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

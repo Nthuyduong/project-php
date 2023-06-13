@@ -86,15 +86,15 @@
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p>Paypal</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
                                             <p>Visa</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
                                             <p>Master Card</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                     </div>
                                 </div>
@@ -108,15 +108,15 @@
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p>Paypal</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
                                             <p>Visa</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
                                             <p>Master Card</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                     </div>
                                 </div>
@@ -130,15 +130,15 @@
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p>Paypal</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
                                             <p>Visa</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
                                             <p>Master Card</p>
-                                            <p>$0.000</p>
+                                            <p class="mb-0">$0.000</p>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h5>25</h5>
+                                    <h4>25</h5>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h5>25</h5>
+                                    <h4>25</h5>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h5>25</h5>
+                                    <h4>25</h5>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h5>25</h5>
+                                    <h4>25</h5>
                                 </div>
                             </div>
                         </div>

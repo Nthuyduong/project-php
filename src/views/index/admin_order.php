@@ -102,33 +102,33 @@
                     </div>
                     <div class="tbl">
                         <div class="tb-row title-row">
-                            <div class="cell mdt">
+                            <div class="cell">
                                 ORDER ID
                             </div>
-                            <div class="cell mdt">
+                            <div class="cell-md">
                                 ORDER TiME
                             </div>
-                            <div class="cel mdt">
+                            <div class="cell-md">
                                 CUSTOMER'S NAME
                             </div>
-                            <div class="cell mdt">
+                            <div class="cell">
                                 METHOD
                             </div>
-                            <div class="cell mdt">
+                            <div class="cell">
                                 AMOUNT
                             </div>
-                            <div class="cell mdt">
+                            <div class="cell">
                                 STATUS
                             </div>
-                            <div class="cell mdt">
+                            <div class="cell">
                                 ACTION
                             </div>
                             <div class="cell"></div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
-                            <div class="cell">12/04/2023</div>
-                            <div class="cell">Nguyen Thuy Duong</div>
+                            <div class="cell-md">12/04/2023</div>
+                            <div class="cell-md">Nguyen Thuy Duong</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$30.000</div>
                             <div class="cell">Pending</div>
@@ -137,8 +137,8 @@
                         </div>
                         <div class="tb-row">
                             <div class="cell">10124</div>
-                            <div class="cell">14/05/2023</div>
-                            <div class="cell">Vu Thi Hue</div>
+                            <div class="cell-md">14/05/2023</div>
+                            <div class="cell-md">Vu Thi Hue</div>
                             <div class="cell">Master Card</div>
                             <div class="cell">$40.000</div>
                             <div class="cell">Processing</div>
@@ -147,8 +147,98 @@
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
-                            <div class="cell">10/04/2023</div>
-                            <div class="cell">Nguyen Thanh Thuy</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Visa</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Visa</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Paypal</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Master Card</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Paypal</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Visa</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Visa</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Visa</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
+                            <div class="cell">Visa</div>
+                            <div class="cell">$35.000</div>
+                            <div class="cell">Pending</div>
+                            <div class="cell">ACTION</div>
+                            <div class="cell"></div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell">10123</div>
+                            <div class="cell-md">10/04/2023</div>
+                            <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
                             <div class="cell">Pending</div>

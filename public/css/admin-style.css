@@ -125,6 +125,7 @@ ul{
   .tbl{
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
   }
   .tb-row{
     display: flex;
@@ -137,13 +138,12 @@ ul{
     background-color: #2E303A;
   }
   .cell{
+    padding-left: 4px;
+    padding-right: 4px;
     margin:auto;
     flex-grow: 1;
     flex-basis:0;
     flex-shrink: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
   /* Button style */
   .btn-lg-admin{
@@ -184,3 +184,13 @@ ul{
     flex-shrink: 0;
     flex-basis: 0;
   }
+  .cell-sm{
+    flex-grow: 0.5;
+    flex-shrink: 0;
+    flex-basis: 0;
+  }
+.cell-ssm{
+  flex-grow: 0.2;
+  flex-shrink: 0;
+  flex-basis: 0;
+}
