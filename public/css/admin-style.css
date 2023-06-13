@@ -34,6 +34,10 @@ body{
   .overview-card{
     text-align: center;
   }
+
+  .overview-inner{
+    padding: 20px 10px;
+  }
   .card-1{
     background-color: #6A7CE9;
   }
@@ -115,4 +119,19 @@ ul{
     padding-top:16px;
     padding-bottom: 16px;
     border-bottom: 1px #6A7CE9 solid;
+  }
+  .tbl{
+    display: flex;
+    flex-direction: column;
+  }
+  .tb-row{
+    display: flex;
+  }
+  .title-row{
+    background-color: #2E303A;
+  }
+  .cell{
+    flex-grow: 1;
+    padding: 5px;
+    border-bottom: 1px #666 solid;
   }

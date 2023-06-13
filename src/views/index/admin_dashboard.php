@@ -6,7 +6,6 @@
         <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/nav-drawer.css">
     </head>
     <body>
         <div id="mySidenav" class="sidenav">
@@ -154,7 +153,7 @@
                     <div class="col-3">
                         <div class="d-flex order-inner">
                             <div>icon</div>
-                            <div>
+                            <div class="w-100">
                                 <p>Order total</p>
                                 <h5>25</h5>
                             </div>
@@ -163,7 +162,7 @@
                     <div class="col-3">
                         <div class="d-flex order-inner">
                             <div>icon</div>
-                            <div>
+                            <div class="w-100">
                                 <p>Order total</p>
                                 <h5>25</h5>
                             </div>
@@ -172,7 +171,7 @@
                     <div class="col-3">
                         <div class="d-flex order-inner">
                             <div>icon</div>
-                            <div>
+                            <div class="w-100">
                                 <p>Order total</p>
                                 <h5>25</h5>
                             </div>
@@ -181,7 +180,7 @@
                     <div class="col-3">
                         <div class="d-flex order-inner">
                             <div>icon</div>
-                            <div>
+                            <div class="w-100">
                                 <p>Order total</p>
                                 <h5>25</h5>
                             </div>
@@ -191,16 +190,60 @@
             </div>
             <div>
                 <h6>Recently Orders</h6>
-                <div class="order-table">
-                    <div class="d-flex">
-                        <div>ORDER ID</div>
-                        <div>ORDER TiME</div>
-                        <div>CUSTOMER'S NAME</div>
-                        <div>METHOD</div>
-                        <div>AMOUNT</div>
-                        <div>STATUS</div>
-                        <div>ACTION</div>
-                        <div></div>
+                <div class="tbl">
+                    <div class="tb-row title-row">
+                        <div class="cell mdt">
+                            ORDER ID
+                        </div>
+                        <div class="cell mdt">
+                            ORDER TiME
+                        </div>
+                        <div class="cel mdt">
+                            CUSTOMER'S NAME
+                        </div>
+                        <div class="cell mdt">
+                            METHOD
+                        </div>
+                        <div class="cell mdt">
+                            AMOUNT
+                        </div>
+                        <div class="cell mdt">
+                            STATUS
+                        </div>
+                        <div class="cell mdt">
+                            ACTION
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell">12/04/2023</div>
+                        <div class="cell">Nguyen Thuy Duong</div>
+                        <div class="cell">Paypal</div>
+                        <div class="cell">$30.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">ACTION</div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10124</div>
+                        <div class="cell">14/05/2023</div>
+                        <div class="cell">Vu Thi Hue</div>
+                        <div class="cell">Master Card</div>
+                        <div class="cell">$40.000</div>
+                        <div class="cell">Processing</div>
+                        <div class="cell">ACTION</div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell">10/04/2023</div>
+                        <div class="cell">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">ACTION</div>
+                        <div class="cell"></div>
                     </div>
                 </div>
             </div>
