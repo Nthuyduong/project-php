@@ -33,8 +33,8 @@ body{
 
   .overview-card{
     text-align: center;
+    border-radius: 4%;
   }
-
   .overview-inner{
     padding: 20px 10px;
   }
@@ -126,6 +126,7 @@ ul{
   }
   .tb-row{
     display: flex;
+    flex-direction: row;
   }
   .title-row{
     background-color: #2E303A;
@@ -134,4 +135,8 @@ ul{
     flex-grow: 1;
     padding: 5px;
     border-bottom: 1px #666 solid;
+  }
+  /* Button style */
+  .btn-lg-admin{
+    background-color: #6A7CE9;
   }

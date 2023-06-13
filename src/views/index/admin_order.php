@@ -72,53 +72,34 @@
             </div>
             <!-- THIS IS ALL CONTENT -->
             <div>
-                <!-- Product here -->
-                <div class="db-title">PRODUCTS</div>
+                <!-- Order here -->
+                <div class="db-title">ORDERS</div>
                 <p>Have a nice day!</p>
                 <div>
-                    <div>
-                        <div class="d-flex">
-                            <button>Add new product</button>
-                            <button>Delete product</button>
+                    <div class="row">
+                        <div class="col-3">
+                            <div className="search-bar d-flex">
+                                <input className="search-input w-100" type="text" placeholder="Search text..." />
+                                <FontAwesomeIcon className="icon-search" icon={faSearch}/>
+                            </div>
                         </div>
-                        <div class="line"></div>
-                        <div class="row">
-                            <div class="col-3">
-                                <div className="search-bar d-flex">
-                                    <input className="search-input w-100" type="text" placeholder="Search text..." />
-                                    <FontAwesomeIcon className="icon-search" icon={faSearch}/>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <select name="status" id="status">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <select name="status" id="status">
-                                    <option>Sub-category</option>
-                                    <option>Eternity</option>
-                                    <option>Eternity</option>
-                                    <option>Eternity</option>
-                                    <option>Eternity</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <select name="status" id="status">
-                                    <option>Price</option>
-                                    <option>Low to high</option>
-                                    <option>High to low</option>
-                                    <option>Most expensive</option>
-                                    <option>Cheapest</option>
-                                </select>
-                            </div>
+                        <div class="col-3">
+                            <select name="status" id="status">
+                                <option>choose status</option>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <div>Order date</div>
+                            <input name="" id="" placeholder="dd/mm/yyyy"/>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn-lg-admin">Download all order</button>
                         </div>
                     </div>
-                    <!-- Product table -->
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell mdt">
