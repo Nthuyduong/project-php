@@ -83,16 +83,16 @@
                                 <div class="overview-inner">
                                     <h4>Today order</h4>
                                     <h2>$0.000</h2>
-                                    <div class="row">
-                                        <div class="col-4">
+                                    <div class="d-flex">
+                                        <div class="cell">
                                             <p>Paypal</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="cell">
                                             <p>Visa</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="cell">
                                             <p>Master Card</p>
                                             <p>$0.000</p>
                                         </div>
@@ -105,16 +105,16 @@
                                 <div class="overview-inner">
                                     <h4>Today order</h4>
                                     <h2>$0.000</h2>
-                                    <div class="row">
-                                        <div class="col-4">
+                                    <div class="d-flex">
+                                        <div class="cell">
                                             <p>Paypal</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="cell">
                                             <p>Visa</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="cell">
                                             <p>Master Card</p>
                                             <p>$0.000</p>
                                         </div>
@@ -127,16 +127,16 @@
                                 <div class="overview-inner">
                                     <h4>Today order</h4>
                                     <h2>$0.000</h2>
-                                    <div class="row">
-                                        <div class="col-4">
+                                    <div class="d-flex">
+                                        <div class="cell">
                                             <p>Paypal</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="cell">
                                             <p>Visa</p>
                                             <p>$0.000</p>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="cell">
                                             <p>Master Card</p>
                                             <p>$0.000</p>
                                         </div>
@@ -151,38 +151,54 @@
                 <h6>Order View</h3>
                 <div class="row">
                     <div class="col-3">
-                        <div class="d-flex order-inner">
-                            <div>icon</div>
-                            <div class="w-100">
-                                <p>Order total</p>
-                                <h5>25</h5>
+                        <div class="order-div">
+                            <div class="d-flex order-inner">
+                                <div class="order-icon ic1">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="w-100">
+                                    <p>Order total</p>
+                                    <h5>25</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-flex order-inner">
-                            <div>icon</div>
-                            <div class="w-100">
-                                <p>Order total</p>
-                                <h5>25</h5>
+                        <div class="order-div">
+                            <div class="d-flex order-inner">
+                                <div class="order-icon ic2">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <div class="w-100">
+                                    <p>Order total</p>
+                                    <h5>25</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-flex order-inner">
-                            <div>icon</div>
-                            <div class="w-100">
-                                <p>Order total</p>
-                                <h5>25</h5>
+                        <div class="order-div">
+                            <div class="d-flex order-inner">
+                                <div class="order-icon ic3">
+                                    <i class="far fa-truck"></i>
+                                </div>
+                                <div class="w-100">
+                                    <p>Order total</p>
+                                    <h5>25</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="d-flex order-inner">
-                            <div>icon</div>
-                            <div class="w-100">
-                                <p>Order total</p>
-                                <h5>25</h5>
+                        <div class="order-div">
+                            <div class="d-flex order-inner">
+                                <div class="order-icon ic4">
+                                    <i class="far fa-check-circle"></i>
+                                </div>
+                                <div class="w-100">
+                                    <p>Order total</p>
+                                    <h5>25</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -192,57 +208,180 @@
                 <h6>Recently Orders</h6>
                 <div class="tbl">
                     <div class="tb-row title-row">
-                        <div class="cell mdt">
+                        <div class="cell">
                             ORDER ID
                         </div>
-                        <div class="cell mdt">
+                        <div class="cell-md">
                             ORDER TiME
                         </div>
-                        <div class="cel mdt">
+                        <div class="cell-md">
                             CUSTOMER'S NAME
                         </div>
-                        <div class="cell mdt">
+                        <div class="cell">
                             METHOD
                         </div>
-                        <div class="cell mdt">
+                        <div class="cell">
                             AMOUNT
                         </div>
-                        <div class="cell mdt">
+                        <div class="cell">
                             STATUS
                         </div>
-                        <div class="cell mdt">
+                        <div class="cell">
                             ACTION
                         </div>
                         <div class="cell"></div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
-                        <div class="cell">12/04/2023</div>
-                        <div class="cell">Nguyen Thuy Duong</div>
+                        <div class="cell-md">12/04/2023</div>
+                        <div class="cell-md">Nguyen Thuy Duong</div>
                         <div class="cell">Paypal</div>
                         <div class="cell">$30.000</div>
                         <div class="cell">Pending</div>
-                        <div class="cell">ACTION</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
                         <div class="cell"></div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10124</div>
-                        <div class="cell">14/05/2023</div>
-                        <div class="cell">Vu Thi Hue</div>
+                        <div class="cell-md">14/05/2023</div>
+                        <div class="cell-md">Vu Thi Hue</div>
                         <div class="cell">Master Card</div>
                         <div class="cell">$40.000</div>
                         <div class="cell">Processing</div>
-                        <div class="cell">ACTION</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
                         <div class="cell"></div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
-                        <div class="cell">10/04/2023</div>
-                        <div class="cell">Nguyen Thanh Thuy</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
                         <div class="cell">Pending</div>
-                        <div class="cell">ACTION</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
                         <div class="cell"></div>
                     </div>
                 </div>

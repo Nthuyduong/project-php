@@ -33,19 +33,21 @@ body{
 
   .overview-card{
     text-align: center;
-    border-radius: 4%;
   }
   .overview-inner{
     padding: 20px 10px;
   }
   .card-1{
     background-color: #6A7CE9;
+    border-radius: 4px;
   }
   .card-2{
     background-color: #F0905A;
+    border-radius: 4px;
   }
   .card-3{
     background-color: #55BF9C;
+    border-radius: 4px;
   }
 ul{
     list-style-type: none;
@@ -127,16 +129,58 @@ ul{
   .tb-row{
     display: flex;
     flex-direction: row;
+    border-bottom: 1px #666 solid;
+    padding-bottom: 8px;
+    padding-top: 8px;
   }
   .title-row{
     background-color: #2E303A;
   }
   .cell{
+    margin:auto;
     flex-grow: 1;
-    padding: 5px;
-    border-bottom: 1px #666 solid;
+    flex-basis:0;
+    flex-shrink: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   /* Button style */
   .btn-lg-admin{
     background-color: #6A7CE9;
+  }
+  .order-div{
+    background-color: #2E303A;
+    border-radius: 4px;
+  }
+  .order-inner{
+    padding: 20px 20px;
+  }
+  .order-icon{
+    padding-right: 30px;
+  }
+  .ic1 i{
+    background-color: #6A7CE9;
+    padding: 16px;
+    border-radius: 40px;
+  }
+  .ic2 i{
+    background-color: #E96A6A;
+    padding: 16px;
+    border-radius: 40px;
+  }
+  .ic3 i{
+    background-color: #55BF9C;
+    padding: 16px;
+    border-radius: 40px;
+  }
+  .ic4 i{
+    background-color: #F0905A;
+    padding: 16px;
+    border-radius: 40px;
+  }
+  .cell-md{
+    flex-grow: 1.5;
+    flex-shrink: 0;
+    flex-basis: 0;
   }
