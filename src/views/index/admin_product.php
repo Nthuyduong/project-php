@@ -78,18 +78,7 @@
                 <div>
                     <div>
                         <div class="d-flex">
-                            <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="ms-auto btn-lg-pr-admin">Add new product</button>
-
-                            <!-- OFFVANVAS HERE -->
-                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                <div class="offcanvas-header">
-                                    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                </div>
-                                <div class="offcanvas-body">
-                                    ...
-                                </div>
-                            </div>
+                            <button class="ms-auto btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add new product</button>
                             <button class="ms-3 btn-lg-sc-admin">Delete product</button>
                         </div>
                         <div class="line my-3"></div>
@@ -296,6 +285,48 @@
                 </div>
             </div>
         </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <div>
+                    <div class="db-title">ADD NEW PRODUCT</div>
+                    <p>Upload Product's Information Here!</p>
+                </div>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <div class="mdt mb-1">Product's Name</div>
+                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                        </div>
+                        <div class="my-3">
+                            <div class="md mb-1">Product's Price</div>
+                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                        </div>
+                        <div>
+                            <div class="mdt mb-1">Product's Description</div>
+                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                        </div>
+                        <div class="my-3">
+                            <div class="mdt mb-1">Product's Quantity</div>
+                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                        </div>
+                        <div>
+                            <div class="mdt mb-1">Product's SKU</div>
+                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                        </div>
+                        <div class="mt-3">
+                            <div class="mdt mb-1">Product's Category</div>
+                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                        </div>
+                    </div>
+                    <div classs="col-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>  
         <!-- NAV DRAWER -->
         <script>
             window.addEventListener("DOMContentLoaded", function() {
@@ -313,5 +344,8 @@
             document.getElementById("main").style.marginLeft= "0";
             }
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>

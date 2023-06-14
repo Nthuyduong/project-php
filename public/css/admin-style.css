@@ -27,7 +27,7 @@ body{
   .mdt{
     font-family: 'Futura PT', sans-serif;
     font-size:16px;
-    font-weight: 600;
+    font-weight: 500;
   }
   .smt{
     font-family: 'Futura PT', sans-serif;
@@ -78,7 +78,7 @@ ul{
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 9999;
     top: 0;
     left: 0;
     background-color: #111;
@@ -287,7 +287,9 @@ ul{
   -webkit-transition: .4s;
   transition: .4s;
 }
-
+input{
+  padding: 8px;
+}
 input:checked + .slider {
   background-color: #6A7CE9;
 }
@@ -329,19 +331,14 @@ select{
   font-size: 16px;
   font-family: 'Futura PT', sans-serif;
 }
-/* Offcanvas */
-/* .offcanvas{
-  position: fixed;
-  top: 0;
-  right: -100;
-  z-index: 9999;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  transition: right 0.3s ease-in-out;
-  overflow-y: auto;
-  background-color: #fff;
+.offcanvas-end{
+  width: calc(100% - 250px) !important;
+  z-index: 6666;
+  background-color: #121317;
 }
-.offcanvas.open{
-  right: 0;
-} */
+.offcanvas-header{
+  padding: 30px;
+}
+.offcanvas-body{
+  padding: 30px;
+}

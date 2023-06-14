@@ -87,63 +87,49 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <button class="btn-lg-admin">Download all order</button>
+                            
                         </div>
                     </div>
                     <div class="tbl">
                         <div class="tb-row title-row">
-                            <div class="cell mdt">
-                                ORDER ID
+                            <div class="cell-sm">
+                                ID
                             </div>
-                            <div class="cell mdt">
-                                ORDER TiME
+                            <div class="cell">
+                                NAME
                             </div>
-                            <div class="cel mdt">
-                                CUSTOMER'S NAME
+                            <div class="cell">
+                                EMAIL
                             </div>
-                            <div class="cell mdt">
-                                METHOD
+                            <div class="cell-sm">
+                                PHONE
                             </div>
-                            <div class="cell mdt">
-                                AMOUNT
+                            <div class="cell-md">
+                                ADDRESS
                             </div>
-                            <div class="cell mdt">
-                                STATUS
-                            </div>
-                            <div class="cell mdt">
+                            <div class="cell-sm">
                                 ACTION
                             </div>
-                            <div class="cell"></div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell">12/04/2023</div>
+                            <div class="cell-sm">123</div>
                             <div class="cell">Nguyen Thuy Duong</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$30.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10124</div>
-                            <div class="cell">14/05/2023</div>
-                            <div class="cell">Vu Thi Hue</div>
-                            <div class="cell">Master Card</div>
-                            <div class="cell">$40.000</div>
-                            <div class="cell">Processing</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell">10/04/2023</div>
-                            <div class="cell">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">Duongthuy@gmail.com</div>
+                            <div class="cell-sm">12345678</div>
+                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
+                            <div class="cell-sm">
+                                <div class="d-flex">
+                                    <div>
+                                        <i class="fas fa-magnifying-glass-plus"></i>
+                                    </div>
+                                    <div class="mx-2">
+                                        <i class="fas fa-pen-to-square"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex pgn">
