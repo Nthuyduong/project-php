@@ -11,7 +11,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="">
                 <div class="nav-close d-flex">
-                    <h5 class="text-light">AGURI ADMIN</h3>
+                    <h5 class="text-light nav-title">AGURI ADMIN</h3>
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                             <input name="" id="" placeholder="dd/mm/yyyy"/>
                         </div>
                         <div class="col-3">
-                            <button class="btn-lg-admin">Download all order</button>
+                            <button class="btn-lg-pr-admin">Download all order</button>
                         </div>
                     </div>
                     <div class="tbl">

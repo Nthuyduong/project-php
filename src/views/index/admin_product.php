@@ -11,7 +11,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="">
                 <div class="nav-close d-flex">
-                    <h5 class="text-light">AGURI ADMIN</h3>
+                    <h5 class="text-light nav-title">AGURI ADMIN</h3>
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
             </div>
@@ -78,10 +78,21 @@
                 <div>
                     <div>
                         <div class="d-flex">
-                            <button>Add new product</button>
-                            <button>Delete product</button>
+                            <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="ms-auto btn-lg-pr-admin">Add new product</button>
+
+                            <!-- OFFVANVAS HERE -->
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                <div class="offcanvas-header">
+                                    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    ...
+                                </div>
+                            </div>
+                            <button class="ms-3 btn-lg-sc-admin">Delete product</button>
                         </div>
-                        <div class="line"></div>
+                        <div class="line my-3"></div>
                         <div class="row">
                             <div class="col-3">
                                 <div className="search-bar d-flex">
@@ -90,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <select name="status" id="status">
+                                <select class="sl-box" name="ctg" id="ctg">
                                     <option>Category</option>
                                     <option>Ring</option>
                                     <option>Earring</option>
@@ -99,7 +110,7 @@
                                 </select>
                             </div>
                             <div class="col-3">
-                                <select name="status" id="status">
+                                <select class="sl-box" name="sub-ctg" id="sub-ctg">
                                     <option>Sub-category</option>
                                     <option>Eternity</option>
                                     <option>Eternity</option>
@@ -108,7 +119,7 @@
                                 </select>
                             </div>
                             <div class="col-3">
-                                <select name="status" id="status">
+                                <select class="sl-box" name="status" id="status">
                                     <option>Price</option>
                                     <option>Low to high</option>
                                     <option>High to low</option>
@@ -122,7 +133,7 @@
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell-ssm">
-                                check
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">
                                 IMAGE
@@ -142,7 +153,7 @@
                             <div class="cell-sm">
                                 STOCK
                             </div>
-                            <div class="cell">
+                            <div class="cell-sm">
                                 STATUS
                             </div>
                             <div class="cell-sm">
@@ -153,100 +164,139 @@
                             </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell-ssm">check</div>
+                            <div class="cell-ssm">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </div>
                             <div class="cell-sm">img</div>
                             <div class="cell">Amee Diamond Ring</div>
                             <div class="cell-sm">Ring</div>
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell">
-                                Sold out
-                            </div>
                             <div class="cell-sm">
-                                toggle
+                                <div class="stt-sm stt3">Sold out</div>
+                            </div>
+                            <div class="cell-sm togglebtn">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                             <div class="cell-sm">
                                 icon
                             </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell-ssm">check</div>
+                            <div class="cell-ssm">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </div>
                             <div class="cell-sm">img</div>
                             <div class="cell">Amee Diamond Ring</div>
                             <div class="cell-sm">Ring</div>
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell">
-                                Sold out
-                            </div>
                             <div class="cell-sm">
-                                toggle
+                                <div class="stt-sm stt3">Sold out</div>
+                            </div>
+                            <div class="cell-sm togglebtn">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                             <div class="cell-sm">
                                 icon
                             </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell-ssm">check</div>
+                            <div class="cell-ssm">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </div>
                             <div class="cell-sm">img</div>
                             <div class="cell">Amee Diamond Ring</div>
                             <div class="cell-sm">Ring</div>
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell">
-                                Sold out
-                            </div>
                             <div class="cell-sm">
-                                toggle
+                                <div class="stt-sm stt3">Sold out</div>
+                            </div>
+                            <div class="cell-sm togglebtn">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                             <div class="cell-sm">
                                 icon
                             </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell-ssm">check</div>
+                            <div class="cell-ssm">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </div>
                             <div class="cell-sm">img</div>
                             <div class="cell">Amee Diamond Ring</div>
                             <div class="cell-sm">Ring</div>
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell">
-                                Sold out
-                            </div>
                             <div class="cell-sm">
-                                toggle
+                                <div class="stt-sm stt1">
+                                Selling
+                                </div>
+                            </div>
+                            <div class="cell-sm togglebtn">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                             <div class="cell-sm">
                                 icon
                             </div>
                         </div>
                         <div class="tb-row">
-                            <div class="cell-ssm">check</div>
+                            <div class="cell-ssm">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </div>
                             <div class="cell-sm">img</div>
                             <div class="cell">Amee Diamond Ring</div>
                             <div class="cell-sm">Ring</div>
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell">
-                                Sold out
-                            </div>
                             <div class="cell-sm">
-                                toggle
+                                <div class="stt1 stt-sm">Selling</div>
+                            </div>
+                            <div class="cell-sm togglebtn">
+                                <div class="tgb">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
                             </div>
                             <div class="cell-sm">
                                 icon
                             </div>
                         </div>
-                        
+                    </div>
+                    <div class="d-flex pgn">
+                        <div class="me-auto">Showing 8 of 100</div>
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">&raquo;</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- NAV DRAWER -->
         <script>
             window.addEventListener("DOMContentLoaded", function() {
                 // Open the side navigation menu when the page loads

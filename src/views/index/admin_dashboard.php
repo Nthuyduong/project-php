@@ -11,7 +11,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="">
                 <div class="nav-close d-flex">
-                    <h5 class="text-light">AGURI ADMIN</h3>
+                    <h5 class="text-light nav-title">AGURI ADMIN</h3>
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
             </div>
@@ -237,7 +237,9 @@
                         <div class="cell-md">Nguyen Thuy Duong</div>
                         <div class="cell">Paypal</div>
                         <div class="cell">$30.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -254,7 +256,9 @@
                         <div class="cell-md">Vu Thi Hue</div>
                         <div class="cell">Master Card</div>
                         <div class="cell">$40.000</div>
-                        <div class="cell">Processing</div>
+                        <div class="cell">
+                            <div class="stt stt2">Processing</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -271,7 +275,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -288,7 +294,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -305,7 +313,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -322,7 +332,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -339,7 +351,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -356,7 +370,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -373,7 +389,9 @@
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">Pending</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
                         <div class="cell">
                             <select>
                                 <option>Pending</option>
@@ -385,6 +403,16 @@
                         <div class="cell"></div>
                     </div>
                 </div>
+                <div class="d-flex pgn">
+                        <div class="me-auto">Showing 8 of 100</div>
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">&raquo;</a>
+                        </div>
+                    </div>
             </div>
         </div>
         <script>

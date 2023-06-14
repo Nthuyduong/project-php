@@ -11,7 +11,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="">
                 <div class="nav-close d-flex">
-                    <h5 class="text-light">AGURI ADMIN</h3>
+                    <h5 class="text-light nav-title">AGURI ADMIN</h3>
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
             </div>
@@ -144,6 +144,16 @@
                             <div class="cell">Pending</div>
                             <div class="cell">ACTION</div>
                             <div class="cell"></div>
+                        </div>
+                    </div>
+                    <div class="d-flex pgn">
+                        <div class="me-auto">Showing 8 of 100</div>
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">&raquo;</a>
                         </div>
                     </div>
                 </div>
