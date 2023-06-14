@@ -291,38 +291,138 @@
                     <div class="db-title">ADD NEW PRODUCT</div>
                     <p>Upload Product's Information Here!</p>
                 </div>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <div type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fa-solid fa-circle-x fa-xl text-light"></i>
+                </div>
             </div>
             <div class="offcanvas-body">
-                <div class="row">
-                    <div class="col-6">
-                        <div>
-                            <div class="mdt mb-1">Product's Name</div>
-                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
-                        </div>
-                        <div class="my-3">
-                            <div class="md mb-1">Product's Price</div>
-                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
-                        </div>
-                        <div>
-                            <div class="mdt mb-1">Product's Description</div>
-                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
-                        </div>
-                        <div class="my-3">
-                            <div class="mdt mb-1">Product's Quantity</div>
-                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
-                        </div>
-                        <div>
-                            <div class="mdt mb-1">Product's SKU</div>
-                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
-                        </div>
-                        <div class="mt-3">
-                            <div class="mdt mb-1">Product's Category</div>
-                            <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                <div class="nav nav-tabs mb-5" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="basis-tab" data-bs-toggle="tab" data-bs-target="#basis" type="button" role="tab" aria-controls="basis" aria-selected="true">
+                                Basis Information
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="combination-tab" data-bs-toggle="tab" data-bs-target="#combination" type="button" role="tab" aria-controls="combination" aria-selected="false">
+                                Combination
+                            </a>
+                        </li>
+                    </ul>
+                </div>  
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="basis" role="tabpanel" aria-labelledby="basis-tab">
+                        <div class="row">
+                            <div class="col-6">
+                                <div>
+                                    <div class="mdt mb-1">Product's Name</div>
+                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                </div>
+                                <div class="my-3">
+                                    <div class="md mb-1">Product's Price</div>
+                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                </div>
+                                <div>
+                                    <div class="mdt mb-1">Product's Description</div>
+                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                </div>
+                                <div class="my-3">
+                                    <div class="mdt mb-1">Product's Quantity</div>
+                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                </div>
+                                <div>
+                                    <div class="mdt mb-1">Product's SKU</div>
+                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="mdt mb-1">Product's Category</div>
+                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                </div>
+                            </div>
+                            <div classs="col-6">
+                                <div>Product's Image</div>
+                                
+                            </div>
                         </div>
                     </div>
-                    <div classs="col-6">
+                    <div class="tab-pane fade" id="combination" role="tabpanel" aria-labelledby="combination-tab">
+                        <div>
 
+                        </div>
+                        <div class="d-flex">
+                            <button class="ms-auto btn-lg-pr-admin">Generate</button>
+                            <button class="ms-3 btn-lg-sc-admin">Clear</button>
+                        </div>
+                        <div class="tbl">
+                            <div class="tb-row title-row">
+                                <div class="cell-ssm">
+                                    IMAGE
+                                </div>
+                                <div class="cell">
+                                    PRODUCT'S NAME
+                                </div>
+                                <div class="cell-sm">
+                                    MATERIAL
+                                </div>
+                                <div class="cell">
+                                    JEWELRY TYPE
+                                </div>
+                                <div class="cell-sm">
+                                    SKU
+                                </div>
+                                <div class="cell-sm">
+                                    PRICE ($)
+                                </div>
+                                <div class="cell-sm">
+                                    QUANTITY
+                                </div>
+                                <div class="cell-sm">
+                                    ACTION
+                                </div>
+                            </div>
+                            <div class="tb-row">
+                                <div class="cell-ssm">
+                                    
+                                </div>
+                                <div class="cell">Amee Diamnond Ring</div>
+                                <div class="cell-sm">Gold</div>
+                                <div class="cell">Natural Diamond</div>
+                                <div class="cell-sm">123</div>
+                                <div class="cell-sm">$20.000</div>
+                                <div class="cell-sm">5</div>
+                                <div class="cell-sm">
+                                    action
+                                </div>
+                            </div>
+                            <div class="tb-row">
+                                <div class="cell-ssm">
+                                    
+                                </div>
+                                <div class="cell">Amee Diamnond Ring</div>
+                                <div class="cell-sm">Gold</div>
+                                <div class="cell">Natural Diamond</div>
+                                <div class="cell-sm">123</div>
+                                <div class="cell-sm">$20.000</div>
+                                <div class="cell-sm">5</div>
+                                <div class="cell-sm">
+                                    action
+                                </div>
+                            </div>
+                            <div class="tb-row">
+                                <div class="cell-ssm">
+                                    
+                                </div>
+                                <div class="cell">Amee Diamnond Ring</div>
+                                <div class="cell-sm">Gold</div>
+                                <div class="cell">Natural Diamond</div>
+                                <div class="cell-sm">123</div>
+                                <div class="cell-sm">$20.000</div>
+                                <div class="cell-sm">5</div>
+                                <div class="cell-sm">
+                                    action
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

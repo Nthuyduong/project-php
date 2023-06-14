@@ -155,9 +155,11 @@ ul{
   }
   /* Button style */
   .btn-lg-pr-admin{
+    padding: 8px 24px;
     background-color: #6A7CE9;
   }
   .btn-lg-sc-admin{
+    padding: 8px 24px;
     background-color: #E96A6A;
   }
   .order-div{
@@ -194,6 +196,9 @@ ul{
     flex-grow: 1.5;
     flex-shrink: 0;
     flex-basis: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
   }
   .cell-sm{
     flex-grow: 0.5;
@@ -289,6 +294,7 @@ ul{
 }
 input{
   padding: 8px;
+  width: 100%;
 }
 input:checked + .slider {
   background-color: #6A7CE9;
@@ -342,3 +348,25 @@ select{
 .offcanvas-body{
   padding: 30px;
 }
+.ph-img{
+  border: 1px #fff solid;
+}
+/* STYLE FOR TABS */
+.nav-tabs{
+  border-bottom: transparent;
+}
+.nav-tabs .nav-link{
+  color: #ccc;
+  border-bottom: 2px #ccc solid;
+}
+.nav-tabs .nav-link:hover{
+  border-color: transparent;
+  border-bottom: 2px #ccc solid;
+}
+.nav-tabs .nav-link.active{
+  color: #fff;
+  background-color: transparent !important;
+  border-color: transparent;
+  border-bottom: 2px #6A7CE9 solid;
+}
+
