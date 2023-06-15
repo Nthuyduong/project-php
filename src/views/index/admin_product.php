@@ -285,7 +285,7 @@
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end offcanvasfull" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <div>
                     <div class="db-title">ADD NEW PRODUCT</div>
@@ -314,29 +314,35 @@
                     <div class="tab-pane fade show active" id="basis" role="tabpanel" aria-labelledby="basis-tab">
                         <div class="row">
                             <div class="col-6">
-                                <div>
+                                <div class="mb-3">
                                     <div class="mdt mb-1">Product's Name</div>
-                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                    <input class="w-100" name="prdname" id="prdname" placeholder="Product's name/title"/>
+                                </div>
+                                <div>
+                                    <div class="mdt mb-1">Product's Unit</div>
+                                    <input class="w-100" name="prdunit" id="prdunit" placeholder="Product's name/title"/>
                                 </div>
                                 <div class="my-3">
                                     <div class="md mb-1">Product's Price</div>
-                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                    <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price"/>
                                 </div>
                                 <div>
                                     <div class="mdt mb-1">Product's Description</div>
-                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                    <textarea class="w-100" name="prddesc" id="prddesc" rows="4">
+                                    Enter product's description here
+                                    </textarea>
                                 </div>
                                 <div class="my-3">
                                     <div class="mdt mb-1">Product's Quantity</div>
-                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                    <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity"/>
                                 </div>
                                 <div>
                                     <div class="mdt mb-1">Product's SKU</div>
-                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                    <input class="w-100" name="prdsku" id="prdsku" placeholder="Product's SKU"/>
                                 </div>
                                 <div class="mt-3">
                                     <div class="mdt mb-1">Product's Category</div>
-                                    <input class="w-100" name="add-prd-name" id="add-prd-name" placeholder="Product's name/title"/>
+                                    <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category"/>
                                 </div>
                             </div>
                             <div classs="col-6">

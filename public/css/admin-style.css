@@ -337,8 +337,10 @@ select{
   font-size: 16px;
   font-family: 'Futura PT', sans-serif;
 }
-.offcanvas-end{
+.offcanvas-end.offcanvasfull{
   width: calc(100% - 250px) !important;
+}
+.offcanvas-end{
   z-index: 6666;
   background-color: #121317;
 }

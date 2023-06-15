@@ -131,6 +131,86 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tb-row">
+                            <div class="cell-sm">123</div>
+                            <div class="cell">Nguyen Thuy Duong</div>
+                            <div class="cell">Duongthuy@gmail.com</div>
+                            <div class="cell-sm">12345678</div>
+                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
+                            <div class="cell-sm">
+                                <div class="d-flex">
+                                    <div>
+                                        <i class="fas fa-magnifying-glass-plus"></i>
+                                    </div>
+                                    <div class="mx-2">
+                                        <i class="fas fa-pen-to-square"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell-sm">123</div>
+                            <div class="cell">Nguyen Thuy Duong</div>
+                            <div class="cell">Duongthuy@gmail.com</div>
+                            <div class="cell-sm">12345678</div>
+                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
+                            <div class="cell-sm">
+                                <div class="d-flex">
+                                    <div>
+                                        <i class="fas fa-magnifying-glass-plus"></i>
+                                    </div>
+                                    <div class="mx-2">
+                                        <i class="fas fa-pen-to-square"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell-sm">123</div>
+                            <div class="cell">Nguyen Thuy Duong</div>
+                            <div class="cell">Duongthuy@gmail.com</div>
+                            <div class="cell-sm">12345678</div>
+                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
+                            <div class="cell-sm">
+                                <div class="d-flex">
+                                    <div>
+                                        <i class="fas fa-magnifying-glass-plus"></i>
+                                    </div>
+                                    <div class="mx-2">
+                                        <i class="fas fa-pen-to-square"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tb-row">
+                            <div class="cell-sm">123</div>
+                            <div class="cell">Nguyen Thuy Duong</div>
+                            <div class="cell">Duongthuy@gmail.com</div>
+                            <div class="cell-sm">12345678</div>
+                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
+                            <div class="cell-sm">
+                                <div class="d-flex">
+                                    <div>
+                                        <i class="fas fa-magnifying-glass-plus"></i>
+                                    </div>
+                                    <div class="mx-2">
+                                        <i class="fas fa-pen-to-square"></i>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex pgn">
                         <div class="me-auto">Showing 8 of 100</div>

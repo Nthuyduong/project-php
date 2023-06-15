@@ -94,7 +94,7 @@
                                 </select>
                             </div>
                             <div class="col-3">
-                                <button class="w-100 btn-lg-pr-admin">Add Sub-category</button>
+                                <button class="w-100 btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#addsubcate" aria-controls="addsubcate">Add Sub-category</button>
                             </div>
                             <div class="col-3">
                                 <button class="w-100 btn-lg-sc-admin">Delete Sub-category</button>
@@ -206,6 +206,30 @@
                 </div>
             </div>
         </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="addsubcate" aria-labelledby="addsubcateLabel">
+            <div class="offcanvas-header">
+                <div>
+                    <div class="db-title">ADD SUB-CATEGORY<div>
+                    <p>Upload Sub-category's Information Here!</p>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="offcanvas-body">
+                <div class="">
+                    <div class="mdt mb-1">Sub-category's Name</div>
+                    <input class="w-100" name="subcatename" id="subcatename" placeholder="Sub-category's name"/>
+                </div>
+                <div class="my-3">
+                    <div class="mdt mb-1">Category</div>
+                    <input class="w-100" name="category" id="category" placeholder="Choose category"/>
+                </div>
+                <div class="">
+                    <div class="mdt mb-1">Sub-category's description</div>
+                    <textarea class="w-100" name="subdesc" id="subdesc" rows="5">
+                        Enter sub-category's description
+                    </textarea>
+                </div>
+            </div>
          <!-- NAV DRAWER -->
          <script>
             window.addEventListener("DOMContentLoaded", function() {
