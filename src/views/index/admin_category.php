@@ -17,7 +17,7 @@
             </div>
             <ul class="sideNav-content">
                 <li>
-                    <a href="#">
+                    <a href="admin_dashboard.php">
                         <i class="fas fa-th-large pe-2"></i>Dashboard
                     </a>
                 </li>
@@ -28,17 +28,17 @@
                 </li>
                     <ul class="catalog-dropdown">
                         <li>
-                            <a>Products</a>
+                            <a href="admin_product/php">Products</a>
                         </li>
                         <li>
-                            <a>Category</a>
+                            <a href="admin_category.php">Category</a>
                         </li>
                         <li>
-                            <a>Sub-category</a>
+                            <a href="admin_subcate.php">Sub-category</a>
                         </li>
                     </ul>
                 <li>
-                    <a href="#">
+                    <a href="admin_order.php">
                         <i class="fas fa-shopping-cart pe-2"></i><span>Order</span>
                     </a>
                 </li>
@@ -73,31 +73,22 @@
             <!-- THIS IS ALL CONTENT -->
             <div>
                 <!-- Product here -->
-                <div class="db-title mt-4">SUB-CATEGORY</div>
+                <div class="db-title mt-4">CATEGORY</div>
                 <p>Have a nice day!</p>
                 <div>
                     <div>
                         <div class="row">
                             <div class="col-3">
+                            
+                            </div>
+                            <div class="col-6">
                                 <div className="search-bar d-flex">
                                     <input className="search-input w-100" type="text" placeholder="Search text..." />
                                     <FontAwesomeIcon className="icon-search" icon={faSearch}/>
                                 </div>
                             </div>
                             <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
                                 <button class="w-100 btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#addsubcate" aria-controls="addsubcate">Add Sub-category</button>
-                            </div>
-                            <div class="col-3">
-                                <button class="w-100 btn-lg-sc-admin">Delete Sub-category</button>
                             </div>
                         </div>
                         <div class="line my-4"></div>
@@ -112,7 +103,7 @@
                                 ID
                             </div>
                             <div class="cell">
-                                SUB-CATEGORY'S NAME
+                                CATEGORY'S NAME
                             </div>
                             <div class="cell-md">
                                 DESCRIPTION
@@ -120,7 +111,7 @@
                             <div class="cell alg-center">
                                 PUBLISH
                             </div>
-                            <div class="cell">
+                            <div class="cell alg-center">
                                 ACTION
                             </div>
                         </div>
@@ -129,7 +120,7 @@
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
+                            <div class="cell">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center">
                                 <label class="switch">
@@ -137,7 +128,7 @@
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <div class="cell action-icon">
+                            <div class="cell alg-center">
                                 <i class="fas fa-edit" style="color: #ffffff;"></i>                         
                                 <i class=" ms-3 fas fa-trash"></i>
                             </div>
@@ -147,7 +138,7 @@
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
+                            <div class="cell">Earring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center">
                                 <label class="switch">
@@ -155,7 +146,7 @@
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <div class="cell action-icon">
+                            <div class="cell alg-center">
                                 <i class="fas fa-edit" style="color: #ffffff;"></i>                         
                                 <i class="ms-3 fas fa-trash"></i>
                             </div>
@@ -165,15 +156,15 @@
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
+                            <div class="cell">Necklace</div>
+                            <div class="cell-md">category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center">
                                 <label class="switch">
                                     <input type="checkbox" checked/>
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <div class="cell action-icon">
+                            <div class="cell alg-center">
                                 <i class="fas fa-edit" style="color: #ffffff;"></i>                         
                                 <i class="ms-3 fas fa-trash"></i>
                             </div>
@@ -183,15 +174,15 @@
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
+                            <div class="cell">Bracelet</div>
+                            <div class="cell-md">Category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center">
                                 <label class="switch">
                                     <input type="checkbox" checked/>
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <div class="cell action-icon">
+                            <div class="cell alg-center">
                                 <i class="fas fa-edit" style="color: #ffffff;"></i>                         
                                 <i class="ms-3 fas fa-trash"></i>
                             </div>
@@ -210,42 +201,6 @@
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end offcavasmd" tabindex="-1" id="addsubcate" aria-labelledby="addsubcateLabel">
-            <div class="offcanvas-header">
-                <div>
-                    <div class="db-title">ADD SUB-CATEGORY<div>
-                    <div>Upload Sub-category's Information Here!</div>
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="offcanvas-body">
-                <div class="">
-                    <div class="mdt mb-1">Sub-category's Name</div>
-                    <input class="w-100" name="subcatename" id="subcatename" placeholder="Sub-category's name"/>
-                </div>
-                <div class="my-3">
-                    <div class="mdt mb-1">Category</div>
-                    <input class="w-100" name="category" id="category" placeholder="Choose category"/>
-                </div>
-                <div class="">
-                    <div class="mdt mb-1">Sub-category's description</div>
-                    <textarea class="w-100" name="subdesc" id="subdesc" rows="5">
-                        Enter sub-category's description
-                    </textarea>
-                </div>
-                <div>
-                <form class="box" method="post" action="" enctype="multipart/form-data">
-                    <div class="box__input">
-                        <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-                        <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-                        <button class="box__button" type="submit">Upload</button>
-                    </div>
-                    <div class="box__uploading">Uploading…</div>
-                    <div class="box__success">Done!</div>
-                    <div class="box__error">Error! <span></span>.</div>
-                </form>
-                </div>
-            </div>
          <!-- NAV DRAWER -->
          <script>
             window.addEventListener("DOMContentLoaded", function() {

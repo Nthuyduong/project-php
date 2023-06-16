@@ -16,8 +16,7 @@ class model_admin
     {
         //Select username va password tu bang Admin trong Project2
         $sql = "SELECT * FORM Admin WHERE username=? and password=?";
-        $data[] = $user;
-        $data[] = $pass;
+        $data[] = [$user,$pass];
         $ketqua = $this->conn->set_query($sql,$data);
         //Luu ket qua vao $data
         $this->data=null;

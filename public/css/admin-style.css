@@ -13,10 +13,10 @@ body{
 .db-title{
     font-family: 'Futura PT', sans-serif;
     font-size:40px;
-    font-weight: 600;
+    font-weight: 700;
   }
   h2, h3, h4, h5 {
-    font-family: 'Merchant', sans-serif;
+    font-family: 'Futura PT', sans-serif;
     font-weight: 400;
   }
   h6{
@@ -155,10 +155,14 @@ ul{
   }
   /* Button style */
   .btn-lg-pr-admin{
+    color: #fff;
     padding: 8px 24px;
+    border: none;
     background-color: #6A7CE9;
   }
   .btn-lg-sc-admin{
+    color: #fff;
+    border: none;
     padding: 8px 24px;
     background-color: #E96A6A;
   }
@@ -340,6 +344,9 @@ select{
 .offcanvas-end.offcanvasfull{
   width: calc(100% - 250px) !important;
 }
+.offcanvas-end.offcavasmd{
+  width: 700px !important;
+}
 .offcanvas-end{
   z-index: 6666;
   background-color: #121317;
@@ -370,5 +377,11 @@ select{
   background-color: transparent !important;
   border-color: transparent;
   border-bottom: 2px #6A7CE9 solid;
+}
+.action-icon{
+  text-align: right;
+}
+.alg-center{
+  text-align: center;
 }
 

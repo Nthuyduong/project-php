@@ -28,13 +28,13 @@
                 </li>
                     <ul class="catalog-dropdown">
                         <li>
-                            <a>Products</a>
+                            <a href="admin_product.php">Products</a>
                         </li>
                         <li>
-                            <a>Category</a>
+                            <a href="admin_category.php">Category</a>
                         </li>
                         <li>
-                            <a>Sub-category</a>
+                            <a href="admin_subcate.php">Sub-category</a>
                         </li>
                     </ul>
                 <li>
@@ -73,27 +73,29 @@
             <!-- THIS IS ALL CONTENT -->
             <div>
                 <!-- Dashboard here -->
-                <div class="db-title">DASHBOARD</div>
+                <div class="db-title mt-4">DASHBOARD</div>
                 <p>Have a nice day!</p>
-                <div>
-                    <h6>Overview</h3>
+                <div class="mt-4">
+                    <h6 class="mb-2">Overview</h3>
                     <div class="row">
                         <div class="col-4 overview-card">
                             <div class="card-1">
                                 <div class="overview-inner">
-                                    <h4>Today order</h4>
-                                    <h2>$0.000</h2>
+                                    <div class="mb-3">
+                                        <h4>Today order</h4>
+                                        <h2>$0.000</h2>
+                                    </div>
                                     <div class="d-flex">
                                         <div class="cell">
-                                            <p>Paypal</p>
+                                            <p class="mb-2">Paypal</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
-                                            <p>Visa</p>
+                                            <p class="mb-2">Visa</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
-                                            <p>Master Card</p>
+                                            <p class="mb-2">Master Card</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                     </div>
@@ -103,19 +105,21 @@
                         <div class="col-4 overview-card">
                             <div class="card-2">
                                 <div class="overview-inner">
-                                    <h4>Today order</h4>
-                                    <h2>$0.000</h2>
+                                    <div class="mb-3">
+                                        <h4>Today order</h4>
+                                        <h2>$0.000</h2>
+                                    </div>
                                     <div class="d-flex">
                                         <div class="cell">
-                                            <p>Paypal</p>
+                                            <p class="mb-2">Paypal</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
-                                            <p>Visa</p>
+                                            <p class="mb-2">Visa</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
-                                            <p>Master Card</p>
+                                            <p class="mb-2">Master Card</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                     </div>
@@ -125,19 +129,21 @@
                         <div class="col-4 overview-card">
                             <div class="card-3">
                                 <div class="overview-inner">
-                                    <h4>Today order</h4>
-                                    <h2>$0.000</h2>
+                                    <div class="mb-3">
+                                        <h4>Today order</h4>
+                                        <h2>$0.000</h2>
+                                    </div>
                                     <div class="d-flex">
                                         <div class="cell">
-                                            <p>Paypal</p>
+                                            <p class="mb-2">Paypal</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
-                                            <p>Visa</p>
+                                            <p class="mb-2">Visa</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                         <div class="cell">
-                                            <p>Master Card</p>
+                                            <p class="mb-2">Master Card</p>
                                             <p class="mb-0">$0.000</p>
                                         </div>
                                     </div>
@@ -147,8 +153,8 @@
                     </div>
                 </div>
             </div>
-            <div class="my-3">
-                <h6>Order View</h3>
+            <div class="my-5">
+                <h6 class="mb-2">Order View</h3>
                 <div class="row">
                     <div class="col-3">
                         <div class="order-div">
@@ -248,7 +254,10 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10124</div>
@@ -260,14 +269,17 @@
                             <div class="stt stt2">Processing</div>
                         </div>
                         <div class="cell">
-                            <select>
+                            <select class="w-100">
                                 <option>Pending</option>
                                 <option>Processing</option>
                                 <option>Delivered</option>
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
@@ -286,7 +298,10 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
@@ -305,7 +320,10 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
@@ -324,7 +342,10 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
@@ -343,7 +364,10 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
@@ -362,7 +386,32 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="cell">10123</div>
+                        <div class="cell-md">10/04/2023</div>
+                        <div class="cell-md">Nguyen Thanh Thuy</div>
+                        <div class="cell">Visa</div>
+                        <div class="cell">$35.000</div>
+                        <div class="cell">
+                            <div class="stt stt1">Pending</div>
+                        </div>
+                        <div class="cell action-icon">
+                            <select>
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option>Delivered</option>
+                                <option>Cancel</option>
+                            </select>
+                        </div>
+                        <div class="cell">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell">10123</div>
@@ -381,26 +430,10 @@
                                 <option>Cancel</option>
                             </select>
                         </div>
-                        <div class="cell"></div>
-                    </div>
-                    <div class="tb-row">
-                        <div class="cell">10123</div>
-                        <div class="cell-md">10/04/2023</div>
-                        <div class="cell-md">Nguyen Thanh Thuy</div>
-                        <div class="cell">Visa</div>
-                        <div class="cell">$35.000</div>
-                        <div class="cell">
-                            <div class="stt stt1">Pending</div>
+                        <div class="cell action-icon">
+                            <i class="fas fa-print" style="color: #ffffff;"></i>
+                            <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
                         </div>
-                        <div class="cell">
-                            <select>
-                                <option>Pending</option>
-                                <option>Processing</option>
-                                <option>Delivered</option>
-                                <option>Cancel</option>
-                            </select>
-                        </div>
-                        <div class="cell"></div>
                     </div>
                 </div>
                 <div class="d-flex pgn">
@@ -413,8 +446,8 @@
                             <a href="#">&raquo;</a>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
         <script>
             window.addEventListener("DOMContentLoaded", function() {
                 // Open the side navigation menu when the page loads

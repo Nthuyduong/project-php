@@ -65,7 +65,7 @@
                     </div>
                     <div class="ms-3">
                         <a style="cursor:pointer" href="#">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
             <!-- THIS IS ALL CONTENT -->
             <div>
                 <!-- Order here -->
-                <div class="db-title">ORDERS</div>
+                <div class="db-title mt-4">ORDERS</div>
                 <p>Have a nice day!</p>
                 <div>
                     <div class="row">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <select name="status" id="status">
+                            <select class="sl-box" name="status" id="status">
                                 <option>choose status</option>
                                 <option>Pending</option>
                                 <option>Processing</option>
@@ -93,11 +93,10 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <div>Order date</div>
-                            <input name="" id="" placeholder="dd/mm/yyyy"/>
+                            <input name="" id="" placeholder="Order date (dd/mm/yyyy)"/>
                         </div>
                         <div class="col-3">
-                            <button class="btn-lg-pr-admin">Download all order</button>
+                            <button class="btn-lg-pr-admin w-100">Download all order</button>
                         </div>
                     </div>
                     <div class="tbl">
@@ -131,9 +130,21 @@
                             <div class="cell-md">Nguyen Thuy Duong</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$30.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10124</div>
@@ -141,9 +152,21 @@
                             <div class="cell-md">Vu Thi Hue</div>
                             <div class="cell">Master Card</div>
                             <div class="cell">$40.000</div>
-                            <div class="cell">Processing</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt2">Processing</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -151,9 +174,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -161,9 +196,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -171,9 +218,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>  
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -181,9 +240,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Master Card</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -191,9 +262,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -201,9 +284,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -211,9 +306,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -221,9 +328,21 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">Pending</div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -231,9 +350,23 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">
+                                    Pending
+                                </div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                         <div class="tb-row">
                             <div class="cell">10123</div>
@@ -241,11 +374,36 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                            <div class="cell">
+                                <div class="stt stt1">
+                                    Pending
+                                </div>
+                            </div>
+                            <div class="cell">
+                                <select class="w-100">
+                                    <option>Pending</option>
+                                    <option>Processing</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+                                </select>
+                            </div>
+                            <div class="cell action-icon">
+                                <i class="fas fa-print" style="color: #ffffff;"></i>
+                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                            </div>
                         </div>
                     </div>
+                    <div class="d-flex pgn">
+                        <div class="me-auto">Showing 8 of 100</div>
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a class="active" href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">&raquo;</a>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

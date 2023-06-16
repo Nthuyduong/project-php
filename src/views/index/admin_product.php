@@ -172,7 +172,8 @@
                                 </label>
                             </div>
                             <div class="cell-sm">
-                                icon
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>
+                                <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -195,7 +196,8 @@
                                 </label>
                             </div>
                             <div class="cell-sm">
-                                icon
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>
+                                <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -218,7 +220,8 @@
                                 </label>
                             </div>
                             <div class="cell-sm">
-                                icon
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>
+                                <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -243,7 +246,8 @@
                                 </label>
                             </div>
                             <div class="cell-sm">
-                                icon
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>
+                                <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -268,7 +272,8 @@
                                 </div>
                             </div>
                             <div class="cell-sm">
-                                icon
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>
+                                <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
                     </div>
@@ -288,7 +293,7 @@
         <div class="offcanvas offcanvas-end offcanvasfull" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <div>
-                    <div class="db-title">ADD NEW PRODUCT</div>
+                    <div class="db-title mt-4">ADD NEW PRODUCT</div>
                     <p>Upload Product's Information Here!</p>
                 </div>
                 <div type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -352,9 +357,45 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="combination" role="tabpanel" aria-labelledby="combination-tab">
-                        <div>
-
+                        <div class="row">
+                            <div class="col-3">
+                                <select class="sl-box" name="ctg" id="ctg">
+                                    <option>Category</option>
+                                    <option>Ring</option>
+                                    <option>Earring</option>
+                                    <option>Necklace</option>
+                                    <option>Bracelet</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select class="sl-box" name="ctg" id="ctg">
+                                    <option>Category</option>
+                                    <option>Ring</option>
+                                    <option>Earring</option>
+                                    <option>Necklace</option>
+                                    <option>Bracelet</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select class="sl-box" name="ctg" id="ctg">
+                                    <option>Category</option>
+                                    <option>Ring</option>
+                                    <option>Earring</option>
+                                    <option>Necklace</option>
+                                    <option>Bracelet</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select class="sl-box" name="ctg" id="ctg">
+                                    <option>Category</option>
+                                    <option>Ring</option>
+                                    <option>Earring</option>
+                                    <option>Necklace</option>
+                                    <option>Bracelet</option>
+                                </select>
+                            </div>
                         </div>
+                        <div class="line my-3"></div>
                         <div class="d-flex">
                             <button class="ms-auto btn-lg-pr-admin">Generate</button>
                             <button class="ms-3 btn-lg-sc-admin">Clear</button>
@@ -397,7 +438,7 @@
                                 <div class="cell-sm">$20.000</div>
                                 <div class="cell-sm">5</div>
                                 <div class="cell-sm">
-                                    action
+                                    <i class="fas fa-trash" style="color: #ffffff;"></i>
                                 </div>
                             </div>
                             <div class="tb-row">
@@ -411,7 +452,7 @@
                                 <div class="cell-sm">$20.000</div>
                                 <div class="cell-sm">5</div>
                                 <div class="cell-sm">
-                                    action
+                                    <i class="fas fa-trash" style="color: #ffffff;"></i>
                                 </div>
                             </div>
                             <div class="tb-row">
@@ -425,7 +466,7 @@
                                 <div class="cell-sm">$20.000</div>
                                 <div class="cell-sm">5</div>
                                 <div class="cell-sm">
-                                    action
+                                    <i class="fas fa-trash" style="color: #ffffff;"></i>
                                 </div>
                             </div>
                         </div>

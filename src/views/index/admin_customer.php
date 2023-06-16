@@ -117,18 +117,10 @@
                             <div class="cell">Duongthuy@gmail.com</div>
                             <div class="cell-sm">12345678</div>
                             <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm">
-                                <div class="d-flex">
-                                    <div>
-                                        <i class="fas fa-magnifying-glass-plus"></i>
-                                    </div>
-                                    <div class="mx-2">
-                                        <i class="fas fa-pen-to-square"></i>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </div>
+                            <div class="cell-sm action-icon">
+                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                       
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
+                                <i class="fas fa-trash"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -137,18 +129,10 @@
                             <div class="cell">Duongthuy@gmail.com</div>
                             <div class="cell-sm">12345678</div>
                             <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm">
-                                <div class="d-flex">
-                                    <div>
-                                        <i class="fas fa-magnifying-glass-plus"></i>
-                                    </div>
-                                    <div class="mx-2">
-                                        <i class="fas fa-pen-to-square"></i>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </div>
+                            <div class="cell-sm action-icon">                                   
+                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                       
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
+                                <i class="fas fa-trash"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -157,18 +141,10 @@
                             <div class="cell">Duongthuy@gmail.com</div>
                             <div class="cell-sm">12345678</div>
                             <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm">
-                                <div class="d-flex">
-                                    <div>
-                                        <i class="fas fa-magnifying-glass-plus"></i>
-                                    </div>
-                                    <div class="mx-2">
-                                        <i class="fas fa-pen-to-square"></i>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </div>
+                            <div class="cell-sm action-icon">
+                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                      
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>                          
+                                <i class="fas fa-trash"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -177,18 +153,10 @@
                             <div class="cell">Duongthuy@gmail.com</div>
                             <div class="cell-sm">12345678</div>
                             <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm">
-                                <div class="d-flex">
-                                    <div>
-                                        <i class="fas fa-magnifying-glass-plus"></i>
-                                    </div>
-                                    <div class="mx-2">
-                                        <i class="fas fa-pen-to-square"></i>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </div>
+                            <div class="cell-sm action-icon">
+                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                      
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
+                                <i class="fas fa-trash"></i>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -197,18 +165,10 @@
                             <div class="cell">Duongthuy@gmail.com</div>
                             <div class="cell-sm">12345678</div>
                             <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm">
-                                <div class="d-flex">
-                                    <div>
-                                        <i class="fas fa-magnifying-glass-plus"></i>
-                                    </div>
-                                    <div class="mx-2">
-                                        <i class="fas fa-pen-to-square"></i>
-                                    </div>
-                                    <div>
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </div>
+                            <div class="cell-sm action-icon">
+                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                        
+                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
+                                <i class="fas fa-trash"></i>
                             </div>
                         </div>
                     </div>
