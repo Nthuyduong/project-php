@@ -16,6 +16,7 @@ body{
 .db-title{
     font-family: 'Futura PT', sans-serif;
     font-size:40px;
+    color: #F0905A;
     font-weight: 700;
   }
   h2, h3, h4, h5 {
@@ -387,4 +388,18 @@ select{
 .alg-center{
   text-align: center;
 }
+.nav-item.col-6{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.ad-login{
+  margin-top: 60px;
 
+}
+.forlog{
+  background-color: transparent;
+  border-bottom: 1px #ccc solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}

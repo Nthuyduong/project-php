@@ -31,10 +31,10 @@
                             <a href="admin_product.php">Products</a>
                         </li>
                         <li>
-                            <a class="admin_category.php">Category</a>
+                            <a href="admin_category.php">Category</a>
                         </li>
                         <li>
-                            <a class="admin_subcate.php">Sub-category</a>
+                            <a href="admin_subcate.php">Sub-category</a>
                         </li>
                     </ul>
                 <li>
