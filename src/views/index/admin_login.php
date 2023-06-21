@@ -34,15 +34,17 @@
                                     <div class="db-title mb-2">WELCOME BACK!</div>
                                     <div>Have a nice day!</div>
                                 </div>
-                                <div class="mb-4">
-                                    <label for="admail">Email address *</label>
-                                    <input class="forlog" name="admail" id="admail"/>
-                                </div>
-                                <div>
-                                    <label for="adpass">Password *</label>
-                                    <input class="forlog" name="adpass" id="adpass"/>
-                                </div>
-                                <button class="mt-5 w-100 btn-lg-pr-admin">Log in</button>
+                                <form name="formLoginAdmin" method="post" action="../../controllers/controller_login.php">
+                                    <div class="mb-4">
+                                        <label for="admail">Email address *</label>
+                                        <input class="forlog" name="admail" id="admail"/>
+                                    </div>
+                                    <div>
+                                        <label for="adpass">Password *</label>
+                                        <input class="forlog" name="adpass" id="adpass"/>
+                                    </div>
+                                    <input class= "mt-5 w-100 btn-lg-pr-admin" type="submit" name="b1" id="b1" value="Log in">
+                                </form>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="fgpasstab" role="tabpanel" aria-labelledby="fgpass-tab">

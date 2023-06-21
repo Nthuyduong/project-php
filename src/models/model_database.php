@@ -9,8 +9,10 @@
     public function ConnectDB()
     {
         try
-        {
-            $this->conn = new PDO("mysql:host = localhose, dbname = Project2", "root", "root");
+        {   
+            //TTMH test local db
+            $this->conn = new PDO("mysql:host = localhose, dbname = T2207E_PHP_TestProject_TTMH2", "root", "root");
+            //$this->conn = new PDO("mysql:host = localhose, dbname = Project2", "root", "root");
             $this->conn->query("SET NAMES UTF8");
         }
         catch(PDOException $ex)

@@ -1,70 +1,56 @@
 <?php
-
 session_start();
 require_once('models/model_login.php');
-namespace App\Controllers;
-
-
-if(require($_REQUEST[""]==false))
-{
+if(isset($_REQUEST["b1"])==false)
+{   
+    $alert_title="Loi truy van CSDL";
     $alert = "Ban chua dang nhap";
-    //link tiep tuc dang nhap? 
-    //quay tro ve trang dang nhap
-    $ctn_link = "";
-    //hien thi bang thong bao
-    require("alert.php");
+    require_once("../views/includes/alert.php");
     die();
 }
-class Controller_login
-{
-    //Xu ly login danh cho admin
-    public function adminlogin()
-    {
+
         $user = $_REQUEST["admail"];
         $pass = $_REQUEST["adpass"];
         $pass = md5($pass);
-        $admin = new model_admin();
+        $login = new model_login();
         //kiem tra tai khoan xem da login hay chua? Ham kiem tra?
-        $ketqua = $admin;
+        $ketqua = $login->CheckLogin($user,$pass);
         if($ketqua == false)
-        {
+        {   
+            $alert_title="Loi truy van CSDL";
             $alert = "Loi truy van CSDL";
-            //mo ra trang tiep tuc dang nhap
-            $ctn_link = "";
-            //hien thi modal ket qua
-            require("");
+            
+            //require_once("../views/includes/alert.php");
+            
         }
-        $rows = $admin->data;
-        //Dang nhap thanh cong
-        if($rows != null)
-        {
-            if($rows["trangthai"]==1)
+        else{
+            $row = $login->data;
+            //Dang nhap thanh cong
+            if($row != null)
             {
-                $_SESSION["logined"] = "OK";
-                $_SESSION["user"] = $row["username"];
-
-                $alert = "Dang nhap thanh cong";
-                $ctn_link = "";
-                //hien thi modal thong bao ket qua
-                require("");
+                if($row["Active_status"]==1)
+                {
+                    $_SESSION["logined"] = "OK";
+                    $_SESSION["user"] = $row["Email"];
+                    $alert_title="Dang nhap thanh cong";
+                    $alert = "Dang nhap thanh cong";
+                    require_once("../views/includes/alert.php");
+                }
+                else
+                {   
+                    $alert_title="Tai khoan da bi khoa";
+                    $alert = "Tai khoan da bi khoa";
+                    require_once("../views/includes/alert.php");
+                }
             }
             else
             {
-                $alert = "Tai khoan da bi khoa";
-                //Tiep tuc form login
-                $ctn_link = "";
-                //hien thi modal thong bao ket qua
-                require("");
+                $alert_title = "Dang nhap sai user hoac password";
+                $alert = "Vui long dang nhap lai";
+                require_once("../views/includes/alert.php");
             }
         }
-        else
-        {
-            $alert = "Dang nhap sai user hoac password";
-            //tiep tuc dang nhap
-            $ctn_link = "";
-            //hien thi modal thong bao ket qua dang nhap
-            require("");
-        } 
-    }
-}
+         
+    
+
 ?>

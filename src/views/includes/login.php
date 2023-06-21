@@ -9,7 +9,7 @@
             <div class="modal-dialog modal-dialog-centered first-steps">
                 <div class="modal-content first-steps-inner">
                     <h5 class="modal-title mb-4 text-center">Welcome to AGURI!</h5>
-                    <form method="post" name="frmlogin" id="frmlogin" action="xulylogin.php">
+                    <form method="post" name="frmlogin" id="frmlogin" action="../controllers/xulylogin.php">
                         <div class="mb-3">
                             <label for="email">Email address</label>
                             <input class="inpu" type="text" name="temail" id="temail">
