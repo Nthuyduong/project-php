@@ -29,9 +29,6 @@
                         <li>
                             <a href="admin_category.php">Category</a>
                         </li>
-                        <li>
-                            <a href="admin_subcate.php">Sub-category</a>
-                        </li>
                     </ul>
                 <li>
                     <a href="admin_order.php">
