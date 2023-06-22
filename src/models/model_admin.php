@@ -15,7 +15,7 @@ class model_admin
     function CheckAccount($user, $pass)
     {
         //Select username va password tu bang Admin trong Project2
-        $sql = "SELECT * FORM Admin WHERE username=? and password=?";
+        $sql = "SELECT * FROM Admins WHERE Email=? and Password=?";
         $data[] = [$user,$pass];
         $ketqua = $this->conn->set_query($sql,$data);
         //Luu ket qua vao $data
