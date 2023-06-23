@@ -12,9 +12,9 @@ class model_login extends Database
     public function CheckLogin($user, $pass)
     {
         //Select username va password tu bang Admin trong Project2
-        $sql = "SELECT * FROM Admins WHERE Email=? AND Password=?";
-        $param = [$user];
-        $param = [md5($pass)];
+        $sql = "SELECT * FROM Admins WHERE Email=? AND Password =? ";
+        $param []= $user;
+        $param []= $pass;
         $ketqua = $this->set_query($sql,$param);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();

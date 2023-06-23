@@ -8,14 +8,12 @@
 
     function __construct()
     {   
-    
-    
         try
         {   
             //TTMH test local db
-            $this->conn = new PDO("mysql:host = localhost, dbname = T2207E_PHP_TestProject_TTMH2", "root", "root");
-            //$this->conn = new PDO("mysql:host = localhose, dbname = Project2", "root", "root");
-            $this->conn->query("SET NAMES UTF8");
+            $this->conn = new PDO("mysql:host=localhost;dbname=T2207E_PHP_TestProject_TTMH", "root", "root");
+            //$this->conn = new PDO("mysql:host = localhost, dbname = Project2", "root", "root");
+            $this->conn->exec("SET NAMES UTF8");
         }
         catch(PDOException $ex)
         {
@@ -27,7 +25,7 @@
     //Ham thuc thi dùng chung cho SELECT, INSERT, UPDATE, UPDATE
     //$sql: Cau lenh SQL can thuc thi
     //$data: mang chua du lieu
-    function set_query($sql, $param = null)
+    function set_query($sql, $param =NULL)
     {   
         $ketqua=FALSE;
         if($this->conn ==NULL)
