@@ -177,12 +177,14 @@ ul{
     padding: 8px 24px;
     border: none;
     background-color: #6A7CE9;
+    text-align: center;
   }
   .btn-lg-sc-admin{
     color: #fff;
     border: none;
     padding: 8px 24px;
     background-color: #E96A6A;
+    text-align: center;
   }
   .order-div{
     background-color: #2E303A;
@@ -526,4 +528,10 @@ ul.progressbar{
 }
 .alert-content a{
   color: #6A7CE9;
+}
+.logout-btn{
+  position: absolute;
+  bottom: 10%;
+  margin-left: 10px;
+  margin-right: 10px;
 }

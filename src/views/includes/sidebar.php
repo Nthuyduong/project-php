@@ -41,6 +41,7 @@
                     </a>
                 <li>
             </ul>
+            <div class="logout-btn btn-lg-pr-admin">Log out</div>
         </div>
         <script>
                 window.addEventListener("DOMContentLoaded", function() {
@@ -57,5 +58,5 @@
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
                 }
-            </script>
+        </script>
 </html>
