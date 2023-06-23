@@ -31,20 +31,20 @@ else{
             $_SESSION["user"] = $row["Email"];
             $alert_title="Dang nhap thanh cong";
             $alert = "Dang nhap thanh cong";
-            
+            $link_tieptuc="../views/index/admin_dashboard.php";
         }
         else
         {   
             $alert_title="Tai khoan da bi khoa";
-            $alert = "Tai khoan da bi khoa";
-         
+            $alert = "Vui long dang nhap tai khoan khac";
+            $link_tieptuc="../views/index/admin_login.php";
         }
     }
     else
     {
         $alert_title = "Dang nhap sai user hoac password";
         $alert = "Vui long dang nhap lai";
-      
+        $link_tieptuc="../views/index/admin_login.php";
     }
 }    
 require_once("../views/includes/alert.php")

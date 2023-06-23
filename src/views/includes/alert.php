@@ -15,7 +15,7 @@
           <p><?=$alert?></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <p><a href="<?=$link_tieptuc?>">Tiếp tục</a></p>
         </div>
       </div>
       
