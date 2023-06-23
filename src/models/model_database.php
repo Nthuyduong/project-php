@@ -2,18 +2,18 @@
  class Database
  {
     //PDO ket noi CSDL
-    public $conn = null;
+    public $conn= NULL;
     //Doi tuong PDOStatement
-    public $pdo_stm = null;
+    public $pdo_stm=NULL;
 
-    public function ConnectDB()
-    {
+    function __construct()
+    {   
         try
         {   
             //TTMH test local db
-            $this->conn = new PDO("mysql:host = localhose, dbname = T2207E_PHP_TestProject_TTMH2", "root", "root");
-            //$this->conn = new PDO("mysql:host = localhose, dbname = Project2", "root", "root");
-            $this->conn->query("SET NAMES UTF8");
+            $this->conn = new PDO("mysql:host=localhost;dbname=T2207E_PHP_TestProject_TTMH", "root", "root");
+            //$this->conn = new PDO("mysql:host = localhost, dbname = Project2", "root", "root");
+            $this->conn->exec("SET NAMES UTF8");
         }
         catch(PDOException $ex)
         {
@@ -25,15 +25,20 @@
     //Ham thuc thi dùng chung cho SELECT, INSERT, UPDATE, UPDATE
     //$sql: Cau lenh SQL can thuc thi
     //$data: mang chua du lieu
-    public function set_query($sql, $data = null)
-    {
+    function set_query($sql, $param =NULL)
+    {   
+        $ketqua=FALSE;
+        if($this->conn ==NULL)
+        {
+            return FALSE;
+        }
         $this->pdo_stm = $this->conn->prepare($sql);
-        $ketqua = false;
-        if($data != null)
-            $ketqua = $this->pdo_stm->execute($data);
-        else
-            $ketqua = $this->pdo_stm->execute();
+        if($param==NULL)//thực thi $sql không tham số ?
+            $ketqua = $this->pdo_stm->execute(); 
+        else//thực thi $sql binding tham số ? với giá trị mảng $pamram
+            $ketqua = $this->pdo_stm->execute($param);
         return $ketqua;
 
     }
  }
+ ?>
