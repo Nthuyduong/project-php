@@ -283,11 +283,11 @@
                             <div class="col-6">
                                 <div class="mb-3">
                                     <div class="mdt mb-1">Product's Name</div>
-                                    <input class="w-100" name="prdname" id="prdname" placeholder="Product's name/title"/>
+                                    <input class="" name="prdname" id="prdname" placeholder="Product's name/title"/>
                                 </div>
                                 <div>
                                     <div class="mdt mb-1">Product's Unit</div>
-                                    <input class="w-100" name="prdunit" id="prdunit" placeholder="Product's name/title"/>
+                                    <input class="" name="prdunit" id="prdunit" placeholder="Product's name/title"/>
                                 </div>
                                 <div class="my-3">
                                     <div class="md mb-1">Product's Price</div>
@@ -312,9 +312,42 @@
                                     <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category"/>
                                 </div>
                             </div>
-                            <div classs="col-6">
-                                <div>Product's Image</div>
-                                
+                            <div class="col-6">
+                                <div class="mdt mb-1">Product's Image</div>
+                                <div class="drag-drop">
+                                    <input type="file" id="file-input" />
+                                    <div class="drag-drop-text">
+                                        <p>Drag and drop an image file here</p>
+                                        <p>Only *.png, *,webp, *.jpeg will be accepted</p>
+                                    </div>
+                                </div>  
+                                <!-- image drag will goes here -->
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div>
+                                            <img src="#">
+                                        </div>
+                                        <div>Default image</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div>
+                                            <img src="#">
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div>
+                                            <img src="#">
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div>
+                                            <img src="#">
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
