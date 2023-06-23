@@ -2,8 +2,14 @@ body{
   background-color: #121317;
   color: #fff;
 }
+input{
+  color: #fff !important;
+}
 .wt-color{
   color: #fff !important;
+}
+.mb-30{
+  margin-bottom: 30px;
 }
 .nav-title{
   margin-left:20px;
@@ -12,6 +18,11 @@ body{
   height:1px;
   background-color: #fff;
   width: 100%;
+}
+.tb-title{
+  color: #6A7CE9;
+  font-size: 18px;
+  font-weight: 700;
 }
 .db-title{
     font-family: 'Futura PT', sans-serif;
@@ -139,6 +150,9 @@ ul{
     flex-direction: column;
     margin-top: 40px;
   }
+  .tb-row2{
+    border-bottom: none !important;
+  }
   .tb-row{
     display: flex;
     flex-direction: row;
@@ -209,11 +223,13 @@ ul{
     text-overflow: clip;
   }
   .cell-sm{
+    margin: auto;
     flex-grow: 0.5;
     flex-shrink: 0;
     flex-basis: 0;
   }
 .cell-ssm{
+  margin: auto;
   flex-grow: 0.2;
   flex-shrink: 0;
   flex-basis: 0;
@@ -303,6 +319,10 @@ ul{
 input{
   padding: 8px;
   width: 100%;
+}
+input:focus-visible{
+  
+  outline: none !important;
 }
 input:checked + .slider {
   background-color: #6A7CE9;
@@ -407,9 +427,103 @@ select{
   padding: 30px 0px 0px 0px !important;
 }
 /* STYLE FOR ORDER DETAIL DIV */
-.detail-div.tbl{
+.detail-div{
   padding: 20px 20px;
   background-color: #2E303A;
   border-radius: 4px;
-
+}
+/* Track order */
+#trackorder{
+  left: 8% !important;
+}
+#trackorder .modal-dialog{
+  max-width: 940px !important;
+}
+.modal-dialog .modal-content{
+  background-color: #2E303A !important;
+}
+/* Progress bar */
+ul.progressbar{
+  margin-block-start: 0px !important;
+  padding-inline-start: 0px !important;
+}
+.progressbar {
+  counter-reset: step;
+}
+.progressbar li {
+  list-style: none;
+  display: inline-block;
+  width: 23%;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 40px;
+  height: 40px;
+  line-height : 40px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: #fff;
+}
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  top: 20px;
+  left: -50%;
+  z-index : -1;
+}
+.progressbar li:first-child:after {
+  content: none;
+}
+.progressbar li.active {
+  color: #fff;
+}
+.progressbar li.active:before {
+  border-color: #6A7CE9;
+  background-color: #6A7CE9;
+}
+.progressbar li.active + li:after {
+  background-color: #6A7CE9;
+}
+.not-active{
+  color: #666;
+}
+/* breadcrumb */
+.breadcrumb{
+  margin-top: 30px;
+}
+.breadcrumb-item a{
+  color: #fff;
+}
+/* CUSTOMER INFOR */
+#customer-detail .modal-dialog{
+  max-width: 960px !important;
+}
+#customer-detail .modal-body{
+  padding-bottom: 0px !important;
+  padding-bottom: 30px !important
+}
+#customer-detail{
+  left: 8% !important;
+}
+/* CHECK LOGIN FILE */
+#AlertLogin{
+  position: relative;
+  top: 80%;
+  background-color: #1A1C23;
+}
+.alert-dialog{
+  padding: 30px 20px;
+}
+.alert-content a{
+  color: #6A7CE9;
 }
