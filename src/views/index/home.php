@@ -10,15 +10,6 @@
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
-    <div>
-            <?php include '../includes/login.php';?>
-        </div>
-        <div>
-            <?php include '../includes/forgot-pass.php'; ?>
-        </div>
-        <div>
-            <?php include '../includes/sign-up.php'; ?>
-        </div>
         <div>
             <?php require '../includes/quickview.php';?>
         </div>

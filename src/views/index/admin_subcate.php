@@ -47,19 +47,13 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
                                 <button class="w-100 btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#addsubcate" aria-controls="addsubcate">Add Sub-category</button>
                             </div>
                             <div class="col-3">
                                 <button class="w-100 btn-lg-sc-admin">Delete Sub-category</button>
+                            </div>
+                            <div class="col-3">
+                                <button class="w-100 btn-lg-sc-admin">Change Status</button>
                             </div>
                         </div>
                         <div class="line my-4"></div>
@@ -76,13 +70,13 @@
                             <div class="cell">
                                 SUB-CATEGORY'S NAME
                             </div>
+                            <div class="cell alg-center">
+                                CATEGORY
+                            </div>
                             <div class="cell-md">
                                 DESCRIPTION
                             </div>
                             <div class="cell alg-center">
-                                PUBLISH
-                            </div>
-                            <div class="cell">
                                 ACTION
                             </div>
                         </div>
@@ -92,16 +86,10 @@
                             </div>
                             <div class="cell-sm">12345</div>
                             <div class="cell">Sub-category name</div>
+                            <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center">
-                                <label class="switch">
-                                    <input type="checkbox" checked/>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class=" ms-3 fas fa-trash"></i>
+                                <div class="stt stt1"> Active</div>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -110,16 +98,10 @@
                             </div>
                             <div class="cell-sm">12345</div>
                             <div class="cell">Sub-category name</div>
+                            <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
-                                <label class="switch">
-                                    <input type="checkbox" checked/>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="ms-3 fas fa-trash"></i>
+                            <div class="cell">
+                                <div class="stt stt1">Active</div>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -128,16 +110,10 @@
                             </div>
                             <div class="cell-sm">12345</div>
                             <div class="cell">Sub-category name</div>
+                            <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
-                                <label class="switch">
-                                    <input type="checkbox" checked/>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="ms-3 fas fa-trash"></i>
+                            <div class="cell">
+                                <div class="stt stt3">Inactive</div>
                             </div>
                         </div>
                         <div class="tb-row">
@@ -146,16 +122,10 @@
                             </div>
                             <div class="cell-sm">12345</div>
                             <div class="cell">Sub-category name</div>
+                            <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
-                                <label class="switch">
-                                    <input type="checkbox" checked/>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="ms-3 fas fa-trash"></i>
+                            <div class="cell">
+                                <div class="stt stt3">Inactive</div>
                             </div>
                         </div>
                     </div>
@@ -206,9 +176,9 @@
                     <div class="box__success">Done!</div>
                     <div class="box__error">Error! <span></span>.</div>
                 </form>
-                </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>

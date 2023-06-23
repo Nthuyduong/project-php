@@ -55,11 +55,27 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <input name="" id="" placeholder="Order date (dd/mm/yyyy)"/>
+                            <input name="" id="" placeholder="Start order (dd/mm/yyyy)"/>
+                        </div>
+                        <div class="col-3">
+                            <input name="" id="" placeholder="End order (dd/mm/yyyy)"/>
+                        </div>
+                    </div>
+                    <!-- them chuc nang chon theo phuong thuc thanh toan -->
+                    <div class="row">
+                        <div class="col-3">
+                            <select class="sl-box" name="payment" id="payment">
+                                <option>Payment method</option>
+                                <option>Visa</option>
+                                <option>Paypal</option>
+                                <option>Master Card</option>
+                            </select>
                         </div>
                         <div class="col-3">
                             <button class="btn-lg-pr-admin w-100">Download all order</button>
                         </div>
+                        <div class="col-3"></div>
+                        <div class="col-3"></div>
                     </div>
                     <div class="tbl">
                         <div class="tb-row title-row">
