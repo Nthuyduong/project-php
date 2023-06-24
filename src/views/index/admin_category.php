@@ -126,7 +126,7 @@
                                 <a href="admin_subcate.php">Ring</a>
                             </div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
+                            <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                                 <a href="admin_subcate.php">Earring</a>
                             </div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
+                            <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                                 <a href="admin_subcate.php">Necklace</a>
                             </div>
                             <div class="cell-md">category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
+                            <div class="cell alg-center stt-out">
                                 <div class="stt stt3">Inactive</div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                                 <a href="admin_subcate.php">Bracelet</a>
                             </div>
                             <div class="cell-md">Category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
+                            <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>
                             </div>
                         </div>
