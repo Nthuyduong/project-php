@@ -124,7 +124,7 @@
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell-sm">
+                            <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Sold out</div>
                             </div>
                             <div class="cell-sm togglebtn">
@@ -148,7 +148,7 @@
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell-sm">
+                            <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Sold out</div>
                             </div>
                             <div class="cell-sm togglebtn">
@@ -172,7 +172,7 @@
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell-sm">
+                            <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Sold out</div>
                             </div>
                             <div class="cell-sm togglebtn">
@@ -196,7 +196,7 @@
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell-sm">
+                            <div class="cell-sm stt-out">
                                 <div class="stt-sm stt1">
                                 Selling
                                 </div>
@@ -222,7 +222,7 @@
                             <div class="cell">Eternity</div>
                             <div class="cell">$20.000</div>
                             <div class="cell-sm">5</div>
-                            <div class="cell-sm">
+                            <div class="cell-sm stt-out">
                                 <div class="stt1 stt-sm">Selling</div>
                             </div>
                             <div class="cell-sm togglebtn">

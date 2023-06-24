@@ -108,7 +108,7 @@
                             <div class="cell-md">Nguyen Thuy Duong</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$30.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -130,7 +130,7 @@
                             <div class="cell-md">Vu Thi Hue</div>
                             <div class="cell">Master Card</div>
                             <div class="cell">$40.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt2">Processing</div>
                             </div>
                             <div class="cell">
@@ -152,7 +152,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -174,7 +174,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -196,7 +196,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -218,7 +218,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Master Card</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -240,7 +240,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Paypal</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -262,7 +262,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -284,7 +284,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -306,7 +306,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Pending</div>
                             </div>
                             <div class="cell">
@@ -328,7 +328,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">
                                     Pending
                                 </div>
@@ -352,7 +352,7 @@
                             <div class="cell-md">Nguyen Thanh Thuy</div>
                             <div class="cell">Visa</div>
                             <div class="cell">$35.000</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt1">
                                     Pending
                                 </div>
