@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>Home</title>
+        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/fonts.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/product-detail.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
