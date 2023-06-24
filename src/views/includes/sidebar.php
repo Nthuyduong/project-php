@@ -41,7 +41,7 @@
                     </a>
                 <li>
             </ul>
-            <div class="logout-btn btn-lg-pr-admin">Log out</div>
+            <div class="w-100 logout-btn btn-lg-pr-admin">Log out</div>
         </div>
         <script>
                 window.addEventListener("DOMContentLoaded", function() {
