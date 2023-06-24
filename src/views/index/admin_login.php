@@ -34,7 +34,7 @@
                                     <div class="db-title mb-2">WELCOME BACK!</div>
                                     <div>Have a nice day!</div>
                                 </div>
-                                <form name="formLoginAdmin" method="post" action="../../controllers/controller_login.php">
+                                <form name="formLoginAdmin" method="post" action="../../controllers/controller_login_admin.php">
                                     <div class="mb-4">
                                         <label for="admail">Email address *</label>
                                         <input type="text" class="forlog" name="admail" id="admail"/>

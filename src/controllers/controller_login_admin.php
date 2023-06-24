@@ -14,7 +14,7 @@ $pass = $_REQUEST["adpass"];
 $pass = md5($pass);
 $login = new model_login();
 //kiem tra tai khoan xem da login hay chua? Ham kiem tra?
-$ketqua = $login->CheckLogin($user,$pass);
+$ketqua = $login->CheckLoginAdmin($user,$pass);
 if($ketqua == false)
 {   
     $alert_title="Loi truy van CSDL";

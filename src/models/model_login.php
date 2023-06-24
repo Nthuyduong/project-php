@@ -9,10 +9,21 @@ class model_login extends Database
         parent::__construct();//gọi hàm tạo của clsDatabase để kết nối CSDL
     }
 
-    public function CheckLogin($user, $pass)
+    public function CheckLoginAdmin($user, $pass)
     {
         //Select username va password tu bang Admin trong Project2
         $sql = "SELECT * FROM Admins WHERE Email=? AND Password =? ";
+        $param []= $user;
+        $param []= $pass;
+        $ketqua = $this->set_query($sql,$param);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+    public function CheckLoginUser($user, $pass)
+    {
+        //Select username va password tu bang Admin trong Project2
+        $sql = "SELECT * FROM Customers WHERE Email=? AND Password =? ";
         $param []= $user;
         $param []= $pass;
         $ketqua = $this->set_query($sql,$param);
