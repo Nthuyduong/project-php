@@ -88,7 +88,7 @@
                             <div class="cell">Sub-category name</div>
                             <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center">
+                            <div class="cell alg-center stt-out">
                                 <div class="stt stt1"> Active</div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                             <div class="cell">Sub-category name</div>
                             <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell">
+                            <div class="cell stt-out>
                                 <div class="stt stt1">Active</div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                             <div class="cell">Sub-category name</div>
                             <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt3">Inactive</div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             <div class="cell">Sub-category name</div>
                             <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <div class="stt stt3">Inactive</div>
                             </div>
                         </div>
