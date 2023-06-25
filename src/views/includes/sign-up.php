@@ -22,6 +22,14 @@
                         </div>
                     </div>
                     <div class="my-3">
+                        <label for="address">Address</label>
+                        <input class="inpu" type="text" name="txtemail" id="txtemail" required>
+                    </div>
+                    <div class="my-3">
+                        <label for="phone">Phone number</label>
+                        <input class="inpu" type="text" name="txtemail" id="txtemail" required>
+                    </div>
+                    <div class="my-3">
                         <label for="email">Email address</label>
                         <input class="inpu" type="text" name="txtemail" id="txtemail" required>
                     </div>

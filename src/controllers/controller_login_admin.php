@@ -27,7 +27,7 @@ else{
     {
         if($row["Active_status"]==1)
         {
-            $_SESSION["logined"] = "OK";
+            $_SESSION["logined_admin"] = "OK";
             $_SESSION["user"] = $row["Email"];
             $alert_title="Dang nhap thanh cong";
             $alert = "Dang nhap thanh cong";
