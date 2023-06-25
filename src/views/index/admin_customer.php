@@ -1,4 +1,8 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php
+session_start();
+require("../../core/checklogin.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>

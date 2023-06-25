@@ -37,11 +37,11 @@
                                 <form name="formLoginAdmin" method="post" action="../../controllers/controller_login_admin.php">
                                     <div class="mb-4">
                                         <label for="admail">Email address *</label>
-                                        <input type="text" class="forlog" name="admail" id="admail"/>
+                                        <input type="text" class="forlog" name="admail" id="admail" required/>
                                     </div>
                                     <div>
                                         <label for="adpass">Password *</label>
-                                        <input type="password" class="forlog" name="adpass" id="adpass"/>
+                                        <input type="password" class="forlog" name="adpass" id="adpass" required/>
                                     </div>
                                     <input class= "mt-5 w-100 btn-lg-pr-admin" type="submit" name="b1" id="b1" value="Log in">
                                 </form>

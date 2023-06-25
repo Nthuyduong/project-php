@@ -11,12 +11,12 @@
                     <h5 class="modal-title mb-4 text-center">Welcome to AGURI!</h5>
                     <form method="post" name="frmlogin" id="frmlogin" action="../../controllers/controller_login_user.php">
                         <div class="mb-3">
-                            <label for="email">Email address</label>
-                            <input class="inpu" type="text" name="temail" id="temail">
+                            <label for="email">Email address *</label>
+                            <input class="inpu" type="text" name="temail" id="temail" required>
                         </div>
                         <div>
-                            <label for="psw">Password</label>
-                            <input class="inpu" type="password" name="tpass" id="tpass">
+                            <label for="psw">Password *</label>
+                            <input class="inpu" type="password" name="tpass" id="tpass" required>
                         </div>
                             <button type="submit" class="btn btn-pri my-4 w-100" name="b1" id="id" value="Dong y">Sign in</button>
                         <div class="d-flex sign-in-content">
