@@ -3,8 +3,10 @@ body{
   color: #fff;
 }
 input{
-  color: #fff !important;
+  background-color: #2E303A !important;
+  color: #333 !important;
 }
+
 .wt-color{
   color: #fff !important;
 }
@@ -329,7 +331,6 @@ input{
   width: 100%;
 }
 input:focus-visible{
-  
   outline: none !important;
 }
 input:checked + .slider {
@@ -538,11 +539,14 @@ ul.progressbar{
 .logout-btn{
   position: absolute;
   bottom: 5%;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .stt-out{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.modal-backdrop.show {
+  opacity: 0 !important;
 }

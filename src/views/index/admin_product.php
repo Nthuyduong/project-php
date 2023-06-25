@@ -95,18 +95,22 @@
                                 
                             </div>
                         </div>
+                        <?php
+                            foreach($rows as $row)
+                        {
+                        ?>
                         <div class="tb-row">
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">img</div>
-                            <div class="cell">Amee Diamond Ring</div>
-                            <div class="cell-sm">Ring</div>
-                            <div class="cell">Eternity</div>
-                            <div class="cell">$20.000</div>
-                            <div class="cell-sm">5</div>
+                            <div class="cell"><?=$row["name"]?></div>
+                            <div class="cell-sm"><?=$row["category"]?></div>
+                            <div class="cell"><?=$row["sub-category"]?></div>
+                            <div class="cell"><?=$row["price"]?></div>
+                            <div class="cell-sm"><?=$row["stock"]?></div>
                             <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3">Sold out</div>
+                                <div class="stt-sm stt3"><?=$row["status"]?></div>
                             </div>
                             <div class="cell-sm togglebtn">
                                 <label class="switch">
@@ -219,6 +223,9 @@
                                 <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="d-flex pgn">
                         <div class="me-auto">Showing 8 of 100</div>
@@ -233,6 +240,7 @@
                 </div>
             </div>
         </div>
+        <!-- ADD NEW PRODUCT HERE -->
         <div class="offcanvas offcanvas-end offcanvasfull" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <div>
@@ -336,35 +344,33 @@
                         <div class="row">
                             <div class="col-3">
                                 <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
+                                    <option value="" disabled selected>Choose Combination</option>
+                                    <option>Jewelry Type</option>
+                                    <option>Material</option>
                                     <option>Necklace</option>
                                     <option>Bracelet</option>
                                 </select>
                             </div>
                             <div class="col-3">
                                 <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
+                                    <option value="" disabled selected>Jewelry Type</option>
+                                    <option>Natural Diamond</option>
+                                    <option>Lab-grown Diamond</option>
                                 </select>
                             </div>
                             <div class="col-3">
                                 <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
+                                    <option value="" disabled selected>Material</option>
+                                    <option>Gold</option>
+                                    <option>Rose Gold</option>
+                                    <option>White Gold</option>
+                                    <option>Sterling Silver</option>
                                 </select>
                             </div>
                             <div class="col-3">
                                 <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
+                                    <option value="" disabled selected>Size</option>
+                                    <option></option>
                                     <option>Earring</option>
                                     <option>Necklace</option>
                                     <option>Bracelet</option>

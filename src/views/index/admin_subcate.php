@@ -125,9 +125,8 @@
         </div>
         <div class="offcanvas offcanvas-end offcavasmd" tabindex="-1" id="addsubcate" aria-labelledby="addsubcateLabel">
             <div class="offcanvas-header">
-                <div>
-                    <div class="db-title">ADD SUB-CATEGORY<div>
-                    <div>Upload Sub-category's Information Here!</div>
+                <div class="">
+                    <div class="mb-3 db-title">ADD SUB-CATEGORY<div>
                 </div>
                 <div class="line"></div>
             </div>
