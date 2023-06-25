@@ -8,71 +8,10 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
     </head>
     <body>
-        <div>
-            <?php require_once '../includes/sidebar.php';?>
-        </div>
-        <div id="mySidenav" class="sidenav">
-            <div class="">
-                <div class="nav-close d-flex">
-                    <h5 class="text-light nav-title">AGURI ADMIN</h3>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                </div>
-            </div>
-            <ul class="sideNav-content">
-                <li>
-                    <a href="admin_dashboard.php">
-                        <i class="fas fa-th-large pe-2"></i>Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fab fa-slack pe-2"></i><span>Catalog</span>
-                    </a>
-                </li>
-                    <ul class="catalog-dropdown">
-                        <li>
-                            <a href="admin_product/php">Products</a>
-                        </li>
-                        <li>
-                            <a href="admin_category.php">Category</a>
-                        </li>
-                        <li>
-                            <a href="admin_subcate.php">Sub-category</a>
-                        </li>
-                    </ul>
-                <li>
-                    <a href="admin_order.php">
-                        <i class="fas fa-shopping-cart pe-2"></i><span>Order</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-user-friend pe-2"></i><span>Customer</span>
-                    </a>
-                <li>
-            </ul>
-        </div>
+        <?php require_once '../includes/sidebar.php';?>
+        
         <div id="main">
-            <!-- THIS IS HEADER -->
-            <div class="admin-nav d-flex">
-                <div class="nav-admin-start me-auto">
-                    <span style="cursor:pointer" onclick="openNav()">
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </div>
-                <div class="nav-admin-end d-flex">
-                    <div>
-                        <a style="cursor:pointer" href="#">
-                            <i class="fas fa-bell"></i>
-                        </a>
-                    </div>
-                    <div class="ms-3">
-                        <a style="cursor:pointer" href="#">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <?php require '../includes/ad-header.php'?>
             <!-- THIS IS ALL CONTENT -->
             <div>
                 <!-- Product here -->

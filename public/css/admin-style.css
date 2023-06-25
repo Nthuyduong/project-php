@@ -75,6 +75,12 @@ input{
 ul{
     list-style-type: none;
 }
+a{
+  text-decoration: none !important;
+}
+ul a{
+  color: #fff !important;
+}
 .sideNav-content{
     padding-left: 20px;
 }
@@ -534,4 +540,9 @@ ul.progressbar{
   bottom: 5%;
   margin-left: 10px;
   margin-right: 10px;
+}
+.stt-out{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

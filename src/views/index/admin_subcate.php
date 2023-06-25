@@ -8,30 +8,11 @@
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
     </head>
     <body>
-        <div>
-            <?php require_once '../includes/sidebar.php';?>
-        </div>
+        <?php require_once '../includes/sidebar.php';?>
+        
         <div id="main">
             <!-- THIS IS HEADER -->
-            <div class="admin-nav d-flex">
-                <div class="nav-admin-start me-auto">
-                    <span style="cursor:pointer" onclick="openNav()">
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </div>
-                <div class="nav-admin-end d-flex">
-                    <div>
-                        <a style="cursor:pointer" href="#">
-                            <i class="fas fa-bell"></i>
-                        </a>
-                    </div>
-                    <div class="ms-3">
-                        <a style="cursor:pointer" href="#">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <?php require '../includes/ad-header.php'?>
             <!-- THIS IS ALL CONTENT -->
             <div>
                 <!-- Product here -->
@@ -100,7 +81,7 @@
                             <div class="cell">Sub-category name</div>
                             <div class="cell alg-center">Ring</div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell stt-out>
+                            <div class="cell stt-out">
                                 <div class="stt stt1">Active</div>
                             </div>
                         </div>
