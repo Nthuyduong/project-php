@@ -1,9 +1,5 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
+
     <div id="mySidenav" class="sidenav">
             <div class="">
                 <div class="nav-close d-flex">
@@ -61,4 +57,3 @@
                 document.getElementById("main").style.marginLeft= "0";
                 }
         </script>
-</html>

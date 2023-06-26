@@ -12,12 +12,9 @@ session_start();
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
-        <div>
-            <?php require '../includes/quickview.php';?>
-        </div>
-        <div>
-            <?php require '../includes/header.php';?>
-        </div>
+        <?php require '../includes/quickview.php';?>
+        <?php require '../includes/header.php';?>
+        
         <div>
             <div class="ctg">
                 <div class="row ctg-inner">

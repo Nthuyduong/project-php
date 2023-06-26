@@ -8,11 +8,11 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h4 class="modal-title"><?=$alert_title?></h4>
+          <h4 class="modal-title alert-txt"><?=$alert_title?></h4>
+          <button type="button" class="alert-btn close" data-dismiss="modal">×</button>
         </div>
         <div class="modal-body">
-          <p><?=$alert?></p>
+          <p class="alert-txt"><?=$alert?></p>
         </div>
         <div class="modal-footer">
           <p><a href="<?=$link_tieptuc?>">Tiếp tục</a></p>

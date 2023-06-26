@@ -118,7 +118,6 @@ session_start();
                 <?php
                 }
                 ?>
-
                 <!--NAVBAR-->
                 <nav class="section header">
                     <div class="container navbar-here border-0">

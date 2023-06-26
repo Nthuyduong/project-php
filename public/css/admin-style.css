@@ -2,8 +2,12 @@ body{
   background-color: #121317;
   color: #fff;
 }
+input.black{
+  color: #fff;
+  background-color: #2E303A !important;
+}
 input{
-  color: #fff !important;
+  color: #333;
 }
 .wt-color{
   color: #fff !important;
@@ -53,7 +57,9 @@ input{
     font-size:14px;
     font-weight: 400;
   }
-
+  a:hover{
+    color: #fff !important;
+  }
   .overview-card{
     text-align: center;
   }
@@ -74,6 +80,12 @@ input{
   }
 ul{
     list-style-type: none;
+}
+a{
+  text-decoration: none !important;
+}
+ul a{
+  color: #fff !important;
 }
 .sideNav-content{
     padding-left: 20px;
@@ -323,7 +335,6 @@ input{
   width: 100%;
 }
 input:focus-visible{
-  
   outline: none !important;
 }
 input:checked + .slider {
@@ -532,6 +543,20 @@ ul.progressbar{
 .logout-btn{
   position: absolute;
   bottom: 5%;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.stt-out{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-backdrop.show {
+  opacity: 0 !important;
+}
+.alert-txt{
+  color: #fff;
+}
+.alert-btn{
+  margin-left: auto;
 }

@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>Home</title>
+        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/fonts.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/product-detail.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
@@ -67,9 +68,9 @@
                         <p class="mdt me-auto">Quantity</p>
                         <div class="quantity">
                             <form id='myform' method='POST' class='quantity' action='#'>
-                            <i class="fa-solid fa-minus"></i>
+                            <i class="fas fa-minus"></i>
                             <input type='text' name='quantity' value='1' class='qty' />
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fas fa-plus"></i>
                             </form>
                         </div>
                         </div>
@@ -226,10 +227,10 @@
                                 <p class="mdt">$11,700</p>
                             </div>
                             <div class="row offcanvas-btn">
-                                <div class="col-6 offcanvas-checkbox">
+                                <div class="ps-0 col-6 offcanvas-checkbox">
                                 <button class="btn btn-sec btnlg mt-3 w-100" type="button" hrefk="check-out.php">Checkout</button>
                                 </div>
-                                <div class="col-6 offcanvas-cart">
+                                <div class="pe-0 col-6 offcanvas-cart">
                                 <button class="btn btn-pri btnlg mt-3 w-100" type="button" href="cart.php">View Cart</button>
                                 </div>
                             </div>
@@ -793,7 +794,7 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
@@ -822,7 +823,7 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
@@ -851,36 +852,7 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="line mb-3"></div>
-                    <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
-                        <span class="smt">2022/12/02</span>
-                        </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa-star fa"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
@@ -909,7 +881,36 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
+                            <span class="smt ms-2">19</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="line mb-3"></div>
+                    <div class="d-flex review-inner">
+                    <div class="review-ava">
+                        <img src="../../../public/images/product-detail/user1.png">
+                    </div>
+                    <div class="review-content w-100 ms-3">
+                        <div class="d-flex">
+                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
+                        <span class="smt">2022/12/02</span>
+                        </div>
+                        <div>
+                        <div class="d-flex rate-start">
+                            <i class="fa-star fa"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        </div>
+                        <div class="d-flex">
+                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
+                            say for certain what you’ll need to adjust it to.</p>
+                        <div class="like-review">
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
