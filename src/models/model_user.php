@@ -19,6 +19,16 @@ class model_user extends Database
             $this->data = $this->pdo_stm->fetch();
         return $ketqua;
     }
-    function AddUserAccount($)
+    function AddUserAccount($name,$address,$phone,$email,$pass){
+        $sql="INSERT INTO Customers(Address,Name,Phone,Email,Password,Active_status)
+        VALUE(?,?,?,?,?,1)";
+        $param[]=$address;
+        $param[]=$name;
+        $param[]=$phone;
+        $param[]=$email;
+        $param[]=$pass;
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
 }
 ?>
