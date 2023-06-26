@@ -10,7 +10,7 @@
         <div class="modal-dialog modal-dialog-centered first-steps">
             <div class="modal-content first-steps-inner">
                 <h5 class="modal-title mb-4 text-center">Hello, Friend!</h5>
-                <form name="frmsignup" id="frmsignup" method="post" action="">
+                <form name="frmsignup" id="frmsignup" method="post" action="../../controllers/controller_user_add.php">
                     <div class="row">
                         <div class="col-6 ps-0">
                             <label>First name</label>
@@ -20,6 +20,14 @@
                             <label>Last name</label>
                             <input class="inpu" type="text" name="lname" id="lname" required><br>
                         </div>
+                    </div>
+                    <div class="my-3">
+                        <label for="address">Address</label>
+                        <input class="inpu" type="text" name="txtemail" id="txtemail" required>
+                    </div>
+                    <div class="my-3">
+                        <label for="phone">Phone number</label>
+                        <input class="inpu" type="text" name="txtemail" id="txtemail" required>
                     </div>
                     <div class="my-3">
                         <label for="email">Email address</label>

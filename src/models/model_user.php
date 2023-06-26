@@ -1,24 +1,33 @@
 <?php
-require_once('config/database.php');
+require_once("model_database.php");
 
 class model_user extends Database
 {
-    public $conn;
     public $data;
-    function UserCnn()
+    function __construct()
     {
-        $this->conn = new Database();
-        $this->data = array();
+        parent::__construct();//gọi hàm tạo của clsDatabase để kết nối CSDL
     }
-    function CheckUserAccount($email,$pass)
+    //check email này tồn tại trong CSDL chưa
+    function CheckUserAccount($email)
     {
-        $sql = "SELECT * FROM Customers WHERE email=? and password=?";
-        $data[] = $email;
-        $data[] = $pass;
-        $ketqua = $this->conn->set_query($sql,$data);
+        $sql = "SELECT * FROM Customers WHERE Email=?";
+        $param[] = $email;
+        $ketqua = $this->set_query($sql,$param);
         $this->data=null;
         if($ketqua == true)
-            $this->data = $this->conn->pdo_stm->fetchAll();
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+    function AddUserAccount($name,$address,$phone,$email,$pass){
+        $sql="INSERT INTO Customers(Address,Name,Phone,Email,Password,Active_status)
+        VALUE(?,?,?,?,?,1)";
+        $param[]=$address;
+        $param[]=$name;
+        $param[]=$phone;
+        $param[]=$email;
+        $param[]=$pass;
+        $ketqua = $this->set_query($sql,$param);
         return $ketqua;
     }
 }
