@@ -12,30 +12,10 @@ require("../../core/checklogin.php");
         <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
     </head>
     <body>
-        <div>
-            <?php require_once '../includes/sidebar.php';?>
-        </div>
+        <?php require_once '../includes/sidebar.php';?>
+        
         <div id="main">
-            <!-- THIS IS HEADER -->
-            <div class="admin-nav d-flex">
-                <div class="nav-admin-start me-auto">
-                    <span style="cursor:pointer" onclick="openNav()">
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </div>
-                <div class="nav-admin-end d-flex">
-                    <div>
-                        <a class="wt-color" style="cursor:pointer" href="#">
-                            <i class="fas fa-bell"></i>
-                        </a>
-                    </div>
-                    <div class="ms-3">
-                        <a class="wt-color" style="cursor:pointer" href="#">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <?php require '../includes/ad-header.php'?>
             <!-- THIS IS ALL CONTENT -->
             <div>
                 <!-- Dashboard here -->
@@ -209,7 +189,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thuy Duong</div>
                         <div class="cell">Paypal</div>
                         <div class="cell">$30.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt3">Cancel</div>
                         </div>
                         <div class="cell">
@@ -231,7 +211,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Vu Thi Hue</div>
                         <div class="cell">Master Card</div>
                         <div class="cell">$40.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt2">Processing</div>
                         </div>
                         <div class="cell">
@@ -253,7 +233,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt1">Pending</div>
                         </div>
                         <div class="cell">
@@ -275,7 +255,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt1">Pending</div>
                         </div>
                         <div class="cell">
@@ -297,7 +277,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt3">Cancel</div>
                         </div>
                         <div class="cell">
@@ -319,7 +299,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Visa</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt4">Delivered</div>
                         </div>
                         <div class="cell">
@@ -341,7 +321,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Paypal</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt1">Pending</div>
                         </div>
                         <div class="cell">
@@ -363,7 +343,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Master Card</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt1">Pending</div>
                         </div>
                         <div class="cell action-icon">
@@ -385,7 +365,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md">Nguyen Thanh Thuy</div>
                         <div class="cell">Paypal</div>
                         <div class="cell">$35.000</div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             <div class="stt stt1">Pending</div>
                         </div>
                         <div class="cell">

@@ -1,6 +1,6 @@
 <?php
 require_once("model_database.php");
-class model_product
+class model_product extends Database
 {
     public $conn;
     //Tao mang chua san pham
