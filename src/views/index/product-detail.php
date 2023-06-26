@@ -227,10 +227,10 @@
                                 <p class="mdt">$11,700</p>
                             </div>
                             <div class="row offcanvas-btn">
-                                <div class="col-6 offcanvas-checkbox">
+                                <div class="ps-0 col-6 offcanvas-checkbox">
                                 <button class="btn btn-sec btnlg mt-3 w-100" type="button" hrefk="check-out.php">Checkout</button>
                                 </div>
-                                <div class="col-6 offcanvas-cart">
+                                <div class="pe-0 col-6 offcanvas-cart">
                                 <button class="btn btn-pri btnlg mt-3 w-100" type="button" href="cart.php">View Cart</button>
                                 </div>
                             </div>

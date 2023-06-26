@@ -2,11 +2,13 @@ body{
   background-color: #121317;
   color: #fff;
 }
-input{
+input.black{
+  color: #fff;
   background-color: #2E303A !important;
-  color: #333 !important;
 }
-
+input{
+  color: #333;
+}
 .wt-color{
   color: #fff !important;
 }
@@ -55,7 +57,9 @@ input{
     font-size:14px;
     font-weight: 400;
   }
-
+  a:hover{
+    color: #fff !important;
+  }
   .overview-card{
     text-align: center;
   }
@@ -549,4 +553,10 @@ ul.progressbar{
 }
 .modal-backdrop.show {
   opacity: 0 !important;
+}
+.alert-txt{
+  color: #fff;
+}
+.alert-btn{
+  margin-left: auto;
 }

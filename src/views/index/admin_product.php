@@ -21,14 +21,14 @@
                 <div>
                     <div>
                         <div class="d-flex">
-                            <button class="ms-auto btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add new product</button>
-                            <button class="ms-3 btn-lg-sc-admin">Delete product</button>
+                            <a href="#offcanvasRight" class="ms-auto btn-lg-pr-admin" role="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">Add new product</a>
+                            <a class="ms-3 btn-lg-sc-admin">Delete product</a>
                         </div>
                         <div class="line my-3"></div>
                         <div class="row">
                             <div class="col-3">
                                 <div className="search-bar d-flex">
-                                    <input className="search-input w-100" type="text" placeholder="Search text..." />
+                                    <input className="black search-input w-100" type="text" placeholder="Search text..." />
                                     <FontAwesomeIcon className="icon-search" icon={faSearch}/>
                                 </div>
                             </div>
@@ -62,6 +62,19 @@
                         </div>
                     </div>
                     <!-- Product table -->
+                    <!-- The php se ow day -->
+                        <!-- sử dụng biến $ketqua và $sanpham đã có bên ctlSanpham.php -->
+                        <!-- if($ketqua==FALSE) -->
+                        <!-- { -->
+                            <!-- $alert_title = "Can't Connect Database!"; -->
+                            <!-- $alert = "Please check again the database"; -->
+                            <!-- require_once("../../views/includes/alert.php"); -->
+                            <!-- die(); -->
+                        <!-- } -->
+                        <!-- lấy mảng sản phẩm từ $data của lớp clsSanpham -->
+                        <!-- $rows = $sanpham->data; -->
+                        <!-- $n = count($rows); -->
+                    
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell-ssm">
@@ -95,24 +108,54 @@
                                 
                             </div>
                         </div>
-                        <?php
-                            foreach($rows as $row)
-                        {
-                        ?>
+                        <!-- The php se o day -->
+                            <!-- foreach($rows as $row) -->
+                        <!-- { -->
+                        <!-- ?> -->
+                        <!-- <div class="tb-row">
+                            <div class="cell-ssm">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            </div>
+                            <div class="cell-sm">img</div>
+                            <div class="cell"></div>
+                            <div class="cell-sm"></div>
+                            <div class="cell"></div>
+                            <div class="cell"></div>
+                            <div class="cell-sm"></div>
+                            <div class="cell-sm stt-out">
+                                <div class="stt-sm stt3"></div>
+                            </div>
+                            <div class="cell-sm togglebtn">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="cell-sm">
+                                <!-- Chuc nang sua san pham -->
+                                <a href=""><i class="fas fa-edit" style="color: #ffffff;"></i></a>
+                                <!-- Chuc nang xoa san pham -->
+                                <a href=""><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                            </div>
+                        </div> -->
+                        <!-- Dong vong lap for each -->
+                        <!-- The php se o day -->
+                        <!-- } -->
+                        <!-- ?> -->
                         <div class="tb-row">
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">img</div>
-                            <div class="cell"><?=$row["name"]?></div>
-                            <div class="cell-sm"><?=$row["category"]?></div>
-                            <div class="cell"><?=$row["sub-category"]?></div>
-                            <div class="cell"><?=$row["price"]?></div>
-                            <div class="cell-sm"><?=$row["stock"]?></div>
+                            <div class="cell">Amee Diamond Ring</div>
+                            <div class="cell-sm">Ring</div>
+                            <div class="cell">Eternity</div>
+                            <div class="cell">$20.000</div>
+                            <div class="cell-sm">5</div>
                             <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3"><?=$row["status"]?></div>
+                                <div class="stt-sm stt3">Sold out</div>
                             </div>
-                            <div class="cell-sm togglebtn">
+                            <div class="cell-sm togglebtn stt-out">
                                 <label class="switch">
                                     <input type="checkbox" checked>
                                     <span class="slider round"></span>
@@ -136,31 +179,7 @@
                             <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Sold out</div>
                             </div>
-                            <div class="cell-sm togglebtn">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell-sm">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>
-                                <i class="fas fa-trash" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">img</div>
-                            <div class="cell">Amee Diamond Ring</div>
-                            <div class="cell-sm">Ring</div>
-                            <div class="cell">Eternity</div>
-                            <div class="cell">$20.000</div>
-                            <div class="cell-sm">5</div>
-                            <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3">Sold out</div>
-                            </div>
-                            <div class="cell-sm togglebtn">
+                            <div class="cell-sm togglebtn stt-out">
                                 <label class="switch">
                                     <input type="checkbox" checked>
                                     <span class="slider round"></span>
@@ -186,7 +205,7 @@
                                 Selling
                                 </div>
                             </div>
-                            <div class="cell-sm togglebtn">
+                            <div class="cell-sm togglebtn stt-out">
                                 <label class="switch">
                                     <input type="checkbox" checked>
                                     <span class="slider round"></span>
@@ -210,7 +229,7 @@
                             <div class="cell-sm stt-out">
                                 <div class="stt1 stt-sm">Selling</div>
                             </div>
-                            <div class="cell-sm togglebtn">
+                            <div class="cell-sm togglebtn stt-out">
                                 <div class="tgb">
                                     <label class="switch">
                                         <input type="checkbox" checked>
@@ -223,9 +242,6 @@
                                 <i class="fas fa-trash" style="color: #ffffff;"></i>
                             </div>
                         </div>
-                        <?php
-                        }
-                        ?>
                     </div>
                     <div class="d-flex pgn">
                         <div class="me-auto">Showing 8 of 100</div>
@@ -306,8 +322,8 @@
                                 <div class="drag-drop">
                                     <input type="file" id="file-input" />
                                     <div class="drag-drop-text">
-                                        <p>Drag and drop an image file here</p>
-                                        <p>Only *.png, *,webp, *.jpeg will be accepted</p>
+                                        <p class="alg-center">Drag and drop an image file here</p>
+                                        <p class="alg-center">Only *.png, *,webp, *.jpeg will be accepted</p>
                                     </div>
                                 </div>  
                                 <!-- image drag will goes here -->
@@ -347,8 +363,7 @@
                                     <option value="" disabled selected>Choose Combination</option>
                                     <option>Jewelry Type</option>
                                     <option>Material</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
+                                    <option>Size</option>
                                 </select>
                             </div>
                             <div class="col-3">

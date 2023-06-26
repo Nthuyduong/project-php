@@ -18,7 +18,7 @@
             <?php include 'bag.php'; ?>
         </div>
             <div id="headnav">
-                <!--HEADER-->
+                <!--HEADER DEFAULT-->
                 <header class="section top-page">
                     <div class="header card-header border-0 container-fluid">
                         <div class="row header-inner">
@@ -59,6 +59,7 @@
                         </div>
                     </div>
                 </header>
+
                 <!--NAVBAR-->
                 <nav class="section header">
                     <div class="container navbar-here border-0">
