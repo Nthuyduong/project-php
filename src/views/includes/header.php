@@ -44,6 +44,7 @@ session_start();
                             <!--top-page-right-->
                             <div class="col-3 top-page-end">
                                 <ul class="d-flex justify-content-end">
+                                    <div> Hello <?=$_SESSION["user_email"]?> </div>
                                      <div>
                                         <li class="px-3 py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
                                     </div>
@@ -90,7 +91,6 @@ session_start();
                             <!--top-page-right-->
                             <div class="col-3 top-page-end">
                                 <ul class="d-flex justify-content-end">
-                                    <div> Hello <?=$_SESSION["user_email"]?> </div>
                                     <div>
                                         <li class="px-3 py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
                                     </div>
