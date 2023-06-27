@@ -79,11 +79,7 @@ require("../../core/checklogin.php");
                             die();
                         }
                         // lấy mảng sản phẩm từ $data của lớp clsSanpham
-                        
                             $rows = $products->data;
-                      
-                          
-                            
                     ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
@@ -119,6 +115,7 @@ require("../../core/checklogin.php");
                             </div>
                         </div>
                         <?php
+                        if($rows != NULL)
                             foreach($rows as $row)
                         {
                         ?>

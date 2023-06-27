@@ -1,6 +1,7 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
 session_start();
+require_once("../../models/model_order.php");
 require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
@@ -62,6 +63,18 @@ require("../../core/checklogin.php");
                         <div class="col-3"></div>
                         <div class="col-3"></div>
                     </div>
+                    <?php
+                    $order = new model_order();
+                    $ketqua = $order->GetOrder();
+                    if($ketqua == false)
+                    {
+                        $alert_title = "Can't Connect Database";
+                        $alert = "Please check the database again!";
+                        require_once("../../views/includes/alert.php");
+                        die();
+                    }
+                    $rows = $order->data;
+                    ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell">
@@ -87,14 +100,19 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="cell"></div>
                         </div>
+                        <?php
+                        if($rows != NULL)
+                            foreach($rows as $row)
+                        {
+                        ?>
                         <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">12/04/2023</div>
-                            <div class="cell-md">Nguyen Thuy Duong</div>
+                            <div class="cell"><?=$row["Code"]?></div>
+                            <div class="cell-md"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
+                            <div class="cell-md"><?=$row["Customer_name"]?></div>
                             <div class="cell">Paypal</div>
-                            <div class="cell">$30.000</div>
+                            <div class="cell"><?=$row["Grand total"]?></div>
                             <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
+                                <div class="stt stt1"><?=$row["Status"]?></div>
                             </div>
                             <div class="cell">
                                 <select class="w-100">
@@ -109,252 +127,9 @@ require("../../core/checklogin.php");
                                 <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
                             </div>
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10124</div>
-                            <div class="cell-md">14/05/2023</div>
-                            <div class="cell-md">Vu Thi Hue</div>
-                            <div class="cell">Master Card</div>
-                            <div class="cell">$40.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt2">Processing</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>  
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Master Card</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Pending</div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">
-                                    Pending
-                                </div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">
-                                    Pending
-                                </div>
-                            </div>
-                            <div class="cell">
-                                <select class="w-100">
-                                    <option>Pending</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                    <option>Cancel</option>
-                                </select>
-                            </div>
-                            <div class="cell action-icon">
-                                <i class="fas fa-print" style="color: #ffffff;"></i>
-                                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="d-flex pgn">
                         <div class="me-auto">Showing 8 of 100</div>

@@ -1,6 +1,7 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
 session_start();
+require_once("../../models/model_category.php");
 require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
@@ -42,6 +43,18 @@ require("../../core/checklogin.php");
                         <div class="line my-4"></div>
                     </div>
                     <!-- Product table -->
+                    <?php
+                    $category = new model_category();
+                    $ketqua = $category->GetCategories();
+                    if($ketqua == FALSE)
+                    {
+                        $alert_title = "Can't Connect Database";
+                        $alert = "Please check again the database";
+                        require_once("../../views/includes/alert.php");
+                        die();
+                    }
+                    $rows = $category->data;
+                    ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell-ssm">
@@ -50,8 +63,8 @@ require("../../core/checklogin.php");
                             <div class="cell-sm">
                                 ID
                             </div>
-                            <div class="cell">
-                                CATEGORY'S NAME
+                            <div class="cell-sm">
+                                CATEGORY
                             </div>
                             <div class="cell-md">
                                 DESCRIPTION
@@ -60,58 +73,27 @@ require("../../core/checklogin.php");
                                 STATUS
                             </div>
                         </div>
+                        <?php
+                        if( $rows != NULL)
+                            foreach($rows as $row)
+                        {
+                        ?>
                         <div class="tb-row">
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">
-                                <a href="admin_subcate.php">Ring</a>
+                            <div class="cell-sm"><?=$row["ID"]?></div>
+                            <div class="cell-sm">
+                                <a href="admin_subcate.php"><?=$row["Category"]?></a>
                             </div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>
                             </div>
                         </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">
-                                <a href="admin_subcate.php">Earring</a>
-                            </div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center stt-out">
-                                <div class="stt stt1">Active</div>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">
-                                <a href="admin_subcate.php">Necklace</a>
-                            </div>
-                            <div class="cell-md">category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center stt-out">
-                                <div class="stt stt3">Inactive</div>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">
-                                <a href="admin_subcate.php">Bracelet</a>
-                            </div>
-                            <div class="cell-md">Category's description will goes here. Some text will goes here</div>
-                            <div class="cell alg-center stt-out">
-                                <div class="stt stt1">Active</div>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

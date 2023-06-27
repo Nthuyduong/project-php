@@ -2,14 +2,14 @@
 
 /* AVATA */
 .user-img{
+
 }
 .user-title{
-    position: absolute;
-    top: 20%;
+
 }
 /* SIDE BAR HERE */
-#user-nav{
-    flex-direction: column;
+.user-nav{
+    flex-direction: column !important;
 }
 
 /* Style for table */
@@ -53,12 +53,7 @@
     flex-shrink: 0;
     flex-basis: 0;
 }
-.cell-ssm{
-  margin: auto;
-  flex-grow: 0.2;
-  flex-shrink: 0;
-  flex-basis: 0;
-}
+
 /* Style for status */
 .stt{
     width: 94px;
@@ -88,5 +83,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
+.alg-center{
+    text-align: center;
+}
 
