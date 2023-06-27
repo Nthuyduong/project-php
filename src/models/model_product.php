@@ -14,11 +14,12 @@ class model_product extends Database
     function GetListProducts()
     {
         // $sql = "SELECT * FROM Products";
-        $sql = "SELECT p.*, s.Name AS sub_category_name, s.Category AS category_name
-        FROM Products p
-        INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID";
+        $sql = "SELECT p.*, s.Name AS sub_category_name, s.Category AS category_name, Product_details.Stock AS Stock
+        FROM Products p INNER JOIN Sub_categories s
+        ON p.Sub_category_ID = s.ID
+        INNER JOIN Product_details
+        ON p.ID = Product_details.Product_ID";
         $ketqua = $this->set_query($sql);
-        echo $ketqua;
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;

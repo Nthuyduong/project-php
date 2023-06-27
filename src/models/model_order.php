@@ -13,9 +13,9 @@ class model_order extends Database
     //Lay thong tin trong bang order
     function GetOrder()
     {
-        $sql = "SELECT .*, c.Name AS Customer_name
+        $sql = "SELECT o.*, c.Name AS Customer_name
         FROM Orders o
-        INNER JOIN Customers c ON o.Customer_ID = c.Name";
+        INNER JOIN Customers c ON o.Customer_ID = c.ID";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();

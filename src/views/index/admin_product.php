@@ -128,7 +128,7 @@ require("../../core/checklogin.php");
                             <div class="cell-sm"><?=$row["category_name"]?></div>
                             <div class="cell"><?=$row["sub_category_name"]?></div>
                             <div class="cell"><?=$row["Price"]?></div>
-                            <div class="cell-sm">Stock</div>
+                            <div class="cell-sm"><?=$row["Stock"]?></div>
                             <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Status</div>
                             </div>
