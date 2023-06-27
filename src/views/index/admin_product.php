@@ -1,6 +1,7 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
 session_start();
+require_once("../../models/model_product.php");
 require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
@@ -66,19 +67,24 @@ require("../../core/checklogin.php");
                         </div>
                     </div>
                     <!-- Product table -->
-                    <!-- The php se ow day -->
-                        <!-- sử dụng biến $ketqua và $sanpham đã có bên ctlSanpham.php -->
-                        <!-- if($ketqua==FALSE) -->
-                        <!-- { -->
-                            <!-- $alert_title = "Can't Connect Database!"; -->
-                            <!-- $alert = "Please check again the database"; -->
-                            <!-- require_once("../../views/includes/alert.php"); -->
-                            <!-- die(); -->
-                        <!-- } -->
-                        <!-- lấy mảng sản phẩm từ $data của lớp clsSanpham -->
-                        <!-- $rows = $sanpham->data; -->
-                        <!-- $n = count($rows); -->
-                    
+                    <?php
+                    $products = new model_product();
+                    $ketqua = $products->GetListProducts();
+                        // sử dụng biến $ketqua và $sanpham đã có bên ctlSanpham.php
+                        if($ketqua==FALSE)
+                        {
+                            $alert_title = "Can't Connect Database!";
+                            $alert = "Please check again the database";
+                            require_once("../../views/includes/alert.php");
+                            die();
+                        }
+                        // lấy mảng sản phẩm từ $data của lớp clsSanpham
+                        
+                            $rows = $products->data;
+                      
+                          
+                            
+                    ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell-ssm">
@@ -112,24 +118,24 @@ require("../../core/checklogin.php");
                                 
                             </div>
                         </div>
-                        <!-- The php se o day -->
-                            <!-- foreach($rows as $row) -->
-                        <!-- { -->
-                        <!-- ?> -->
-                        <!-- <div class="tb-row">
+                        <?php
+                            foreach($rows as $row)
+                        {
+                        ?>
+                        <div class="tb-row">
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
                             <div class="cell-sm">img</div>
-                            <div class="cell"></div>
-                            <div class="cell-sm"></div>
-                            <div class="cell"></div>
-                            <div class="cell"></div>
-                            <div class="cell-sm"></div>
+                            <div class="cell"><?=$row["Name"]?></div>
+                            <div class="cell-sm"><?=$row["category_name"]?></div>
+                            <div class="cell"><?=$row["sub_category_name"]?></div>
+                            <div class="cell"><?=$row["Price"]?></div>
+                            <div class="cell-sm">Stock</div>
                             <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3"></div>
+                                <div class="stt-sm stt3">Status</div>
                             </div>
-                            <div class="cell-sm togglebtn">
+                            <div class="cell-sm togglebtn stt-out">
                                 <label class="switch">
                                     <input type="checkbox" checked>
                                     <span class="slider round"></span>
@@ -141,122 +147,11 @@ require("../../core/checklogin.php");
                                 <!-- Chuc nang xoa san pham -->
                                 <a href=""><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
-                        </div> -->
+                        </div>
                         <!-- Dong vong lap for each -->
-                        <!-- The php se o day -->
-                        <!-- } -->
-                        <!-- ?> -->
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">img</div>
-                            <div class="cell">Amee Diamond Ring</div>
-                            <div class="cell-sm">Ring</div>
-                            <div class="cell">Eternity</div>
-                            <div class="cell">$20.000</div>
-                            <div class="cell-sm">5</div>
-                            <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3">Sold out</div>
-                            </div>
-                            <div class="cell-sm togglebtn stt-out">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell-sm">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>
-                                <i class="fas fa-trash" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">img</div>
-                            <div class="cell">Amee Diamond Ring</div>
-                            <div class="cell-sm">Ring</div>
-                            <div class="cell">Eternity</div>
-                            <div class="cell">$20.000</div>
-                            <div class="cell-sm">5</div>
-                            <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3">Sold out</div>
-                            </div>
-                            <div class="cell-sm togglebtn stt-out">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell-sm">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>
-                                <i class="fas fa-trash" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">img</div>
-                            <div class="cell">Amee Diamond Ring</div>
-                            <div class="cell-sm">Ring</div>
-                            <div class="cell">Eternity</div>
-                            <div class="cell">$20.000</div>
-                            <div class="cell-sm">5</div>
-                            <div class="cell-sm stt-out">
-                                <div class="stt-sm stt1">
-                                Selling
-                                </div>
-                            </div>
-                            <div class="cell-sm togglebtn stt-out">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell-sm">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>
-                                <i class="fas fa-trash" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">img</div>
-                            <div class="cell">Amee Diamond Ring</div>
-                            <div class="cell-sm">Ring</div>
-                            <div class="cell">Eternity</div>
-                            <div class="cell">$20.000</div>
-                            <div class="cell-sm">5</div>
-                            <div class="cell-sm stt-out">
-                                <div class="stt1 stt-sm">Selling</div>
-                            </div>
-                            <div class="cell-sm togglebtn stt-out">
-                                <div class="tgb">
-                                    <label class="switch">
-                                        <input type="checkbox" checked>
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="cell-sm">
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>
-                                <i class="fas fa-trash" style="color: #ffffff;"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex pgn">
-                        <div class="me-auto">Showing 8 of 100</div>
-                        <div class="pagination">
-                            <a href="#">&laquo;</a>
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">&raquo;</a>
-                        </div>
-                    </div>
+                        <?php
+                        }
+                        ?>
                 </div>
             </div>
         </div>

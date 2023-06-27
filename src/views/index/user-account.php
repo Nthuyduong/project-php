@@ -15,24 +15,26 @@
             <!-- BANNER HERE -->
             <div>
                 <div>
-                    <img src="../../../public/images/user/banner.png"/>
+                    <img class="" src="../../../public/images/user/banner.png"/>
                 </div>
             </div>
             <div class="container-fluid">
-                <!-- User's Avata here -->
-                <div>
-                    <div class="user-img">
-                        <img src=".../.../.../public/images/user.png"/>
+                <div class="d-flex user-title">
+                    <!-- User's Avata here -->
+                    <div class="me-auto">
+                        <div class="">
+                            <img class="w-100 user-img" src="../../../public/images/user/user.png"/>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex">
-                    <div>
-                        <h6>Nthyduong898</h6>
-                        <p>Nthduong@gmail.com</p>
-                    </div>
-                    <!-- Button logout here -->
-                    <div>
-                        <a class="btn-lg-pr-admin">Log out</a>
+                    <div class="d-flex">
+                        <div>
+                            <h6>Nthyduong898</h6>
+                            <p>Nthduong@gmail.com</p>
+                        </div>
+                        <!-- Button logout here -->
+                        <div>
+                            <a class="btn-lg-pr-admin">Log out</a>
+                        </div>
                     </div>
                 </div>
                 <!-- CONTENT ALL HERE -->
@@ -49,13 +51,13 @@
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="billing-tab" data-bs-toggle="tab" data-bs-target="#billing" type="button" role="tab" aria-controls="billing" aria-selected="false">
-                                            Billing & Payment
+                                        <a class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="order" aria-selected="false">
+                                            Order History
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="order" aria-selected="false">
-                                            Order History
+                                        <a class="nav-link" id="pass-tab" data-bs-toggle="tab" data-bs-target="#pass" type="button" role="tab" aria-controls="pass" aria-selected="false">
+                                            Password
                                         </a>
                                     </li>
                                     <li class="nav-item" role="presentation">
@@ -66,31 +68,86 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-10">
-                            <div class="col-5">
-                                <div>
-                                    <label for="usermail">Email Address</label>
-                                    <input name="usermail" id="usermail" placeholder="Nthduong898@gmail.com"/>
-                                </div>
-                                <div class="my-3">
-                                    <label for="username">Full Name</label>
-                                    <input name="userfn" id="userfn" placeholder="Nguyen Thuy Duong"/>
-                                </div>
-                                <div>
-                                    <label for="DOB">DOB</label>
-                                    <input class="" name="userDOB" id="userDOB" placeholder="19/08/1998"/>
+                    <!-- CUSTOMER INFORMATION TAB -->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="info-tab" role="tabpanel" aria-labelledby="infor">
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="usermail">Email Address</label>
+                                            <input class="inpu" name="usermail" id="usermail" placeholder="Nthduong898@gmail.com"/>
+                                        </div>
+                                        <div class="my-3">
+                                            <label for="username">Full Name</label>
+                                            <input class="inpu" name="userfn" id="userfn" placeholder="Nguyen Thuy Duong"/>
+                                        </div>
+                                        <div>
+                                            <label for="DOB">DOB</label>
+                                            <input class="inpu" class="" name="userDOB" id="userDOB" placeholder="19/08/1998"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <label for="userphone">Phone Number</label>
+                                            <input class="inpu" name="userphone" id="userphone" placeholder="012345678"/>
+                                        </div>
+                                        <div class="my-3">
+                                            <label for="useradd">Address</label>
+                                            <input class="inpu" name="useradd" id="useradd" placeholder="So 1, Nguyen Trai, Thanh Xuan, Ha Noi"/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-5">
-                                <div>
-                                    <label for="userphone">Phone Number</label>
-                                    <input name="userphone" id="userphone" placeholder="012345678"/>
-                                </div>
-                                <div class="my-3">
-                                    <label for="useradd">Address</label>
-                                    <input name="useradd" id="useradd" placeholder="So 1, Nguyen Trai, Thanh Xuan, Ha Noi"/>
+                        </div>
+                        <div class="tab-pane fade show" id="order-tab" role="tabpanel" aria-labelledby="order">
+                            <!-- ORDER HISTORY TAB -->
+                            <div class="col-10">
+                                <div class="tbl">
+                                    <div class="tb-row title-row">
+                                        <div class="cell">ID</div>
+                                        <div class="cell">ORDER DATE</div>
+                                        <div class="cell">ITEMS</div>
+                                        <div class="cell">GRAND TOTAL ($)</div>
+                                        <div class="cell">STATUS</div>
+                                    </div>
+                                    <div class="tb-row">
+                                        <div class="cell">12</div>
+                                        <div class="cell">12/03/23</div>
+                                        <div class="cell">1</div>
+                                        <div class="cell">20.000</div>
+                                        <div class="cell stt-out">
+                                            <div class="stt stt1">Pending</div>
+                                        </div>
+                                    </div>
+                                    <div class="tb-row">
+                                        <div class="cell">24</div>
+                                        <div class="cell">19/04/23</div>
+                                        <div class="cell">2</div>
+                                        <div class="cell">30.000</div>
+                                        <div class="cell stt-out">
+                                            <div class="stt stt1">Processing</div>
+                                        </div>
+                                    </div>
+                                    <div class="tb-row">
+                                        <div class="cell">24</div>
+                                        <div class="cell">19/04/23</div>
+                                        <div class="cell">2</div>
+                                        <div class="cell">30.000</div>
+                                        <div class="cell stt-out">
+                                            <div class="stt stt1">Delivered</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab-pane fade" id="pass-tab" role="tabpanel" aria-labelledby="pass">
+                            <!-- CHANGE PASSWORD TAB -->
+                            <div>Change password here</div>
+                        </div>
+                        <div class="tab-pane fade" id="notify-tab" role="tabpanel" aria-labelledby="notify">
+                            <!-- NOTIFICATION TAB???? -->
+                            <div>Notifications show here</div>
                         </div>
                     </div>
                 </div>

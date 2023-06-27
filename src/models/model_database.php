@@ -11,7 +11,7 @@
         try
         {   
             //TTMH test local db
-            $this->conn = new PDO("mysql:host=localhost;dbname=T2207E_PHP_TestProject_TTMH", "root", "root");
+            $this->conn = new PDO("mysql:host=localhost;dbname=project_php", "root", "root");
             //$this->conn = new PDO("mysql:host = localhost, dbname = Project2", "root", "root");
             $this->conn->exec("SET NAMES UTF8");
         }

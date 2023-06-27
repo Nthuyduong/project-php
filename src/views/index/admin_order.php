@@ -68,7 +68,7 @@ require("../../core/checklogin.php");
                                 ORDER ID
                             </div>
                             <div class="cell-md">
-                                ORDER TiME
+                                ORDER DATE
                             </div>
                             <div class="cell-md">
                                 CUSTOMER'S NAME
@@ -77,7 +77,7 @@ require("../../core/checklogin.php");
                                 METHOD
                             </div>
                             <div class="cell">
-                                AMOUNT
+                                GRAND TOTAL
                             </div>
                             <div class="cell">
                                 STATUS
