@@ -205,7 +205,7 @@ require("../../core/checklogin.php");
                         <div class="cell alg-center"><?=$row["Code"]?></div>
                         <div class="cell-md alg-center"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
                         <div class="cell-md"><?=$row["Customer_name"]?></div>
-                        <div class="cell alg-center">Paypal</div>
+                        <div class="cell alg-center"><?=$row["Payment_method"]?></div>
                         <div class="cell alg-center"><?=$row["Grand_total"]?></div>
                         <div class="cell stt-out">
                             <div class="stt stt3"><?=$row["Status"]?></div>

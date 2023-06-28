@@ -98,19 +98,19 @@ require("../../core/checklogin.php");
                             <div class="cell">
                                 PRODUCT'S NAME
                             </div>
-                            <div class="cell-sm">
+                            <div class="cell alg-center">
                                 CATEGORY
                             </div>
-                            <div class="cell">
+                            <div class="cell alg-center">
                                 SUB-CATEGORY
                             </div>
-                            <div class="cell">
+                            <div class="cell-sm alg-center">
                                 PRICE
                             </div>
-                            <div class="cell-sm">
+                            <div class="cell-sm alg-center">
                                 STOCK
                             </div>
-                            <div class="cell-sm">
+                            <div class="cell-sm alg-center">
                                 STATUS
                             </div>
                             <div class="cell-sm">
@@ -131,10 +131,10 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="cell-sm">img</div>
                             <div class="cell"><?=$row["Name"]?></div>
-                            <div class="cell-sm"><?=$row["Category"]?></div>
-                            <div class="cell"><?=$row["Sub_category"]?></div>
-                            <div class="cell"><?=$row["Price"]?></div>
-                            <div class="cell-sm"><?=$row["TotalStock"]?></div>
+                            <div class="cell alg-center"><?=$row["Category"]?></div>
+                            <div class="cell alg-center"><?=$row["Sub_category"]?></div>
+                            <div class="cell-sm alg-center"><?=$row["Price"]?></div>
+                            <div class="cell-sm alg-center"><?=$row["TotalStock"]?></div>
                             <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Status</div>
                             </div>
@@ -144,9 +144,9 @@ require("../../core/checklogin.php");
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                            <div class="cell-sm">
+                            <div class="cell-sm stt-out">
                                 <!-- Chuc nang sua san pham -->
-                                <a href=""><i class="fas fa-edit" style="color: #ffffff;"></i></a>
+                                <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                                 <!-- Chuc nang xoa san pham -->
                                 <a href="?did=<?=$row["ID"]?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>

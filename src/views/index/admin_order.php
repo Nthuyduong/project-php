@@ -114,7 +114,7 @@ require("../../core/checklogin.php");
                             <div class="cell"><?=$row["Code"]?></div>
                             <div class="cell-md"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
                             <div class="cell-md"><?=$row["Customer_name"]?></div>
-                            <div class="cell">Paypal</div>
+                            <div class="cell"><?=$row["Payment_method"]?></div>
                             <div class="cell"><?=$row["Grand_total"]?></div>
                             <div class="cell stt-out">
                                 <div class="stt stt1"><?=$row["Status"]?></div>
