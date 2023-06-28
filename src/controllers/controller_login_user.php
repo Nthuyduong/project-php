@@ -30,7 +30,7 @@ else{
         {
             $_SESSION["logined_user"] = "OK";
             $_SESSION["user_email"] = $row["Email"];
-
+            $_SESSION["logined_fail"] = "";
             $alert_title="Dang nhap thanh cong";
             $alert = "Dang nhap thanh cong";
             $link_tieptuc="../views/index/home.php";
@@ -48,6 +48,8 @@ else{
         $alert_title = "Dang nhap sai user hoac password";
         $alert = "Vui long dang nhap lai";
         $link_tieptuc="../views/includes/login.php";
+        $_SESSION["logined_fail"] = "Login sai";
+        header("location:../views/index/home.php");      
     }
 }    
 require_once("../views/includes/alert.php")
