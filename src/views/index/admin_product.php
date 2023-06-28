@@ -33,8 +33,10 @@ require("../../core/checklogin.php");
                         <div class="row">
                             <div class="col-3">
                                 <div className="search-bar d-flex">
-                                    <input className="black search-input w-100" type="text" placeholder="Search text..." />
-                                    <FontAwesomeIcon className="icon-search" icon={faSearch}/>
+                                    <form action="" method="GET">
+                                        <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Search text..." />
+                                        <FontAwesomeIcon class="icon-search" icon={faSearch}/>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -69,7 +71,11 @@ require("../../core/checklogin.php");
                     <!-- Product table -->
                     <?php
                     $products = new model_product();
-                    $ketqua = $products->GetListProducts();
+                    $did = $_REQUEST["did"];
+                    if($did != NULL)
+                        $products->DeleteProduct($did);
+                    $keyword = $_REQUEST["findProduct"];
+                    $ketqua = $products->SearchProduct($keyword);
                         // sử dụng biến $ketqua và $sanpham đã có bên ctlSanpham.php
                         if($ketqua==FALSE)
                         {
@@ -125,10 +131,10 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="cell-sm">img</div>
                             <div class="cell"><?=$row["Name"]?></div>
-                            <div class="cell-sm"><?=$row["category_name"]?></div>
-                            <div class="cell"><?=$row["sub_category_name"]?></div>
+                            <div class="cell-sm"><?=$row["Category"]?></div>
+                            <div class="cell"><?=$row["Sub_category"]?></div>
                             <div class="cell"><?=$row["Price"]?></div>
-                            <div class="cell-sm"><?=$row["Stock"]?></div>
+                            <div class="cell-sm"><?=$row["TotalStock"]?></div>
                             <div class="cell-sm stt-out">
                                 <div class="stt-sm stt3">Status</div>
                             </div>
@@ -142,7 +148,7 @@ require("../../core/checklogin.php");
                                 <!-- Chuc nang sua san pham -->
                                 <a href=""><i class="fas fa-edit" style="color: #ffffff;"></i></a>
                                 <!-- Chuc nang xoa san pham -->
-                                <a href=""><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                                <a href="?did=<?=$row["ID"]?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
                         <!-- Dong vong lap for each -->

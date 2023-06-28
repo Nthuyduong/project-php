@@ -1,7 +1,11 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
 session_start();
+require_once("../../models/model_customer.php");
 require("../../core/checklogin.php");
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +17,6 @@ require("../../core/checklogin.php");
     </head>
     <body>
         <?php require_once '../includes/sidebar.php';?>
-        
         <div id="main">
             <!-- THIS IS HEADER -->
             <?php require '../includes/ad-header.php'?>
@@ -29,14 +32,29 @@ require("../../core/checklogin.php");
                         </div>
                         <div class="col-6">
                             <div className="search-bar d-flex">
-                                <input className="search-input w-100" type="text" placeholder="Search text..." />
-                                <FontAwesomeIcon className="icon-search" icon={faSearch}/>
+                                <form action="" method="GET">
+                                    <input name="findcustomer" id="findcustomer" class="search-input w-100" type="text" placeholder="Enter customer's name..." />
+                                    <FontAwesomeIcon class="icon-search" icon={faSearch}/>
+                                </form>
                             </div>
                         </div>
                         <div class="col-3">
                             
                         </div>
                     </div>
+                    <?php
+                    $customer = new model_customer();
+                    $keyword = $_REQUEST["findcustomer"];
+                    $ketqua = $customer->FindCustomer($keyword);
+                    if($ketqua ==FALSE)
+                    {
+                        $alert_title = "Can't Connect Database!";
+                        $alert = "Please check database again";
+                        require_once("../../views/includes/alert.php");
+                        die();
+                    }
+                    $rows = $customer->data;
+                    ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell-sm">
@@ -58,68 +76,28 @@ require("../../core/checklogin.php");
                                 ACTION
                             </div>
                         </div>
+                        <?php
+                        if($rows != null)
+                            foreach($rows as $row)
+                        {
+                        ?>
                         <div class="tb-row">
-                            <div class="cell-sm">123</div>
+                            <div class="cell-sm"><?=$row["ID"]?></div>
                             <div class="cell">
-                                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#customer-detail">Nguyen Thuy Duong</a>
+                                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#customer-detail"><?=$row["Name"]?></a>
                             </div>
-                            <div class="cell">Duongthuy@gmail.com</div>
-                            <div class="cell-sm">12345678</div>
-                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm action-icon">
+                            <div class="cell"><?=$row["Email"]?></div>
+                            <div class="cell-sm"><?=$row["Phone"]?></div>
+                            <div class="cell-md"><?=$row["Address"]?></div>
+                            <div class="cell-sm action-icon stt-out">
                                 <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                       
                                 <i class="fas fa-edit" style="color: #ffffff;"></i>                         
                                 <i class="fas fa-trash"></i>
                             </div>
                         </div>
-                        <div class="tb-row">
-                            <div class="cell-sm">123</div>
-                            <div class="cell">Nguyen Thuy Duong</div>
-                            <div class="cell">Duongthuy@gmail.com</div>
-                            <div class="cell-sm">12345678</div>
-                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm action-icon">                                   
-                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                       
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="fas fa-trash"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-sm">123</div>
-                            <div class="cell">Nguyen Thuy Duong</div>
-                            <div class="cell">Duongthuy@gmail.com</div>
-                            <div class="cell-sm">12345678</div>
-                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm action-icon">
-                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                      
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                          
-                                <i class="fas fa-trash"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-sm">123</div>
-                            <div class="cell">Nguyen Thuy Duong</div>
-                            <div class="cell">Duongthuy@gmail.com</div>
-                            <div class="cell-sm">12345678</div>
-                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm action-icon">
-                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                      
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="fas fa-trash"></i>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-sm">123</div>
-                            <div class="cell">Nguyen Thuy Duong</div>
-                            <div class="cell">Duongthuy@gmail.com</div>
-                            <div class="cell-sm">12345678</div>
-                            <div class="cell-md">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
-                            <div class="cell-sm action-icon">
-                                <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                        
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="fas fa-trash"></i>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="d-flex pgn">
                         <div class="me-auto">Showing 8 of 100</div>
