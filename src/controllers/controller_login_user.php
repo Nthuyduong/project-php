@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../models/model_login.php");
+require_once("../models/model_user.php");
 
 if(isset($_REQUEST["b1"])==false)
 {   
@@ -12,17 +13,21 @@ if(isset($_REQUEST["b1"])==false)
 } 
 $user = $_REQUEST["temail"];
 $pass = $_REQUEST["tpass"];
-$pass = md5($pass);
+$passmd5 = md5($pass);
 $login = new model_login();
+$customer= new model_user();
 //kiem tra tai khoan xem da login hay chua? Ham kiem tra?
-$ketqua = $login->CheckLoginUser($user,$pass);
-if($ketqua == false)
+$ketqua = $login->CheckLoginUser($user,$passmd5);
+$checkMail=$customer->CheckUserAccount($user);
+if($ketqua == false || $checkMail==false)
 {   
     $alert_title="Loi truy van CSDL";
     $alert = "Loi truy van CSDL";
+    include_once("../views/includes/alert.php");
 }
 else{
     $row = $login->data;
+    $rowcheckMail= $customer->data;
     //Dang nhap thanh cong
     if($row != null)
     {
@@ -31,27 +36,34 @@ else{
             $_SESSION["logined_user"] = "OK";
             $_SESSION["user_email"] = $row["Email"];
             $_SESSION["logined_fail"] = "";
-            $alert_title="Dang nhap thanh cong";
-            $alert = "Dang nhap thanh cong";
-            $link_tieptuc="../views/index/home.php";
-            
+            if(isset($_SESSION["user_email_fail"]))
+                unset($_SESSION["user_email_fail"]);
+            if(isset($_SESSION["user_pass_fail"]))
+                unset($_SESSION["user_pass_fail"]);    
         }
         else
         {   
-            $alert_title="Tai khoan da bi khoa";
-            $alert = "Vui long dang nhap tai khoan khac";
-            $link_tieptuc="../views/includes/login.php";
+            $_SESSION["logined_fail"] = "Tên tài khoản của bạn đã bị khoá, vui lòng liên hệ 1900**** để được hỗ trợ";
+            $_SESSION["user_email_fail"]=$user;
+            $_SESSION["user_pass_fail"]=$pass;
         }
     }
     else
-    {
-        $alert_title = "Dang nhap sai user hoac password";
-        $alert = "Vui long dang nhap lai";
-        $link_tieptuc="../views/includes/login.php";
-        $_SESSION["logined_fail"] = "Login sai";
-        header("location:../views/index/home.php");      
+    {   
+        if($rowcheckMail== null)
+        {
+            $_SESSION["logined_fail"] = "Tài khoản này chưa được đăng ký, vui lòng thử lại";
+            $_SESSION["user_email_fail"]=$user;
+            $_SESSION["user_pass_fail"]=$pass;
+        }else
+        {
+            $_SESSION["logined_fail"] = "Tên tài khoản của bạn hoặc Mật khẩu không đúng, vui lòng thử lại";
+            $_SESSION["user_email_fail"]=$user;
+            $_SESSION["user_pass_fail"]=$pass;
+        }
+        
+             
     }
 }    
-require_once("../views/includes/alert.php")
-
+header("location:../views/index/home.php");
 ?>

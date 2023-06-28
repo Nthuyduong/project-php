@@ -154,7 +154,6 @@
             <script>
                 
                  document.getElementById("openlogin").onclick = function(){
-                     alert("test3");
                      //document.getElementById("sign-in").modal();
                      var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
                      myModal.show();
