@@ -13,7 +13,7 @@ class model_order extends Database
     //Lay thong tin trong bang order
     function GetOrder()
     {
-        $sql = "SELECT o.*, c.Name AS Customer_name
+        $sql = "SELECT o.Code, o.Customer_ID, o.Grand_total, o.Status, o.Created_at, c.Name AS Customer_name
         FROM Orders o
         INNER JOIN Customers c ON o.Customer_ID = c.ID";
         $ketqua = $this->set_query($sql);
@@ -21,26 +21,26 @@ class model_order extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
+
+    //Tim hoa don
+    function FindOrder($code)
+    {
+        $sql = "SELECT o.Code, o.Customer_ID, o.Grand_total, o.Status, o.Created_at, c.Name AS Customer_name
+        FROM Orders o
+        INNER JOIN Customers c ON o.Customer_ID = c.ID
+        WHERE o.Code=?";
+        $ketqua = $this->set_query($sql,[$code]);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
+
     //Lay danh sach hoa don
     //Tinh tong tien san pham (GRAND TOTAL)
     // function GrandTotal()
     // {
         
     // }
-
-    //Tim hoa don
-    public function FindOrder($code)
-    {
-        $sql = "SELECT * FROM Orders WHERE code=?";
-        $data[] = $code;
-        $ketqua = $this->set_query($sql,$data);
-        $this->data=null;
-        if($ketqua == true)
-            $this->data = $this->pdo_stm->fetchAll();
-        return $ketqua;
-    }
-
-    //Chi tiet hoa don
     
 }
 ?>

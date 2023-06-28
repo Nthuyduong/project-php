@@ -64,6 +64,7 @@ class model_product extends Database
         WHERE tb1.Deleted_at IS NULL
         AND tb1.Name LIKE '%$keyword%'
         GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category;";
+        echo $sql;
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();

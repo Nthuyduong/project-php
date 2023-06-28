@@ -24,11 +24,13 @@ require("../../core/checklogin.php");
                 <div class="db-title mt-4">ORDERS</div>
                 <p>Have a nice day!</p>
                 <div>
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col-3">
                             <div className="search-bar d-flex">
-                                <input className="search-input w-100" type="text" placeholder="Search text..." />
-                                <FontAwesomeIcon className="icon-search" icon={faSearch}/>
+                                <form action="" method="get">
+                                    <input name="findOrder" id="findOrder" class="search-input w-100" type="text" placeholder="Enter Order ID..." />
+                                    <FontAwesomeIcon class="icon-search" icon={faSearch}/>
+                                </form>
                             </div>
                         </div>
                         <div class="col-3">
@@ -65,6 +67,9 @@ require("../../core/checklogin.php");
                     </div>
                     <?php
                     $order = new model_order();
+                    $keyword = $_REQUEST["findOrder"];
+                    if($keyword != "")
+                        $order->FindOrder($keyword);
                     $ketqua = $order->GetOrder();
                     if($ketqua == false)
                     {
@@ -110,7 +115,7 @@ require("../../core/checklogin.php");
                             <div class="cell-md"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
                             <div class="cell-md"><?=$row["Customer_name"]?></div>
                             <div class="cell">Paypal</div>
-                            <div class="cell"><?=$row["Grand total"]?></div>
+                            <div class="cell"><?=$row["Grand_total"]?></div>
                             <div class="cell stt-out">
                                 <div class="stt stt1"><?=$row["Status"]?></div>
                             </div>
