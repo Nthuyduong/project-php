@@ -5,7 +5,20 @@
     </head>
     <body>
         <div>
+
             <?php include 'login.php';?>
+            <?php
+            if($_SESSION["logined_fail"]!="")
+            {
+            ?>
+            <script>
+                var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
+                     myModal.show();
+            </script>
+            <?php
+            }
+            ?>
+            
         </div>
         <div>
             <?php include 'forgot-pass.php'; ?>
@@ -101,7 +114,8 @@
                                     <!--search-button-end-->
                                     <!--Modal Sign In Button-->
                                     <li class="py-1">
-                                        <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">  Sign in |</a>
+                                        <!-- <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">  Sign in |</a> -->
+                                        <a class="sign-in" type="button" id="openlogin">  Sign in |</a>
                                     </li>
                                     <!--Modal Sign Up Button-->
                                     <li class="py-1">
@@ -138,6 +152,15 @@
                 </nav>
             </div>
             <script>
+                
+                 document.getElementById("openlogin").onclick = function(){
+                     alert("test3");
+                     //document.getElementById("sign-in").modal();
+                     var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
+                     myModal.show();
+                 };
+                
+
                 var prevScrollpos = window.pageYOffset;
                 window.onscroll = function() {
                 var currentScrollPos = window.pageYOffset;

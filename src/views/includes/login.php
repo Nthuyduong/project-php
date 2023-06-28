@@ -8,6 +8,10 @@
         <div class="modal fade" id="sign-in" tabindex="-1" aria-hidden="true" aria-labelledby="sign-in-modal">
             <div class="modal-dialog modal-dialog-centered first-steps">
                 <div class="modal-content first-steps-inner">
+                    <?php
+                        if($_SESSION["logined_fail"]!="")
+                            echo "<h3>lỗi đăng nhập</h3>";
+                    ?>
                     <h5 class="modal-title mb-4 text-center">Welcome to AGURI!</h5>
                     <form method="post" name="frmlogin" id="frmlogin" action="../../controllers/controller_login_user.php">
                         <div class="mb-3">
