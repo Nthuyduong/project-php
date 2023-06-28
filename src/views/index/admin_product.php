@@ -76,16 +76,14 @@ require("../../core/checklogin.php");
                         $products->DeleteProduct($did);
                     $keyword = $_REQUEST["findProduct"];
                     $ketqua = $products->SearchProduct($keyword);
-                        // sử dụng biến $ketqua và $sanpham đã có bên ctlSanpham.php
-                        if($ketqua==FALSE)
-                        {
-                            $alert_title = "Can't Connect Database!";
-                            $alert = "Please check again the database";
-                            require_once("../../views/includes/alert.php");
-                            die();
-                        }
-                        // lấy mảng sản phẩm từ $data của lớp clsSanpham
-                            $rows = $products->data;
+                    if($ketqua==FALSE)
+                    {
+                        $alert_title = "Can't Connect Database!";
+                        $alert = "Please check again the database";
+                        require_once("../../views/includes/alert.php");
+                        die();
+                    }
+                    $rows = $products->data;
                     ?>
                     <div class="tbl">
                         <div class="tb-row title-row">

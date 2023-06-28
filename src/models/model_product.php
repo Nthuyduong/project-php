@@ -45,7 +45,7 @@ class model_product extends Database
         return $ketqua;
     }
 
-    //An san pham qua Delete_at
+    //An san pham: Delete_at
     function DeleteProduct($id)
     {
         $sql = "UPDATE `Products` SET `Deleted_at` = NOW() WHERE `Products`.`ID` = $id";
@@ -69,7 +69,6 @@ class model_product extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
-    //Co nen thay doi stock(so luong sp) sang trang thai (con hang hay het hang) hay khong
     
 
 }

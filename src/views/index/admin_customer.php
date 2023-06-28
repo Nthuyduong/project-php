@@ -44,11 +44,15 @@ require("../../core/checklogin.php");
                     </div>
                     <?php
                     $customer = new model_customer();
-                    $cid = $_REQUEST["cid"];
-                    if($cid != NULL)
-                        $customer->DeleteCustomer($cid);
-                    $keyword = $_REQUEST["findcustomer"];
-                    $ketqua = $customer->FindCustomer($keyword);
+                    $cid = isset($_REQUEST["cid"])?$_REQUEST["cid"]:"";
+                    if($cid != null && is_numeric($cid)==false)
+                        $cid = "";
+                    $ketqua = $customer->DeleteCustomer($cid);
+
+                    // $keyword = isset($_REQUEST["findcustomer"])?$_REQUEST["findcustomer"]:"";
+                    // if($keyword !=null && is_numeric($keyword)==true)
+                    //     $keyword = "";
+                    // $ketqua = $customer->FindCustomer($keyword);
                     if($ketqua ==FALSE)
                     {
                         $alert_title = "Can't Connect Database!";

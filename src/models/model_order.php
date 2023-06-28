@@ -29,12 +29,18 @@ class model_order extends Database
         $sql = "SELECT o.Code, o.Customer_ID, o.Grand_total, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method
         FROM Orders o
         INNER JOIN Customers c ON o.Customer_ID = c.ID
-        INNER JOIN Payments p ON o.Code = p.Order_code
-        WHERE o.Code=?";
-        $ketqua = $this->set_query($sql,[$code]);
+        INNER JOIN Payments p ON o.Code = p.Order_code WHERE TRUE ";
+        $param = NULL;
+        if($code!="")
+        {
+            $sql .= " AND o.Code=?";
+            $param=[$code];    
+        }
+        //echo $param;
+        $ketqua = $this->set_query($sql,$param);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
-        return $ketqua;
+        return $ketqua;//false hoac null
     }
 
     //Lay danh sach hoa don

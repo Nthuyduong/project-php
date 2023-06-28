@@ -67,14 +67,14 @@ require("../../core/checklogin.php");
                     </div>
                     <?php
                     $order = new model_order();
-                    $keyword = $_REQUEST["findOrder"];
-                    if($keyword != "")
-                        $order->FindOrder($keyword);
-                    $ketqua = $order->GetOrder();
-                    if($ketqua == false)
+                    $keyword = isset($_REQUEST["findOrder"])?$_REQUEST["findOrder"]:"";
+                    if($keyword!="" && is_numeric($keyword)==false)
+                        $keyword="";
+                    $ketqua = $order->FindOrder($keyword);
+                    if($ketqua === false)
                     {
-                        $alert_title = "Can't Connect Database";
-                        $alert = "Please check the database again!";
+                        $alert_title = "SQL ERROR";
+                        $alert = "Please check again!";
                         require_once("../../views/includes/alert.php");
                         die();
                     }
