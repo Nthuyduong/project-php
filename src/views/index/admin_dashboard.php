@@ -1,6 +1,7 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
 session_start();
+require_once("../../models/model_dashboard.php");
 require_once("../../models/model_order.php");
 require("../../core/checklogin.php");
 ?>
@@ -23,6 +24,17 @@ require("../../core/checklogin.php");
                 <div class="db-title mt-4">DASHBOARD</div>
                 <p>Have a nice day!</p>
                 <div class="mt-4">
+                    
+                    <!-- $dab = new model_dashboard();
+                    $ketqua = $dab->GrandTotalSum();
+                    if($ketqua == false)
+                    {
+                        $alert_title = "SQL ERROR!";
+                        require_once("../../views/includes/alert.php");
+                        die();
+                    }
+                    $rows = $dab->data; -->
+                    
                     <h6 class="mb-2">Overview</h3>
                     <div class="row">
                         <div class="col-4 overview-card">
@@ -30,7 +42,7 @@ require("../../core/checklogin.php");
                                 <div class="overview-inner">
                                     <div class="mb-3">
                                         <h4>Today order</h4>
-                                        <h2>$0.000</h2>
+                                        <h2>$0.00</h2>
                                     </div>
                                     <div class="d-flex">
                                         <div class="cell">
@@ -53,7 +65,7 @@ require("../../core/checklogin.php");
                             <div class="card-2">
                                 <div class="overview-inner">
                                     <div class="mb-3">
-                                        <h4>Today order</h4>
+                                        <h4>This Week Order</h4>
                                         <h2>$0.000</h2>
                                     </div>
                                     <div class="d-flex">
@@ -77,7 +89,7 @@ require("../../core/checklogin.php");
                             <div class="card-3">
                                 <div class="overview-inner">
                                     <div class="mb-3">
-                                        <h4>Today order</h4>
+                                        <h4>This Month Order</h4>
                                         <h2>$0.000</h2>
                                     </div>
                                     <div class="d-flex">
@@ -164,7 +176,7 @@ require("../../core/checklogin.php");
                 $ketqua = $dashb->GetOrder();
                 if($ketqua == false)
                 {
-                    $alert_title = "Can't Connect Database";
+                    $alert_title = "SQL ERROR";
                     $alert = "Please check the database again!";
                     require_once("../../views/includes/alert.php");
                     die();

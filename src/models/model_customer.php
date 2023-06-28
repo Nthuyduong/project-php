@@ -31,17 +31,13 @@ class model_customer extends Database
 
     function DeleteCustomer($id)
     {
-        $sql = "SELECT * FROM Customers WHERE true";
+        $sql = "DELETE FROM Customers WHERE Customers.ID = ?";
         $param = null;
         if($id != "")
         {
-            $sql .= "AND Customers.ID=?";
             $param = ["$id"];
         }
-        //$sql = "DELETE FROM tbNhanvien WHERE id=?";
         $ketqua = $this->set_query($sql,$param);
-        if($ketqua == true)
-            $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
 }

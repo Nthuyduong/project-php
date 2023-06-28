@@ -47,12 +47,11 @@ require("../../core/checklogin.php");
                     $cid = isset($_REQUEST["cid"])?$_REQUEST["cid"]:"";
                     if($cid != null && is_numeric($cid)==false)
                         $cid = "";
-                    $ketqua = $customer->DeleteCustomer($cid);
-
-                    // $keyword = isset($_REQUEST["findcustomer"])?$_REQUEST["findcustomer"]:"";
-                    // if($keyword !=null && is_numeric($keyword)==true)
-                    //     $keyword = "";
-                    // $ketqua = $customer->FindCustomer($keyword);
+                    $customer->DeleteCustomer($cid);
+                    $keyword = isset($_REQUEST["findcustomer"])?$_REQUEST["findcustomer"]:"";
+                    if($keyword !=null && is_numeric($keyword)==true)
+                        $keyword = "";
+                    $ketqua = $customer->FindCustomer($keyword);
                     if($ketqua ==FALSE)
                     {
                         $alert_title = "Can't Connect Database!";
@@ -61,6 +60,10 @@ require("../../core/checklogin.php");
                         die();
                     }
                     $rows = $customer->data;
+                    
+                    
+                    $ketqua = $customer->DeleteCustomer($cid);
+                    
                     ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
