@@ -18,6 +18,7 @@
                             <label for="psw">Password *</label>
                             <input class="inpu" type="password" name="tpass" id="tpass" required>
                         </div>
+                        <div><?=$error?></div>
                             <button type="submit" class="btn btn-pri my-4 w-100" name="b1" id="id" value="Dong y">Sign in</button>
                         <div class="d-flex sign-in-content">
                             <div class="signin-inner">
