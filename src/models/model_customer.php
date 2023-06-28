@@ -28,5 +28,14 @@ class model_customer extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
+
+    function DeleteCustomer($id)
+    {
+        $sql = "DELETE FROM tbNhanvien WHERE id=?";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
 }
 ?>

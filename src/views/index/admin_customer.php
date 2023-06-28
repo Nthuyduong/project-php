@@ -44,6 +44,9 @@ require("../../core/checklogin.php");
                     </div>
                     <?php
                     $customer = new model_customer();
+                    $cid = $_REQUEST["cid"];
+                    if($cid != NULL)
+                        $customer->DeleteCustomer($cid);
                     $keyword = $_REQUEST["findcustomer"];
                     $ketqua = $customer->FindCustomer($keyword);
                     if($ketqua ==FALSE)
@@ -57,7 +60,7 @@ require("../../core/checklogin.php");
                     ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
-                            <div class="cell-sm">
+                            <div class="cell-sm alg-center">
                                 ID
                             </div>
                             <div class="cell">
@@ -66,7 +69,7 @@ require("../../core/checklogin.php");
                             <div class="cell">
                                 EMAIL
                             </div>
-                            <div class="cell-sm">
+                            <div class="cell-sm alg-center">
                                 PHONE
                             </div>
                             <div class="cell-md">
@@ -82,17 +85,17 @@ require("../../core/checklogin.php");
                         {
                         ?>
                         <div class="tb-row">
-                            <div class="cell-sm"><?=$row["ID"]?></div>
+                            <div class="cell-sm alg-center"><?=$row["ID"]?></div>
                             <div class="cell">
                                 <a href="#" class="" data-bs-toggle="modal" data-bs-target="#customer-detail"><?=$row["Name"]?></a>
                             </div>
                             <div class="cell"><?=$row["Email"]?></div>
                             <div class="cell-sm"><?=$row["Phone"]?></div>
                             <div class="cell-md"><?=$row["Address"]?></div>
-                            <div class="cell-sm action-icon stt-out">
+                            <div class="cell-sm action-icon alg-center">
                                 <i class="fas fa-search-plus" style="color: #ffffff;"></i>                                                                       
-                                <i class="fas fa-edit" style="color: #ffffff;"></i>                         
-                                <i class="fas fa-trash"></i>
+                                <i class="mx-3 fas fa-edit" style="color: #ffffff;"></i>                      
+                                <a href="?cid=<?=$row["ID"]?>"><i class="fas fa-trash"></i></a>
                             </div>
                         </div>
                         <?php
