@@ -7,8 +7,11 @@
 <body>
 <?php
 session_start();
+unset($_SESSION["logined_user"]);
+unset($_SESSION["user_email"]);
+
 //unset($_SESSION["logined"]);//hủy 1 biến $_SESSION["logined"]
-session_destroy();//hủy toàn bộ SESSION
+//session_destroy();//hủy toàn bộ SESSION
 
 $alert_title="Đăng xuất thành công";
 $alert = "Quay về trang Home";

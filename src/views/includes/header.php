@@ -120,7 +120,13 @@ session_start();
                     </div>
                 </nav>
             </div>
-            <script>
+            <script>            
+                 document.getElementById("openlogin").onclick = function(){
+                     //document.getElementById("sign-in").modal();
+                     var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
+                     myModal.show();
+                 };
+                
                 var prevScrollpos = window.pageYOffset;
                 window.onscroll = function() {
                 var currentScrollPos = window.pageYOffset;
