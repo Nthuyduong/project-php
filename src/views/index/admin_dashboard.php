@@ -24,17 +24,23 @@ require("../../core/checklogin.php");
                 <div class="db-title mt-4">DASHBOARD</div>
                 <p>Have a nice day!</p>
                 <div class="mt-4">
-                    
-                    <!-- $dab = new model_dashboard();
-                    $ketqua = $dab->GrandTotalSum();
+                    <?php
+                    $gtd = new model_dashboard();
+                    $ketqua = $gtd->GrandTotalDay();
+                    $gtm = new model_dashboard();
+                    $ketqua = $gtm->GrandTotalMonth();
+                    $gty = new model_dashboard();
+                    $ketqua = $gty->GrandTotalYear();
+                    // $test = new model_dashboard();
+                    // $ketqua = $test->testfordate();
+                    // print_r($gtm->data);
                     if($ketqua == false)
                     {
                         $alert_title = "SQL ERROR!";
                         require_once("../../views/includes/alert.php");
                         die();
                     }
-                    $rows = $dab->data; -->
-                    
+                    ?>
                     <h6 class="mb-2">Overview</h3>
                     <div class="row">
                         <div class="col-4 overview-card">
@@ -42,7 +48,7 @@ require("../../core/checklogin.php");
                                 <div class="overview-inner">
                                     <div class="mb-3">
                                         <h4>Today order</h4>
-                                        <h2>$0.00</h2>
+                                        <h2>$<?=$gtd->data["Day_total"]?></h2>
                                     </div>
                                     <div class="d-flex">
                                         <div class="cell">
@@ -65,8 +71,8 @@ require("../../core/checklogin.php");
                             <div class="card-2">
                                 <div class="overview-inner">
                                     <div class="mb-3">
-                                        <h4>This Week Order</h4>
-                                        <h2>$0.000</h2>
+                                        <h4>This Month Order</h4>
+                                        <h2>$<?=$gtm->data["Month_total"]?></h2>
                                     </div>
                                     <div class="d-flex">
                                         <div class="cell">
@@ -89,8 +95,8 @@ require("../../core/checklogin.php");
                             <div class="card-3">
                                 <div class="overview-inner">
                                     <div class="mb-3">
-                                        <h4>This Month Order</h4>
-                                        <h2>$0.000</h2>
+                                        <h4>This Year Order</h4>
+                                        <h2>$<?=$gty->data["Year_total"]?></h2>
                                     </div>
                                     <div class="d-flex">
                                         <div class="cell">

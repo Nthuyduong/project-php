@@ -40,5 +40,16 @@ class model_customer extends Database
         $ketqua = $this->set_query($sql,$param);
         return $ketqua;
     }
+
+    //Select customer by ID
+    function SelectCustomerByID()
+    {
+        $sql = "SELECT * FROM Customers c WHERE c.ID = ?";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+    }
+
+    //
 }
 ?>
