@@ -15,6 +15,7 @@
                 var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
                      myModal.show();
             </script>
+            
             <?php
             }
             ?>
