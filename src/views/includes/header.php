@@ -126,7 +126,8 @@ session_start();
                      var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
                      myModal.show();
                  };
-                
+            </script>
+            <script>    
                 var prevScrollpos = window.pageYOffset;
                 window.onscroll = function() {
                 var currentScrollPos = window.pageYOffset;
