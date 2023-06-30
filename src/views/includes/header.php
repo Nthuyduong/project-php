@@ -9,6 +9,18 @@ session_start();
     <body>
         <div>
             <?php include 'login.php';?>
+            <?php
+            if($_SESSION["logined_fail"]!="")
+            {
+            ?>
+            <script>
+                var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
+                     myModal.show();
+            </script>
+            
+            <?php
+            }
+            ?>
         </div>
         <div>
             <?php include 'forgot-pass.php'; ?>
