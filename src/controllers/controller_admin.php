@@ -14,15 +14,5 @@ class Controller_admin
        return $this-load_row();
 	}
 
-    public function GetProductById()
-    {
-        
-    }
-
-    public function AddProduct()
-    {
-
-    }
-
 
 }
