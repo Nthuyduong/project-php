@@ -22,13 +22,14 @@
                     <form method="post" name="frmlogin" id="frmlogin" action="../../controllers/controller_login_user.php">
                         <div class="mb-3">
                             <label for="email">Email address *</label>
-                            <input class="inpu" type="text" name="temail" id="temail" value="<?=$_SESSION["user_email_fail"]?>" required>
+                            <input class="inpu" type="text" name="temail" id="temail" required>
                         </div>
                         <div>
                             <label for="psw">Password *</label>
-                            <input class="inpu" type="password" name="tpass" id="tpass" value="<?=$_SESSION["user_pass_fail"]?>" required>
+                            <input class="inpu" type="password" name="tpass" id="tpass" required>
+
                         </div>
-                        <button type="submit" class="btn btn-pri my-4 w-100" name="b1" id="id" value="Dong y">Sign in</button>
+                            <button type="submit" class="btn btn-pri my-4 w-100" name="b1" id="id" value="Dong y">Sign in</button>
                         <div class="d-flex sign-in-content">
                             <div class="signin-inner">
                                 <a class="forgot-pass smt me-5" data-bs-toggle="modal" type="submit" data-bs-target="#forgot-pass">Forgot password?</a>

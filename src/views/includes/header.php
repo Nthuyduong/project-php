@@ -138,7 +138,6 @@ session_start();
                 }
                 prevScrollpos = currentScrollPos;
                 }
-            </script>
-            
+            </script>   
     </body>
 </html>

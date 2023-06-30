@@ -31,9 +31,7 @@ require("../../core/checklogin.php");
                     $ketqua = $gtm->GrandTotalMonth();
                     $gty = new model_dashboard();
                     $ketqua = $gty->GrandTotalYear();
-                    // $test = new model_dashboard();
-                    // $ketqua = $test->testfordate();
-                    // print_r($gtm->data);
+                    //print_r($gtd->data);
                     if($ketqua == false)
                     {
                         $alert_title = "SQL ERROR!";
