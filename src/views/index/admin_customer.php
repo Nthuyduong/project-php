@@ -122,6 +122,10 @@ require("../../core/checklogin.php");
                 </div>
             </div>
         </div>
+        <!-- Thuc hien truyen thong tin vao trong modal -->
+        <?php
+        
+        ?>
         <!-- CUSTOMER INFORMATION -->
         <div class="modal fade" id="customer-detail" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
