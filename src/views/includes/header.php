@@ -95,7 +95,7 @@ session_start();
                                     <!--search-button-end-->
                                     <!--Modal Sign In Button-->
                                     <li class="py-1 ps-3">
-                                        <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">Sign in |</a>
+                                        <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">Sign in|</a>
                                     </li>
                                     <!--Modal Sign Up Button-->
                                     <li class="py-1">

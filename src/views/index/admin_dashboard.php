@@ -118,14 +118,22 @@ require("../../core/checklogin.php");
                 </div>
             </div>
             <?php
-            $tto = new model_dashboard();
-            $ketqua = $tto->Total_order();
-            $po = new model_dashboard();
-            $ketqua = $po->Pending_order();
-            $pro = new model_dashboard();
-            $ketqua = $pro->Processing_order();
-            $do = new model_dashboard();
-            $ketqua = $do->Delivered_order();
+            $order = new model_dashboard();
+            $ketqua = $order->getOrderCounts();
+            
+            if ($ketqua === false) {
+                $alert_title = "SQL ERROR!";
+                require_once("../../views/includes/alert.php");
+                die();
+            }
+            else {
+                $counts = $order->data;
+                
+                $totalOrderCount = $counts['total_order'];
+                $pendingOrderCount = $counts['pending_order'];
+                $processingOrderCount = $counts['processing_order'];
+                $deliveredOrderCount = $counts['delivered_order'];
+            }
             ?>
             <div class="my-5">
                 <h6 class="mb-2">Order View</h3>
@@ -138,7 +146,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h4 class="mb-0"><?=$tto->data["total_order"]?></h5>
+                                    <h4 class="mb-0"><?=$totalOrderCount["total_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +159,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Pending</p>
-                                    <h4 class="mb-0"><?=$po->data["pending_order"]?></h5>
+                                    <h4 class="mb-0"><?=$pendingOrderCount["pending_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +172,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Processing</p>
-                                    <h4 class="mb-0"><?=$pro->data["processing_order"]?></h5>
+                                    <h4 class="mb-0"><?=$processingOrderCount["processing_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +185,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Delivered</p>
-                                    <h4 class="mb-0"><?=$do->data["delivered_order"]?></h5>
+                                    <h4 class="mb-0"><?=$deliveredOrderCount["delivered_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +194,7 @@ require("../../core/checklogin.php");
             </div>
             <!-- Top Product -->
             <div>
-                <h6>Top Products</h6>
+                <h6>Featured Items</h6>
                 <div></div>
             </div>
             <div>
@@ -238,7 +246,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md alg-center"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
                         <div class="cell-md"><?=$row["Customer_name"]?></div>
                         <div class="cell alg-center"><?=$row["Payment_method"]?></div>
-                        <div class="cell alg-center"><?=$row["Grand_total"]?></div>
+                        <div class="cell alg-center"><?=$row["grandtotal"]?></div>
                         <div class="cell stt-out">
                             <div class="stt stt3"><?=$row["Status"]?></div>
                         </div>
