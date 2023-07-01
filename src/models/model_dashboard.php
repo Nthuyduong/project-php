@@ -47,15 +47,55 @@ class model_dashboard extends Database
             $this->data = $this->pdo_stm->fetch();
         return $ketqua;
     }
+
+    // //Tinh tong tien cho tung phuong thuc thanh toan trong ngay
+    // function getPaymentDayTotal($paymentMethod)
+    // {
+    //     $currentDate = date('Y-m-d');
+    //     $sql = "SELECT SUM(o.Grand_total) AS {$paymentMethod}Day_total FROM Orders o
+    //             INNER JOIN Payments p ON p.Order_code = o.Code
+    //             WHERE DATE(o.Created_at) = :currentDate AND p.Payment_method = :paymentMethod";
+    //     $params = array(':currentDate' => $currentDate, ':paymentMethod' => $paymentMethod);
+    //     $ketqua = $this->set_query($sql, $params);
+    //     if ($ketqua == true) {
+    //         $this->data = $this->pdo_stm->fetch();
+    //     }
+    //     return $ketqua;
+    // }
+
      //Paypal total/day
      function PaypalDay()
      {
-        $Pday = date('Y-d-m');
+        $Pday = date('Y-m-d');
          $sql = "SELECT SUM(o.Grand_total) AS PaypalDay_total FROM Orders o
          INNER JOIN Payments p ON p.Order_code = o.Code
          WHERE DATE(o.Created_at) = '$Pday' AND p.Payment_method = 'Paypal'";
          $ketqua = $this->set_query($sql);
          if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function VisaDay()
+     {
+        $Vday = date('Y-m-d');
+        $sql = "SELECT SUM(o.Grand_total) AS VisaDay_total FROM Orders o
+        INNER JOIN Payments p ON p.Order_code = o.Code
+        WHERE DATE(o.Created_at) = '$Vday' AND p.Payment_method = 'Visa'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function MasterDay()
+     {
+        $Mday = date('Y-m-d');
+        $sql = "SELECT SUM(o.Grand_total) AS MasterDay_total FROM Orders o
+        INNER JOIN Payments p ON p.Order_code = o.Code
+        WHERE DATE(o.Created_at) = '$Mday' AND p.Payment_method = 'Master Card'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
         return $ketqua;
      }

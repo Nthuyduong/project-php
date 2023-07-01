@@ -32,6 +32,17 @@ require("../../core/checklogin.php");
                     $gty = new model_dashboard();
                     $ketqua = $gty->GrandTotalYear();
 
+                    $ptd = new model_dashboard();
+                    $ketqua = $ptd->PaypalDay();
+                    $vtd = new model_dashboard();
+                    $ketqua = $vtd->VisaDay();
+                    $mtd = new model_dashboard();
+                    $ketqua = $mtd->MasterDay();
+                    
+                    // $forDay = new model_dashboard();
+                    // $paypalTotal = $forDay->getPaymentDayTotal('Paypal');
+                    // $visaTotal = $forDay->getPaymentDayTotal('Visa');
+                    // $masterTotal = $forDay->getPaymentDayTotal('Master Card');
                     //print_r($gtd->data);
                     if($ketqua == false)
                     {
@@ -52,15 +63,15 @@ require("../../core/checklogin.php");
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$ptd->data["PaypalDay_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$vtd->data["VisaDay_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$mtd->data["MasterDay_total"]?></p>
                                         </div>
                                     </div>
                                 </div>
