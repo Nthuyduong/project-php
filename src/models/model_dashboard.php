@@ -40,12 +40,68 @@ class model_dashboard extends Database
     {
         $currentYear = date('Y');
         $sql = "SELECT SUM(o.Grand_total) AS Year_total FROM Orders o
-        WHERE YEAR(o.Created_at) = '$currentYear' AND o.Status='Delivered'";
+        INNER JOIN Payments p ON o.Code = p.Order_code
+        WHERE YEAR(o.Created_at) = '$currentYear' AND o.Status='Delivered' AND p.Payment_method = 'Paypal'";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
         return $ketqua;
     }
+     //Paypal total/day
+     function PaypalDay()
+     {
+        $Pday = date('Y-d-m');
+         $sql = "SELECT SUM(o.Grand_total) AS PaypalDay_total FROM Orders o
+         INNER JOING Payments p ON p.Order_code = o.Code
+         WHERE DATE(o.Created_at) = '$Pday' AND o.Status = 'Delivered' AND p.Payment_method = 'Paypal'";
+         $ketqua = $this->set_query($sql);
+         if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+    //count total order 
+    function Total_order()
+    {
+        $sql = "SELECT COUNT(o.Code) AS total_order FROM Orders o";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+    
+    // count pending order
+    function Pending_order()
+    {
+        $sql = "SELECT COUNT(o.Code) AS pending_order FROM Orders o
+        WHERE o.Status = 'Pending'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+
+    // count processing order
+    function Processing_order()
+    {
+        $sql = "SELECT COUNT(o.Code) AS processing_order FROM Orders o
+        WHERE o.Status = 'Processing'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+
+    // count delivered order
+    function Delivered_order()
+    {
+        $sql = "SELECT COUNT(o.Code) AS delivered_order FROM Orders o
+        WHERE o.Status = 'Delivered'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+
 
     // function testfordate()
     // {
@@ -91,10 +147,6 @@ class model_dashboard extends Database
     
     // }
 
-    //Paypal day
-    function PaypalDay()
-    {
-        $sql = "";
-    }
+   
 }
 ?>

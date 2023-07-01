@@ -82,11 +82,11 @@ session_start();
                             <!--top-page-right-->
                             <div class="col-3 top-page-end">
                                 <ul class="d-flex justify-content-end">
-                                    <div>
+                                    <div class="pe-3">
                                         <li class="py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
                                     </div>
                                     <!--search-button-start-->
-                                    <div class="search-box px-3">
+                                    <div class="search-box">
                                         <input type="text" placeholder="search...">
                                         <a href="search.php" class="iconsearch">
                                         <i class="fa fa-search fa-lg"></i>
@@ -94,7 +94,7 @@ session_start();
                                     </div>
                                     <!--search-button-end-->
                                     <!--Modal Sign In Button-->
-                                    <li class="py-1">
+                                    <li class="py-1 ps-3">
                                         <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">Sign in |</a>
                                     </li>
                                     <!--Modal Sign Up Button-->

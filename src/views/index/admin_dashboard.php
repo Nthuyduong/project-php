@@ -31,6 +31,7 @@ require("../../core/checklogin.php");
                     $ketqua = $gtm->GrandTotalMonth();
                     $gty = new model_dashboard();
                     $ketqua = $gty->GrandTotalYear();
+
                     //print_r($gtd->data);
                     if($ketqua == false)
                     {
@@ -116,6 +117,16 @@ require("../../core/checklogin.php");
                     </div>
                 </div>
             </div>
+            <?php
+            $tto = new model_dashboard();
+            $ketqua = $tto->Total_order();
+            $po = new model_dashboard();
+            $ketqua = $po->Pending_order();
+            $pro = new model_dashboard();
+            $ketqua = $pro->Processing_order();
+            $do = new model_dashboard();
+            $ketqua = $do->Delivered_order();
+            ?>
             <div class="my-5">
                 <h6 class="mb-2">Order View</h3>
                 <div class="row">
@@ -127,7 +138,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h4 class="mb-0">30</h5>
+                                    <h4 class="mb-0"><?=$tto->data["total_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +151,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Pending</p>
-                                    <h4 class="mb-0">5</h5>
+                                    <h4 class="mb-0"><?=$po->data["pending_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +164,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Processing</p>
-                                    <h4 class="mb-0">5</h5>
+                                    <h4 class="mb-0"><?=$pro->data["processing_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -166,12 +177,17 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Delivered</p>
-                                    <h4 class="mb-0">20</h5>
+                                    <h4 class="mb-0"><?=$do->data["delivered_order"]?></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- Top Product -->
+            <div>
+                <h6>Top Products</h6>
+                <div></div>
             </div>
             <div>
                 <h6>Recently Orders</h6>
