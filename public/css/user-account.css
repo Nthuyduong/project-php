@@ -8,7 +8,7 @@
 
 }
 /* SIDE BAR HERE */
-.user-nav{
+.user-nav ul.nav-tabs{
     flex-direction: column !important;
 }
 

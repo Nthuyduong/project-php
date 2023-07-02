@@ -84,12 +84,29 @@ session_start();
                                     <li class="py-1 ps-3">
                                         <a class="sign-up smt" href="../includes/user_logout.php">Log out</a>
                                     </li>
-                                    <?php
-                                    } else{
-                                    ?>
-                                    <!--Modal Sign In Button -->
-                                    <li class="py-1">
-                                        <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">Sign in |</a>
+                                </ul>
+                            </div>
+                            <?php
+                            } else
+                            {
+                            ?>
+                            <!--top-page-right-->
+                            <div class="col-3 top-page-end">
+                                <ul class="d-flex justify-content-end">
+                                    <div class="pe-3">
+                                        <li class="py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
+                                    </div>
+                                    <!--search-button-start-->
+                                    <div class="search-box">
+                                        <input type="text" placeholder="search...">
+                                        <a href="search.php" class="iconsearch">
+                                        <i class="fa fa-search fa-lg"></i>
+                                        </a>
+                                    </div>
+                                    <!--search-button-end-->
+                                    <!--Modal Sign In Button-->
+                                    <li class="py-1 ps-3">
+                                        <a class="sign-in" data-bs-toggle="modal" type="button" data-bs-target="#sign-in">Sign in|</a>
                                     </li>
                                     <!--Modal Sign Up Button-->
                                     <li class="py-1">

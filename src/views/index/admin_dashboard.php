@@ -31,6 +31,18 @@ require("../../core/checklogin.php");
                     $ketqua = $gtm->GrandTotalMonth();
                     $gty = new model_dashboard();
                     $ketqua = $gty->GrandTotalYear();
+
+                    $ptd = new model_dashboard();
+                    $ketqua = $ptd->PaypalDay();
+                    $vtd = new model_dashboard();
+                    $ketqua = $vtd->VisaDay();
+                    $mtd = new model_dashboard();
+                    $ketqua = $mtd->MasterDay();
+                    
+                    // $forDay = new model_dashboard();
+                    // $paypalTotal = $forDay->getPaymentDayTotal('Paypal');
+                    // $visaTotal = $forDay->getPaymentDayTotal('Visa');
+                    // $masterTotal = $forDay->getPaymentDayTotal('Master Card');
                     //print_r($gtd->data);
                     if($ketqua == false)
                     {
@@ -51,15 +63,15 @@ require("../../core/checklogin.php");
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$ptd->data["PaypalDay_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$vtd->data["VisaDay_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$mtd->data["MasterDay_total"]?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -116,6 +128,24 @@ require("../../core/checklogin.php");
                     </div>
                 </div>
             </div>
+            <?php
+            $order = new model_dashboard();
+            $ketqua = $order->getOrderCounts();
+            
+            if ($ketqua === false) {
+                $alert_title = "SQL ERROR!";
+                require_once("../../views/includes/alert.php");
+                die();
+            }
+            else {
+                $counts = $order->data;
+                
+                $totalOrderCount = $counts['total_order'];
+                $pendingOrderCount = $counts['pending_order'];
+                $processingOrderCount = $counts['processing_order'];
+                $deliveredOrderCount = $counts['delivered_order'];
+            }
+            ?>
             <div class="my-5">
                 <h6 class="mb-2">Order View</h3>
                 <div class="row">
@@ -127,7 +157,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order total</p>
-                                    <h4 class="mb-0">30</h5>
+                                    <h4 class="mb-0"><?=$totalOrderCount["total_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +170,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Pending</p>
-                                    <h4 class="mb-0">5</h5>
+                                    <h4 class="mb-0"><?=$pendingOrderCount["pending_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +183,7 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Processing</p>
-                                    <h4 class="mb-0">5</h5>
+                                    <h4 class="mb-0"><?=$processingOrderCount["processing_order"]?></h5>
                                 </div>
                             </div>
                         </div>
@@ -166,12 +196,17 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="w-100">
                                     <p>Order Delivered</p>
-                                    <h4 class="mb-0">20</h5>
+                                    <h4 class="mb-0"><?=$deliveredOrderCount["delivered_order"]?></h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- Top Product -->
+            <div>
+                <h6>Featured Items</h6>
+                <div></div>
             </div>
             <div>
                 <h6>Recently Orders</h6>
@@ -222,7 +257,7 @@ require("../../core/checklogin.php");
                         <div class="cell-md alg-center"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
                         <div class="cell-md"><?=$row["Customer_name"]?></div>
                         <div class="cell alg-center"><?=$row["Payment_method"]?></div>
-                        <div class="cell alg-center"><?=$row["Grand_total"]?></div>
+                        <div class="cell alg-center"><?=$row["grandtotal"]?></div>
                         <div class="cell stt-out">
                             <div class="stt stt3"><?=$row["Status"]?></div>
                         </div>

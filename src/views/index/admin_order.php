@@ -79,6 +79,10 @@ require("../../core/checklogin.php");
                         die();
                     }
                     $rows = $order->data;
+
+                    // $gt = new model_order();
+                    // $ketqua = $gt->GrandTotal();
+                    // print_r($ketqua);
                     ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
@@ -115,7 +119,7 @@ require("../../core/checklogin.php");
                             <div class="cell-md"><?=date("d-m-Y", strtotime($row["Created_at"]))?></div>
                             <div class="cell-md"><?=$row["Customer_name"]?></div>
                             <div class="cell"><?=$row["Payment_method"]?></div>
-                            <div class="cell"><?=$row["Grand_total"]?></div>
+                            <div class="cell"><?=$row["grandtotal"]?></div>
                             <div class="cell stt-out">
                                 <div class="stt stt1"><?=$row["Status"]?></div>
                             </div>
