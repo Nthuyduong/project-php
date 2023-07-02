@@ -1,4 +1,8 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php
+session_start();
+require_once("../../core/checklogin_user.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,21 +23,15 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="d-flex user-title w-100">
+                <div class="d-flex user-title w-150">
                     <!-- User's Avata here -->
                     <div class="d-flex me-auto">
                         <div class="">
                             <img class="w-100 user-img" src="../../../public/images/user/user.png"/>
                         </div>
-                        <div class="w-100">
-                            <h6>Nthyduong898</h6>
-                            <p>Nthduong@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="ms-auto w-100">
-                        <!-- Button logout here -->
-                        <div>
-                            <div class="btn btn-pri">Log out</div>
+                        <div class="w-150">
+                            <h6><?=$_SESSION["user_name"]?></h6>
+                            <p><?=$_SESSION["user_email"]?></p>
                         </div>
                     </div>
                 </div>
@@ -73,33 +71,34 @@
                             <div class="col-10">
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="infor" role="tabpanel" aria-labelledby="info-tab">
+                                    <form action="" method="post">
                                         <div class="row">
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="usermail">Email Address</label>
-                                                    <input class="inpu" name="usermail" id="usermail" placeholder="Nthduong898@gmail.com"/>
+                                            
+                                                <div class="col-6">
+                                                    <div>
+                                                        <label for="usermail">Email Address</label>
+                                                        <p for="usermail"><?=$_SESSION["user_email"]?></p>
+                                                    </div>
+                                                    <div class="my-3">
+                                                        <label for="username">Full Name</label>
+                                                        <input class="inpu" name="userfn" id="userfn" value="<?=$_SESSION["user_name"]?>"/>
+                                                    </div>
                                                 </div>
-                                                <div class="my-3">
-                                                    <label for="username">Full Name</label>
-                                                    <input class="inpu" name="userfn" id="userfn" placeholder="Nguyen Thuy Duong"/>
+                                                <div class="col-6">
+                                                    <div>
+                                                        <label for="userphone">Phone Number</label>
+                                                        <input class="inpu" name="userphone" id="userphone" value="<?=$_SESSION["user_phone"]?>"/>
+                                                    </div>
+                                                    <div class="my-3">
+                                                        <label for="useradd">Address</label>
+                                                        <input class="inpu" name="useradd" id="useradd" value="<?=$_SESSION["user_address"]?>"/>
+                                                    </div>
+                                                    <!-- <div class="btn btn-pri">Edit information</div> -->
+                                                    <input type="submit" class="btn btn-pri" name="b1" id="b1" value="Edit"/>
                                                 </div>
-                                                <div>
-                                                    <label for="DOB">DOB</label>
-                                                    <input class="inpu" class="" name="userDOB" id="userDOB" placeholder="19/08/1998"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div>
-                                                    <label for="userphone">Phone Number</label>
-                                                    <input class="inpu" name="userphone" id="userphone" placeholder="012345678"/>
-                                                </div>
-                                                <div class="my-3">
-                                                    <label for="useradd">Address</label>
-                                                    <input class="inpu" name="useradd" id="useradd" placeholder="So 1, Nguyen Trai, Thanh Xuan, Ha Noi"/>
-                                                </div>
-                                                <div class="btn btn-pri">Edit information</div>
-                                            </div>
+                                            
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">

@@ -27,8 +27,5 @@ if(isset($_SESSION["logined_user"])==false || $_SESSION["logined_user"]=="")
     </div>
 <?php
 die();
-}else{
-    echo $_SESSION["logined_user"];
-    echo $_SESSION["user_email"];
 }
 ?>

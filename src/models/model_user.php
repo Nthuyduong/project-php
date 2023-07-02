@@ -9,10 +9,20 @@ class model_user extends Database
         parent::__construct();//gọi hàm tạo của clsDatabase để kết nối CSDL
     }
     //check email này tồn tại trong CSDL chưa
-    function CheckUserAccount($email)
+    function CheckUserAccountByEmail($email)
     {
         $sql = "SELECT * FROM Customers WHERE Email=?";
         $param[] = $email;
+        $ketqua = $this->set_query($sql,$param);
+        $this->data=null;
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+    function CheckUserAccountByPhone($phone)
+    {
+        $sql = "SELECT * FROM Customers WHERE Phone=?";
+        $param[] = $phone;
         $ketqua = $this->set_query($sql,$param);
         $this->data=null;
         if($ketqua == true)

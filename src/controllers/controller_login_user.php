@@ -18,7 +18,7 @@ $login = new model_login();
 $customer= new model_user();
 //kiem tra tai khoan xem da login hay chua? Ham kiem tra?
 $ketqua = $login->CheckLoginUser($user,$passmd5);
-$checkMail=$customer->CheckUserAccount($user);
+$checkMail=$customer->CheckUserAccountByEmail($user);
 if($ketqua == false || $checkMail==false)
 {   
     $alert_title="Loi truy van CSDL";
@@ -35,11 +35,16 @@ else{
         {
             $_SESSION["logined_user"] = "OK";
             $_SESSION["user_email"] = $row["Email"];
+            $_SESSION["user_name"]=$row["Name"];
+            $_SESSION["user_address"]=$row["Address"];
+            $_SESSION["user_phone"]=$row["Phone"];
+            $_SESSION["user_pass"]=$pass;
+
             $_SESSION["logined_fail"] = "";
-            if(isset($_SESSION["user_email_fail"]))
-                unset($_SESSION["user_email_fail"]);
-            if(isset($_SESSION["user_pass_fail"]))
-                unset($_SESSION["user_pass_fail"]);    
+            // if(isset($_SESSION["user_email_fail"]))
+            //     unset($_SESSION["user_email_fail"]);
+            // if(isset($_SESSION["user_pass_fail"]))
+            //     unset($_SESSION["user_pass_fail"]);    
         }
         else
         {   
