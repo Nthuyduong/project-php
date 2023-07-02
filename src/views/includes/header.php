@@ -14,10 +14,9 @@ session_start();
             {
             ?>
             <script>
-                var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
-                     myModal.show();
+                var myModalLogin = new bootstrap.Modal(document.getElementById('sign-in'));
+                    myModalLogin.show();
             </script>
-            
             <?php
             }
             ?>
@@ -27,6 +26,17 @@ session_start();
         </div>
         <div>
             <?php include 'sign-up.php'; ?>
+            <?php
+            if($_SESSION["sign_up_user_fail"]!="")
+            {
+            ?>
+            <script>
+                var myModalSignup = new bootstrap.Modal(document.getElementById('sign-up'));
+                    myModalSignup.show();
+            </script>
+            <?php
+            }
+            ?>
         </div>
         <div>
             <?php include 'bag.php'; ?>
@@ -51,10 +61,6 @@ session_start();
                                     <img id="logo" src="../../../public/images/logo.svg" alt="aguri-logo"/>
                                 </a>
                             </div>
-                            <?php
-                            if($_SESSION["logined_user"]=="OK")
-                            {
-                            ?>
                             <!--top-page-right-->
                             <div class="col-3 top-page-end">
                                 <ul class="d-flex justify-content-end">
@@ -69,7 +75,12 @@ session_start();
                                         </a>
                                     </div>
                                     <!--search-button-end-->
-                                    <!--Log out-->
+                                    <?php
+                                    if($_SESSION["logined_user"]=="OK")
+                                    {
+                                    ?>
+                            
+                                    <!--Log out if user logined succes-->
                                     <li class="py-1 ps-3">
                                         <a class="sign-up smt" href="../includes/user_logout.php">Log out</a>
                                     </li>
@@ -101,11 +112,14 @@ session_start();
                                     <li class="py-1">
                                         <a class="sign-up smt" data-bs-toggle="modal" type="button" data-bs-target="#sign-up">Sign up</a>
                                     </li>
+                                    <?php
+                                    }
+                                    
+                                    ?>        
                                 </ul>
                             </div>
-                            <?php
-                            }
-                            ?>
+                            
+                            
                         </div>
                     </div>
                 </header>
@@ -135,10 +149,16 @@ session_start();
             <script>            
                  document.getElementById("openlogin").onclick = function(){
                      //document.getElementById("sign-in").modal();
-                     var myModal = new bootstrap.Modal(document.getElementById('sign-in'));
-                     myModal.show();
+                     var myModalLogin = new bootstrap.Modal(document.getElementById('sign-in'));
+                     myModalLogin.show();
+                 };
+                 ocument.getElementById("opensignup").onclick = function(){
+                     //document.getElementById("sign-in").modal();
+                     var myModalSignup = new bootstrap.Modal(document.getElementById('sign-up'));
+                     myModalLogin.show();
                  };
             </script>
+
             <script>    
                 var prevScrollpos = window.pageYOffset;
                 window.onscroll = function() {
@@ -153,3 +173,36 @@ session_start();
             </script>   
     </body>
 </html>
+<?php
+if(isset($_SESSION["logined_fail"]))
+    unset($_SESSION["logined_fail"]);
+if(isset($_SESSION["user_email_fail"]))
+    unset($_SESSION["user_email_fail"]);
+if(isset($_SESSION["user_pass_fail"]))
+    unset($_SESSION["user_pass_fail"]);
+
+    if(isset($_SESSION["sign_up_user_name_err"]))
+    unset($_SESSION["sign_up_user_name_err"]);
+    if(isset($_SESSION["sign_up_user_address_err"]))
+    unset($_SESSION["sign_up_user_address_err"]);
+    if(isset($_SESSION["sign_up_user_phone_err"]))
+    unset($_SESSION["sign_up_user_phone_err"]);
+    if(isset($_SESSION["sign_up_user_email_err"]))
+    unset($_SESSION["sign_up_user_email_err"]);
+    if(isset($_SESSION["sign_up_user_pass_err"]))
+    unset($_SESSION["sign_up_user_pass_err"]);
+    if(isset($_SESSION["sign_up_user_repass_err"]))
+    unset($_SESSION["sign_up_user_repass_err"]);
+
+    if(isset($_SESSION["sign_up_user_fail"]))
+    unset($_SESSION["sign_up_user_fail"]);
+
+    if(isset($_SESSION["sign_up_user_email_fail"]))
+    unset($_SESSION["sign_up_user_email_fail"]);
+    if(isset($_SESSION["sign_up_user_phone_fail"]))
+    unset($_SESSION["sign_up_user_phone_fail"]);
+    if(isset($_SESSION["sign_up_user_repass_fail"]))
+    unset($_SESSION["sign_up_user_repass_fail"]);
+
+    
+?>
