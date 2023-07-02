@@ -14,7 +14,6 @@
         //     $row = $pdo_stm->fetch(PDO::FETCH_ASSOC);
         //     extract($row);
     ?>
-
         <!-- All content will goes here -->
         <div class="table-customer">
             <div class="row">
@@ -35,7 +34,7 @@
                             </div>
                             <div class="tb-row tb-row2">
                                 <div class="cell-sm">ADDRESS</div>
-                                <div class="cell">So 1, Nguyen Trai, Thanh Xuan, Ha Noi</div>
+                                <div class="cell"><?php echo $Address?></div>
                             </div>
                         </div>
                     </div>
