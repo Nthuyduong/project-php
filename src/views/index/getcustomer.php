@@ -57,7 +57,7 @@
                                 <div class="cell"><?php echo $row["Created_at"]?></div>
                                 <div class="cell"><?php echo $row["Grand_total"]?></div>
                                 <div class="cell">
-                                <div class="stt stt2"><?php echo $row["Status"]?></div>
+                                    <div class="stt stt2"><?php echo $row["Status"]?></div>
                                 </div>
                             </div>
                             <?php

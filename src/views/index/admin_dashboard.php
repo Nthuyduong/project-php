@@ -38,7 +38,21 @@ require("../../core/checklogin.php");
                     $ketqua = $vtd->VisaDay();
                     $mtd = new model_dashboard();
                     $ketqua = $mtd->MasterDay();
-                    
+
+                    $ptm = new model_dashboard();
+                    $ketqua = $ptm->PaypayMonth();
+                    $vtm = new model_dashboard();
+                    $ketqua = $vtm->VisaMonth();
+                    $mtm = new model_dashboard();
+                    $ketqua = $mtm->MasterMonth();
+
+                    $pty = new model_dashboard();
+                    $ketqua = $pty->PaypalYear();
+                    $vty = new model_dashboard();
+                    $ketqua = $vty->VisaYear();
+                    $mty = new model_dashboard();
+                    $ketqua = $mty->MasterYear();
+
                     // $forDay = new model_dashboard();
                     // $paypalTotal = $forDay->getPaymentDayTotal('Paypal');
                     // $visaTotal = $forDay->getPaymentDayTotal('Visa');
@@ -87,15 +101,15 @@ require("../../core/checklogin.php");
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$ptm->data["PaypalMonth_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$vtm->data["VisaMonth_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$mtm->data["MasterMonth_total"]?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -111,15 +125,15 @@ require("../../core/checklogin.php");
                                     <div class="d-flex">
                                         <div class="cell">
                                             <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$pty->data["PaypalYear_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$vty->data["VisaYear_total"]?></p>
                                         </div>
                                         <div class="cell">
                                             <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$0.000</p>
+                                            <p class="mb-0">$ <?=$mty->data["MasterYear_total"]?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -205,8 +219,16 @@ require("../../core/checklogin.php");
             </div>
             <!-- Top Product -->
             <div>
-                <h6>Featured Items</h6>
-                <div></div>
+                <h6>Top 5 featured Items</h6>
+                <div class="featured_item">
+                    <div>
+                        <img/>
+                    </div>
+                    <div>
+                        <div>Product name</div>
+                        <div>$ 40.000</div>
+                    </div>
+                </div>
             </div>
             <div>
                 <h6>Recently Orders</h6>

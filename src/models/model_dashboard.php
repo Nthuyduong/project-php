@@ -63,7 +63,7 @@ class model_dashboard extends Database
     //     return $ketqua;
     // }
 
-     //Paypal total/day
+    
      function PaypalDay()
      {
         $Pday = date('Y-m-d');
@@ -96,6 +96,90 @@ class model_dashboard extends Database
         WHERE DATE(o.Created_at) = '$Mday' AND p.Payment_method = 'Master Card'";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function PaypayMonth()
+     {
+        $Pmonth = date('m');
+        if(substr($Pmonth, 0, 1) === '0')
+        {
+            $Pmonth = substr($Pmonth, 1);
+        }
+         $sql = "SELECT SUM(o.Grand_total) AS PaypalMonth_total FROM Orders o
+         INNER JOIN Payments p ON p.Order_code = o.Code
+         WHERE MONTH(o.Created_at) = '$Pmonth' AND p.Payment_method = 'Paypal'";
+         $ketqua = $this->set_query($sql);
+         if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function VisaMonth()
+     {
+        $Vmonth = date('m');
+        if(substr($Vmonth, 0, 1) === '0')
+        {
+            $Pmonth = substr($Vmonth, 1);
+        }
+        $sql = "SELECT SUM(o.Grand_total) AS VisaMonth_total FROM Orders o
+        INNER JOIN Payments p ON p.Order_code = o.Code
+        WHERE MONTH(o.Created_at) = '$Vmonth' AND p.Payment_method = 'Visa'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function MasterMonth()
+     {
+        $Mmonth = date('m');
+        if(substr($Mmonth, 0, 1) === '0')
+        {
+            $Pmonth = substr($Mmonth, 1);
+        }
+        $sql = "SELECT SUM(o.Grand_total) AS MasterMonth_total FROM Orders o
+        INNER JOIN Payments p ON p.Order_code = o.Code
+        WHERE MONTH(o.Created_at) = '$Mmonth' AND p.Payment_method = 'Master Card'";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function PaypalYear()
+     {
+        $Pyear = date('Y');
+         $sql = "SELECT SUM(o.Grand_total) AS PaypalYear_total FROM Orders o
+         INNER JOIN Payments p ON p.Order_code = o.Code
+         WHERE YEAR(o.Created_at) = '$Pyear' AND p.Payment_method = 'Paypal'";
+         $ketqua = $this->set_query($sql);
+         if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function VisaYear()
+     {
+        $Vyear = date('Y');
+         $sql = "SELECT SUM(o.Grand_total) AS VisaYear_total FROM Orders o
+         INNER JOIN Payments p ON p.Order_code = o.Code
+         WHERE YEAR(o.Created_at) = '$Vyear' AND p.Payment_method = 'Visa'";
+         $ketqua = $this->set_query($sql);
+         if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+     }
+
+     function MasterYear()
+     {
+        $Myear = date('Y');
+         $sql = "SELECT SUM(o.Grand_total) AS MasterYear_total FROM Orders o
+         INNER JOIN Payments p ON p.Order_code = o.Code
+         WHERE YEAR(o.Created_at) = '$Myear' AND p.Payment_method = 'Master Card'";
+         $ketqua = $this->set_query($sql);
+         if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
         return $ketqua;
      }
