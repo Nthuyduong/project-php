@@ -31,7 +31,7 @@ require("../../core/checklogin.php");
                         <div class="col-6">
                             <div className="search-bar d-flex">
                                 <form action="" method="GET">
-                                    <input name="findcustomer" id="findcustomer" class="search-input w-100" type="text" placeholder="Enter customer's name..." />
+                                    <input name="findcustomer" id="findcustomer" class="search-input w-100" type="text" placeholder="Enter customer's name..." value="<?=$keyword?>"/>
                                     <FontAwesomeIcon class="icon-search" icon={faSearch}/>
                                 </form>
                             </div>
