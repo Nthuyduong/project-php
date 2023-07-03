@@ -92,7 +92,20 @@ class model_product extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
-    
+    // ttmh - tim san pham bt keyword
+    function GetListProductsByKeyword($keyword){
+        $sql="SELECT * FROM Products WHERE TRUE ";
+        
+        if($keyword != "")
+        {
+            $sql .= " AND Name LIKE '%$keyword%' ";
+            
+        }
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
 
 }
 ?>

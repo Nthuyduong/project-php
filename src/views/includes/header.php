@@ -69,11 +69,12 @@ session_start();
                                     </div>
                                     <!--search-button-start-->
                                     <div class=" search-box">
-                                        <input type="text" placeholder="search...">
+                                        <input type="text" name ="keywordprd" placeholder="search...">
                                         <a href="search.php" class="iconsearch">
                                         <i class="fa fa-search fa-lg"></i>
                                         </a>
                                     </div>
+                                    
                                     <!--search-button-end-->
                                     <?php
                                     if($_SESSION["logined_user"]=="OK")
