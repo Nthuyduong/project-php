@@ -41,20 +41,20 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="col-3">
                                 <select class="sl-box" name="ctg" id="ctg">
-                                    <option>Category</option>
-                                    <option>Ring</option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
+                                    <option value="">Category</option>
+                                    <option value="Ring">Ring</option>
+                                    <option value="Earring">Earring</option>
+                                    <option value="Necklace">Necklace</option>
+                                    <option value="Bracelet">Bracelet</option>
                                 </select>
                             </div>
                             <div class="col-3">
                                 <select class="sl-box" name="sub-ctg" id="sub-ctg">
-                                    <option>Sub-category</option>
-                                    <option>Eternity</option>
-                                    <option>Eternity</option>
-                                    <option>Eternity</option>
-                                    <option>Eternity</option>
+                                    <option value="">Sub-category</option>
+                                    <option value="">Eternity</option>
+                                    <option value="">Eternity</option>
+                                    <option value="">Eternity</option>
+                                    <option value="">Eternity</option>
                                 </select>
                             </div>
                             <div class="col-3">
@@ -70,6 +70,8 @@ require("../../core/checklogin.php");
                     </div>
                     <!-- Product table -->
                     <?php
+                    $all = new model_product();
+                    $ketqua = $all->GetListProducts();
                     $products = new model_product();
                     $did = $_REQUEST["did"];
                     if($did != NULL)
@@ -85,7 +87,7 @@ require("../../core/checklogin.php");
                     }
                     $rows = $products->data;
                     ?>
-                    <div class="tbl">
+                    <div class="tbl product-wrapper">
                         <div class="tb-row title-row">
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
@@ -372,6 +374,11 @@ require("../../core/checklogin.php");
             </div>
         </div>   
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> 
+        
+        <script>
+            let selectMenu = document.querySelector(#ctg);
+            let headling =document.querySelector();
+        </script>
     </body>
 </html>

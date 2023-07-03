@@ -140,7 +140,7 @@ require("../../core/checklogin.php");
                             <img src="../../../public/images/ajax-loader.gif"/>
                         </div>
                         <!-- Content will be load here -->
-                        <div class="dynamic-content">
+                        <div id="dynamic-content">
 
                         </div>
                     </div>
@@ -168,7 +168,9 @@ require("../../core/checklogin.php");
                     $.ajax({
                         url: 'getcustomer.php',
                         type: 'POST',
-                        data: 'id'+uid,
+                        data: {
+                            id:uid
+                        },
                         dataType: 'html',
                     })
                     .done(function(data){
@@ -177,7 +179,7 @@ require("../../core/checklogin.php");
                         // load response
                         $('#dynamic-content').html(data);
                         // hide ajax loader
-                        $('modal-loader').hide();
+                        $('#modal-loader').hide();
                     })
                     .fail(function(){
                         $('#dynamic-content'),html('<p>Something went wrong, please try again!</p>');

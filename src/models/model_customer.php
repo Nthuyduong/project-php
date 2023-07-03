@@ -18,6 +18,20 @@ class model_customer extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
+    
+    function GetCustomerByID($id)
+    {
+        $sql = "SELECT * FROM Customers WHERE ID=?";
+        $param = null;
+        if($id != "")
+        {
+            $param = ["$id"];
+        }
+        $ketqua = $this->set_query($sql,$param);       
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
 
     //Search customer by NAME
     function FindCustomer($keyword = "")
@@ -50,6 +64,23 @@ class model_customer extends Database
             $this->data = $this->pdo_stm->fetchAll();
     }
 
-    //
+    //Get all order of a customer
+    function GetOrderOfCustomer($customer_id)
+    {
+        $sql = "SELECT o.Code, o.Created_at, o.Grand_total, o.Status
+                FROM Orders o
+                INNER JOIN Customers c ON o.Customer_ID = c.ID
+                WHERE c.ID = ?";
+        $param = null;
+        if($customer_id != "")
+        {
+            $param = ["$customer_id"];
+        }
+        $ketqua = $this->set_query($sql, $param);
+        if ($ketqua == true) {
+            $this->data = $this->pdo_stm->fetchAll();
+        }
+    }
+
 }
 ?>
