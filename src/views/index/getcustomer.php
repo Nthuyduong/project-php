@@ -53,11 +53,12 @@
                             {
                             ?>
                             <div class="tb-row">
-                                <div class="cell-sm"><?php echo $rows["Code"]?></div>
-                                <div class="cell"><?php echo $rows["Created_at"]?></div>
-                                <div class="cell"><?php echo $rows["Grand_total"]?></div>
+                                <div class="cell-sm"><?php echo $row["Code"]?></div>
+                                <div class="cell"><?php echo $row["Created_at"]?></div>
+                                <div class="cell"><?php echo $row["Grand_total"]?></div>
                                 <div class="cell">
-                                <div class="stt stt2"><?php echo $rows["Status"]?></div>
+                                <div class="stt stt2"><?php echo $row["Status"]?></div>
+                                </div>
                             </div>
                             <?php
                             }

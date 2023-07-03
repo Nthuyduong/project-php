@@ -25,6 +25,29 @@ class model_product extends Database
         return $ketqua;
     }
 
+    //Lay danh sach san pham theo category
+    function GetProductByCategory($category)
+    {
+        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        FROM (
+            SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name AS Sub_category, d.Stock
+            FROM Products p
+            INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
+            INNER JOIN Product_details d ON p.ID = d.Product_ID
+        ) AS tb1
+        WHERE tb1.Category = ?
+        GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
+        $param = null;
+        if($category != "")
+        {
+            $param = ["$category"];
+        }
+        $ketqua = $this->set_query($sql, $param);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+
+    }
+
     //Them san pham
     function AddProduct($name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection)
     {

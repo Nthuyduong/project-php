@@ -35,11 +35,11 @@ require("../../core/checklogin.php");
                         </div>
                         <div class="col-3">
                             <select class="sl-box" name="status" id="status">
-                                <option>choose status</option>
-                                <option>Pending</option>
-                                <option>Processing</option>
-                                <option>Delivered</option>
-                                <option>Cancel</option>
+                                <option value="">choose status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Processing">Processing</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="Cancel">Cancel</option>
                             </select>
                         </div>
                         <div class="col-3">
@@ -53,10 +53,10 @@ require("../../core/checklogin.php");
                     <div class="row">
                         <div class="col-3">
                             <select class="sl-box" name="payment" id="payment">
-                                <option>Payment method</option>
-                                <option>Visa</option>
-                                <option>Paypal</option>
-                                <option>Master Card</option>
+                                <option value="">Payment method</option>
+                                <option value="Visa">Visa</option>
+                                <option value="Paypal">Paypal</option>
+                                <option value="Master">Master Card</option>
                             </select>
                         </div>
                         <div class="col-3">

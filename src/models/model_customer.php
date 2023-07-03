@@ -70,16 +70,12 @@ class model_customer extends Database
         $sql = "SELECT o.Code, o.Created_at, o.Grand_total, o.Status
                 FROM Orders o
                 INNER JOIN Customers c ON o.Customer_ID = c.ID
-                WHERE c.ID = ?";
-        $param = null;
-        if($customer_id != "")
-        {
-            $param = ["$customer_id"];
-        }
-        $ketqua = $this->set_query($sql, $param);
+                WHERE c.ID = $customer_id";
+        $ketqua = $this->set_query($sql);
         if ($ketqua == true) {
             $this->data = $this->pdo_stm->fetchAll();
         }
+        return $ketqua;
     }
 
 }

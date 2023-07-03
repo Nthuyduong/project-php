@@ -51,10 +51,18 @@ require("../../core/checklogin.php");
                             <div class="col-3">
                                 <select class="sl-box" name="sub-ctg" id="sub-ctg">
                                     <option value="">Sub-category</option>
-                                    <option value="">Eternity</option>
-                                    <option value="">Eternity</option>
-                                    <option value="">Eternity</option>
-                                    <option value="">Eternity</option>
+                                    <option value="Ring1|A1" data-category="Ring">Eternity 1</option>
+                                    <option value="Ring|A2" data-category="Ring">Eternity 2</option>
+                                    <option value="Ring|A3" data-category="Ring">Eternity 3</option>
+                                    <option value="Earring|B1" data-category="Earring">Earring 1</option>
+                                    <option value="Earring|B2" dtat-category="Earring">Earring 2</option>
+                                    <option value="Earring|B3" dtat-category="Earring">Earring 3</option>
+                                    <option value="Necklace|C1" dtat-category="Necklace">Necklace 1</option>
+                                    <option value="Necklace|C2" dtat-category="Necklace">Neacklace 2</option>
+                                    <option value="Necklace|C3" dtat-category="Necklace">Neacklace 3</option>
+                                    <option value="Bracelet|D1" dtat-category="Bracelet">Bracelet 1</option>
+                                    <option value="Bracelet|D2" dtat-category="Bracelet">Bracelet 2</option>
+                                    <option value="Bracelet|D3" dtat-category="Bracelet">Bracelet 3</option>
                                 </select>
                             </div>
                             <div class="col-3">
@@ -375,10 +383,27 @@ require("../../core/checklogin.php");
         </div>   
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         
         <script>
-            let selectMenu = document.querySelector(#ctg);
-            let headling =document.querySelector();
+            $(document).ready(function() {
+            // Hide all options in the second dropdown
+            $("#sub-ctg option").hide();
+
+            // Handle change event on the first dropdown
+            $("#ctg").change(function() {
+                var selectedOption = $(this).val();
+                console.log(selectedOption);
+                // Hide all options in the second dropdown
+                $("#sub-ctg option").hide();
+                
+                // Show only the options that match the selected category
+                $("#sub-ctg option[data-category='" + selectedOption + "']").show();
+                
+                // Reset the selected option in the second dropdown
+                $("#sub-ctg").val("");
+            });
+            });
         </script>
     </body>
 </html>
