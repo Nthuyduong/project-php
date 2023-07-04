@@ -71,7 +71,7 @@ require_once("../../core/checklogin_user.php");
                             <div class="col-10">
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="infor" role="tabpanel" aria-labelledby="info-tab">
-                                    <form action="" method="post">
+                                    <form action="../../controllers/controller_user_update.php" method="post">
                                         <div class="row">
                                             
                                                 <div class="col-6">
@@ -81,7 +81,7 @@ require_once("../../core/checklogin_user.php");
                                                     </div>
                                                     <div class="my-3">
                                                         <label for="username">Full Name</label>
-                                                        <input class="inpu" name="userfn" id="userfn" value="<?=$_SESSION["user_name"]?>"/>
+                                                        <input class="inpu" name="username" id="username" value="<?=$_SESSION["user_name"]?>"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -91,7 +91,7 @@ require_once("../../core/checklogin_user.php");
                                                     </div>
                                                     <div class="my-3">
                                                         <label for="useradd">Address</label>
-                                                        <input class="inpu" name="useradd" id="useradd" value="<?=$_SESSION["user_address"]?>"/>
+                                                        <input class="inpu" name="useraddress" id="useraddress" value="<?=$_SESSION["user_address"]?>"/>
                                                     </div>
                                                     <!-- <div class="btn btn-pri">Edit information</div> -->
                                                     <input type="submit" class="btn btn-pri" name="b1" id="b1" value="Edit"/>
@@ -193,5 +193,33 @@ require_once("../../core/checklogin_user.php");
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <?php require_once '../includes/footer.php';?>
+        <script>
+        $(document).ready(function() {
+            $('#b1').click(function() {
+                // Lấy giá trị từ các trường input
+                var username = $('#username').val();
+                var userphone = $('#userphone').val();
+                var address = $('#useraddress').val();
+
+                // Gửi yêu cầu Ajax
+                $.ajax({
+                url: 'update.php',  // Đường dẫn tới file xử lý cập nhật trên server
+                method: 'POST',
+                data: {
+                    column1: column1Value,
+                    column2: column2Value
+                },
+                success: function(response) {
+                    // Xử lý kết quả trả về nếu cần
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.error(error);
+                }
+                });
+            });
+        });
+        </script>
     </body>
 </html>

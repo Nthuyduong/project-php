@@ -40,5 +40,13 @@ class model_user extends Database
         $ketqua = $this->set_query($sql,$param);
         return $ketqua;
     }
+    function UpdateUserAccount($name,$phone,$address,$email){
+        $sql="UPDATE Customers
+                SET Name=?,Phone=?,Address=?
+                WHERE Email=?";
+        $param=[$name,$phone,$address,$email];
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
 }
 ?>

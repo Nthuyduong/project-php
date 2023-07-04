@@ -34,11 +34,12 @@ else{
         if($row["Active_status"]==1)
         {
             $_SESSION["logined_user"] = "OK";
+            $_SESSION["user_id"]=$row["ID"];
             $_SESSION["user_email"] = $row["Email"];
             $_SESSION["user_name"]=$row["Name"];
             $_SESSION["user_address"]=$row["Address"];
             $_SESSION["user_phone"]=$row["Phone"];
-            //$_SESSION["user_pass"]=$pass;
+            
 
             $_SESSION["logined_fail"] = "";
             // if(isset($_SESSION["user_email_fail"]))
