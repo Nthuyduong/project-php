@@ -11,7 +11,7 @@ class model_category extends Database
 
     function GetCategories()
     {
-        $sql = "SELECT * FROM Sub_categories";
+        $sql = "SELECT s.Category AS U_Category FROM Sub_categories s GROUP BY s.Category";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
@@ -28,9 +28,25 @@ class model_category extends Database
     }
 
     //chuc nang xoa category
-    // function DeleteCategory()
-    // {
-        
-    // }
+    function DeleteCategory($keyword)
+    {
+        // print_r($keyword);
+        $sql = "DELETE FROM `Sub_categories` WHERE `Sub_categories`.`Category` = '$keyword'";
+        $ketqua = $this->set_query($sql);
+        return $ketqua;
+    }
+
+    //Search category by name
+    function SearchCategory($keyword)
+    {
+        $sql = "SELECT s.Category AS U_Category
+        FROM Sub_categories s
+        WHERE s.Category LIKE '%$keyword%'
+        GROUP BY s.Category;";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
 }
 ?>

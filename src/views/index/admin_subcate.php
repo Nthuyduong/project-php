@@ -27,8 +27,10 @@ require("../../core/checklogin.php");
                         <div class="row">
                             <div class="col-3">
                                 <div className="search-bar d-flex">
-                                    <input className="search-input w-100" type="text" placeholder="Search text..." />
-                                    <FontAwesomeIcon className="icon-search" icon={faSearch}/>
+                                    <form action="" method="GET" class="">
+                                        <input class="search-input w-100" type="text" id="findsubct" name="findsubct" placeholder="Search text..." />
+                                        <FontAwesomeIcon class="icon-search" icon={faSearch}/>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-3">
@@ -44,6 +46,22 @@ require("../../core/checklogin.php");
                         <div class="line my-4"></div>
                     </div>
                     <!-- Product table -->
+                    <?php
+                    $searchct = new model_subcate();
+                    $keyword = $_REQUEST["findsubct"];
+                    if($keyword != NULL);
+                        $searchct->SearchSubcate($keyword);
+
+                    $subct = new model_subcate();
+                    $ketqua = $subct->GetSubcate($ctgname);
+                    if($ketqua == false)
+                    {
+                        $alert = "SQL ERROR";
+                        $alert_title = "";
+                        require_once("../includes/alert.php");
+                    }
+                    $rows = $subct->data;
+                    ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
                             <div class="cell-ssm">
@@ -65,54 +83,26 @@ require("../../core/checklogin.php");
                                 ACTION
                             </div>
                         </div>
+                        <?php
+                        if($rows != null)
+                            foreach($rows as $row)
+                            {
+                        ?>
                         <div class="tb-row">
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
-                            <div class="cell alg-center">Ring</div>
+                            <div class="cell-sm"><?=$row["ID"]?></div>
+                            <div class="cell"><?=$row["Name"]?></div>
+                            <div class="cell alg-center"><?=$row["Category"]?></div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center stt-out">
                                 <div class="stt stt1"> Active</div>
                             </div>
                         </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
-                            <div class="cell alg-center">Ring</div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt1">Active</div>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
-                            <div class="cell alg-center">Ring</div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt3">Inactive</div>
-                            </div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">12345</div>
-                            <div class="cell">Sub-category name</div>
-                            <div class="cell alg-center">Ring</div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
-                            <div class="cell stt-out">
-                                <div class="stt stt3">Inactive</div>
-                            </div>
-                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="d-flex pgn">
                         <div class="me-auto">Showing 8 of 100</div>

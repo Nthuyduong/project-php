@@ -575,3 +575,16 @@
   input:focus-visible{
     outline: none !important;
   }
+  /* dropdown user icon  */
+  .user-dropdown{
+    opacity: 0;
+  }
+  .user-icon:hover > .user-dropdown{
+    opacity: 1;
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    padding: 10px;
+  }

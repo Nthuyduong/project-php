@@ -1,4 +1,4 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php define('URLROOT', 'http://localhost:8888/project-php');?>
 <!DOCTYPE html>
 <html>
     <head>

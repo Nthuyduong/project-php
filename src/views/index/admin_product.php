@@ -40,30 +40,31 @@ require("../../core/checklogin.php");
                                 </div>
                             </div>
                             <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option value="">Category</option>
-                                    <option value="Ring">Ring</option>
-                                    <option value="Earring">Earring</option>
-                                    <option value="Necklace">Necklace</option>
-                                    <option value="Bracelet">Bracelet</option>
-                                </select>
+                                <form name="f1" id="f1" action="" method="GET">
+                                    <select class="sl-box" name="ctg" id="ctg">
+                                        <option value="0">Category</option>
+                                        <?php
+                                            $cs = new model_product();
+                                            $cs->CateSelect("Sub_categories","ID","Category",$ctg);
+                                        ?>
+                                    </select>
+                                </form>
                             </div>
+                            <?php
+                                $subct = 0;
+                                if(isset($_REQUEST["subctg"]))
+                                $subct = $_REQUEST["subctg"];
+                            ?>
                             <div class="col-3">
-                                <select class="sl-box" name="sub-ctg" id="sub-ctg">
-                                    <option value="">Sub-category</option>
-                                    <option value="Ring1|A1" data-category="Ring">Eternity 1</option>
-                                    <option value="Ring|A2" data-category="Ring">Eternity 2</option>
-                                    <option value="Ring|A3" data-category="Ring">Eternity 3</option>
-                                    <option value="Earring|B1" data-category="Earring">Earring 1</option>
-                                    <option value="Earring|B2" dtat-category="Earring">Earring 2</option>
-                                    <option value="Earring|B3" dtat-category="Earring">Earring 3</option>
-                                    <option value="Necklace|C1" dtat-category="Necklace">Necklace 1</option>
-                                    <option value="Necklace|C2" dtat-category="Necklace">Neacklace 2</option>
-                                    <option value="Necklace|C3" dtat-category="Necklace">Neacklace 3</option>
-                                    <option value="Bracelet|D1" dtat-category="Bracelet">Bracelet 1</option>
-                                    <option value="Bracelet|D2" dtat-category="Bracelet">Bracelet 2</option>
-                                    <option value="Bracelet|D3" dtat-category="Bracelet">Bracelet 3</option>
-                                </select>
+                                <form name="f2" id="f2" action="" method="GET">
+                                    <select class="sl-box" name="subctg" id="subctg" onchange="document.f2.submit();">
+                                        <option value="0">Sub-category</option>
+                                        <?php
+                                            $cs = new model_product();
+                                            $cs->CreateSubSelect("Sub_categories","ID","Name",$subctg);
+                                        ?>
+                                    </select>
+                                </form>
                             </div>
                             <div class="col-3">
                                 <select class="sl-box" name="status" id="status">
@@ -79,7 +80,8 @@ require("../../core/checklogin.php");
                     <!-- Product table -->
                     <?php
                     $all = new model_product();
-                    $ketqua = $all->GetListProducts();
+                    $ketqua = $all->GetListProducts($subct);
+                    
                     $products = new model_product();
                     $did = $_REQUEST["did"];
                     if($did != NULL)
@@ -88,7 +90,7 @@ require("../../core/checklogin.php");
                     $ketqua = $products->SearchProduct($keyword);
                     if($ketqua==FALSE)
                     {
-                        $alert_title = "Can't Connect Database!";
+                        $alert_title = "SQL ERROR!";
                         $alert = "Please check again the database";
                         require_once("../../views/includes/alert.php");
                         die();
@@ -218,13 +220,13 @@ require("../../core/checklogin.php");
                                     <div class="mdt mb-1">Product's Quantity</div>
                                     <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity"/>
                                 </div>
-                                <div>
-                                    <div class="mdt mb-1">Product's SKU</div>
-                                    <input class="w-100" name="prdsku" id="prdsku" placeholder="Product's SKU"/>
-                                </div>
                                 <div class="mt-3">
                                     <div class="mdt mb-1">Product's Category</div>
                                     <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category"/>
+                                </div>
+                                <div>
+                                    <div class="mdt mb-1">Product's SKU</div>
+                                    <input class="w-100" name="prdsku" id="prdsku" placeholder="Product's SKU"/>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -385,25 +387,25 @@ require("../../core/checklogin.php");
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-        <script>
+        <!-- <script>
             $(document).ready(function() {
             // Hide all options in the second dropdown
-            $("#sub-ctg option").hide();
+            $("#subctg option").hide();
 
             // Handle change event on the first dropdown
             $("#ctg").change(function() {
                 var selectedOption = $(this).val();
                 console.log(selectedOption);
                 // Hide all options in the second dropdown
-                $("#sub-ctg option").hide();
+                $("#subctg option").hide();
                 
                 // Show only the options that match the selected category
-                $("#sub-ctg option[data-category='" + selectedOption + "']").show();
+                $("#subctg option[data-category='" + selectedOption + "']").show();
                 
                 // Reset the selected option in the second dropdown
-                $("#sub-ctg").val("");
+                $("#subctg").val("");
             });
             });
-        </script>
+        </script> -->
     </body>
 </html>

@@ -68,6 +68,7 @@ session_start();
                                         <li class="py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
                                     </div>
                                     <!--search-button-start-->
+
                                     <div class=" search-box">
                                         <input type="text" name ="keywordprd" placeholder="search...">
                                         <a href="search.php" class="iconsearch">
@@ -81,9 +82,22 @@ session_start();
                                     {
                                     ?>
                                     <!--Log out if user logined succes-->
-                                    <li class="py-1 ps-3">
-                                        <a class="sign-up smt" href="../includes/user_logout.php">Log out</a>
-                                    </li>
+                                    <!-- icon user -->
+                                    <div class="ms-3">
+                                        <div class="user-icon">
+                                            <i class="pt-2 fa-lg fas fa-user"></i>
+                                        </div>
+                                        <div class="user-dropdown">
+                                            <div><?=$_SESSION["user_email"]?></div>
+                                            <div class="line"></div>
+                                            <div class="">
+                                                <a href="../index/user-account.php">User's account</a>
+                                            </div>
+                                            <div>
+                                                <a class="sign-up smt" href="../includes/user_logout.php">Sign out</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php
                                     } else{
                                     ?>
@@ -100,10 +114,6 @@ session_start();
                                     ?>
                                 </ul>
                             </div>
-                            
-                            
-                            
-                            
                         </div>
                     </div>
                 </header>

@@ -200,6 +200,19 @@ class model_dashboard extends Database
         return $ketqua;
     }
 
-   
+    // Select top 5 featured item
+   function TopProduct()
+   {
+        $sql = "SELECT oi.Product_ID, p.Name AS Product_Name, p.Price, p.Thumb, COUNT(oi.Product_ID) AS Total_Count
+        FROM Order_items oi
+        INNER JOIN Products p ON oi.Product_ID = p.ID
+        GROUP BY oi.Product_ID, p.Name
+        ORDER BY Total_Count DESC
+        LIMIT 4";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+   }
 }
 ?>
