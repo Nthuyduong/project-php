@@ -38,7 +38,7 @@ else{
             $_SESSION["user_name"]=$row["Name"];
             $_SESSION["user_address"]=$row["Address"];
             $_SESSION["user_phone"]=$row["Phone"];
-            $_SESSION["user_pass"]=$pass;
+            //$_SESSION["user_pass"]=$pass;
 
             $_SESSION["logined_fail"] = "";
             // if(isset($_SESSION["user_email_fail"]))
