@@ -148,4 +148,5 @@ class model_product extends Database
                 echo "<option value='$id'>$name</option>";
         }
     }
+}
 ?>
