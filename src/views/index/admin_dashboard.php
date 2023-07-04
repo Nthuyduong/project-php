@@ -218,17 +218,41 @@ require("../../core/checklogin.php");
                 </div>
             </div>
             <!-- Top Product -->
-            <div>
-                <h6>Top 5 featured Items</h6>
-                <div class="featured_item">
-                    <div>
-                        <img/>
+            <?php
+            $top = new model_dashboard();
+            $ketqua = $top->TopProduct();
+            if($ketqua == false)
+                {
+                    $alert_title = "SQL ERROR";
+                    $alert = "Please check the database again!";
+                    require_once("../../views/includes/alert.php");
+                    die();
+                }
+                $rows = $top->data;
+            ?>
+            <div class="my-5">
+                <h6 class="mb-2">Top 4 featured Items</h6>
+                    <div class="row">
+                    <?php
+                    if($rows != NULL)
+                        foreach($rows as $row)
+                        {
+                    ?>
+                        <div class="col-3">
+                            <div class="featured_item">
+                                <div class="featured-img">
+                                    <img src="../../../public/images/<?=$row["Thumb"]?>"/>
+                                </div>
+                                <div class="featured-info">
+                                    <div>Product name <?=$row["Product_Name"]?></div>
+                                    <div>$ <?=$row["Price"]?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
-                    <div>
-                        <div>Product name</div>
-                        <div>$ 40.000</div>
-                    </div>
-                </div>
             </div>
             <div>
                 <h6>Recently Orders</h6>

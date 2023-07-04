@@ -11,14 +11,18 @@ class model_product extends Database
     }
 
     //Ham lay danh sach san pham
-    function GetListProducts()
+    function GetListProducts($subct = 0)
     {
         // $sql = "SELECT * FROM Products";
         $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
         FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
         AS Sub_category, d.Stock FROM Products p
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
-        INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1 GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
+        INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
+        WHERE 1
+        GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
+        if($subct > 0)
+            $sql .= "AND tb1.Name = $subct";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
@@ -91,6 +95,42 @@ class model_product extends Database
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
+    }
+
+    // Create select category
+    function CateSelect($tbname, $colid, $colname, $selectid)
+    {
+        $sql = "SELECT $tbname.Category FROM $tbname GROUP BY $tbname.Category";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach($rows as $row)
+        {
+            $id = $row["$colid"];
+            $name = $row["$colname"];
+            if($id == $selectid)
+                echo "<option value='$id' selected>$name</option>";
+            else
+                echo "<option value='$id'>$name</option>";
+        }
+    }
+
+    // Create select sub-category
+    function CreateSubSelect($tbname, $colid, $colname, $selectid)
+    {
+        $sql = "SELECT * FROM $tbname";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach($rows as $row)
+        {
+            $id = $row["$colid"];
+            $name = $row["$colname"];
+            if($id == $selectid)
+                echo "<option value='$id' selected>$name</option>";
+            else
+                echo "<option value='$id'>$name</option>";
+        }
     }
     
 

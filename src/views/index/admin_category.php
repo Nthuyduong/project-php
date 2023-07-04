@@ -1,5 +1,8 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 require_once("../../models/model_category.php");
 require("../../core/checklogin.php");
@@ -25,18 +28,17 @@ require("../../core/checklogin.php");
                 <div class="mb-3">
                     <div>
                         <div class="row">
-                            <div class="col-3">
-                                <div className="search-bar d-flex">
-                                    <input className="search-input w-100" type="text" placeholder="Search text..." />
+                            <div class="col-4">
+                                <div class="search-bar d-flex">
+                                    <form action="" method="GET" class="w-100">
+                                        <input class="search-input w-100" type="text" id="findcate" name="findcate" placeholder="Enter category name..." />
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <button class="w-100 btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#addcate" aria-controls="addcate">Add Category</button>
                             </div>
-                            <div class="col-3">
-                                <button class="w-100 btn-lg-sc-admin">Delete Category</button>
-                            </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <button class="w-100 btn-lg-sc-admin">Change Status</button>
                             </div>
                         </div>
@@ -44,6 +46,16 @@ require("../../core/checklogin.php");
                     </div>
                     <!-- Product table -->
                     <?php
+                    $keyword = $_REQUEST["findcate"];
+                    $searchcate = new model_category();
+                    if($keyword != NULL)
+                        $searchcate->SearchCategory($keyword);
+
+                    $deletecate = new model_category();
+                    $cate = isset($_REQUEST["cate"])?$_REQUEST["cate"]:"";
+                    if(!($cate == null || $cate == ""))
+                        $deletecate->DeleteCategory($cate);
+
                     $category = new model_category();
                     $ketqua = $category->GetCategories();
                     if($ketqua == FALSE)
@@ -60,9 +72,9 @@ require("../../core/checklogin.php");
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
-                            <div class="cell-sm">
+                            <!-- <div class="cell-sm">
                                 ID
-                            </div>
+                            </div> -->
                             <div class="cell-sm">
                                 CATEGORY
                             </div>
@@ -71,6 +83,9 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="cell alg-center">
                                 STATUS
+                            </div>
+                            <div class="cell-sm stt-out">
+                                ACTION
                             </div>
                         </div>
                         <?php
@@ -82,13 +97,17 @@ require("../../core/checklogin.php");
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                             </div>
-                            <div class="cell-sm"><?=$row["ID"]?></div>
+                            <!-- <div class="cell-sm"><?=$row["Category_ID"]?></div> -->
                             <div class="cell-sm">
-                                <a href="admin_subcate.php"><?=$row["Category"]?></a>
+                                <a href="admin_subcate.php"><?=$row["U_Category"]?></a>
                             </div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>
+                            </div>
+                            <div class="cell-sm">
+                                <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                                <a href="?cate=<?=$row["U_Category"]?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
                         <?php
