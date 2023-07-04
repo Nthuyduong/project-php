@@ -29,18 +29,10 @@ class model_product extends Database
         return $ketqua;
     }
 
-    //Lay danh sach san pham theo category
-    function GetProductByCategory($category)
+    //Lay danh sach sub-category theo category
+    function GetSubByCategory($category)
     {
-        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
-        FROM (
-            SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name AS Sub_category, d.Stock
-            FROM Products p
-            INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
-            INNER JOIN Product_details d ON p.ID = d.Product_ID
-        ) AS tb1
-        WHERE tb1.Category = ?
-        GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
+        $sql = "SELECT Sub_categories.Name FROM Sub_categories WHERE Category = ?";
         $param = null;
         if($category != "")
         {
@@ -49,7 +41,28 @@ class model_product extends Database
         $ketqua = $this->set_query($sql, $param);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
 
+    //Lay danh sach san pham theo sub-category name
+    function GetListBySub($subname)
+    {
+        $sql="SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
+        AS Sub_category, d.Stock FROM Products p
+        INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
+        INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
+        WHERE tb1.Sub_category LIKE ?
+        GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
+        $param = null;
+        if($subname != "")
+        {
+            $param = ["$subname"];
+        }
+        $ketqua = $this->set_query($sql,$param);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
     }
 
     //Them san pham
@@ -125,28 +138,28 @@ class model_product extends Database
             $id = $row["$colid"];
             $name = $row["$colname"];
             if($id == $selectid)
-                echo "<option value='$id' selected>$name</option>";
+                echo "<option value='$name' selected>$name</option>";
             else
-                echo "<option value='$id'>$name</option>";
+                echo "<option value='$name'>$name</option>";
         }
     }
 
-    // Create select sub-category
-    function CreateSubSelect($tbname, $colid, $colname, $selectid)
-    {
-        $sql = "SELECT * FROM $tbname";
-        $ketqua = $this->set_query($sql);
-        if($ketqua == true)
-            $rows = $this->pdo_stm->fetchAll();
-        foreach($rows as $row)
-        {
-            $id = $row["$colid"];
-            $name = $row["$colname"];
-            if($id == $selectid)
-                echo "<option value='$id' selected>$name</option>";
-            else
-                echo "<option value='$id'>$name</option>";
-        }
-    }
+    // // Create select sub-category
+    // function CreateSubSelect($tbname, $colid, $colname, $selectid)
+    // {
+    //     $sql = "SELECT * FROM $tbname";
+    //     $ketqua = $this->set_query($sql);
+    //     if($ketqua == true)
+    //         $rows = $this->pdo_stm->fetchAll();
+    //     foreach($rows as $row)
+    //     {
+    //         $id = $row["$colid"];
+    //         $name = $row["$colname"];
+    //         if($id == $selectid)
+    //             echo "<option value='$id' selected>$name</option>";
+    //         else
+    //             echo "<option value='$id'>$name</option>";
+    //     }
+    // }
 }
 ?>

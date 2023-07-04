@@ -6,165 +6,136 @@ require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
-    </head>
-    <body>
-        <?php require_once '../includes/sidebar.php';?>
-        
-        <div id="main">
-            <!-- THIS IS HEADER -->
-            <?php require '../includes/ad-header.php'?>
-            <!-- THIS IS ALL CONTENT -->
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
+</head>
+
+<body>
+    <?php require_once '../includes/sidebar.php'; ?>
+
+    <div id="main">
+        <!-- THIS IS HEADER -->
+        <?php require '../includes/ad-header.php' ?>
+        <!-- THIS IS ALL CONTENT -->
+        <div>
+            <!-- Product here -->
+            <div class="db-title">PRODUCTS</div>
+            <p>Have a nice day!</p>
             <div>
-                <!-- Product here -->
-                <div class="db-title">PRODUCTS</div>
-                <p>Have a nice day!</p>
                 <div>
-                    <div>
-                        <div class="d-flex">
-                            <a href="#offcanvasRight" class="ms-auto btn-lg-pr-admin" role="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">Add new product</a>
-                            <a class="ms-3 btn-lg-sc-admin">Delete product</a>
+                    <div class="d-flex">
+                        <a href="#offcanvasRight" class="ms-auto btn-lg-pr-admin" role="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">Add new product</a>
+                        <a class="ms-3 btn-lg-sc-admin">Delete product</a>
+                    </div>
+                    <div class="line my-3"></div>
+                    <div class="row">
+                        <div class="col-3">
+                            <div className="search-bar d-flex">
+                                <form action="" method="GET">
+                                    <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Enter prodcut name..." />
+                                    <FontAwesomeIcon class="icon-search" icon={faSearch} />
+                                </form>
+                            </div>
                         </div>
-                        <div class="line my-3"></div>
-                        <div class="row">
-                            <div class="col-3">
-                                <div className="search-bar d-flex">
-                                    <form action="" method="GET">
-                                        <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Enter prodcut name..." />
-                                        <FontAwesomeIcon class="icon-search" icon={faSearch}/>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <form name="f1" id="f1" action="" method="GET">
-                                    <select class="sl-box" name="ctg" id="ctg">
-                                        <option value="0">Category</option>
-                                        <?php
-                                            $cs = new model_product();
-                                            $cs->CateSelect("Sub_categories","ID","Category",$ctg);
-                                        ?>
-                                    </select>
-                                </form>
-                            </div>
-                            <?php
-                                $subct = 0;
-                                if(isset($_REQUEST["subctg"]))
-                                $subct = $_REQUEST["subctg"];
-                            ?>
-                            <div class="col-3">
-                                <form name="f2" id="f2" action="" method="GET">
-                                    <select class="sl-box" name="subctg" id="subctg" onchange="document.f2.submit();">
-                                        <option value="0">Sub-category</option>
-                                        <?php
-                                            $cs = new model_product();
-                                            $cs->CreateSubSelect("Sub_categories","ID","Name",$subctg);
-                                        ?>
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="col-3">
-                                <select class="sl-box" name="status" id="status">
-                                    <option value="">Price</option>
-                                    <option value="lowtohight">Low to high</option>
-                                    <option value="hightolow">High to low</option>
-                                    <option value="expensive">Most expensive</option>
-                                    <option value="cheapest">Cheapest</option>
+                        <div class="col-3">
+                            <form name="f1" id="f1" action="" method="GET">
+                                <select class="sl-box" name="ctg" id="ctg">
+                                    <?php
+                                    $cs = new model_product();
+                                    $cs->CateSelect("Sub_categories", "ID", "Category", $ctg);
+                                    ?>
                                 </select>
-                            </div>
+                            </form>
+                        </div>
+                        <?php
+                        $subct = 0;
+                        if (isset($_REQUEST["subctg"]))
+                            $subct = $_REQUEST["subctg"];
+                        ?>
+                        <div class="col-3">
+                            
+                                <select class="sl-box" name="subctg" id="subctg" onchange="document.f2.submit();">
+                                    <option value="">Sub-category</option>
+                                    <?php
+                                    // $cs = new model_product();
+                                    // $cs->CreateSubSelect("Sub_categories","ID","Name",$subctg);
+                                    ?>
+                                </select>
+                            
+                        </div>
+                        <div class="col-3">
+                            <select class="sl-box" name="status" id="status">
+                                <option value="">Price</option>
+                                <option value="lowtohight">Low to high</option>
+                                <option value="hightolow">High to low</option>
+                                <option value="expensive">Most expensive</option>
+                                <option value="cheapest">Cheapest</option>
+                            </select>
                         </div>
                     </div>
-                    <!-- Product table -->
+                </div>
+                <!-- Product table -->
+                <?php
+                $products = new model_product();
+                $did = $_REQUEST["did"];
+                if ($did != NULL)
+                    $products->DeleteProduct($did);
+                $keyword = $_REQUEST["findProduct"];
+                $ketqua = $products->SearchProduct($keyword);
+                if ($ketqua == FALSE) {
+                    $alert_title = "SQL ERROR!";
+                    $alert = "Please check again the database";
+                    require_once("../../views/includes/alert.php");
+                    die();
+                }
+                $rows = $products->data;
+                ?>
+                <div class="tbl product-wrapper">
+                    <div class="tb-row title-row">
+                        <div class="cell-ssm">
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        </div>
+                        <div class="cell-sm">
+                            IMAGE
+                        </div>
+                        <div class="cell">
+                            PRODUCT'S NAME
+                        </div>
+                        <div class="cell alg-center">
+                            CATEGORY
+                        </div>
+                        <div class="cell alg-center">
+                            SUB-CATEGORY
+                        </div>
+                        <div class="cell-sm alg-center">
+                            PRICE
+                        </div>
+                        <div class="cell-sm alg-center">
+                            STOCK
+                        </div>
+                        <div class="cell-sm alg-center">
+                            STATUS
+                        </div>
+                        <div class="cell-sm">
+                            PUBLISHED
+                        </div>
+                        <div class="cell-sm">
+
+                        </div>
+                    </div>
                     <?php
-                    $all = new model_product();
-                    $ketqua = $all->GetListProducts($subct);
-                    
-                    $products = new model_product();
-                    $did = $_REQUEST["did"];
-                    if($did != NULL)
-                        $products->DeleteProduct($did);
-                    $keyword = $_REQUEST["findProduct"];
-                    $ketqua = $products->SearchProduct($keyword);
-                    if($ketqua==FALSE)
-                    {
-                        $alert_title = "SQL ERROR!";
-                        $alert = "Please check again the database";
-                        require_once("../../views/includes/alert.php");
-                        die();
-                    }
-                    $rows = $products->data;
+                    // if ($rows != NULL)
+                    //     foreach ($rows as $row) {
                     ?>
-                    <div class="tbl product-wrapper">
-                        <div class="tb-row title-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">
-                                IMAGE
-                            </div>
-                            <div class="cell">
-                                PRODUCT'S NAME
-                            </div>
-                            <div class="cell alg-center">
-                                CATEGORY
-                            </div>
-                            <div class="cell alg-center">
-                                SUB-CATEGORY
-                            </div>
-                            <div class="cell-sm alg-center">
-                                PRICE
-                            </div>
-                            <div class="cell-sm alg-center">
-                                STOCK
-                            </div>
-                            <div class="cell-sm alg-center">
-                                STATUS
-                            </div>
-                            <div class="cell-sm">
-                                PUBLISHED
-                            </div>
-                            <div class="cell-sm">
-                                
-                            </div>
-                        </div>
-                        <?php
-                        if($rows != NULL)
-                            foreach($rows as $row)
-                        {
-                        ?>
-                        <div class="tb-row">
-                            <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                            </div>
-                            <div class="cell-sm">img</div>
-                            <div class="cell"><?=$row["Name"]?></div>
-                            <div class="cell alg-center"><?=$row["Category"]?></div>
-                            <div class="cell alg-center"><?=$row["Sub_category"]?></div>
-                            <div class="cell-sm alg-center"><?=$row["Price"]?></div>
-                            <div class="cell-sm alg-center"><?=$row["TotalStock"]?></div>
-                            <div class="cell-sm stt-out">
-                                <div class="stt-sm stt3">Status</div>
-                            </div>
-                            <div class="cell-sm togglebtn stt-out">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="cell-sm stt-out">
-                                <!-- Chuc nang sua san pham -->
-                                <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
-                                <!-- Chuc nang xoa san pham -->
-                                <a href="?did=<?=$row["ID"]?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
-                            </div>
-                        </div>
-                        <!-- Dong vong lap for each -->
-                        <?php
-                        }
-                        ?>
+                    <div id="subsort"></div>
+                    <!-- Dong vong lap for each -->
+                    <?php
+                    // }
+                    ?>
                 </div>
             </div>
         </div>
@@ -193,22 +164,22 @@ require("../../core/checklogin.php");
                             </a>
                         </li>
                     </ul>
-                </div>  
+                </div>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="basis" role="tabpanel" aria-labelledby="basis-tab">
                         <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <div class="mdt mb-1">Product's Name</div>
-                                    <input class="" name="prdname" id="prdname" placeholder="Product's name/title"/>
+                                    <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
                                 </div>
                                 <div>
                                     <div class="mdt mb-1">Product's Unit</div>
-                                    <input class="" name="prdunit" id="prdunit" placeholder="Product's name/title"/>
+                                    <input class="" name="prdunit" id="prdunit" placeholder="Product's name/title" />
                                 </div>
                                 <div class="my-3">
                                     <div class="md mb-1">Product's Price</div>
-                                    <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price"/>
+                                    <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price" />
                                 </div>
                                 <div>
                                     <div class="mdt mb-1">Product's Description</div>
@@ -218,15 +189,15 @@ require("../../core/checklogin.php");
                                 </div>
                                 <div class="my-3">
                                     <div class="mdt mb-1">Product's Quantity</div>
-                                    <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity"/>
+                                    <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity" />
                                 </div>
                                 <div class="mt-3">
                                     <div class="mdt mb-1">Product's Category</div>
-                                    <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category"/>
+                                    <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category" />
                                 </div>
                                 <div>
                                     <div class="mdt mb-1">Product's SKU</div>
-                                    <input class="w-100" name="prdsku" id="prdsku" placeholder="Product's SKU"/>
+                                    <input class="w-100" name="prdsku" id="prdsku" placeholder="Product's SKU" />
                                 </div>
                             </div>
                             <div class="col-6">
@@ -237,7 +208,7 @@ require("../../core/checklogin.php");
                                         <p class="alg-center">Drag and drop an image file here</p>
                                         <p class="alg-center">Only *.png, *,webp, *.jpeg will be accepted</p>
                                     </div>
-                                </div>  
+                                </div>
                                 <!-- image drag will goes here -->
                                 <div class="row">
                                     <div class="col-3">
@@ -338,7 +309,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="tb-row">
                                 <div class="cell-ssm">
-                                    
+
                                 </div>
                                 <div class="cell">Amee Diamnond Ring</div>
                                 <div class="cell-sm">Gold</div>
@@ -352,7 +323,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="tb-row">
                                 <div class="cell-ssm">
-                                    
+
                                 </div>
                                 <div class="cell">Amee Diamnond Ring</div>
                                 <div class="cell-sm">Gold</div>
@@ -366,7 +337,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="tb-row">
                                 <div class="cell-ssm">
-                                    
+
                                 </div>
                                 <div class="cell">Amee Diamnond Ring</div>
                                 <div class="cell-sm">Gold</div>
@@ -382,9 +353,9 @@ require("../../core/checklogin.php");
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
         <!-- <script>
@@ -407,5 +378,89 @@ require("../../core/checklogin.php");
             });
             });
         </script> -->
-    </body>
+        <script>
+            function test() {
+                let ct = this.value;
+                $.ajax({
+                        url: 'productAJAX.php',
+                        type: 'POST',
+                        data: {
+                            ctname: ct
+                        },
+                        dataType: 'html',
+                    })
+                    .done(function(data) {
+                        console.log(data);
+                        $("#subctg").empty().append(data);
+
+                    })
+                    .fail(function() {
+                });
+            }
+            $(document).ready(function() {
+
+                $("#ctg").on("change", test);
+
+                // $(document).onchange('onchange', '#ctg', function(e) {
+
+                //     e.preventDefault();
+                //     // Get customer ID after click
+                //     var uid = $(this).val;
+                //     console.log(uid);
+
+                //     // // leave modal blank before ajax call
+                //     // $('#dynamic-content').html('');
+                //     // //load ajax loader
+                //     // $('#modal-loader').show();
+
+                //     // $.ajax({
+                //     //         url: 'getcustomer.php',
+                //     //         type: 'POST',
+                //     //         data: {
+                //     //             id: uid
+                //     //         },
+                //     //         dataType: 'html',
+                //     //     })
+                //     //     .done(function(data) {
+                //     //         console.log(data);
+                //     //         $('#dynamic-content').html('');
+                //     //         // load response
+                //     //         $('#dynamic-content').html(data);
+                //     //         // hide ajax loader
+                //     //         $('#modal-loader').hide();
+                //     //     })
+                //     //     .fail(function() {
+                //     //         $('#dynamic-content'), html('<p>Something went wrong, please try again!</p>');
+                //     //         $('#modal-loader').hide();
+                //     //     });
+                // });
+            });
+        </script>
+
+        <script>
+            function subctsort() {
+                let sct = $this.value;
+                $.ajax({
+                        url: 'SubcateAJAX.php',
+                        type: 'POST',
+                        data: {
+                            subname: sct
+                        },
+                        dataType: 'html',
+                    })
+                    .done(function(data) {
+                        console.log(data);
+                        $("#subsort").empty().append(data);
+
+                    })
+                    .fail(function() {
+
+                    });
+            }
+            $(document).ready(function() {
+            $("#subsort").on("change", subctsort);
+            })
+        </script>
+</body>
+
 </html>
