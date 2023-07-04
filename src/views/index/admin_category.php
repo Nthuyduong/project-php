@@ -1,11 +1,10 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 session_start();
+
+require_once("../../core/checklogin.php");
 require_once("../../models/model_category.php");
-require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,18 +45,16 @@ require("../../core/checklogin.php");
                     </div>
                     <!-- Product table -->
                     <?php
-                    $keyword = $_REQUEST["findcate"];
-                    $searchcate = new model_category();
-                    if($keyword != NULL)
-                        $searchcate->SearchCategory($keyword);
-
                     $deletecate = new model_category();
                     $cate = isset($_REQUEST["cate"])?$_REQUEST["cate"]:"";
                     if(!($cate == null || $cate == ""))
                         $deletecate->DeleteCategory($cate);
 
-                    $category = new model_category();
-                    $ketqua = $category->GetCategories();
+                    $keyword = $_REQUEST["findcate"];
+                    $searchcate = new model_category();
+                    $ketqua = $searchcate->SearchCategory($keyword);
+                    // $category = new model_category();
+                    // $ketqua = $category->GetCategories();
                     if($ketqua == FALSE)
                     {
                         $alert_title = "Can't Connect Database";
@@ -65,7 +62,7 @@ require("../../core/checklogin.php");
                         require_once("../../views/includes/alert.php");
                         die();
                     }
-                    $rows = $category->data;
+                    $rows = $searchcate->data;
                     ?>
                     <div class="tbl">
                         <div class="tb-row title-row">
@@ -95,11 +92,11 @@ require("../../core/checklogin.php");
                         ?>
                         <div class="tb-row">
                             <div class="cell-ssm">
-                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="">
                             </div>
                             <!-- <div class="cell-sm"><?=$row["Category_ID"]?></div> -->
                             <div class="cell-sm">
-                                <a href="admin_subcate.php"><?=$row["U_Category"]?></a>
+                                <a href="admin_subcate.php?catename=<?=$row["U_Category"]?>"><?=$row["U_Category"]?></a>
                             </div>
                             <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
                             <div class="cell alg-center stt-out">

@@ -75,7 +75,6 @@ session_start();
                                         <i class="fa fa-search fa-lg"></i>
                                         </a>
                                     </div>
-                                    
                                     <!--search-button-end-->
                                     <?php
                                     if($_SESSION["logined_user"]=="OK")
@@ -85,16 +84,16 @@ session_start();
                                     <!-- icon user -->
                                     <div class="ms-3">
                                         <div class="user-icon">
-                                            <i class="pt-2 fa-lg fas fa-user"></i>
-                                        </div>
-                                        <div class="user-dropdown">
-                                            <div><?=$_SESSION["user_email"]?></div>
-                                            <div class="line"></div>
-                                            <div class="">
-                                                <a href="../index/user-account.php">User's account</a>
+                                            <div class="textover">
+                                                <?=$_SESSION["user_email"]?>
                                             </div>
-                                            <div>
-                                                <a class="sign-up smt" href="../includes/user_logout.php">Sign out</a>
+                                            <div class="user-dropdown">
+                                                <div class="mb-2">
+                                                    <a href="../index/user-account.php">User's account</a>
+                                                </div>
+                                                <div>
+                                                    <a class="sign-up smt" href="../includes/user_logout.php">Sign out</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
