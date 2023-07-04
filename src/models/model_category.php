@@ -39,10 +39,7 @@ class model_category extends Database
     //Search category by name
     function SearchCategory($keyword)
     {
-        $sql = "SELECT s.Category AS U_Category
-        FROM Sub_categories s
-        WHERE s.Category LIKE '%$keyword%'
-        GROUP BY s.Category;";
+        $sql = "SELECT s.Category AS U_Category FROM Sub_categories s WHERE Category LIKE '%$keyword%' GROUP BY s.Category";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
