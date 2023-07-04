@@ -68,12 +68,14 @@ session_start();
                                         <li class="py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
                                     </div>
                                     <!--search-button-start-->
-                                    <div class="search-box">
-                                        <input type="text" placeholder="search...">
+
+                                    <div class=" search-box">
+                                        <input type="text" name ="keywordprd" placeholder="search...">
                                         <a href="search.php" class="iconsearch">
                                         <i class="fa fa-search fa-lg"></i>
                                         </a>
                                     </div>
+                                    
                                     <!--search-button-end-->
                                     <?php
                                     if($_SESSION["logined_user"]=="OK")
