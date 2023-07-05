@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 $sub = isset($_REQUEST["subname"])?$_REQUEST["subname"]:"";
 require_once("../../models/model_product.php");
 $list = new model_product();
+if($sub == "")
+    $sub = "%%";
 $ketqua = $list->GetListBySub($sub);
 
 if ($ketqua == false) {
@@ -12,7 +14,8 @@ if ($ketqua == false) {
 } else {
     $rows = $list->data;
     if ($rows != null)
-        foreach ($rows as $row) {
+        foreach ($rows as $row)
+        {
 ?>
         <div class="tb-row">
             <div class="cell-ssm">

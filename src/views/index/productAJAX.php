@@ -17,7 +17,7 @@
             foreach($rows as $row)
             {
         ?>
-            <option><?=$row["Name"]?></option>
+            <option value="<?=$row["Name"]?>"><?=$row["Name"]?></option>
         <?php
        }
     }

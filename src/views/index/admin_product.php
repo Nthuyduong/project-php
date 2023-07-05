@@ -57,15 +57,13 @@ require("../../core/checklogin.php");
                             $subct = $_REQUEST["subctg"];
                         ?>
                         <div class="col-3">
-                            
-                                <select class="sl-box" name="subctg" id="subctg" onchange="document.f2.submit();">
-                                    <option value="">Sub-category</option>
-                                    <?php
-                                    // $cs = new model_product();
-                                    // $cs->CreateSubSelect("Sub_categories","ID","Name",$subctg);
-                                    ?>
-                                </select>
-                            
+                            <select class="sl-box" name="subctg" id="subctg">
+                                <option value="">Sub-category</option>
+                                <?php
+                                // $cs = new model_product();
+                                // $cs->CreateSubSelect("Sub_categories","ID","Name",$subctg);
+                                ?>
+                            </select>
                         </div>
                         <div class="col-3">
                             <select class="sl-box" name="status" id="status">
@@ -128,13 +126,13 @@ require("../../core/checklogin.php");
                         </div>
                     </div>
                     <?php
-                    // if ($rows != NULL)
-                    //     foreach ($rows as $row) {
+                    if ($rows != NULL)
+                        foreach ($rows as $row) {
                     ?>
                     <div id="subsort"></div>
                     <!-- Dong vong lap for each -->
                     <?php
-                    // }
+                    }
                     ?>
                 </div>
             </div>
@@ -357,7 +355,6 @@ require("../../core/checklogin.php");
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
         <!-- <script>
             $(document).ready(function() {
             // Hide all options in the second dropdown
@@ -375,7 +372,7 @@ require("../../core/checklogin.php");
                 
                 // Reset the selected option in the second dropdown
                 $("#subctg").val("");
-            });
+                });
             });
         </script> -->
         <script>
@@ -450,11 +447,12 @@ require("../../core/checklogin.php");
                     })
                     .done(function(data) {
                         console.log(data);
-                        $("#subsort").empty().append(data);
+                        $("#subsort").html('');
+                        $('#subsort').html(data);
 
                     })
                     .fail(function() {
-
+                        $('#subsort'),html('<p>Something went wrong, please try again!</p>');
                     });
             }
             $(document).ready(function() {
