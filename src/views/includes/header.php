@@ -83,28 +83,28 @@ session_start();
                                     <!--Log out if user logined succes-->
                                     <!-- dropdown -->
                                     <div class="ms-3">
-                                        <div class="usericon dropdown" id="usericon"> <!-- Thêm lớp "dropdown" vào đây -->
-                                            <?=$_SESSION["user_email"]?>
-                                            <div class="dropdown-menu"> <!-- Thêm lớp "dropdown-menu" vào đây -->
-                                                <a class="dropdown-item" href="../index/user-account.php">User's account</a>
-                                                <a class="dropdown-item" href="../includes/user_logout.php">Sign out</a>
-                                            </div>
-                                        </div>
+                                        <!-- <div class="usericon dropdown" id="usericon"> Thêm lớp "dropdown" vào đây -->
+                                            <!-- =$_SESSION["user_email"] -->
+                                            <!-- <div class="dropdown-menu"> Thêm lớp "dropdown-menu" vào đây -->
+                                                <!-- <a class="dropdown-item" href="../index/user-account.php">User's account</a> -->
+                                                <!-- <a class="dropdown-item" href="../includes/user_logout.php">Sign out</a> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
 
                                         <!-- NTD  -->
-                                        <!-- <div class="user-icon">
+                                        <div class="user-icon">
                                             <div class="textover">
-                                                test<?=$_SESSION["user_email"]?>
+                                                <?=$_SESSION["user_email"]?>
                                             </div>
                                             <div class="user-dropdown">
                                                 <div class="mb-2">
-                                                    <a href="../index/user-account.php">User's account</a>
+                                                    <a class="" href="../index/user-account.php">User's account</a>
                                                 </div>
                                                 <div>
                                                     <a class="sign-up smt" href="../includes/user_logout.php">Sign out</a>
                                                 </div>
                                             </div>
-                                        </div>  -->
+                                        </div> 
                                     </div>
                                     <?php
                                     } else{
@@ -173,7 +173,7 @@ session_start();
     }
 </script>   
 
-<!-- Xử lý dropdown menu khi click vào icon user -->
+<!-- Xử lý dropdown menu khi click vào icon user
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     var userIcon = document.querySelector(".usericon");
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
         dropdownMenu.style.display = "none";
     });
 });
-</script>
+</script> -->
 
 
 
