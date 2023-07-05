@@ -81,11 +81,20 @@ session_start();
                                     {
                                     ?>
                                     <!--Log out if user logined succes-->
-                                    <!-- icon user -->
+                                    <!-- dropdown -->
                                     <div class="ms-3">
-                                        <div class="user-icon">
+                                        <div class="usericon dropdown" id="usericon"> <!-- Thêm lớp "dropdown" vào đây -->
+                                            <?=$_SESSION["user_email"]?>
+                                            <div class="dropdown-menu"> <!-- Thêm lớp "dropdown-menu" vào đây -->
+                                                <a class="dropdown-item" href="../index/user-account.php">User's account</a>
+                                                <a class="dropdown-item" href="../includes/user_logout.php">Sign out</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- NTD  -->
+                                        <!-- <div class="user-icon">
                                             <div class="textover">
-                                                <?=$_SESSION["user_email"]?>
+                                                test<?=$_SESSION["user_email"]?>
                                             </div>
                                             <div class="user-dropdown">
                                                 <div class="mb-2">
@@ -95,7 +104,7 @@ session_start();
                                                     <a class="sign-up smt" href="../includes/user_logout.php">Sign out</a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>  -->
                                     </div>
                                     <?php
                                     } else{
@@ -139,31 +148,50 @@ session_start();
                     </div>
                 </nav>
             </div>
-            <script>            
-                 document.getElementById("openlogin").onclick = function(){
-                     //document.getElementById("sign-in").modal();
-                     var myModalLogin = new bootstrap.Modal(document.getElementById('sign-in'));
-                     myModalLogin.show();
-                 };
-                 ocument.getElementById("opensignup").onclick = function(){
-                     //document.getElementById("sign-in").modal();
-                     var myModalSignup = new bootstrap.Modal(document.getElementById('sign-up'));
-                     myModalLogin.show();
-                 };
-            </script>
+            <script>
+    document.getElementById("openlogin").onclick = function(){
+        var myModalLogin = new bootstrap5.Modal(document.getElementById('sign-in'));
+        myModalLogin.show();
+    };
 
-            <script>    
-                var prevScrollpos = window.pageYOffset;
-                window.onscroll = function() {
-                var currentScrollPos = window.pageYOffset;
-                if (prevScrollpos > currentScrollPos) {
-                    document.getElementById("headnav").style.top = "0";
-                } else {
-                    document.getElementById("headnav").style.top = "-150px";
-                }
-                prevScrollpos = currentScrollPos;
-                }
-            </script>   
+    document.getElementById("opensignup").onclick = function(){
+        var myModalSignup = new bootstrap5.Modal(document.getElementById('sign-up'));
+        myModalSignup.show();
+    };
+</script>
+
+<script>    
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("headnav").style.top = "0";
+        } else {
+            document.getElementById("headnav").style.top = "-150px";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+</script>   
+
+<!-- Xử lý dropdown menu khi click vào icon user -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var userIcon = document.querySelector(".usericon");
+    var dropdownMenu = userIcon.querySelector(".dropdown-menu");
+
+    userIcon.addEventListener("mouseenter", function() {
+        dropdownMenu.style.display = "block";
+    });
+
+    userIcon.addEventListener("mouseleave", function() {
+        dropdownMenu.style.display = "none";
+    });
+});
+</script>
+
+
+
+
     </body>
 </html>
 <?php

@@ -1,4 +1,13 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php define('URLROOT', 'http://localhost:8888/project-php'); 
+session_start();
+if(isset($_GET["id"]) && is_numeric($_GET["id"])){
+    $product_id=$_GET["id"];
+    
+}else{
+    header("location: home.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>

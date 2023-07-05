@@ -126,7 +126,20 @@ class model_product extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
-
+    //ttmh - getreviewProductDetail ? check lai?
+    function getReviewProductById ($id){
+        $sql="SELECT r.* ,d.ID, c.Name
+        FROM Reviews r
+        INNER JOIN Products p ON p.ID=r.Product_ID
+        INNER JOIN Product_details d ON d.Product_ID=p.ID
+        INNER JOIN Customers c ON c.ID=r.Customer_ID
+        WHERE d.ID= ?";
+        $param=[$id];
+        $ketqua = $this->set_query($sql,$param);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
 
     // Create select category
     function CateSelect($tbname, $colid, $colname, $selectid)
