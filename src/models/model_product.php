@@ -138,7 +138,7 @@ class model_product extends Database
             $id = $row["$colid"];
             $name = $row["$colname"];
             if($id == $selectid)
-                echo "<option value='$name' selected>$name</option>";
+                echo "<option value='$name'>$name</option>";
             else
                 echo "<option value='$name'>$name</option>";
         }

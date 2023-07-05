@@ -44,6 +44,7 @@ require("../../core/checklogin.php");
                         <div class="col-3">
                             <form name="f1" id="f1" action="" method="GET">
                                 <select class="sl-box" name="ctg" id="ctg">
+                                    <option value ="" selected>Category</option>
                                     <?php
                                     $cs = new model_product();
                                     $cs->CateSelect("Sub_categories", "ID", "Category", $ctg);
@@ -378,6 +379,7 @@ require("../../core/checklogin.php");
         <script>
             function test() {
                 let ct = this.value;
+                console.log(ct);
                 $.ajax({
                         url: 'productAJAX.php',
                         type: 'POST',
@@ -436,7 +438,8 @@ require("../../core/checklogin.php");
 
         <script>
             function subctsort() {
-                let sct = $this.value;
+                let sct = this.value;
+                console.log(sct);
                 $.ajax({
                         url: 'SubcateAJAX.php',
                         type: 'POST',
@@ -456,7 +459,8 @@ require("../../core/checklogin.php");
                     });
             }
             $(document).ready(function() {
-            $("#subsort").on("change", subctsort);
+            $("#subctg").on("change", subctsort);
+            $("#subctg").ready(subctsort);
             })
         </script>
 </body>
