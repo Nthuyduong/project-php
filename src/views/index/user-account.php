@@ -85,6 +85,7 @@ require_once("../../core/checklogin_user.php");
                                             </div>
                                             <!-- <div class="btn btn-pri">Edit information</div> -->
                                             <input type="submit" class="btn btn-pri" name="b1" id="b1" value="Edit"/>
+                                            <input type="reset" class="w-30 btn btn-sec" name="b2" id="b2" value="Cancel"/>
                                         </div>
                                     </div>
                                 </form>
@@ -146,27 +147,30 @@ require_once("../../core/checklogin_user.php");
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-8">
-                                    <h4 class="mb-5 alg-center">Change Your Password Here!</h4>
-                                    <div>
-                                        <label for="uservermail">Email Address</label>
-                                        <input class="inpu" name="uservermail" id="uservermail" placeholder=""/>
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="usercurpass">Current Password</label>
-                                        <input class="inpu" name="usercurpass" id="usercurpass" placeholder=""/>
-                                    </div>
-                                    <div>
-                                        <label for="userretype">Re-type Current Password</label>
-                                        <input class="inpu" name="userretype" id="userretype" placeholder=""/>
-                                    </div>
-                                    <div class="row mt-5">
-                                        <div class="col-6 ps-0">
-                                            <div class="w-100 btn btn-sec">Cancel</div>
+                                    <form  name="frmchangePass" id="frmchangePass">
+                                        <h4 class="mb-5 alg-center">Change Your Password Here!</h4>
+                                        <div class="my-3">
+                                            <label for="currentPass">Current Password</label>
+                                            <input type ="password"class="inpu" name="currentPass" id="currentPass" placeholder="" required/>
+                                        </div> 
+                                        <div class="my-3">
+                                            <label for="newPass">New Password</label>
+                                            <input type ="password" class="inpu" name="newPass" id="newPass" placeholder="" required/>
                                         </div>
-                                        <div class="col-6 pe-0">
-                                            <div class="w-100 btn btn-pri">Change Password</div>
+                                        <div>
+                                            <label for="renewPass">Re-type New Password</label>
+                                            <input type ="password" class="inpu" name="renewPass" id="renewPass" placeholder="" required/>
                                         </div>
-                                    </div>
+                                        <div class="row mt-5">
+                                            <div class="col-6 ps-0">
+                                                <input type="submit" class="w-100 btn btn-pri" name="b3" id="b3" value="Change Password"/>
+                                                
+                                            </div>
+                                            <div class="col-6 pe-0">
+                                                <input type="reset" class="w-100 btn btn-sec" value="Cancel"/>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -183,6 +187,7 @@ require_once("../../core/checklogin_user.php");
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <?php require_once '../includes/footer.php';?>
+        <!-- js  update account user Ajax -->
         <script>
             function updateAJAX(event)
             {   
@@ -193,7 +198,7 @@ require_once("../../core/checklogin_user.php");
                 useraddress = $("#useraddress").val();
             
                 $.ajax({
-                    url: "../../controllers/controller_user_update.php",
+                    url: "../../controllers/controller_user_update_ajax.php",
                     type: "POST",
                     data: {
                         email:email,
@@ -212,6 +217,49 @@ require_once("../../core/checklogin_user.php");
             $(document).ready(function () {
                 $("#updateform").submit(updateAJAX);
             });  
+        </script>
+        <!-- js change pass Ajax -->
+        <script>
+            function changePassAJAX(event)
+            {   
+                event.preventDefault();
+                
+                currentPass = $("#currentPass").val(); 
+                newPass = $("#newPass").val();
+                renewPass = $("#renewPass").val();
+            
+                $.ajax({
+                    url: "../../controllers/controller_user_pass_ajax.php",
+                    type: "POST",
+                    data: {
+                        currentPass:currentPass,
+                        newPass: newPass,
+                        renewPass:renewPass
+                        },
+                        success: function(responseData,status) {
+                        if(responseData==="success"){
+                            alert("Password changed successfully");
+                            window.location.href = "user-account.php";
+
+                        }else if (responseData === "invalid_current_password") {
+                            // Mật khẩu hiện tại không đúng
+                            alert("Invalid current password!");
+                        } else if (responseData === "password_mismatch") {
+                            // Mật khẩu mới và mật khẩu nhập lại không khớp
+                            alert("New password and confirm password do not match!");
+                        } else if(responseData === "same_password_err")
+                        {
+                            alert("The new password cannot be the same as the current password");
+                        }else {
+                            alert("An error occurred. Please try again.");
+                        }
+                            
+                    }
+                });
+            } 
+            $(document).ready(function () {
+                $("#frmchangePass").submit(changePassAJAX);
+            });
         </script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
