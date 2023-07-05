@@ -9,16 +9,34 @@
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
+        <?php  error_reporting(E_ALL); ?>
+        <?php require_once '../includes/header.php'?>
+
+        <?php 
+        require("../../models/model_product.php");
+        if (isset($_REQUEST["sid"])) {
+            $sid = $_REQUEST["sid"];
+        } else {
+            die("<p>Something wrong!!</p>");
+        }
+        ?> 
+
         <div>
-            <?php require_once '../includes/header.php';?>
-        </div> 
-        <div>
+            <?php
+            $subCates = new Product();
+            $getProductsBySid = $subCates -> getProductsBySid($sid);
+            if ($getProductsBySid==false) {
+                echo("<p>Fail to connect database!!</p>");
+                die();
+            }
+            $products = $subCates -> data;
+            ?>
             <!--category-top-->
             <div class="banner">
             <div class="container-fluid category-top-text">
                 <div class="row">
                 <div class="col-4">
-                    <h4 class="mb-3">Eternity Rings</h4>
+                    <h4 class="mb-3"><?=ucwords($products[0]['subCategory'] . ' ' . $products[0]['category'])?></h4>
                     <p>Meticulously crafted with Tiffany’s renowned diamonds, these are rings to wear-and love-for eternity.
                     Wear one on its own or stacked with an engagement ring</p>
                 </div>
@@ -118,9 +136,13 @@
                     <!--breadcrumb-->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Shop all</a></li>
-                        <li class="breadcrumb-item"><a href="category.php">Rings</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a>Eternity</a></li>
+                        <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="category.php?category=<?=$products[0]['category']?>">
+                            <?=ucfirst($products[0]['category'])?>
+                        </a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a>
+                            <?=ucfirst($products[0]['subCategory'])?>
+                        </a></li>
                         </ol>
                     </nav>
                     </div>
@@ -141,394 +163,26 @@
                 <!--ALL PRODUCT HERE-->
                 <div>
                     <div class="row cate-product">
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.4.1.webp">
-                            </a>
+                        <?php foreach ($products as $product) { ?>
+                            <div class="col-3 card mb-9">
+                                <div class="item-card-info">
+                                <div class="card-prd">
+                                    <div class="img">
+                                    <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                        <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                    </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
+                                    </div>
+                                </div>
+                                <div class="item-inf text-center mt-2">
+                                    <p class="decor-text mb-1"><?=$product['pname']?></p>
+                                    <p class="smt item-price">$<?=number_format($product['price'], 0, '.', '.')?></p>
+                                </div>
+                                </div>
                             </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.5.1.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.4.1.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.5.1.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row cate-product">
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/26.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/23.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/25.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/24.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row cate-product">
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="/product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/27.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/28.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/29.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/33.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row cate-product">
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.1.1.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="/product-detail">
-                                <img src="../../../public/images/rings/1.2.1.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.2.2.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/1.3.1.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row cate-product">
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/16.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/20.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/21.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-3 card mb-9">
-                        <div class="item-card-info">
-                        <div class="card-prd">
-                            <div class="img">
-                            <a href="product-detail.php">
-                                <img src="../../../public/images/rings/more-rings/19.webp">
-                            </a>
-                            </div>
-                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                            Quick view
-                            </div>
-                        </div>
-                        <div class="item-inf text-center mt-2">
-                            <p class="decor-text mb-1">Lynn Ring</p>
-                            <p class="smt item-price">$8.700,00
-                            </p>
-                        </div>
-                        </div>
-                    </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <!--category-bottom-->

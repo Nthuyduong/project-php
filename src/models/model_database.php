@@ -1,37 +1,36 @@
 <?php
- class Database
- {
-    //PDO ket noi CSDL
-    public $conn = null;
-    //Doi tuong PDOStatement
-    public $pdo_stm = null;
+class Database {
+    public $conn;
+    public $pdo_stm;
 
-    public function ConnectDB()
-    {
-        try
-        {
-            $this->conn = new PDO("mysql:host = localhose, dbname = Project2", "root", "root");
-            $this->conn->query("SET NAMES UTF8");
-        }
-        catch(PDOException $ex)
-        {
-            echo "<h3>" .$ex->getMessage(). "</h3>";
-            die("<h3>Loi ket noi CSDL</h3>");
+    function __construct() {
+        $this->conn = null;
+        $this->pdo_stm = null;
+        $servername = "localhost";
+        $dbname = "aguri-project-db-v2";
+        $user = "root";
+        $password = "root";
+        try {
+            $this->conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $password);
+            $this->conn -> query("SET NAMES UTF8");
+        } catch (PDOException $e) {
+            echo "<p>" . $e->getMessage() . "</p>";
+            echo "<pre>" . $e->getTraceAsString() . "</pre>";
+            die ("<p>Fail to connect database</p>");    
         }
     }
 
-    //Ham thuc thi dùng chung cho SELECT, INSERT, UPDATE, UPDATE
-    //$sql: Cau lenh SQL can thuc thi
-    //$data: mang chua du lieu
-    public function set_query($sql, $data = null)
-    {
-        $this->pdo_stm = $this->conn->prepare($sql);
-        $ketqua = false;
-        if($data != null)
-            $ketqua = $this->pdo_stm->execute($data);
-        else
-            $ketqua = $this->pdo_stm->execute();
-        return $ketqua;
-
+    function set_query ($sql, $params=null) {
+        $result = false;
+        if ($this->conn == null) {
+            return false;
+        }
+        $this->pdo_stm = $this->conn -> prepare($sql);
+        if ($params==null) {
+            $result = $this->pdo_stm -> execute(); 
+        } else {
+            $result = $this->pdo_stm -> execute($params);
+        }
+        return $result;
     }
- }
+}

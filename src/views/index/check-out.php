@@ -20,7 +20,7 @@
                     <!--billing address-->
                     <div class="bill-address mb-4">
                     <div class="t-head row align-middle py-3 mb-4">
-                        <p class="mb-0">Billing Address</p>
+                        <p class="mb-0">Shipping Address</p>
                     </div>
                     <div class="row">
                         <div class="col-6 ps-0 firstname user-input">
@@ -41,7 +41,7 @@
                         <input class="inpu" type="tel" name="txtphone" required><br>
                     </div>
                     <div class="px-0 address-user user-input">
-                        <label>Address line1 (*)</label>
+                        <label>Address (*)</label>
                         <input class="inpu" type="text" required><br>
                     </div>
                     <div class="form-check my-4 ps-0">

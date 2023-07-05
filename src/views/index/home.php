@@ -19,28 +19,34 @@
             <div class="ctg">
                 <div class="row ctg-inner">
                     <div class="ctg-left col-8">
-                    <div class="ctg-left-top">
-                        <div class="d-flex">
-                        <div class="left-top">
-                            <div class="ctg-img-inner">
-                            <div class="image-ctg">
-                                <a>
-                                <img src="../../../public/images/shop-all/ctg1.webp">
-                                </a>
-                                <div class="name-ctg text-center">
-                                <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" href="category.php">Shop Rings Now</a>
+                        <div class="ctg-left-top">
+                            <div class="d-flex">
+                                <div class="left-top">
+                                    <div class="ctg-img-inner">
+                                        <div class="image-ctg">
+                                            <a>
+                                                <img src="../../../public/images/shop-all/ctg1.webp">
+                                            </a>
+                                            <div class="name-ctg text-center">
+                                                <h6 class="mb-2">Beaufille Collection</h6>
+                                                <a class="text-light" href="category.php?category=rings">Shop Rings Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="center-top">
+                                    <div class="ctg-img-inner">
+                                        <div class="image-ctg">
+                                            <a>
+                                                <img src="../../../public/images/shop-all/ctg2.webp">
+                                            </a>
+                                        <div class="name-ctg text-center">
+                                            <h6 class="mb-2">Beaufille Collection</h6>
+                                            <a class="text-light" href="category.php?category=bracelets">Shop Bracelets Now</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        <div class="center-top">
-                            <div class="ctg-img-inner">
-                            <a>
-                                <img src="../../../public/images/shop-all/ctg2.webp">
-                            </a>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     <div class="ctg-left-btm">
@@ -60,7 +66,7 @@
                                 </a>
                                 <div class="name-ctg text-center">
                                 <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" href="category.php">Shop Necklaces Now</a>
+                                <a class="text-light" href="category.php?category=necklaces">Shop Necklaces Now</a>
                                 </div>
                             </div>
                             </div>
@@ -77,7 +83,7 @@
                             </a>
                             <div class="name-ctg text-center">
                             <h6 class="mb-2">Beaufille Collection</h6>
-                            <a class="text-light" href="category.php">Shop Earrings Now</a>
+                            <a class="text-light" href="category.php?category=earrings">Shop Earrings Now</a>
                             </div>
                         </div>
                         </div>
@@ -219,7 +225,7 @@
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="category.php">
+                            <a href="category.php?category=rings">
                             <h5>Rings</h5>
                             </a>
                         </div>
@@ -233,7 +239,7 @@
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="#">
+                            <a href="category.php?category=necklaces">
                             <h5>Necklaces</h5>
                             </a>
                         </div>
@@ -254,7 +260,7 @@
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="#">
+                            <a href="category.php?category=earrings">
                             <h5>Earrings</h5>
                             </a>
                         </div>
@@ -268,7 +274,7 @@
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="#">
+                            <a href="category.php?category=bracelets">
                             <h5>Bracelets</h5>
                             </a>
                         </div>
