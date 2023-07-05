@@ -2,27 +2,26 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$keyword = isset($_REQUEST["keyword"])?$_REQUEST["keyword"]:"";
-$sub = isset($_REQUEST["subname"])?$_REQUEST["subname"]:"";
+$keyword = isset($_REQUEST["keyword"]) ? $_REQUEST["keyword"] : "";
+$sub = isset($_REQUEST["subname"]) ? $_REQUEST["subname"] : "";
 require_once("../../models/model_product.php");
 $list = new model_product();
-if($sub == "")
+if ($sub == "")
     $sub = "%%";
-if($keyword == "")
+if ($keyword == "")
     $keyword = "%%";
 else
     $keyword = "%$keyword%";
-    // echo "$keyword";
-    // echo "$sub";
-$ketqua = $list->GetListBySub($sub,$keyword);
+// echo "$keyword";
+// echo "$sub";
+$ketqua = $list->GetListBySub($sub, $keyword);
 
 if ($ketqua == false) {
     echo "ERROR!";
 } else {
     $rows = $list->data;
     if ($rows != null)
-        foreach ($rows as $row)
-        {
+        foreach ($rows as $row) {
 ?>
         <div class="tb-row">
             <div class="cell-ssm">
@@ -47,10 +46,29 @@ if ($ketqua == false) {
                 <!-- Chuc nang sua san pham -->
                 <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                 <!-- Chuc nang xoa san pham -->
-                <a href="?did=<?= $row["ID"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                <a onclick="deleteProduct(<?= $row['ID']?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
             </div>
         </div>
+        <script>
+            function deleteProduct(id) {
+                $.ajax({
+                    url: 'deleteAJAX.php',
+                    type: 'POST',
+                    data: {
+                        prdname: id,
+                    },
+                    dataType: 'html',
+                    success: function(responseData, status) {
+                        // Reload the page after successful deletion
+                        if (status == "success")
+                            location.reload();
+
+                    }
+                })
+            }
+        </script>
+
 <?php
-    }
+        }
 }
 ?>

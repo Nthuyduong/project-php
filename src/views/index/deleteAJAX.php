@@ -10,5 +10,4 @@ if($ketqua == FALSE)
 else{
     echo "<p>DELETED!</p>";
 }
-
 ?>

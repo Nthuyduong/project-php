@@ -462,32 +462,6 @@ require("../../core/checklogin.php");
             })
         </script>
 
-        <script>
-            function deleteProduct()
-            {
-                let search = $(this).data('id');
-                // console.log(search);
-                // console.log(sct);
-                $.ajax({
-                        url: 'deleteAJAX.php',
-                        type: 'POST',
-                        data: {
-                            subname: sct,
-                            keyword: search,
-                        },
-                        dataType: 'html',
-                    })
-                    .done(function(data) {
-                        // console.log(data);
-                        $("#subsort").html('');
-                        $('#subsort').html(data);
-
-                    })
-                    .fail(function() {
-                        $('#subsort'),html('<p>Something went wrong, please try again!</p>');
-                    });
-            }
-        </script>
 </body>
 
 </html>
