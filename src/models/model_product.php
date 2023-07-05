@@ -45,7 +45,7 @@ class model_product extends Database
     }
 
     //Lay danh sach san pham theo sub-category name
-    function GetListBySub($subname)
+    function GetListBySub($subname, $keyword)
     {
         $sql="SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
         FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
@@ -53,11 +53,13 @@ class model_product extends Database
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
         INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
         WHERE tb1.Sub_category LIKE ?
+        AND tb1.Deleted_at IS NULL
+        AND tb1.Name LIKE ?
         GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
         $param = null;
         if($subname != "")
         {
-            $param = ["$subname"];
+            $param = ["$subname","$keyword"];
         }
         $ketqua = $this->set_query($sql,$param);
         if($ketqua == true)

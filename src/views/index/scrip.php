@@ -11,6 +11,6 @@ if(isset($POST['Category']))
     else{
         $product = $pd->GetProductByCategory($category);
     }
-    echo json_encode($product)
+    echo json_encode($product);
 }
 ?>

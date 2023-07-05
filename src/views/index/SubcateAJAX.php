@@ -2,12 +2,19 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+$keyword = isset($_REQUEST["keyword"])?$_REQUEST["keyword"]:"";
 $sub = isset($_REQUEST["subname"])?$_REQUEST["subname"]:"";
 require_once("../../models/model_product.php");
 $list = new model_product();
 if($sub == "")
     $sub = "%%";
-$ketqua = $list->GetListBySub($sub);
+if($keyword == "")
+    $keyword = "%%";
+else
+    $keyword = "%$keyword%";
+    // echo "$keyword";
+    // echo "$sub";
+$ketqua = $list->GetListBySub($sub,$keyword);
 
 if ($ketqua == false) {
     echo "ERROR!";

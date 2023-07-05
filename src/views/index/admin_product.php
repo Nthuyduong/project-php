@@ -35,10 +35,10 @@ require("../../core/checklogin.php");
                     <div class="row">
                         <div class="col-3">
                             <div className="search-bar d-flex">
-                                <form action="" method="GET">
+                                <!-- <form action="" method="GET"> -->
                                     <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Enter prodcut name..." />
                                     <FontAwesomeIcon class="icon-search" icon={faSearch} />
-                                </form>
+                                <!-- </form> -->
                             </div>
                         </div>
                         <div class="col-3">
@@ -79,19 +79,17 @@ require("../../core/checklogin.php");
                 </div>
                 <!-- Product table -->
                 <?php
-                $products = new model_product();
-                $did = $_REQUEST["did"];
-                if ($did != NULL)
-                    $products->DeleteProduct($did);
-                $keyword = $_REQUEST["findProduct"];
-                $ketqua = $products->SearchProduct($keyword);
-                if ($ketqua == FALSE) {
-                    $alert_title = "SQL ERROR!";
-                    $alert = "Please check again the database";
-                    require_once("../../views/includes/alert.php");
-                    die();
-                }
-                $rows = $products->data;
+                // $products = new model_product();
+                // $did = $_REQUEST["did"];
+                // if ($did != NULL)
+                //     $products->DeleteProduct($did);
+                // $keyword = $_REQUEST["findProduct"];
+                // if ($ketqua == FALSE) {
+                //     $alert_title = "SQL ERROR!";
+                //     $alert = "Please check again the database";
+                //     require_once("../../views/includes/alert.php");
+                //     die();
+                // }
                 ?>
                 <div class="tbl product-wrapper">
                     <div class="tb-row title-row">
@@ -126,15 +124,10 @@ require("../../core/checklogin.php");
 
                         </div>
                     </div>
-                    <?php
-                    if ($rows != NULL)
-                        foreach ($rows as $row) {
-                    ?>
+                    
                     <div id="subsort"></div>
                     <!-- Dong vong lap for each -->
-                    <?php
-                    }
-                    ?>
+                    
                 </div>
             </div>
         </div>
@@ -389,7 +382,7 @@ require("../../core/checklogin.php");
                         dataType: 'html',
                     })
                     .done(function(data) {
-                        console.log(data);
+                        // console.log(data);
                         $("#subctg").empty().append(data);
 
                     })
@@ -438,18 +431,21 @@ require("../../core/checklogin.php");
 
         <script>
             function subctsort() {
-                let sct = this.value;
-                console.log(sct);
+                let sct = $('#subctg').val();
+                let search = $('#findProduct').val();
+                // console.log(search);
+                // console.log(sct);
                 $.ajax({
                         url: 'SubcateAJAX.php',
                         type: 'POST',
                         data: {
-                            subname: sct
+                            subname: sct,
+                            keyword: search,
                         },
                         dataType: 'html',
                     })
                     .done(function(data) {
-                        console.log(data);
+                        // console.log(data);
                         $("#subsort").html('');
                         $('#subsort').html(data);
 
@@ -461,7 +457,36 @@ require("../../core/checklogin.php");
             $(document).ready(function() {
             $("#subctg").on("change", subctsort);
             $("#subctg").ready(subctsort);
+            $("#findProduct").change(subctsort)
+            // $("#findProduct").on("keydown", subctsort);
             })
+        </script>
+
+        <script>
+            function deleteProduct()
+            {
+                let search = $(this).data('id');
+                // console.log(search);
+                // console.log(sct);
+                $.ajax({
+                        url: 'deleteAJAX.php',
+                        type: 'POST',
+                        data: {
+                            subname: sct,
+                            keyword: search,
+                        },
+                        dataType: 'html',
+                    })
+                    .done(function(data) {
+                        // console.log(data);
+                        $("#subsort").html('');
+                        $('#subsort').html(data);
+
+                    })
+                    .fail(function() {
+                        $('#subsort'),html('<p>Something went wrong, please try again!</p>');
+                    });
+            }
         </script>
 </body>
 
