@@ -33,10 +33,10 @@ if ($ketqua == false) {
             <div class="cell">
                 <select class="w-100">
                     <option>Status</option>
-                    <option>Pending</option>
-                    <option>Processing</option>
-                    <option>Delivered</option>
-                    <option>Cancel</option>
+                    <?php
+                    $pm = new model_order();
+                    $pm->dropdownName("Orders", "Status");
+                    ?>
                 </select>
             </div>
             <div class="cell action-icon">

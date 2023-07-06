@@ -11,7 +11,7 @@ class model_product extends Database
     }
 
     //Ham lay danh sach san pham
-    function GetListProducts($subct = 0)
+    function GetListProducts($subct)
     {
         // $sql = "SELECT * FROM Products";
         $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
@@ -19,10 +19,8 @@ class model_product extends Database
         AS Sub_category, d.Stock FROM Products p
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
         INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
-        WHERE 1
         GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
-        if($subct > 0)
-            $sql .= "AND tb1.Name = $subct";
+
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
