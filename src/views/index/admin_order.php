@@ -45,10 +45,10 @@ require("../../core/checklogin.php");
                         </select>
                     </div>
                     <div class="col-3">
-                        <input name="" id="" placeholder="Start order (dd/mm/yyyy)" />
+                        <input type="datetime-local" id="startDate" name="startDate" placeholder="Start order (dd/mm/yyyy)">
                     </div>
                     <div class="col-3">
-                        <input name="" id="" placeholder="End order (dd/mm/yyyy)" />
+                        <input type="datetime-local" id="endDate" name="endDate" placeholder="End order (dd/mm/yyyy)">
                     </div>
                 </div>
                 <!-- them chuc nang chon theo phuong thuc thanh toan -->
@@ -142,6 +142,8 @@ require("../../core/checklogin.php");
             let od = $('#findOrder').val();
             let pay = $('#payment').val();
             let st = $('#status').val();
+            let start = $('#startDate').val();
+            let end = $('#endDate').val();
 
             $.ajax({
                     url: 'orderAJAX.php',
@@ -150,6 +152,8 @@ require("../../core/checklogin.php");
                         findOrder : od,
                         payment : pay,
                         status : st,
+                        startDate: start,
+                        endDate: end
                     },
                     dataType: 'html',
                 })
@@ -168,6 +172,9 @@ require("../../core/checklogin.php");
             $("#findOrder").ready(sortOrder);
             $("#payment").on("change", sortOrder);
             $("#status").on("change", sortOrder);
+            $("#startDate").on("change", sortOrder);
+            $("#endDate").on("change", sortOrder);
+
             // $("#findOrder").change(ordershow)
         })
     </script>

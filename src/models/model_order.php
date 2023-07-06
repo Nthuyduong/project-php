@@ -29,9 +29,9 @@ class model_order extends Database
     }
 
     //Tim hoa don
-    function FindOrder($findOrder, $status, $payment)
+    function FindOrder($findOrder, $status, $payment, $startDate, $endDate)
     {
-        $sql = "SELECT o.Code, o.Customer_ID, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method, gt.Grandtotal AS grandtotal
+    $sql = "SELECT o.Created_at, o.Code, o.Customer_ID, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method, gt.Grandtotal AS grandtotal
     FROM Orders o
     INNER JOIN Customers c ON o.Customer_ID = c.ID
     INNER JOIN Payments p ON o.Code = p.Order_code
@@ -42,9 +42,11 @@ class model_order extends Database
     WHERE o.Code LIKE '%$findOrder%'
     AND p.Payment_method LIKE '%$payment%'
     AND o.Status LIKE '%$status%'";
+    
+    if($startDate != null)
+        $sql .= "AND o.Created_at BETWEEN '$startDate' AND '$endDate'";
 
-        $ketqua = $this->set_query($sql
-    );
+        $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;//false hoac null

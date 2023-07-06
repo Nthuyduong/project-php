@@ -5,10 +5,15 @@ error_reporting(E_ALL);
 $findOrder = isset($_REQUEST["findOrder"]) ? $_REQUEST["findOrder"] : "";
 $status = isset($_REQUEST["status"]) ? $_REQUEST["status"] : "";
 $payment = isset($_REQUEST["payment"]) ? $_REQUEST["payment"] : "";
+$startDate = isset($_REQUEST["startDate"]) ? $_REQUEST["startDate"] : "";
+$endDate = isset($_REQUEST["endDate"]) ? $_REQUEST["endDate"] : "";
 require_once("../../models/model_order.php");
 $orders = new model_order();
-
-$ketqua = $orders->FindOrder($findOrder, $status, $payment);
+if($startDate != "" && $endDate=="")
+    $endDate = date('Y-m-d');
+if($startDate == "" && $endDate != "")
+    $endDate == "";
+$ketqua = $orders->FindOrder($findOrder, $status, $payment, $startDate, $endDate);
 if ($ketqua == false) {
     echo "EROOR";
 } else {
@@ -27,6 +32,7 @@ if ($ketqua == false) {
             </div>
             <div class="cell">
                 <select class="w-100">
+                    <option>Status</option>
                     <option>Pending</option>
                     <option>Processing</option>
                     <option>Delivered</option>
