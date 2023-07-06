@@ -29,26 +29,22 @@ class model_order extends Database
     }
 
     //Tim hoa don
-    function FindOrder($code)
+    function FindOrder($findOrder, $status, $payment)
     {
         $sql = "SELECT o.Code, o.Customer_ID, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method, gt.Grandtotal AS grandtotal
-        FROM Orders o
-        INNER JOIN Customers c ON o.Customer_ID = c.ID
-        INNER JOIN Payments p ON o.Code = p.Order_code
-        INNER JOIN (
-            SELECT ot.Order_code, SUM(ot.Price*ot.Quantity) AS Grandtotal
-            FROM Order_items ot
-            WHERE ot.Order_code IN (SELECT Code FROM Orders)
-            GROUP BY ot.Order_code) gt ON o.Code = gt.Order_code
-        WHERE TRUE";
-        $param = NULL;
-        if($code!="")
-        {
-            $sql .= " AND o.Code=?";
-            $param=[$code];    
-        }
-        //echo $param;
-        $ketqua = $this->set_query($sql,$param);
+    FROM Orders o
+    INNER JOIN Customers c ON o.Customer_ID = c.ID
+    INNER JOIN Payments p ON o.Code = p.Order_code
+    INNER JOIN(SELECT ot.Order_code, SUM(ot.Price * ot.Quantity) AS Grandtotal FROM Order_items ot
+    WHERE ot.Order_code IN(SELECT CODE FROM Orders)
+    GROUP BY ot.Order_code) gt
+    ON o.Code = gt.Order_code
+    WHERE o.Code LIKE '%$findOrder%'
+    AND p.Payment_method LIKE '%$payment%'
+    AND o.Status LIKE '%$status%'";
+
+        $ketqua = $this->set_query($sql
+    );
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;//false hoac null
@@ -68,6 +64,20 @@ class model_order extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
+
+    // List all orders status
+    // For dropdown selection
+    function dropdownName($tbname, $colname)
+    {
+        $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach($rows as $row)
+        {
+            $name = $row["$colname"];
+            echo "<option value='$name'>$name</option>";
+        }
+    }
     
 }
-?>

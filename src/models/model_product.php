@@ -144,7 +144,7 @@ class model_product extends Database
     // Create select category
     function CateSelect($tbname, $colid, $colname, $selectid)
     {
-        $sql = "SELECT $tbname.Category FROM $tbname GROUP BY $tbname.Category";
+        $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $rows = $this->pdo_stm->fetchAll();
