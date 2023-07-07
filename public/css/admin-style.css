@@ -1,6 +1,6 @@
 body{
-  background-color: #121317;
-  color: #fff;
+  background-color: #121317 !important;
+  color: #fff !important;
 }
 input.black{
   color: #fff;

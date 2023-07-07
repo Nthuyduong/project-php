@@ -110,6 +110,27 @@ class model_product extends Database
         return $ketqua;
     }
 
+    // Display information of a Product
+    function GetProductByID($id)
+    {
+        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Material, tb1.Jewelry_type, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Jewelry_type, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
+        AS Sub_category, d.Stock FROM Products p
+        INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
+        INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
+        WHERE tb1.ID=?
+        GROUP BY tb1.ID, tb1.Unit, tb1.Name, tb1.Material, tb1.Price, tb1.Description, tb1.Sub_category";
+        $param = null;
+        if($id != "")
+        {
+            $param = ["$id"];
+        }
+        $ketqua = $this->set_query($sql,$param);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+    }
+
+
     // ttmh - tim san pham bt keyword
     function GetListProductsByKeyword($keyword){
         $sql="SELECT * FROM Products WHERE TRUE ";
@@ -156,23 +177,5 @@ class model_product extends Database
                 echo "<option value='$name'>$name</option>";
         }
     }
-
-    // // Create select sub-category
-    // function CreateSubSelect($tbname, $colid, $colname, $selectid)
-    // {
-    //     $sql = "SELECT * FROM $tbname";
-    //     $ketqua = $this->set_query($sql);
-    //     if($ketqua == true)
-    //         $rows = $this->pdo_stm->fetchAll();
-    //     foreach($rows as $row)
-    //     {
-    //         $id = $row["$colid"];
-    //         $name = $row["$colname"];
-    //         if($id == $selectid)
-    //             echo "<option value='$id' selected>$name</option>";
-    //         else
-    //             echo "<option value='$id'>$name</option>";
-    //     }
-    // }
 }
 ?>

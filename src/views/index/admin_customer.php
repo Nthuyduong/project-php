@@ -181,7 +181,7 @@ require("../../core/checklogin.php");
                         $('#modal-loader').hide();
                     })
                     .fail(function(){
-                        $('#dynamic-content'),html('<p>Something went wrong, please try again!</p>');
+                        $('#dynamic-content').html('<p>Something went wrong, please try again!</p>');
                         $('#modal-loader').hide();
                     });
                 });

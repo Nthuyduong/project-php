@@ -60,19 +60,13 @@ require("../../core/checklogin.php");
                         <div class="col-3">
                             <select class="sl-box" name="subctg" id="subctg">
                                 <option value="">Sub-category</option>
-                                <?php
-                                // $cs = new model_product();
-                                // $cs->CreateSubSelect("Sub_categories","ID","Name",$subctg);
-                                ?>
                             </select>
                         </div>
                         <div class="col-3">
-                            <select class="sl-box" name="status" id="status">
-                                <option value="">Price</option>
+                            <select class="sl-box" name="price" id="price">
+                                <option value="" selected>Price</option>
                                 <option value="lowtohight">Low to high</option>
                                 <option value="hightolow">High to low</option>
-                                <option value="expensive">Most expensive</option>
-                                <option value="cheapest">Cheapest</option>
                             </select>
                         </div>
                     </div>
@@ -94,7 +88,7 @@ require("../../core/checklogin.php");
                 <div class="tbl product-wrapper">
                     <div class="tb-row title-row">
                         <div class="cell-ssm">
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            ID
                         </div>
                         <div class="cell-sm">
                             IMAGE

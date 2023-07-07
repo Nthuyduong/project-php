@@ -1,9 +1,12 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $keyword = isset($_REQUEST["keyword"]) ? $_REQUEST["keyword"] : "";
 $sub = isset($_REQUEST["subname"]) ? $_REQUEST["subname"] : "";
+
 require_once("../../models/model_product.php");
 $list = new model_product();
 if ($sub == "")
@@ -44,11 +47,32 @@ if ($ketqua == false) {
             </div>
             <div class="cell-sm stt-out">
                 <!-- Chuc nang sua san pham -->
-                <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                <a id="getproduct" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#product-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                 <!-- Chuc nang xoa san pham -->
-                <a onclick="deleteProduct(<?= $row['ID']?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                <a onclick="deleteProduct(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
             </div>
         </div>
+        <!-- EDIT PRODUCT INFORMATION -->
+        <!-- CUSTOMER INFORMATION -->
+        <div class="modal fade" id="product-detail" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="db-title" id="exampleModalLabel">Product Detail</div>
+                        <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                            X
+                        </div>
+                    </div>
+                    <div class="modal-body mb-3">
+                        <!-- Content will be load here -->
+                        <div id="dynamic-product">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- AJAX DELETE PRODUCT -->
         <script>
             function deleteProduct(id) {
                 $.ajax({
@@ -62,12 +86,44 @@ if ($ketqua == false) {
                         // Reload the page after successful deletion
                         if (status == "success")
                             location.reload();
-
                     }
                 })
             }
         </script>
 
+        <!-- AJAX DISPLAY AND EDIT PRODUCT INFROMATION -->
+        <script>
+            $(document).ready(function(){
+
+                $(document).on('click', '#getproduct', function(e){
+
+                    e.preventDefault();
+                    // Get customer ID after click
+                    var id = $(this).data('id');
+
+                    // leave modal blank before ajax call
+                    $('#dynamic-product').html('');
+
+                    $.ajax({
+                        url: 'showproductAJAX.php',
+                        type: 'POST',
+                        data: {
+                            id: id
+                        },
+                        dataType: 'html',
+                    })
+                    .done(function(data){
+                        console.log(data);
+                        $('#dynamic-product').html('');
+                        // load response
+                        $('#dynamic-product').html(data);
+                    })
+                    .fail(function(){
+                        $('#dynamic-product').html('<p>Something went wrong, please try again!</p>');
+                    });
+                });
+            });
+        </script>
 <?php
         }
 }
