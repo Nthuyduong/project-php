@@ -92,13 +92,13 @@ require("../../core/checklogin.php");
                             <div class="tb-row">
                                 <div class="cell-sm alg-center"><?=$row["ID"]?></div>
                                 <div class="cell">
-                                    <a href="#"><?=$row["Name"]?></a>
+                                    <?=$row["Name"]?>
                                 </div>
                                 <div class="cell"><?=$row["Email"]?></div>
                                 <div class="cell-sm"><?=$row["Phone"]?></div>
                                 <div class="cell-md"><?=$row["Address"]?></div>
                                 <div class="cell-sm action-icon stt-out">
-                                    <a href="#" id="getCustomer" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#customer-detail"><i class="me-3 fas fa-search-plus" style="color: #ffffff;"></i></a>                                                                                      
+                                    <a href="#" id="getCustomer" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#customer-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>                                                                                      
                                     <a href="?cid=<?=$row["ID"]?>"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>

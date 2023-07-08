@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <a href="admin_customer.php">
-                        <i class="fas fa-user-friend pe-2"></i><span>Customer</span>
+                        <i class="fas fa-user pe-2"></i><span>Customer</span>
                     </a>
                 <li>
             </ul>

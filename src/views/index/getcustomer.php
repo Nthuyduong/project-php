@@ -17,7 +17,7 @@
         <div class="table-customer">
             <div class="row">
                 <div class="col-6">      
-                    <div class="tbl">
+                    <!-- <div class="tbl"> -->
                         <div class="tb-title mb-3">Customer information</div>
                             <div class="tb-row">
                                 <div class="cell-sm">NAME</div>
@@ -44,9 +44,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 <div class="col-6">
-                    <div class="tbl">
+                    <!-- <div class="tbl"> -->
                         <div class="tb-title mb-3">Order History</div>
                             <div class="tb-row">
                                 <div class="cell-sm">ID</div>
@@ -77,7 +77,7 @@
                             }
                             ?>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>

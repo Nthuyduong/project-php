@@ -11,37 +11,49 @@ if (isset($_REQUEST["id"])){
 ?>
     <!-- Product information will goes here -->
     <div class="table-product">
-        <div class="row">
-            <div class="col-6">
-                <div class="tbl">
-                    <div class="tb-title mb-3">Basic Information</div>
+        <!-- <div class="row"> -->
+            <!-- <div class="">
+                <div class="tbl"> -->
+                    <!-- <div class="tb-title mb-3">Basic Information</div> -->
                     <div class="tb-row">
                         <div class="cell-sm">ID</div>
-                        <div class="cell"><?php echo $rows["ID"] ?></div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["ID"] ?>">
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell-sm">PRODUCT'S NAME</div>
-                        <div class="cell"><?php echo $rows["Name"] ?></div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["Name"] ?>">
+                        </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell-sm">PRICE</div>
-                        <div class="cell"><?php echo $rows["Price"] ?></div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["Price"] ?>">
+                        </div>
                     </div>
-                    <div class="tb-row tb-row2">
+                    <div class="tb-row">
                         <div class="cell-sm">CATEGORY</div>
-                        <div class="cell"><?php echo $rows["Category"] ?></div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["Category"] ?>">
+                        </div>
                     </div>
-                    <div class="tb-row tb-row2">
+                    <div class="tb-row">
                         <div class="cell-sm">SUB-CATEGORY</div>
-                        <div class="cell"><?php echo $rows["Sub_category"] ?></div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["Sub_category"] ?>">
+                        </div>
                     </div>
                     <div class="tb-row tb-row2">
                         <div class="cell-sm">QUANTITY/STOCK</div>
-                        <div class="cell"><?php echo $rows["TotalStock"] ?></div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["TotalStock"] ?>">
                     </div>
-                </div>
-            </div>
-            <div class="col-6">
+                    </div>
+                <!-- </div>
+            </div> -->
+            <!-- <div class="col-6">
                 <div class="tbl">
                     <div class="tb-title mb-3">Combination Information</div>
                     <div class="tb-row">
@@ -52,13 +64,13 @@ if (isset($_REQUEST["id"])){
                         <div class="cell">MATERIAL</div>
                         <div class="cell"><?php echo $rows["Material"] ?></div>
                     </div>
-                    <!-- <div class="tb-row">
+                    <div class="tb-row">
                         <div class="cell">SIZE</div>
                         <div class="cell"></div>
-                    </div> -->
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
     </div>
 <?php
 }

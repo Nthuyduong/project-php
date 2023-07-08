@@ -562,5 +562,8 @@ ul.progressbar{
 }
 /* PRODUCT INFORMATION */
 #product-detail .modal-dialog{
-  max-width: 940px !important;
+  max-width: 750px !important;
+}
+#product-detail .modal-body{
+  padding: 30px !important;
 }
