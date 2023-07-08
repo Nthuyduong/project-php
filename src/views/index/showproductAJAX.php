@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once("../../models/model_product.php");
-if (isset($_REQUEST["id"])) {
+if (isset($_REQUEST["id"])){
     $id = intval($_REQUEST["id"]);
     $product = new model_product();
     $product->GetProductByID($id);
@@ -52,10 +52,10 @@ if (isset($_REQUEST["id"])) {
                         <div class="cell">MATERIAL</div>
                         <div class="cell"><?php echo $rows["Material"] ?></div>
                     </div>
-                    <div class="tb-row">
+                    <!-- <div class="tb-row">
                         <div class="cell">SIZE</div>
-                        <div class="cell"><?php echo $rows["Size"] ?></div>
-                    </div>
+                        <div class="cell"></div>
+                    </div> -->
                 </div>
             </div>
         </div>
