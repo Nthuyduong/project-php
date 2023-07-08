@@ -560,3 +560,7 @@ ul.progressbar{
 .alert-btn{
   margin-left: auto;
 }
+/* PRODUCT INFORMATION */
+#product-detail .modal-dialog{
+  max-width: 940px !important;
+}

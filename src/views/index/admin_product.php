@@ -88,7 +88,7 @@ require("../../core/checklogin.php");
                 <div class="tbl product-wrapper">
                     <div class="tb-row title-row">
                         <div class="cell-ssm">
-                            ID
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                         </div>
                         <div class="cell-sm">
                             IMAGE
