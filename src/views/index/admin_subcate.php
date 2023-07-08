@@ -30,10 +30,10 @@ require_once("../../models/model_subcate.php");
             <!-- Product here -->
             <div class="db-title mt-4">SUB-CATEGORY</div>
             <p>Have a nice day!</p>
-            <div>
+            <div class="my-3">
                 <div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
                             <div className="search-bar d-flex">
                                 <form action="" method="GET" class="">
                                     <input class="search-input w-100" type="text" id="findsubct" name="findsubct" placeholder="Search text..." />
@@ -41,14 +41,11 @@ require_once("../../models/model_subcate.php");
                                 </form>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <button class="w-100 btn-lg-pr-admin" data-bs-toggle="offcanvas" data-bs-target="#addsubcate" aria-controls="addsubcate">Add Sub-category</button>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <button class="w-100 btn-lg-sc-admin">Delete Sub-category</button>
-                        </div>
-                        <div class="col-3">
-                            <button class="w-100 btn-lg-sc-admin">Change Status</button>
                         </div>
                     </div>
                     <div class="line my-4"></div>
@@ -90,7 +87,7 @@ require_once("../../models/model_subcate.php");
                         <div class="cell-md">
                             DESCRIPTION
                         </div>
-                        <div class="cell alg-center">
+                        <div class="cell stt-out">
                             ACTION
                         </div>
                     </div>
@@ -106,7 +103,7 @@ require_once("../../models/model_subcate.php");
                             <div class="cell"><?= $row["Name"] ?></div>
                             <div class="cell"><?= $row["Category"] ?></div>
                             <div class="cell-md">Description about sub-category goes here</div>
-                            <div class="cell">
+                            <div class="cell stt-out">
                                 <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                                 <a href="#"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
