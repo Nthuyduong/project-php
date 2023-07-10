@@ -1,0 +1,95 @@
+/* BANNER HERE */
+
+/* AVATA */
+.user-img{
+
+}
+.user-title{
+
+}
+/* SIDE BAR HERE */
+.user-nav ul.nav-tabs{
+    flex-direction: column !important;
+}
+
+/* Style for table */
+.tbl{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.tb-row2{
+    border-bottom: none !important;
+}
+.tb-row{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px #999 solid;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+.title-row{
+    background-color: #E1DCD6;
+}
+.cell{
+    padding-left: 4px;
+    padding-right: 4px;
+    margin:auto;
+    flex-grow: 1;
+    flex-basis:0;
+    flex-shrink: 0;
+}
+.cell-md{
+    flex-grow: 1.5;
+    flex-shrink: 0;
+    flex-basis: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+.cell-sm{
+    margin: auto;
+    flex-grow: 0.5;
+    flex-shrink: 0;
+    flex-basis: 0;
+}
+
+/* Style for status */
+.stt{
+    width: 94px;
+    text-align: center;
+    border-radius: 16px;
+    padding:4px 10px;
+}
+.stt-sm{
+    text-align: center;
+    border-radius: 16px;
+    padding:4px 10px;
+    width: 88px;
+}
+.stt1{
+    background-color: #6A7CE9;
+}
+.stt2{
+    background-color: #55BF9C;
+}
+.stt3{
+    background-color: #E96A6A;
+}
+.stt4{
+    background-color: #F0905A;
+}
+.stt-out{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alg-center{
+    text-align: center;
+}
+
+
+
+
+  
+

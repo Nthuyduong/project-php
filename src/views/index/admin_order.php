@@ -1,269 +1,183 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php
+session_start();
+require_once("../../models/model_order.php");
+require("../../core/checklogin.php");
+?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
-    </head>
-    <body>
-        <div id="mySidenav" class="sidenav">
-            <div class="">
-                <div class="nav-close d-flex">
-                    <h5 class="text-light nav-title">AGURI ADMIN</h3>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                </div>
-            </div>
-            <ul class="sideNav-content">
-                <li>
-                    <a href="#">
-                        <i class="fas fa-th-large pe-2"></i>Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fab fa-slack pe-2"></i><span>Catalog</span>
-                    </a>
-                </li>
-                    <ul class="catalog-dropdown">
-                        <li>
-                            <a>Products</a>
-                        </li>
-                        <li>
-                            <a>Category</a>
-                        </li>
-                        <li>
-                            <a>Sub-category</a>
-                        </li>
-                    </ul>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-shopping-cart pe-2"></i><span>Order</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-user-friend pe-2"></i><span>Customer</span>
-                    </a>
-                <li>
-            </ul>
-        </div>
-        <div id="main">
-            <!-- THIS IS HEADER -->
-            <div class="admin-nav d-flex">
-                <div class="nav-admin-start me-auto">
-                    <span style="cursor:pointer" onclick="openNav()">
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </div>
-                <div class="nav-admin-end d-flex">
-                    <div>
-                        <a style="cursor:pointer" href="#">
-                            <i class="fas fa-bell"></i>
-                        </a>
-                    </div>
-                    <div class="ms-3">
-                        <a style="cursor:pointer" href="#">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- THIS IS ALL CONTENT -->
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/admin-style.css">
+</head>
+
+<body>
+    <?php require_once '../includes/sidebar.php'; ?>
+
+    <div id="main">
+        <!-- THIS IS HEADER -->
+        <?php require '../includes/ad-header.php' ?>
+        <!-- THIS IS ALL CONTENT -->
+        <div>
+            <!-- Order here -->
+            <div class="db-title mt-4">ORDERS</div>
+            <p>Have a nice day!</p>
             <div>
-                <!-- Order here -->
-                <div class="db-title">ORDERS</div>
-                <p>Have a nice day!</p>
-                <div>
-                    <div class="row">
-                        <div class="col-3">
-                            <div className="search-bar d-flex">
-                                <input className="search-input w-100" type="text" placeholder="Search text..." />
-                                <FontAwesomeIcon className="icon-search" icon={faSearch}/>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <select name="status" id="status">
-                                <option>choose status</option>
-                                <option>Pending</option>
-                                <option>Processing</option>
-                                <option>Delivered</option>
-                                <option>Cancel</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <div>Order date</div>
-                            <input name="" id="" placeholder="dd/mm/yyyy"/>
-                        </div>
-                        <div class="col-3">
-                            <button class="btn-lg-pr-admin">Download all order</button>
+                <div class="row mb-4">
+                    <div class="col-3">
+                        <div className="search-bar d-flex">
+                            <!-- <form action="" method="get"> -->
+                                <input name="findOrder" id="findOrder" class="search-input w-100" type="text" placeholder="Enter Order ID..." />
+                                <FontAwesomeIcon class="icon-search" icon={faSearch} />
+                            <!-- </form> -->
                         </div>
                     </div>
-                    <div class="tbl">
-                        <div class="tb-row title-row">
-                            <div class="cell">
-                                ORDER ID
-                            </div>
-                            <div class="cell-md">
-                                ORDER TiME
-                            </div>
-                            <div class="cell-md">
-                                CUSTOMER'S NAME
-                            </div>
-                            <div class="cell">
-                                METHOD
-                            </div>
-                            <div class="cell">
-                                AMOUNT
-                            </div>
-                            <div class="cell">
-                                STATUS
-                            </div>
-                            <div class="cell">
-                                ACTION
-                            </div>
-                            <div class="cell"></div>
+                    <div class="col-3">
+                        <select class="sl-box" name="status" id="status">
+                            <option value="" selected>choose status</option>
+                            <?php
+                                $pm = new model_order();
+                                $pm->dropdownName("Orders", "Status");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <input type="datetime-local" id="startDate" name="startDate" placeholder="Start order (dd/mm/yyyy)">
+                    </div>
+                    <div class="col-3">
+                        <input type="datetime-local" id="endDate" name="endDate" placeholder="End order (dd/mm/yyyy)">
+                    </div>
+                </div>
+                <!-- them chuc nang chon theo phuong thuc thanh toan -->
+                <div class="row">
+                    <div class="col-3">
+                        <select class="sl-box" name="payment" id="payment">
+                            <option value="" selected>Payment method</option>
+                            <?php
+                                $pm = new model_order();
+                                $pm->dropdownName("Payments", "Payment_method");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn-lg-pr-admin w-100">Download all order</button>
+                    </div>
+                    <div class="col-3"></div>
+                    <div class="col-3"></div>
+                </div>
+                <?php
+                // $order = new model_order();
+                // $keyword = isset($_REQUEST["findOrder"])?$_REQUEST["findOrder"]:"";
+                // if($keyword!="" && is_numeric($keyword)==false)
+                //     $keyword="";
+                // $ketqua = $order->FindOrder($keyword);
+                // if($ketqua === false)
+                // {
+                //     $alert_title = "SQL ERROR";
+                //     $alert = "Please check again!";
+                //     require_once("../../views/includes/alert.php");
+                //     die();
+                // }
+                // $rows = $order->data;
+                ?>
+                <div class="tbl">
+                    <div class="tb-row title-row">
+                        <div class="cell">
+                            ORDER ID
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">12/04/2023</div>
-                            <div class="cell-md">Nguyen Thuy Duong</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$30.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                        <div class="cell-md">
+                            ORDER DATE
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10124</div>
-                            <div class="cell-md">14/05/2023</div>
-                            <div class="cell-md">Vu Thi Hue</div>
-                            <div class="cell">Master Card</div>
-                            <div class="cell">$40.000</div>
-                            <div class="cell">Processing</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                        <div class="cell-md">
+                            CUSTOMER'S NAME
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                        <div class="cell">
+                            METHOD
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                        <div class="cell">
+                            GRAND TOTAL
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                        <div class="cell">
+                            STATUS
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Master Card</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
+                        <div class="cell">
+                            ACTION
                         </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Paypal</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
-                        <div class="tb-row">
-                            <div class="cell">10123</div>
-                            <div class="cell-md">10/04/2023</div>
-                            <div class="cell-md">Nguyen Thanh Thuy</div>
-                            <div class="cell">Visa</div>
-                            <div class="cell">$35.000</div>
-                            <div class="cell">Pending</div>
-                            <div class="cell">ACTION</div>
-                            <div class="cell"></div>
-                        </div>
+                        <div class="cell"></div>
+                    </div>
+                    <?php
+                    // if($rows != NULL)
+                    //     foreach($rows as $row)
+                    // {
+                    ?>
+                    <!-- All Order will show here -->
+                    <div id="ordershow"></div>
+
+                    <?php
+                    // }
+                    ?>
+                </div>
+                <div class="d-flex pgn">
+                    <div class="me-auto">Showing 8 of 100</div>
+                    <div class="pagination">
+                        <a href="#">&laquo;</a>
+                        <a class="active" href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">&raquo;</a>
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-            window.addEventListener("DOMContentLoaded", function() {
-                // Open the side navigation menu when the page loads
-                openNav();
-            });
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        function sortOrder() {
+            let od = $('#findOrder').val();
+            let pay = $('#payment').val();
+            let st = $('#status').val();
+            let start = $('#startDate').val();
+            let end = $('#endDate').val();
 
-            function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            }
+            $.ajax({
+                    url: 'orderAJAX.php',
+                    type: 'POST',
+                    data: {
+                        findOrder : od,
+                        payment : pay,
+                        status : st,
+                        startDate: start,
+                        endDate: end
+                    },
+                    dataType: 'html',
+                })
+                .done(function(data) {
+                    // console.log(data);
+                    $("#ordershow").html('');
+                    $('#ordershow').html(data);
 
-            function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft= "0";
-            }
-        </script>
-    </body>
+                })
+                .fail(function() {
+                    $('#ordershow'), html('<p>Something went wrong, please try again!</p>');
+                });
+        }
+        $(document).ready(function() {
+            $("#findOrder").on("change", sortOrder);
+            $("#findOrder").ready(sortOrder);
+            $("#payment").on("change", sortOrder);
+            $("#status").on("change", sortOrder);
+            $("#startDate").on("change", sortOrder);
+            $("#endDate").on("change", sortOrder);
+
+            // $("#findOrder").change(ordershow)
+        })
+    </script>
+</body>
+
 </html>
