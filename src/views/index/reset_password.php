@@ -21,7 +21,7 @@ session_start();
                         
                         <div class="mb-3">
                             <label for="email">Enter a new password</label>
-                            <input class="inpu" type="text" name="newpass" id="newpass" required>
+                            <input class="inpu" type="password" name="newpass" id="newpass" required>
                         </div>
                         <div>
                             <label for="psw">Re-type password</label>
