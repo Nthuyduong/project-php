@@ -12,10 +12,9 @@
 
     </head>
     <body>
-        <?php  error_reporting(E_ALL); ?>
-        <?php require_once '../includes/header.php' ?>
-        <?php require("../../models/model_product.php"); ?>
-
+        <div>
+            <?php require_once '../includes/header.php';?>
+        </div> 
         <div>
             <div class="ctg">
                 <div class="row ctg-inner">
@@ -103,91 +102,111 @@
                 <!--New Arrivals-->
                 <div class="simi-prod new-arrivals mbt-120">
                     <div class="row">
-                        <div class="col-3">
-                            <h5 class="mt-5">New Arrivals</h5>
-                            <p class="mt-2 mb-4">We designs reinvent our iconic collection with bold profiles and powerful details.</p>
-                            <a href="category.php">
-                            <p class="shop-all-new">Shop all new items</p>
-                            </a>
-                        </div>
-                        <div class="col-9">
-                            <div id="newarrival" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <?php
-                                    $newArrivalsDB = new Product();
-                                    $getNewArrivals = $newArrivalsDB -> getNewArrivals();
-                                    if ($getNewArrivals==false) {
-                                        echo("<p>Fail to connect database!!</p>");
-                                        die();
-                                    }
-                                    $newArrivals = $newArrivalsDB -> data;
-                                    $newArrivals1 = array_slice($newArrivals, 0, 3);
-                                    $newArrivals2 = array_slice($newArrivals, 3, 3);
-                                    $newArrivals3 = array_slice($newArrivals, 6, 3);
-                                    ?>
-                                    <div class="carousel-item active" data-bs-interval="1300">
-                                        <div class="row">
-                                            <?php foreach ($newArrivals1 as $new) { ?>
-                                            <div class="col-4">
-                                                <div class="item-card-info">
-                                                    <div class="card-prd">
-                                                        <div class="img">
-                                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                                            </a>
-                                                        </div>
-                                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                            Quick view
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
-                                        </div>
+                    <div class="col-3">
+                        <h5 class="mt-5">New Arrivals</h5>
+                        <p class="mt-2 mb-4">We designs reinvent our iconic collection with bold profiles and powerful details.</p>
+                        <a href="category.php">
+                        <p class="shop-all-new">Shop all new items</p>
+                        </a>
+                    </div>
+                    <div class="col-9">
+                        <div id="newarrival" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="1300">
+                            <div class="row">
+                                <div class="col-4">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                    <div class="img">
+                                        <a href="product-detail.php">
+                                        <img src="../../../public/images/home/new1.webp">
+                                        </a>
                                     </div>
-                                    <div class="carousel-item" data-bs-interval="1300">
-                                        <div class="row">
-                                            <?php foreach ($newArrivals2 as $new) { ?>
-                                                <div class="col-4">
-                                                    <div class="item-card-info">
-                                                        <div class="card-prd">
-                                                            <div class="img">
-                                                                <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                                    <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                                                </a>
-                                                            </div>
-                                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                                Quick view
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
                                     </div>
-                                    <div class="carousel-item" data-bs-interval="1300">
-                                        <div class="row">
-                                            <?php foreach ($newArrivals3 as $new) { ?>
-                                                <div class="col-4">
-                                                    <div class="item-card-info">
-                                                        <div class="card-prd">
-                                                            <div class="img">
-                                                                <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                                    <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                                                </a>
-                                                            </div>
-                                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                                Quick view
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        </div>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-4">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                    <div class="img">
+                                        <a href="product-detail.php">
+                                        <img src="../../../public/images/home/new2.webp">
+                                        </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-4">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                    <div class="img">
+                                        <a href="product-detail.php">
+                                        <img src="../../../public/images/home/new3.webp">
+                                        </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="1300">
+                            <div class="row">
+                                <div class="col-4">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                    <div class="img">
+                                        <a href="product-detail.php">
+                                        <img src="../../../public/images/home/new4.webp">
+                                        </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-4">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                    <div class="img">
+                                        <a href="product-detail.php">
+                                        <img src="../../../public/images/home/new5.webp">
+                                        </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-4">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                    <div class="img">
+                                        <a href="product-detail.php">
+                                        <img src="../../../public/images/home/new6.webp">
+                                        </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                        Quick view
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
 
@@ -269,191 +288,244 @@
                 <div class="also-like best-seller mbt-120">
                     <h5 class="text-center mb-4">Best Sellers</h5>
                     <div id="carouselalsolike" class="carousel slide carousel-dark carousel-also carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-inner container-fluid">
-                            
-                            <div class="carousel-item active" data-bs-interval="3000">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="item-card-info">
-                                            <div class="card-prd">
-                                            <div class="img">
-                                                <a href="#">
-                                                <img src="../../../public/images/product-detail/also-like1.webp">
-                                                </a>
-                                            </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                Quick view
-                                            </div>
-                                            </div>
-                                            <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2">Lynn Ring</p>
-                                            <p>$7,000</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="carousel-inner container-fluid">
+                        <div class="carousel-item active" data-bs-interval="4000">
+                        <div class="row">
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like1.webp">
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="carousel-item" data-bs-interval="3000">
-                            <div class="row">
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like5.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p>$7,000</p>
-                                    </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
                                 </div>
                                 </div>
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like6.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p>$7,000</p>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like7.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p>$7,000</p>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like8.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p>$7,000</p>
-                                    </div>
-                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
                                 </div>
                             </div>
                             </div>
-                            <div class="carousel-item" data-bs-interval="3000">
-                            <div class="row">
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like5.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p class="smt">$7,000</p>
-                                    </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src=".../../../public/images/product-detail/also-like2.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
                                 </div>
                                 </div>
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images//product-detail/also-like6.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p class="smt">$7,000</p>
-                                    </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like3.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
                                 </div>
                                 </div>
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like7.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p class="smt">$7,000</p>
-                                    </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like4.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
                                 </div>
                                 </div>
-                                <div class="col-3">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="#">
-                                        <img src="../../../public/images/product-detail/also-like8.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                    <p class="mdt mb-2">Lynn Ring</p>
-                                    <p class="smt">$7,000</p>
-                                    </div>
-                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
                                 </div>
                             </div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselalsolike" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselalsolike" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row">
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like5.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like6.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like7.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like8.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p>$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                        <div class="row">
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like5.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p class="smt">$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images//product-detail/also-like6.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p class="smt">$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like7.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p class="smt">$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-3">
+                            <div class="item-card-info">
+                                <div class="card-prd">
+                                <div class="img">
+                                    <a href="#">
+                                    <img src="../../../public/images/product-detail/also-like8.webp">
+                                    </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                    Quick view
+                                </div>
+                                </div>
+                                <div class="item-inf text-center mt-3">
+                                <p class="mdt mb-2">Lynn Ring</p>
+                                <p class="smt">$7,000</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselalsolike" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselalsolike" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                     </div>
                 </div>
                 <!--All about us-->

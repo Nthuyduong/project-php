@@ -23,13 +23,13 @@
 
         <div>
             <?php
-            $subCatesDB = new Product();
-            $getProductsBySid = $subCatesDB -> getProductsBySid($sid);
+            $subCates = new Product();
+            $getProductsBySid = $subCates -> getProductsBySid($sid);
             if ($getProductsBySid==false) {
                 echo("<p>Fail to connect database!!</p>");
                 die();
             }
-            $products = $subCatesDB -> data;
+            $products = $subCates -> data;
             ?>
             <!--category-top-->
             <div class="banner">
