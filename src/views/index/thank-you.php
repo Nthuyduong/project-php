@@ -1,4 +1,5 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php define('URLROOT', 'http://localhost:8888/project-php'); 
+session_start();?>
 <!DOCTYPE html>
 <html>
     <head>

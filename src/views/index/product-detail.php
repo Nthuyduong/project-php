@@ -1,9 +1,11 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php define('URLROOT', 'http://localhost:8888/project-php'); 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Home</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/fonts.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/product-detail.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
@@ -414,27 +416,28 @@
                         }
                         $newArrivals = $newArrivals -> data;
                         $newArrivals1 = array_slice($newArrivals, 0, 4);
-                        $newArrivals2 = array_slice($newArrivals, 4, 8);
-                        $newArrivals3 = array_slice($newArrivals, 8, 12);
+                        $newArrivals2 = array_slice($newArrivals, 4, 4);
+                        $newArrivals3 = array_slice($newArrivals, 8, 4);
                         ?>
                         <div class="carousel-item active" data-bs-interval="4000">
                             <div class="row">
                                 <?php foreach ($newArrivals1 as $new) { ?>
                                     <div class="col-3">
                                         <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                            </a>
+                                            <div class="card-prd">
+                                                <div class="img">
+                                                <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                    <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                Quick view
+                                                </div>
                                             </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
+                                            <div class="item-inf text-center mt-3">
+                                                <p class="mdt mb-2"><?=$new['Name']?></p>
+                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
                                             </div>
-                                        </div>
-                                        <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2"><?=$new['Name']?></p>
-                                            <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -445,19 +448,20 @@
                                 <?php foreach ($newArrivals2 as $new) { ?>
                                     <div class="col-3">
                                         <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                            </a>
+                                            <div class="card-prd">
+                                                <div class="img">
+                                                <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                    <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                Quick view
+                                                </div>
                                             </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
+                                            <div class="item-inf text-center mt-3">
+                                                <p class="mdt mb-2"><?=$new['Name']?></p>
+                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
                                             </div>
-                                        </div>
-                                        <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2"><?=$new['Name']?></p>
-                                            <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -468,19 +472,20 @@
                                 <?php foreach ($newArrivals3 as $new) { ?>
                                     <div class="col-3">
                                         <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                            </a>
+                                            <div class="card-prd">
+                                                <div class="img">
+                                                <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                    <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                Quick view
+                                                </div>
                                             </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
+                                            <div class="item-inf text-center mt-3">
+                                                <p class="mdt mb-2"><?=$new['Name']?></p>
+                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
                                             </div>
-                                        </div>
-                                        <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2"><?=$new['Name']?></p>
-                                            <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -583,7 +588,7 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
@@ -612,7 +617,7 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
@@ -641,36 +646,7 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="line mb-3"></div>
-                    <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
-                        <span class="smt">2022/12/02</span>
-                        </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa-star fa"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>
@@ -699,7 +675,36 @@
                         <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
                             say for certain what you’ll need to adjust it to.</p>
                         <div class="like-review">
-                            <i class="align-middle fa-regular fa-heart fa-lg"></i>
+                            <i class="align-middle far fa-heart fa-lg"></i>
+                            <span class="smt ms-2">19</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="line mb-3"></div>
+                    <div class="d-flex review-inner">
+                    <div class="review-ava">
+                        <img src="../../../public/images/product-detail/user1.png">
+                    </div>
+                    <div class="review-content w-100 ms-3">
+                        <div class="d-flex">
+                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
+                        <span class="smt">2022/12/02</span>
+                        </div>
+                        <div>
+                        <div class="d-flex rate-start">
+                            <i class="fa-star fa"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        </div>
+                        <div class="d-flex">
+                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
+                            say for certain what you’ll need to adjust it to.</p>
+                        <div class="like-review">
+                            <i class="align-middle far fa-heart fa-lg"></i>
                             <span class="smt ms-2">19</span>
                         </div>
                         </div>

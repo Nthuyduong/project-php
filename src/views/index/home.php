@@ -1,25 +1,27 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
-
+<?php define('URLROOT', 'http://localhost:8888/project-php'); 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Home</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/fonts.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/home.css">
-        <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
-
+        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/fonts.css">
+        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/home.css">
+        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
         <div>
-            <?php require_once '../includes/header.php';?>
+            <?php  error_reporting(E_ALL); ?>
+            <?php require_once '../includes/header.php'; ?>
+            <?php require("../../models/model_product.php"); ?>
         </div> 
         <div>
             <div class="ctg">
                 <div class="row ctg-inner">
                     <div class="ctg-left col-8">
-                        <div class="ctg-left-top">
+                    <div class="ctg-left-top">
                             <div class="d-flex">
                                 <div class="left-top">
                                     <div class="ctg-img-inner">
@@ -70,7 +72,7 @@
                                 </div>
                             </div>
                             </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -95,7 +97,6 @@
                         </a>
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
             <div class="container-fluid">
@@ -105,104 +106,84 @@
                     <div class="col-3">
                         <h5 class="mt-5">New Arrivals</h5>
                         <p class="mt-2 mb-4">We designs reinvent our iconic collection with bold profiles and powerful details.</p>
-                        <a href="category.php">
+                        <!-- <a href="category.php"> -->
                         <p class="shop-all-new">Shop all new items</p>
-                        </a>
+                        <!-- </a> -->
                     </div>
                     <div class="col-9">
                         <div id="newarrival" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
+                            <?php
+                            $getNewArrivalsDB = new Product();
+                            $getNewArrivals = $getNewArrivalsDB -> getNewArrivals();
+                            if ($getNewArrivals==false) {
+                                echo("<p>Fail to connect database!!</p>");
+                                die();
+                            }
+                            $newArrivals = $getNewArrivalsDB -> data;
+                            $newArrivals1 = array_slice($newArrivals, 0, 3);
+                            $newArrivals2 = array_slice($newArrivals, 3, 3);
+                            $newArrivals3 = array_slice($newArrivals, 6, 3);
+                            ?>
                             <div class="carousel-item active" data-bs-interval="1300">
-                            <div class="row">
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new1.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
+                                <div class="row">
+                                    <?php foreach ($newArrivals1 as $new) {  ?>
+                                        <div class="col-4">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new2.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new3.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
                             </div>
                             <div class="carousel-item" data-bs-interval="1300">
-                            <div class="row">
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new4.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new5.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new6.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
+                                <div class="row">
+                                    <?php foreach ($newArrivals2 as $new) {  ?>
+                                        <div class="col-4">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
+                            <div class="carousel-item" data-bs-interval="1300">
+                                <div class="row">
+                                    <?php foreach ($newArrivals3 as $new) {  ?>
+                                        <div class="col-4">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
                         </div>
@@ -220,7 +201,7 @@
                         </div>
                         <div class="item-box-all">
                         <div class="item-box-img box-ring">
-                            <a href="category.php">
+                            <a href="category.php?category=rings">
                             <img src="../../../public/images/home/all-j1.webp"/>
                             </a>
                         </div>
@@ -234,7 +215,7 @@
                     <div class="col-8">
                         <div class="item-box-all">
                         <div class="item-box-img">
-                            <a href="category.php">
+                            <a href="category.php?category=necklaces">
                             <img src="../../../public/images/home/all-j2.webp"/>
                             </a>
                         </div>
@@ -255,7 +236,7 @@
                     <div class="col-4">
                         <div class="item-box-all">
                         <div class="item-box-img">
-                            <a href="category.php">
+                            <a href="category.php?category=earrings">
                             <img src="../../../public/images/home/all-j3.webp"/>
                             </a>
                         </div>
@@ -269,7 +250,7 @@
                     <div class="col-4">
                         <div class="item-box-all">
                         <div class="item-box-img">
-                            <a href="category.php">
+                            <a href="category.php?category=bracelets">
                             <img src="../../../public/images/home/all-j4.webp"/>
                             </a>
                         </div>
@@ -709,11 +690,11 @@
                 </div>
             </div>
         </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     </body>
 </html>

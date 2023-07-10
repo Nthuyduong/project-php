@@ -85,16 +85,27 @@
     font-family: 'Merchant', sans-serif;
     font-weight: 400;
   }
+  h5{
+    font-size: 26px !important;
+  }
+  h3{
+    font-size: 46px !important;
+  }
+  h2{
+    font-size: 64px !important
+  }
   h6{
     font-family: 'Futura PT', sans-serif;
     font-size:22px;
     font-weight: 400;
   }
   .mdt{
+    font-family: 'Futura PT', sans-serif;
     font-size:16px;
     font-weight: 600;
   }
   .smt{
+    font-family: 'Futura PT', sans-serif;
     font-size: 14px;
   }
   .decor-text{
@@ -276,6 +287,9 @@
     margin-right: 10px;
   }
   /*FOOTER*/
+  /* footer{
+    background-color: #E1DCD6 !important;
+  } */
   .card-footer {
     padding-top: 50px;
     background-color: transparent !important;
@@ -554,4 +568,38 @@
   }
   .dropdown-menu li:hover{
     text-decoration: underline;
+  }
+  .accordion-button{
+    background-color: #FAF8F6 !important;
+  }
+  input:focus-visible{
+    outline: none !important;
+  }
+  /* dropdown user icon  */
+  .user-dropdown{
+    display: none;
+  }
+  .user-dropdown{
+    position: relative;
+  }
+  .user-icon:hover > .user-dropdown{
+    display: block;
+    background-color: #f9f9f9;
+    border-radius: 2px;
+    position: absolute;
+    top: 50px;
+    right: 120px;
+    padding: 20px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+  }
+  /* Text over flow */
+  .textover{
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .user-nav.nav.nav-tabs{
+    flex-flow: column;
   }
