@@ -376,7 +376,7 @@ require("../../core/checklogin.php");
                         url: 'orderdetailAJAX.php',
                         type: 'POST',
                         data: {
-                            orderid: uid
+                            id: uid
                         },
                         dataType: 'html',
                     })

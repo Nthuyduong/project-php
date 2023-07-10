@@ -30,7 +30,7 @@ if ($ketqua == false) {
 ?>
         <div class="tb-row">
             <div class="cell-ssm">
-                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="check[]" value="">
             </div>
             <div class="cell-sm">img</div>
             <div class="cell"><?= $row["Name"] ?></div>
@@ -69,6 +69,14 @@ if ($ketqua == false) {
                         <!-- Content will be load here -->
                         <div id="dynamic-product">
 
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="btn-lg-sc-admin w-100">Cancel</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-lg-pr-admin w-100">Save edit</div>
+                            </div>
                         </div>
                     </div>
                 </div>
