@@ -12,35 +12,44 @@ session_start();
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
     </head>
     <body>
+        <div>
+            <?php  error_reporting(E_ALL); ?>
+            <?php require_once '../includes/header.php'; ?>
+            <?php require("../../models/model_product.php"); ?>
+        </div> 
         <?php require '../includes/quickview.php';?>
-        <?php require '../includes/header.php';?>
-        
         <div>
             <div class="ctg">
                 <div class="row ctg-inner">
                     <div class="ctg-left col-8">
                     <div class="ctg-left-top">
-                        <div class="d-flex">
-                        <div class="left-top">
-                            <div class="ctg-img-inner">
-                            <div class="image-ctg">
-                                <a>
-                                <img src="../../../public/images/shop-all/ctg1.webp">
-                                </a>
-                                <div class="name-ctg text-center">
-                                <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" href="category.php">Shop Rings Now</a>
+                            <div class="d-flex">
+                                <div class="left-top">
+                                    <div class="ctg-img-inner">
+                                        <div class="image-ctg">
+                                            <a>
+                                                <img src="../../../public/images/shop-all/ctg1.webp">
+                                            </a>
+                                            <div class="name-ctg text-center">
+                                                <h6 class="mb-2">Beaufille Collection</h6>
+                                                <a class="text-light" href="category.php?category=rings">Shop Rings Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="center-top">
+                                    <div class="ctg-img-inner">
+                                        <div class="image-ctg">
+                                            <a>
+                                                <img src="../../../public/images/shop-all/ctg2.webp">
+                                            </a>
+                                        <div class="name-ctg text-center">
+                                            <h6 class="mb-2">Beaufille Collection</h6>
+                                            <a class="text-light" href="category.php?category=bracelets">Shop Bracelets Now</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        <div class="center-top">
-                            <div class="ctg-img-inner">
-                            <a>
-                                <img src="../../../public/images/shop-all/ctg2.webp">
-                            </a>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     <div class="ctg-left-btm">
@@ -60,11 +69,11 @@ session_start();
                                 </a>
                                 <div class="name-ctg text-center">
                                 <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" href="category.php">Shop Necklaces Now</a>
+                                <a class="text-light" href="category.php?category=necklaces">Shop Necklaces Now</a>
                                 </div>
                             </div>
                             </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                     </div>
@@ -77,7 +86,7 @@ session_start();
                             </a>
                             <div class="name-ctg text-center">
                             <h6 class="mb-2">Beaufille Collection</h6>
-                            <a class="text-light" href="category.php">Shop Earrings Now</a>
+                            <a class="text-light" href="category.php?category=earrings">Shop Earrings Now</a>
                             </div>
                         </div>
                         </div>
@@ -89,7 +98,6 @@ session_start();
                         </a>
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
             <div class="container-fluid">
@@ -99,104 +107,84 @@ session_start();
                     <div class="col-3">
                         <h5 class="mt-5">New Arrivals</h5>
                         <p class="mt-2 mb-4">We designs reinvent our iconic collection with bold profiles and powerful details.</p>
-                        <a href="category.php">
+                        <!-- <a href="category.php"> -->
                         <p class="shop-all-new">Shop all new items</p>
-                        </a>
+                        <!-- </a> -->
                     </div>
                     <div class="col-9">
                         <div id="newarrival" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
+                            <?php
+                            $getNewArrivalsDB = new Product();
+                            $getNewArrivals = $getNewArrivalsDB -> getNewArrivals();
+                            if ($getNewArrivals==false) {
+                                echo("<p>Fail to connect database!!</p>");
+                                die();
+                            }
+                            $newArrivals = $getNewArrivalsDB -> data;
+                            $newArrivals1 = array_slice($newArrivals, 0, 3);
+                            $newArrivals2 = array_slice($newArrivals, 3, 3);
+                            $newArrivals3 = array_slice($newArrivals, 6, 3);
+                            ?>
                             <div class="carousel-item active" data-bs-interval="1300">
-                            <div class="row">
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new1.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
+                                <div class="row">
+                                    <?php foreach ($newArrivals1 as $new) {  ?>
+                                        <div class="col-4">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new2.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new3.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
                             </div>
                             <div class="carousel-item" data-bs-interval="1300">
-                            <div class="row">
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new4.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new5.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-4">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                    <div class="img">
-                                        <a href="product-detail.php">
-                                        <img src="../../../public/images/home/new6.webp">
-                                        </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
-                                    </div>
-                                    </div>
-                                </div>
+                                <div class="row">
+                                    <?php foreach ($newArrivals2 as $new) {  ?>
+                                        <div class="col-4">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
+                            <div class="carousel-item" data-bs-interval="1300">
+                                <div class="row">
+                                    <?php foreach ($newArrivals3 as $new) {  ?>
+                                        <div class="col-4">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                </div>
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
                         </div>
@@ -214,12 +202,12 @@ session_start();
                         </div>
                         <div class="item-box-all">
                         <div class="item-box-img box-ring">
-                            <a href="category.php">
+                            <a href="category.php?category=rings">
                             <img src="../../../public/images/home/all-j1.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="category.php">
+                            <a href="category.php?category=rings">
                             <h5>Rings</h5>
                             </a>
                         </div>
@@ -228,12 +216,12 @@ session_start();
                     <div class="col-8">
                         <div class="item-box-all">
                         <div class="item-box-img">
-                            <a href="category.php">
+                            <a href="category.php?category=necklaces">
                             <img src="../../../public/images/home/all-j2.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="#">
+                            <a href="category.php?category=necklaces">
                             <h5>Necklaces</h5>
                             </a>
                         </div>
@@ -249,12 +237,12 @@ session_start();
                     <div class="col-4">
                         <div class="item-box-all">
                         <div class="item-box-img">
-                            <a href="category.php">
+                            <a href="category.php?category=earrings">
                             <img src="../../../public/images/home/all-j3.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="#">
+                            <a href="category.php?category=earrings">
                             <h5>Earrings</h5>
                             </a>
                         </div>
@@ -263,12 +251,12 @@ session_start();
                     <div class="col-4">
                         <div class="item-box-all">
                         <div class="item-box-img">
-                            <a href="category.php">
+                            <a href="category.php?category=bracelets">
                             <img src="../../../public/images/home/all-j4.webp"/>
                             </a>
                         </div>
                         <div class="item-box-content text-center">
-                            <a href="#">
+                            <a href="category.php?category=bracelets">
                             <h5>Bracelets</h5>
                             </a>
                         </div>

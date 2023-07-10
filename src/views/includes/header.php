@@ -133,10 +133,10 @@ session_start();
                             <li class="nav-item"><a class="nav-link" href="home.php">HOME</a></li>
                             <li class="dropdown2"><a href="#">SHOP ALL</a>
                             <ul class="dropdown2-content dropdown-menu">
-                                <li><a href="category.php">Rings</a></li>
-                                <li><a href="category.php">Earrings</a></li>
-                                <li><a href="category.php">Necklaces</a></li>
-                                <li><a href="category.php">Bracelets</a></li>
+                                <li><a href="category.php?category=rings">Rings</a></li>
+                                <li><a href="category.php?category=earrings">Earrings</a></li>
+                                <li><a href="category.php?category=necklaces">Necklaces</a></li>
+                                <li><a href="category.php?category=bracelets">Bracelets</a></li>
                             </ul>
                             </li>
                             <li class="nav-item nav-test">
