@@ -305,7 +305,7 @@ require("../../core/checklogin.php");
                             <div class="stt stt3"><?= $row["Status"] ?></div>
                         </div>
                         <div class="cell">
-                            <select class="w-100" id="" name="">
+                            <select class="w-100" id="paymentMethod" name="paymentMethod">
                                 <option value="">Payment method</option>
                                 <?php
                                 $pm = new model_order();
@@ -334,7 +334,7 @@ require("../../core/checklogin.php");
             </div>
         </div>
     </div>
-    <!-- CUSTOMER INFORMATION -->
+    <!-- ORDER INFORMATION -->
     <div class="modal fade" id="order-detail" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -376,7 +376,7 @@ require("../../core/checklogin.php");
                         url: 'orderdetailAJAX.php',
                         type: 'POST',
                         data: {
-                            orderid: uid
+                            id: uid
                         },
                         dataType: 'html',
                     })
@@ -395,6 +395,11 @@ require("../../core/checklogin.php");
             });
         });
     </script>
+    
+    <script>
+        
+    </script>
+
 </body>
 </body>
 

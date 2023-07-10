@@ -28,6 +28,12 @@ if (isset($_REQUEST["id"])){
                         </div>
                     </div>
                     <div class="tb-row">
+                        <div class="cell-sm">DESCRIPTION</div>
+                        <div class="cell">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["Description"] ?>">
+                        </div>
+                    </div>
+                    <div class="tb-row">
                         <div class="cell-sm">PRICE</div>
                         <div class="cell">
                             <input class="ad-input" name="" id="" value="<?php echo $rows["Price"] ?>">

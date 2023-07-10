@@ -1,5 +1,13 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); 
 session_start();
+
+if(isset($_GET["id"]) && is_numeric($_GET["id"])){
+    $product_id=$_GET["id"];
+    
+}else{
+    header("location: home.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,6 +54,164 @@ session_start();
                                         </a>
                                     </div>
                                 <?php } ?>
+<!-- main start -->
+                    <div class="col-2">
+                        <div class="mbt">
+                        <a href="#">
+                            <img src="../../../public/images/product-detail/detail1.webp">
+                        </a>
+                        </div>
+                        <div class="mbt">
+                        <a href="#">
+                            <img src="../../../public/images/product-detail/detail2.webp">
+                        </a>
+                        </div>
+                        <div class="mbt">
+                        <a href="#">
+                            <img src="../../../public/images/product-detail/detail3.webp">
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <a href="#">
+                        <img src="../../../public/images/product-detail/detail4.webp">
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <!--Breadcrumb-->
+                        <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb crumb">
+                            <li class="breadcrumb-item"><a href="#" href="home.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" href="#">Shop all</a></li>
+                            <li class="breadcrumb-item"><a href="#" href="sub-category.php">Rings</a></li>
+                        </ol>
+                        </nav>
+                        <a href="#">
+                        <p class="mdt">AGURI'S ETERNITY MAGIC</p>
+                        </a>
+                        <h5>Diamond and Gold Spark Ring</h5>
+                        <h5 class="mt-2 mb-4">$6,700</h5>
+                        <div class="d-flex">
+                        <a class="me-auto">
+                            <p class="mdt me-auto">Complimentary Shipping & Returns</p>
+                        </a>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                        <div class="line mb-3"></div>
+                        <div class=d-flex>
+                        <p class="mdt me-auto">Quantity</p>
+                        <div class="quantity">
+                            <form id='myform' method='POST' class='quantity' action='#'>
+                            <i class="fas fa-minus"></i>
+                            <input type='text' name='quantity' value='1' class='qty' />
+                            <i class="fas fa-plus"></i>
+                            </form>
+                        </div>
+                        </div>
+                        <div class="line mb-3"></div>
+                        <div class=d-flex>
+                        <p class="mdt me-auto mb-0 mt-1">Size</p>
+                        <select class="form-select smt w-50">
+                            <option selected>Select size</option>
+                            <option value="1">3</option>
+                            <option value="2">3 1/2</option>
+                            <option value="3">4</option>
+                            <option value="3">4 1/2</option>
+                            <option value="3">5</option>
+                            <option value="3">5 1/2</option>
+                        </select>
+                        </div>
+                        <div class="line my-3"></div>
+                        <div class="find-size">
+                        <div class="d-flex" data-bs-toggle="offcanvas" data-bs-target="#findsize">
+                            <p class="mdt me-auto mb-2">※ Find your size</p>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <!--OFFCANVAS FIND SIZE-->
+                        <div class="offcanvas offcanvas-end" id="findsize">
+                            <div class="offcanvas-header">
+                            <h5 class="offcanvas-title mt-3">Find Your Ring Size</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                            <table class="ring-size">
+                                <thead class="size-title pb-3">
+                                <tr>
+                                <th class="">AGURI (US) size</th>
+                                <th class="mx12">Circumference (mm)</th>
+                                <th class="select-trans">
+                                    <select class="form-select smt">
+                                    <option selected>UK</option>
+                                    <option value="1">Japan</option>
+                                    <option value="2">Italy</option>
+                                    <option value="3">Germany</option>
+                                    </select>
+                                </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="ring-size text-center">
+                                <td>
+                                    <button class="btn btn-sec btnsm w-100" type="button">3</button>
+                                </td>
+                                <td>14.1 / 44.2</td>
+                                <td>F</td>
+                                </tr>
+                                <tr class="ring-cir text-center mx12">
+                                <td>
+                                    <button class="btn btn-sec btnsm w-100" type="button">3 1/2</button>
+                                </td>
+                                <td>14.5 / 45.5</td>
+                                <td>G 1/2</td>
+                                </tr>
+                                <tr class="trans-size text-center">
+                                <td>
+                                    <button class="btn btn-sec btnsm w-100" type="button">4</button>
+                                </td>
+                                <td>14.9 / 46.8</td>
+                                <td>H 1/2</td>
+                                </tr>
+                                <tr class="text-center ">
+                                <td>
+                                    <button class="btn btn-sec btnsm w-100" type="button">4 1/2</button>
+                                </td>
+                                <td>15.3 / 48.0</td>
+                                <td>I 1/2</td>
+                                </tr>
+                                <tr class="text-center ">
+                                <td>
+                                    <button class="btn btn-sec btnsm w-100" type="button">5</button>
+                                </td>
+                                <td>15.7 / 49.3</td>
+                                <td>J 1/2</td>
+                                </tr>
+                                <tr class="text-center ">
+                                <td>
+                                    <button class="btn btn-sec btnsm w-100" type="button">5 1/2</button>
+                                </td>
+                                <td>15.7 / 49.3</td>
+                                <td>J 1/2</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p class="text-center mt-4 mb-0 mdt">HOW TO MEASURE</p>
+                            <div class="row mt-4">
+                                <div class="col-4 px-0"></div>
+                                <div class="col-4 px-0">
+                                <img src="../../../images/product-detail/measure.png">
+                                </div>
+                                <div class="col-4 px-0"></div>
+                            </div>
+                            <div class="measure-content">
+                                <p>1. Grab a tape measure, length of string or strip of paper.</p>
+                                <p>2. Wrap it around the finger you’ll wear your ring on—if you’re creating a ring stack, consider where
+                                on your finger the ring will sit—and mark the place where it joins.</p>
+                                <p>3. Lay your string or paper strip on a flat surface and use a ruler to measure the length up to the mark.
+                                Use the chart above to match the measurement to the closest Tiffany ring size.</p>
+                            </div>
+                            <!--Collapse How To Measure-->
+                            </div>
+<!-- main -->
                         </div>
                         <div class="col-6">
                             <a href="#">
@@ -90,6 +256,19 @@ session_start();
                                 <input type='text' name='quantity' value='1' class='qty' />
                                 <i class="fa-solid fa-plus"></i>
                                 </form>
+<!-- main start -->
+                            <div class="d-flex mb-3">
+                                <p class="mdt me-auto">Product Total</p>
+                                <p class="mdt">$11,700</p>
+                            </div>
+                            <div class="row offcanvas-btn">
+                                <div class="ps-0 col-6 offcanvas-checkbox">
+                                <button class="btn btn-sec btnlg mt-3 w-100" type="button" hrefk="check-out.php">Checkout</button>
+                                </div>
+                                <div class="pe-0 col-6 offcanvas-cart">
+                                <button class="btn btn-pri btnlg mt-3 w-100" type="button" href="cart.php">View Cart</button>
+                                </div>
+<!-- main -->
                             </div>
                             </div>
                             <div class="line mb-3"></div>

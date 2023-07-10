@@ -17,6 +17,7 @@ session_start();
             <?php require_once '../includes/header.php'; ?>
             <?php require("../../models/model_product.php"); ?>
         </div> 
+        <?php require '../includes/quickview.php';?>
         <div>
             <div class="ctg">
                 <div class="row ctg-inner">

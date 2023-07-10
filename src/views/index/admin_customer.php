@@ -142,6 +142,14 @@ require("../../core/checklogin.php");
                         <div id="dynamic-content">
 
                         </div>
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="btn-lg-sc-admin w-100">Cancel</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-lg-pr-admin w-100">Save edit</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

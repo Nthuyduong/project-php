@@ -8,6 +8,7 @@ $payment = isset($_REQUEST["payment"]) ? $_REQUEST["payment"] : "";
 $startDate = isset($_REQUEST["startDate"]) ? $_REQUEST["startDate"] : "";
 $endDate = isset($_REQUEST["endDate"]) ? $_REQUEST["endDate"] : "";
 require_once("../../models/model_order.php");
+require_once("../../models/model_dashboard.php");
 $orders = new model_order();
 if ($startDate != "" && $endDate == "")
     $endDate = date('Y-m-d');
@@ -40,10 +41,69 @@ if ($ketqua == false) {
                 </select>
             </div>
             <div class="cell action-icon">
-                <i class="fas fa-edit" style="color: #ffffff;"></i>
-                <i class="fas fa-print ms-3" style="color: #ffffff;"></i>
+                <i class="fas fa-print me-3" style="color: #ffffff;"></i>
+                <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus" style="color: #ffffff;"></i></a>
             </div>
         </div>
+        <!-- ORDER INFORMATION -->
+        <div class="modal fade" id="order-detail" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="db-title" id="exampleModalLabel">Order Information</div>
+                        <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                            X
+                        </div>
+                    </div>
+                    <div class="modal-body mb-3">
+                        <!-- <div id="modal-loader">
+                            <img src="../../../public/images/ajax-loader.gif"/>
+                        </div> -->
+                        <!-- Content will be load here -->
+                        <div id="dynamic-order">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- View order detail -->
+    <script>
+        $(document).ready(function() {
+
+            $(document).on('click', '#getorder', function(e) {
+
+                e.preventDefault();
+                // Get order ID after click
+                var uid = $(this).data('id');
+                // leave modal blank before ajax call
+                $('#dynamic-order').html('');
+                //load ajax loader
+                $('#modal-loader').show();
+
+                $.ajax({
+                        url: 'orderdetailAJAX.php',
+                        type: 'POST',
+                        data: {
+                            id: uid
+                        },
+                        dataType: 'html',
+                    })
+                    .done(function(data) {
+                        console.log(data);
+                        $('#dynamic-order').html('');
+                        // load response
+                        $('#dynamic-order').html(data);
+                        // hide ajax loader
+                        $('#modal-loader').hide();
+                    })
+                    .fail(function() {
+                        $('#dynamic-order').html('<p>Something went wrong, please try again!</p>');
+                        // $('#modal-loader').hide();
+                    });
+            });
+        });
+    </script>
 <?php
         }
 }

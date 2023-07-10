@@ -1,36 +1,46 @@
 <?php
-class Database {
-    public $conn;
-    public $pdo_stm;
+ class Database
+ {
+    //PDO ket noi CSDL
+    public $conn= NULL;
+    //Doi tuong PDOStatement
+    public $pdo_stm=NULL;
 
-    function __construct() {
-        $this->conn = null;
-        $this->pdo_stm = null;
-        $servername = "localhost";
-        $dbname = "aguri-project-db-v2";
-        $user = "root";
-        $password = "root";
-        try {
-            $this->conn = new PDO("mysql:host=$servername;dbname=$dbname", $user, $password);
-            $this->conn -> query("SET NAMES UTF8");
-        } catch (PDOException $e) {
-            echo "<p>" . $e->getMessage() . "</p>";
-            echo "<pre>" . $e->getTraceAsString() . "</pre>";
-            die ("<p>Fail to connect database</p>");    
+    function __construct()
+    {   
+        try
+        {   
+            
+            $this->conn = new PDO("mysql:host=localhost;dbname=project_php", "root", "root");
+            //local host: ttmh
+            //$this->conn = new PDO("mysql:host=localhost;dbname=T2207E_ProjectSem2", "root", "root");
+
+            $this->conn->exec("SET NAMES UTF8");
+        }
+        catch(PDOException $ex)
+        {
+            echo "<h3>" .$ex->getMessage(). "</h3>";
+            die("<h3>Loi ket noi CSDL</h3>");
         }
     }
 
-    function set_query ($sql, $params=null) {
-        $result = false;
-        if ($this->conn == null) {
-            return false;
+    //Ham thuc thi dùng chung cho SELECT, INSERT, UPDATE, UPDATE
+    //$sql: Cau lenh SQL can thuc thi
+    //$data: mang chua du lieu
+    function set_query($sql, $param =NULL)
+    {   
+        $ketqua=FALSE;
+        if($this->conn ==NULL)
+        {
+            return FALSE;
         }
-        $this->pdo_stm = $this->conn -> prepare($sql);
-        if ($params==null) {
-            $result = $this->pdo_stm -> execute(); 
-        } else {
-            $result = $this->pdo_stm -> execute($params);
-        }
-        return $result;
+        $this->pdo_stm = $this->conn->prepare($sql);
+        if($param==NULL)//thực thi $sql không tham số ?
+            $ketqua = $this->pdo_stm->execute(); 
+        else//thực thi $sql binding tham số ? với giá trị mảng $pamram
+            $ketqua = $this->pdo_stm->execute($param);
+        return $ketqua;
+
     }
-}
+ }
+ ?>
