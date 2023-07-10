@@ -9,9 +9,9 @@ $startDate = isset($_REQUEST["startDate"]) ? $_REQUEST["startDate"] : "";
 $endDate = isset($_REQUEST["endDate"]) ? $_REQUEST["endDate"] : "";
 require_once("../../models/model_order.php");
 $orders = new model_order();
-if($startDate != "" && $endDate=="")
+if ($startDate != "" && $endDate == "")
     $endDate = date('Y-m-d');
-if($startDate == "" && $endDate != "")
+if ($startDate == "" && $endDate != "")
     $endDate == "";
 $ketqua = $orders->FindOrder($findOrder, $status, $payment, $startDate, $endDate);
 if ($ketqua == false) {
@@ -40,8 +40,8 @@ if ($ketqua == false) {
                 </select>
             </div>
             <div class="cell action-icon">
-                <i class="fas fa-print" style="color: #ffffff;"></i>
-                <i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i>
+                <i class="fas fa-edit" style="color: #ffffff;"></i>
+                <i class="fas fa-print ms-3" style="color: #ffffff;"></i>
             </div>
         </div>
 <?php

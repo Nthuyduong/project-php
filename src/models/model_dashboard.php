@@ -214,5 +214,59 @@ class model_dashboard extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
    }
+
+   //GET 5 RECENTLY ORDER
+   function RecentlyOrder()
+    {
+        $sql = "SELECT o.Code, o.Customer_ID, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method, gt.Grandtotal AS grandtotal
+        FROM Orders o
+        INNER JOIN Customers c ON o.Customer_ID = c.ID
+        INNER JOIN Payments p ON o.Code = p.Order_code
+        INNER JOIN (
+            SELECT ot.Order_code, SUM(ot.Price * ot.Quantity) AS Grandtotal
+            FROM Order_items ot
+            WHERE ot.Order_code IN (SELECT Code FROM Orders)
+            GROUP BY ot.Order_code) gt ON o.Code = gt.Order_code
+            ORDER BY o.Created_at DESC LIMIT 5";
+
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
+
+    //get detail order information
+    function getOrderDetail($id)
+    {
+        $sql = "SELECT o.Code, o.Customer_ID, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method, gt.Grandtotal AS grandtotal
+        FROM Orders o
+        INNER JOIN Customers c ON o.Customer_ID = c.ID
+        INNER JOIN Payments p ON o.Code = p.Order_code
+        INNER JOIN (
+            SELECT ot.Order_code, ot.Price, ot.Quantity, SUM(ot.Price * ot.Quantity) AS Grandtotal
+            FROM Order_items ot
+            INNER JOIN
+            (
+                SELECT r.ID, r.Name FROM Products r
+                WHERE r.ID IN (SELECT Product_ID FROM Order_items)
+            ) pd ON pd.ID = ot.Product_ID
+            WHERE ot.Order_code IN (SELECT Code FROM Orders)
+            
+        ) gt ON o.Code = gt.Order_code";
+        $param = null;
+        if($id != null)
+        {
+            $sql .= " WHERE Code = ?";
+            $param = ["$id"];
+        }
+        $ketqua = $this->set_query($sql,$param);
+        if($ketqua == TRUE)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+
+    }
+
+    
+
 }
 ?>
