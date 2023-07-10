@@ -315,7 +315,7 @@ require("../../core/checklogin.php");
                         </div>
                         <div class="cell alg-center">
                             <i class="fas fa-print" style="color: #ffffff;"></i>
-                            <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"] ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
+                            <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"];?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
                         </div>
                     </div>
                 <?php
@@ -358,7 +358,7 @@ require("../../core/checklogin.php");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function() {
 
@@ -367,17 +367,16 @@ require("../../core/checklogin.php");
                 e.preventDefault();
                 // Get order ID after click
                 var uid = $(this).data('id');
-                console.log("uid");
                 // leave modal blank before ajax call
                 $('#dynamic-order').html('');
                 //load ajax loader
-                // $('#modal-loader').show();
+                $('#modal-loader').show();
 
                 $.ajax({
                         url: 'orderdetailAJAX.php',
                         type: 'POST',
                         data: {
-                            id: uid
+                            orderid: uid
                         },
                         dataType: 'html',
                     })
@@ -387,7 +386,7 @@ require("../../core/checklogin.php");
                         // load response
                         $('#dynamic-order').html(data);
                         // hide ajax loader
-                        // $('#modal-loader').hide();
+                        $('#modal-loader').hide();
                     })
                     .fail(function() {
                         $('#dynamic-order').html('<p>Something went wrong, please try again!</p>');
