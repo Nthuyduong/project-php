@@ -1,11 +1,12 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 $keyword = isset($_REQUEST["keyword"]) ? $_REQUEST["keyword"] : "";
 $sub = isset($_REQUEST["subname"]) ? $_REQUEST["subname"] : "";
+$sort = isset($_REQUEST["sort"]) ? $_REQUEST["sort"] : "";
 
 require_once("../../models/model_product.php");
 $list = new model_product();
@@ -17,8 +18,9 @@ else
     $keyword = "%$keyword%";
 // echo "$keyword";
 // echo "$sub";
-$ketqua = $list->GetListBySub($sub, $keyword);
-
+// echo "$sort";
+$ketqua = $list->GetListBySub($sub, $keyword, $sort);
+// echo ("$ketqua");
 if ($ketqua == false) {
     echo "ERROR!";
 } else {

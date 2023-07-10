@@ -36,15 +36,15 @@ require("../../core/checklogin.php");
                         <div class="col-3">
                             <div className="search-bar d-flex">
                                 <!-- <form action="" method="GET"> -->
-                                    <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Enter prodcut name..." />
-                                    <FontAwesomeIcon class="icon-search" icon={faSearch} />
+                                <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Enter prodcut name..." />
+                                <FontAwesomeIcon class="icon-search" icon={faSearch} />
                                 <!-- </form> -->
                             </div>
                         </div>
                         <div class="col-3">
                             <form name="f1" id="f1" action="" method="GET">
                                 <select class="sl-box" name="ctg" id="ctg">
-                                    <option value ="" selected>Category</option>
+                                    <option value="" selected>Category</option>
                                     <?php
                                     $cs = new model_product();
                                     $cs->CateSelect("Sub_categories", "ID", "Category", $ctg);
@@ -64,8 +64,8 @@ require("../../core/checklogin.php");
                         </div>
                         <div class="col-3">
                             <select class="sl-box" name="price" id="price">
-                                <option value="" selected>Price</option>
-                                <option value="lowtohight">Low to high</option>
+                                <option value="">Price</option>
+                                <option value="lowtohigh">Low to high</option>
                                 <option value="hightolow">High to low</option>
                             </select>
                         </div>
@@ -118,10 +118,10 @@ require("../../core/checklogin.php");
 
                         </div>
                     </div>
-                    
+
                     <div id="subsort"></div>
                     <!-- Dong vong lap for each -->
-                    
+
                 </div>
             </div>
         </div>
@@ -380,8 +380,7 @@ require("../../core/checklogin.php");
                         $("#subctg").empty().append(data);
 
                     })
-                    .fail(function() {
-                });
+                    .fail(function() {});
             }
             $(document).ready(function() {
 
@@ -423,18 +422,35 @@ require("../../core/checklogin.php");
             });
         </script>
 
+        <!-- selected attribute appear automatically -->
+        <!-- <script>
+            let sortValue;
+        
+            $(document).ready(function() {
+                $("#price").change(function() {
+                    // Remove 'selected' attribute from all options
+                    $("#price option").removeAttr("selected");
+
+                    // Add 'selected' attribute to the chosen option
+                    $("#price option:selected").attr("selected", "selected");
+                    sortValue = $(this).val();
+                    console.log(sortValue);
+                });
+            });
+        </script> -->
+
         <script>
             function subctsort() {
+                let sort = $('#price').val()
                 let sct = $('#subctg').val();
                 let search = $('#findProduct').val();
-                // console.log(search);
-                // console.log(sct);
                 $.ajax({
                         url: 'SubcateAJAX.php',
                         type: 'POST',
                         data: {
                             subname: sct,
                             keyword: search,
+                            sort: sort,
                         },
                         dataType: 'html',
                     })
@@ -445,14 +461,15 @@ require("../../core/checklogin.php");
 
                     })
                     .fail(function() {
-                        $('#subsort'),html('<p>Something went wrong, please try again!</p>');
+                        $('#subsort'), html('<p>Something went wrong, please try again!</p>');
                     });
             }
             $(document).ready(function() {
-            $("#subctg").on("change", subctsort);
-            $("#subctg").ready(subctsort);
-            $("#findProduct").change(subctsort)
-            // $("#findProduct").on("keydown", subctsort);
+                $("#subctg").ready(subctsort);
+                $("#findProduct").change(subctsort);
+                $("#subctg").on("change", subctsort);
+                $("#price").on("change", subctsort);
+                // $("#findProduct").on("keydown", subctsort);
             })
         </script>
 
