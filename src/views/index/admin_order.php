@@ -30,8 +30,8 @@ require("../../core/checklogin.php");
                     <div class="col-3">
                         <div className="search-bar d-flex">
                             <!-- <form action="" method="get"> -->
-                                <input name="findOrder" id="findOrder" class="search-input w-100" type="text" placeholder="Enter Order ID..." />
-                                <FontAwesomeIcon class="icon-search" icon={faSearch} />
+                            <input name="findOrder" id="findOrder" class="search-input w-100" type="text" placeholder="Enter Order ID..." />
+                            <FontAwesomeIcon class="icon-search" icon={faSearch} />
                             <!-- </form> -->
                         </div>
                     </div>
@@ -39,8 +39,8 @@ require("../../core/checklogin.php");
                         <select class="sl-box" name="status" id="status">
                             <option value="" selected>choose status</option>
                             <?php
-                                $pm = new model_order();
-                                $pm->dropdownName("Orders", "Status");
+                            $pm = new model_order();
+                            $pm->dropdownName("Orders", "Status");
                             ?>
                         </select>
                     </div>
@@ -57,8 +57,8 @@ require("../../core/checklogin.php");
                         <select class="sl-box" name="payment" id="payment">
                             <option value="" selected>Payment method</option>
                             <?php
-                                $pm = new model_order();
-                                $pm->dropdownName("Payments", "Payment_method");
+                            $pm = new model_order();
+                            $pm->dropdownName("Payments", "Payment_method");
                             ?>
                         </select>
                     </div>
@@ -68,21 +68,6 @@ require("../../core/checklogin.php");
                     <div class="col-3"></div>
                     <div class="col-3"></div>
                 </div>
-                <?php
-                // $order = new model_order();
-                // $keyword = isset($_REQUEST["findOrder"])?$_REQUEST["findOrder"]:"";
-                // if($keyword!="" && is_numeric($keyword)==false)
-                //     $keyword="";
-                // $ketqua = $order->FindOrder($keyword);
-                // if($ketqua === false)
-                // {
-                //     $alert_title = "SQL ERROR";
-                //     $alert = "Please check again!";
-                //     require_once("../../views/includes/alert.php");
-                //     die();
-                // }
-                // $rows = $order->data;
-                ?>
                 <div class="tbl">
                     <div class="tb-row title-row">
                         <div class="cell">
@@ -108,17 +93,11 @@ require("../../core/checklogin.php");
                         </div>
                         <div class="cell"></div>
                     </div>
-                    <?php
-                    // if($rows != NULL)
-                    //     foreach($rows as $row)
-                    // {
-                    ?>
-                    <!-- All Order will show here -->
-                    <div id="ordershow"></div>
 
-                    <?php
-                    // }
-                    ?>
+                    <!-- All Order will show here -->
+                    <div id="ordershow">
+
+                    </div>
                 </div>
                 <div class="d-flex pgn">
                     <div class="me-auto">Showing 8 of 100</div>
@@ -134,6 +113,7 @@ require("../../core/checklogin.php");
         </div>
     </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -149,9 +129,9 @@ require("../../core/checklogin.php");
                     url: 'orderAJAX.php',
                     type: 'POST',
                     data: {
-                        findOrder : od,
-                        payment : pay,
-                        status : st,
+                        findOrder: od,
+                        payment: pay,
+                        status: st,
                         startDate: start,
                         endDate: end
                     },
