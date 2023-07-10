@@ -30,13 +30,13 @@
                     <img src="../../../public/images/cate-deco/<?=$category?>.webp" />
                 </div>
                 <?php
-                $subCates = new Product();
-                $getSubCategoryByCategory = $subCates -> getSubCategoryByCategory($category);
+                $subCatesDB = new Product();
+                $getSubCategoryByCategory = $subCatesDB -> getSubCategoryByCategory($category);
                 if ($getSubCategoryByCategory==false) {
                     echo("<p>Fail to connect database!!</p>");
                     die();
                 }
-                $subCategories = $subCates -> data;
+                $subCategories = $subCatesDB -> data;
                 ?>
                 <?php foreach ($subCategories as $subCategory) { ?>
                     <div class="col-3">
@@ -166,15 +166,15 @@
                 <!--ALL PRODUCT HERE-->
                 <div>
                     <?php
-                    $productdb = new Product();
-                    $getProductByCategory = $productdb -> getProductByCategory($category);
+                    $productDB = new Product();
+                    $getProductByCategory = $productDB -> getProductByCategory($category);
                     if ($getProductByCategory==false) {
                         echo("<p>Fail to connect database!!</p>");
                         die();
                     }
-                    $products = $productdb -> data;
+                    $products = $productDB -> data;
                     $products_line1 = array_slice($products, 0, 4);
-                    $products_line2 = array_slice($products, 4, 6);
+                    $products_line2 = array_slice($products, 4, 2);
                     $products_line3 = array_slice($products, 6);
                     ?>
                     <div class="row cate-product">

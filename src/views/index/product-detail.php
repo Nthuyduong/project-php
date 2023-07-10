@@ -28,13 +28,13 @@
                     <div class="row">
                         <div class="col-2">
                             <?php
-                                $productMedias = new Product();
-                                $getMediasById = $productMedias -> getMediasById($pid);
+                                $productMediasDB = new Product();
+                                $getMediasById = $productMediasDB -> getMediasById($pid);
                                 if ($getMediasById==false) {
                                     echo("<p>Fail to connect database!!</p>");
                                     die();
                                 }
-                                $medias = $productMedias -> data;
+                                $medias = $productMediasDB -> data;
                                 ?>
                                 <?php foreach ($medias as $media) { 
                                     ?>
@@ -52,13 +52,13 @@
                         </div>
                         <div class="col-4">
                             <?php
-                                $products = new Product();
-                                $getProductInfoById = $products -> getProductInfoById($pid);
+                                $productsDB = new Product();
+                                $getProductInfoById = $productsDB -> getProductInfoById($pid);
                                 if ($getProductInfoById==false) {
                                     echo("<p>Fail to connect database!!</p>");
                                     die();
                                 }
-                                $productInfo = $products -> data;
+                                $productInfo = $productsDB -> data;
                             ?>
                             <!--Breadcrumb-->
                             <nav aria-label="breadcrumb">
@@ -285,13 +285,13 @@
                         <div id="simi" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <?php
-                            $subCates = new Product();
-                            $getProductsBySid = $subCates -> getProductsBySid($productInfo['sid']);
+                            $subCatesDB = new Product();
+                            $getProductsBySid = $subCatesDB -> getProductsBySid($productInfo['sid']);
                             if ($getProductsBySid==false) {
                                 echo("<p>Fail to connect database!!</p>");
                                 die();
                             }
-                            $similarProducts = $subCates -> data;
+                            $similarProducts = $subCatesDB -> data;
                             $similarProducts1 = array_slice($similarProducts, 0, 3);
                             $similarProducts2 = array_slice($similarProducts, 3, 6);
                             ?>
@@ -402,100 +402,103 @@
 
                 <!--MAY YOU ALSO LIKE-->
                 <div class="also-like">
-                <h5 class="text-center">You May Also Like</h5>
-                <div id="carouselalsolike" class="carousel slide carousel-dark carousel-also carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner container-fluid">
-                        <?php
-                        $newArrivals = new Product();
-                        $getNewArrivals = $newArrivals -> getNewArrivals($productInfo['sid']);
-                        if ($getNewArrivals==false) {
-                            echo("<p>Fail to connect database!!</p>");
-                            die();
-                        }
-                        $newArrivals = $newArrivals -> data;
-                        $newArrivals1 = array_slice($newArrivals, 0, 4);
-                        $newArrivals2 = array_slice($newArrivals, 4, 8);
-                        $newArrivals3 = array_slice($newArrivals, 8, 12);
-                        ?>
-                        <div class="carousel-item active" data-bs-interval="4000">
-                            <div class="row">
-                                <?php foreach ($newArrivals1 as $new) { ?>
-                                    <div class="col-3">
-                                        <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                            </a>
-                                            </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
+                    <h5 class="text-center">You May Also Like</h5>
+                    <div id="carouselalsolike" class="carousel slide carousel-dark carousel-also carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner container-fluid">
+                            <?php
+                            $newArrivalsDB = new Product();
+                            $getNewArrivals = $newArrivalsDB -> getNewArrivals();
+                            if ($getNewArrivals==false) {
+                                echo("<p>Fail to connect database!!</p>");
+                                die();
+                            }
+                            $newArrivals = $newArrivalsDB -> data;
+                            $newArrivals1 = array_slice($newArrivals, 0, 4);
+                            $newArrivals2 = array_slice($newArrivals, 4, 4);
+                            $newArrivals3 = array_slice($newArrivals, 8, 4);
+                            ?>
+                            <div class="carousel-item active" data-bs-interval="3000">
+                                <div class="row">
+                                    <?php foreach ($newArrivals1 as $new) { ?>
+                                        <div class="col-3">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                    <div class="img">
+                                                        <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                            <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                        </a>
+                                                    </div>
+                                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                        Quick view
+                                                    </div>
+                                                </div>
+                                                <div class="item-inf text-center mt-3">
+                                                    <p class="mdt mb-2"><?=$new['Name']?></p>
+                                                    <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2"><?=$new['Name']?></p>
-                                            <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <div class="row">
+                                    <?php foreach ($newArrivals2 as $new) { ?>
+                                        <div class="col-3">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                    <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                    </div>
+                                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                    </div>
+                                                </div>
+                                                <div class="item-inf text-center mt-3">
+                                                    <p class="mdt mb-2"><?=$new['Name']?></p>
+                                                    <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                <?php } ?>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <div class="row">
+                                    <?php foreach ($newArrivals3 as $new) { ?>
+                                        <div class="col-3">
+                                            <div class="item-card-info">
+                                                <div class="card-prd">
+                                                    <div class="img">
+                                                    <a href="product-detail.php?pid=<?=$new['ID']?>">
+                                                        <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
+                                                    </a>
+                                                    </div>
+                                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
+                                                    Quick view
+                                                    </div>
+                                                </div>
+                                                <div class="item-inf text-center mt-3">
+                                                    <p class="mdt mb-2"><?=$new['Name']?></p>
+                                                    <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <div class="row">
-                                <?php foreach ($newArrivals2 as $new) { ?>
-                                    <div class="col-3">
-                                        <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                            </a>
-                                            </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
-                                            </div>
-                                        </div>
-                                        <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2"><?=$new['Name']?></p>
-                                            <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="5000">
-                            <div class="row">
-                                <?php foreach ($newArrivals3 as $new) { ?>
-                                    <div class="col-3">
-                                        <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                            <a href="product-detail.php?pid=<?=$new['ID']?>">
-                                                <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
-                                            </a>
-                                            </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
-                                            </div>
-                                        </div>
-                                        <div class="item-inf text-center mt-3">
-                                            <p class="mdt mb-2"><?=$new['Name']?></p>
-                                            <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselalsolike" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselalsolike" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselalsolike" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselalsolike" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
                 </div>
                 <!--REVIEW-->
                 <div class="review container-fluid">
