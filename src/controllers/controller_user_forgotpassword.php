@@ -4,13 +4,13 @@ require "controller_phpmailer.php";
 session_start();
 
 if(isset($_REQUEST["b1"])==false){
-    die("<p>chưa submit form forgot password</p>");
+    die("<p>Error submit form forgot password</p>");
 }else{
     $email=$_REQUEST["txtemail"];
     $user=new model_user();
     $ketqua=$user->CheckUserAccountByEmail($email);
     if($ketqua==false){
-        echo "lỗi truy vấn csdl";
+        echo "Database query error";
     }else{
         $row=$user->data;
         if($row==null){

@@ -27,18 +27,7 @@ if($checkcurrentPass==true){
                         echo "fail";
             }
         }
-        
-            
     }else
         echo "invalid_current_password";
-    // {   echo "email: ".$_SESSION["user_email"] .$row["Password"];
-    //     echo "<p> </p>" .$row["Password"];
-    //     echo "invalid_current_password";
-    // }
-    // else if($newPass!=$renewPass)
-    //     echo "password_mismatch";
-    // else{
-    //     
-    // }
 }
 ?>
