@@ -577,6 +577,7 @@
   }
   /* dropdown user icon  */
   .user-dropdown{
+    transition: opacity 0.5s;
     display: none;
   }
   .user-dropdown{
@@ -584,6 +585,7 @@
   }
   .user-icon:hover > .user-dropdown{
     display: block;
+    animation: fadeOut 5s forwards;
     background-color: #f9f9f9;
     border-radius: 2px;
     position: absolute;
@@ -593,6 +595,7 @@
     z-index: 1;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
   }
+  
   /* Text over flow */
   .textover{
     width: 100px;
