@@ -113,7 +113,7 @@ session_start();
                             </div>
 
                             <!--OFFCANVAS FIND SIZE-->
-                            <!-- <div class="offcanvas offcanvas-end" id="findsize">
+                            <div class="offcanvas offcanvas-end" id="findsize">
                                 <div class="offcanvas-header">
                                 <h5 class="offcanvas-title mt-3">Find Your Ring Size</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -193,10 +193,10 @@ session_start();
                                     on your finger the ring will sit—and mark the place where it joins.</p>
                                     <p>3. Lay your string or paper strip on a flat surface and use a ruler to measure the length up to the mark.
                                     Use the chart above to match the measurement to the closest Tiffany ring size.</p>
-                                </div> -->
+                                </div>
                                 <!--Collapse How To Measure-->
-                                <!-- </div>
-                            </div> -->
+                                </div>
+                            </div>
                             </div>
                             <div class="bag">
                             <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" data-bs-target="#addToBag"
@@ -218,8 +218,8 @@ session_start();
 
                             <div class="ask-advisor">
                             <button class="btn btn-sec btnlg w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#askadvisor">Ask A Client Advisor</button>
-                            <!--OFFCANVSS ASK ADVISOR-->
-                            <!-- <div class="offcanvas offcanvas-end" id="askadvisor">
+                            <!-- OFFCANVSS ASK ADVISOR -->
+                            <div class="offcanvas offcanvas-end" id="askadvisor">
                                 <div class="offcanvas-header">
                                 <h5 class="offcanvas-title mt-3">Aguri At Your Service</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -247,7 +247,7 @@ session_start();
                                     <i class="fa-solid fa-chevron-right"></i>
                                 </div>
                                 </div>
-                            </div> -->
+                            </div>
                             </div>
                             <!--DESCRIPTIONS & DETAIL-->
                             <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -343,7 +343,7 @@ session_start();
                     </div>
                 </div>
                 <!-- Modal Compare-->
-                <!-- <div class="modal fade" id="compare">
+                <div class="modal fade" id="compare">
                     <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <h5 class="modal-title" id="exampleModalLabel">Compare Products</h5>
@@ -399,7 +399,7 @@ session_start();
                         </div>
                     </div>
                     </div>
-                </div> -->
+                </div>
                 </div>
 
                 <!--MAY YOU ALSO LIKE-->
