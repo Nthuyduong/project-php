@@ -56,5 +56,44 @@ class model_user extends Database
         $ketqua = $this->set_query($sql,$param);
         return $ketqua;
     }
-}
+    //ttmh function check sendmail
+    
+    function CheckEmailUser($id,$code=NULL){
+        $sql="SELECT * FROM CheckMailUser WHERE CustomerID =$id ";
+        
+        if($code !=NULL){
+            $sql .=" AND Code = $code";
+        }
+        $ketqua = $this->set_query($sql);
+        $this->data=null;
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+    function AddCodeCheckMail($id,$code){
+        $sql="INSERT INTO CheckMailUser(CustomerID,Code) VALUE (?,?)";
+        $param=[$id,$code];
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
+    function UpdateCodeCheckMail($id,$code){
+        $sql="UPDATE CheckMailUser
+            SET Code=?, Created_at= CURRENT_TIMESTAMP
+            WHERE CustomerID=?";
+        $param=[$code,$id];
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
+    function CheckVerificationCode($id,$code){
+        $sql="SELECT * FROM CheckMailUser WHERE CustomerID=? AND Code =?";
+        $param=[$id,$code];
+        $ketqua = $this->set_query($sql,$param);
+        $this->data=null;
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
+        return $ketqua;
+    }
+    // end - check sendmail
+    
+} 
 ?>
