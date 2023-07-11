@@ -15,7 +15,7 @@ session_start();
         <?php require_once '../includes/header.php'?>
 
         <?php
-        require("../../models/model_product.php");
+        require("../../models/model_product_ex.php");
         if (isset($_REQUEST["pid"])) {
             $pid = $_REQUEST["pid"];
         } else {
@@ -76,34 +76,34 @@ session_start();
                             <p><?=$productInfo['description']?></p>
                             <h5 class="mt-2 mb-4">$<?=number_format($productInfo['price'], 0, '.', '.')?></h5>
                             <div class="d-flex">
-                            <a class="me-auto">
-                                <p class="mdt me-auto">Complimentary Shipping & Returns</p>
-                            </a>
-                            <i class="fa-solid fa-arrow-right"></i>
+                                <a class="me-auto">
+                                    <p class="mdt me-auto">Complimentary Shipping & Returns</p>
+                                </a>
+                                <i class="fa-solid fa-arrow-right"></i>
                             </div>
                             <div class="line mb-3"></div>
                             <div class=d-flex>
-                            <p class="mdt me-auto">Quantity</p>
-                            <div class="quantity">
-                                <form id='myform' method='POST' class='quantity' action='#'>
-                                <i class="fa-solid fa-minus"></i>
-                                <input type='text' name='quantity' value='1' class='qty' />
-                                <i class="fa-solid fa-plus"></i>
-                                </form>
-                            </div>
+                                <p class="mdt me-auto">Quantity</p>
+                                <div class="quantity">
+                                    <!-- <form id='myform' method='POST' class='quantity' action='#'>
+                                    <i class="fa-solid fa-minus"></i> -->
+                                    <input type='number' name='quantity' value='1' class='qty' />
+                                    <!-- <i class="fa-solid fa-plus"></i>
+                                    </form> -->
+                                </div>
                             </div>
                             <div class="line mb-3"></div>
                             <div class=d-flex>
-                            <p class="mdt me-auto mb-0 mt-1">Size</p>
-                            <select class="form-select smt w-50">
-                                <option selected>Select size</option>
-                                <option value="1">3</option>
-                                <option value="2">3 1/2</option>
-                                <option value="3">4</option>
-                                <option value="3">4 1/2</option>
-                                <option value="3">5</option>
-                                <option value="3">5 1/2</option>
-                            </select>
+                                <p class="mdt me-auto mb-0 mt-1">Size</p>
+                                <select class="form-select smt w-50">
+                                    <option selected>Select size</option>
+                                    <option value="1">3</option>
+                                    <option value="2">3 1/2</option>
+                                    <option value="3">4</option>
+                                    <option value="3">4 1/2</option>
+                                    <option value="3">5</option>
+                                    <option value="3">5 1/2</option>
+                                </select>
                             </div>
                             <div class="line my-3"></div>
                             <div class="find-size">

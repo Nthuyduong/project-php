@@ -14,7 +14,7 @@ session_start();?>
         <?php require_once '../includes/header.php'?>
 
         <?php 
-        require("../../models/model_product.php");
+        require("../../models/model_product_ex.php");
         if (isset($_REQUEST["sid"])) {
             $sid = $_REQUEST["sid"];
         } else {
