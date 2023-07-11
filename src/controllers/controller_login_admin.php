@@ -4,9 +4,8 @@ require_once("../models/model_login.php");
 
 if(isset($_REQUEST["b1"])==false)
 {   
-    $alert_title="Notification";
-    $alert = "You have not submitted the login form! Please try again";
-    $link_tieptuc="../views/index/admin_login.php";
+    $alert_title="Ban chua dang nhap";
+    $alert = "Moi dang nhap lai";
     require_once("../views/includes/alert.php");
     die();
 } 
@@ -18,8 +17,8 @@ $login = new model_login();
 $ketqua = $login->CheckLoginAdmin($user,$pass);
 if($ketqua == false)
 {   
-    $alert_title="Notification";
-    $alert = "ERROR DB";
+    $alert_title="Loi truy van CSDL";
+    $alert = "Loi truy van CSDL";
 }
 else{
     $row = $login->data;
@@ -30,21 +29,21 @@ else{
         {
             $_SESSION["logined_admin"] = "OK";
             $_SESSION["user"] = $row["Email"];
-            $alert_title="Notification";
-            $alert = "Login successfully, welcome to admin dashboard!";
+            $alert_title="Dang nhap thanh cong";
+            $alert = "Dang nhap thanh cong";
             $link_tieptuc="../views/index/admin_dashboard.php";
         }
         else
         {   
-            $alert_title="Notification";
-            $alert = "Your account name has been locked";
+            $alert_title="Tai khoan da bi khoa";
+            $alert = "Vui long dang nhap tai khoan khac";
             $link_tieptuc="../views/index/admin_login.php";
         }
     }
     else
     {
-        $alert_title = "Notification";
-        $alert = "Your Username or Password is incorrect, please try again";
+        $alert_title = "Dang nhap sai user hoac password";
+        $alert = "Vui long dang nhap lai";
         $link_tieptuc="../views/index/admin_login.php";
     }
 }    
