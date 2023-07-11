@@ -12,16 +12,7 @@ session_start();?>
     </head>
 
     <body>
-        <?php require_once '../includes/quickview.php'?>
         <?php require_once '../includes/header.php'?>
-
-        <!-- connect database, and show cart_items -->
-        <?php
-        session_start();
-        require_once('../../database/connectDB.php');
-        $similars = getSimilarProducts();
-        ?>
-        
 
         <div class="container-fluid shopping-bag">
             <h4 class="my-4">Shopping Bag</h4>
