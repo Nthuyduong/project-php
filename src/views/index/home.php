@@ -15,7 +15,7 @@ session_start();
         <div>
             <?php  error_reporting(E_ALL); ?>
             <?php require_once '../includes/header.php'; ?>
-            <?php require("../../models/model_product.php"); ?>
+            <?php require("../../models/model_product_ex.php"); ?>
         </div> 
         <div>
             <div class="ctg">
