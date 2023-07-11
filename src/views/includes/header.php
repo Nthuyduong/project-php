@@ -160,18 +160,38 @@ session_start();
     };
 </script>
 
-        <script>    
-            var prevScrollpos = window.pageYOffset;
-            window.onscroll = function() {
-                var currentScrollPos = window.pageYOffset;
-                if (prevScrollpos > currentScrollPos) {
-                    document.getElementById("headnav").style.top = "0";
-                } else {
-                    document.getElementById("headnav").style.top = "-150px";
-                }
-                prevScrollpos = currentScrollPos;
-            }
-        </script>   
+<script>    
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("headnav").style.top = "0";
+        } else {
+            document.getElementById("headnav").style.top = "-150px";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+</script>   
+
+<!-- Xử lý dropdown menu khi click vào icon user
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var userIcon = document.querySelector(".usericon");
+    var dropdownMenu = userIcon.querySelector(".dropdown-menu");
+
+    userIcon.addEventListener("mouseenter", function() {
+        dropdownMenu.style.display = "block";
+    });
+
+    userIcon.addEventListener("mouseleave", function() {
+        dropdownMenu.style.display = "none";
+    });
+});
+</script> -->
+
+
+
+
     </body>
 </html>
 <?php
