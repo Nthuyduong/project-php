@@ -731,7 +731,7 @@ session_start();
                                 </a>
                                 <div class="item-inf text-center">
                                     <p class="mdt my-2">${response.Name}</p>
-                                    <p class="mdt">$${response.Price.toLocaleString()}</p>
+                                    <p class="mdt">$${response.Price.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                                 </div>
                             </div>
                             <div class="jewel">

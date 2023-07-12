@@ -127,4 +127,16 @@ class Product extends Database {
 			$this->data = $this->pdo_stm -> fetch();
 		return $result; // return true/false
     }
+
+    // get best sellers
+    function getBestSellers() {
+        $sql = "SELECT 
+            tb1.Name AS pname, tb1.ID AS pid, tb1.Thumb as thumb, tb1.Price as price
+            FROM Products tb1 LEFT JOIN Order_items tb2 ON tb1.ID = tb2.Product_ID 
+            order BY tb2.Quantity DESC LIMIT 12";
+ 		$result = $this -> set_query($sql);
+		if ($result == true)
+			$this->data = $this->pdo_stm -> fetchAll();
+		return $result; // return true/false
+    }
 }
