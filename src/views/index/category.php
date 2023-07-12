@@ -188,7 +188,7 @@ session_start();?>
                                     </a>
                                     </div>
                                     <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                        data-bs-target="#quickview" data-id="<?php echo $product['pid']; ?>" id="getQuickview">
+                                        data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
                                             Quick view
                                     </div>
                                 </div>
@@ -281,8 +281,9 @@ session_start();?>
                                     <img src="../../../public/images/thumb/<?=$product['thumb']?>">
                                 </a>
                                 </div>
-                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                Quick view
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                    data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                        Quick view
                                 </div>
                             </div>
                             <div class="item-inf text-center mt-2">
@@ -304,8 +305,9 @@ session_start();?>
                                     <img src="../../../public/images/thumb/<?=$product['thumb']?>">
                                 </a>
                                 </div>
-                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                Quick view
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                    data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                        Quick view
                                 </div>
                             </div>
                             <div class="item-inf text-center mt-2">
@@ -331,6 +333,9 @@ session_start();?>
             </div>
         </div>
 
+        <!-- modal quickview -->
+        <?php require_once '../includes/quickview.php';?>
+
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
@@ -341,25 +346,6 @@ session_start();?>
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
             }
-
-            $(document).ready(() => {
-                $(document).on('click', '#getQuickView', (e) => {
-                    e.preventDefault();
-                    var pid = $(this).data('id');
-                    $.ajax({
-                        url: '../includes/quickview.php',
-                        type: 'POST',
-                        data: 'pid='+pid,
-                        dataType: 'html'
-                    })
-                    .done((data) => {
-                        console.log(data);
-                    })
-                    .fail((error) => {
-                        console.log(error);
-                    });
-                });
-            });
         </script>
     </body>
 </html>

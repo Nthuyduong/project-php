@@ -173,8 +173,9 @@ session_start();?>
                                         <img src="../../../public/images/thumb/<?=$product['thumb']?>">
                                     </a>
                                     </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                        Quick view
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                        data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                            Quick view
                                     </div>
                                 </div>
                                 <div class="item-inf text-center mt-2">
@@ -198,6 +199,10 @@ session_start();?>
             </div>
             </div>
         </div>
+
+        <!-- modal quickview -->
+        <?php require_once '../includes/quickview.php';?>
+
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
