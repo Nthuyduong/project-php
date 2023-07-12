@@ -30,7 +30,7 @@
                     <div class="col-10 abt-contain">
                     <div>
                         <h6>About</h6>
-                        <h2>AGURI JEWELRY</h1>
+                        <h2>AGURI JEWELRY</h2>
                     </div>
                     <div class="row">
                         <div class="col-6 sub-info">
