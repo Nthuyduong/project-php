@@ -54,7 +54,7 @@ session_start();?>
                         <img src="../../../public/images/product-detail/<?=$thumb?>">
                     </div>
                     <div class="col-3">
-                        <p><?=$productName=?></p>
+                        <p><?=$productName?></p>
                     </div>
                     <div class="col-2">
                         <?php if ($category=='rings') { ?>

@@ -309,7 +309,7 @@ require("../../core/checklogin.php");
                                 <option value="">Payment method</option>
                                 <?php
                                 $pm = new model_order();
-                                $pm->dropdownName("Payments", "Payment_method");
+                                $pm->dropdownName("Orders", "Status");
                                 ?>
                             </select>
                         </div>

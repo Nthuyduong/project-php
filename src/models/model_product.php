@@ -183,4 +183,3 @@ class model_product extends Database
         }
     }
 }
-
