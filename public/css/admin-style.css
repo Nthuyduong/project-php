@@ -568,7 +568,10 @@ ul.progressbar{
   padding: 30px !important;
 }
 #order-detail .modal-dialog{
-  max-width: 800px !important;
+  max-width: 960px !important;
+}
+#order-detail{
+  left: 8% !important;
 }
 #order-detail .modal-body{
   padding: 30px !important;
