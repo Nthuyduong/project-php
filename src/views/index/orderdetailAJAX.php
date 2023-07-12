@@ -55,7 +55,7 @@ if(isset($_REQUEST["id"])){
                 foreach ($irow as $ir)
                 {
             ?>
-                <div class="tb-row tb-title">
+                <div class="tb-row">
                     <div class="cell"><?php echo $ir["Name"] ?></div>
                     <div class="cell-sm"><?php echo $ir["Quantity"] ?></div>
                     <div class="cell-sm"><?php echo $ir["Price"] ?></div>
