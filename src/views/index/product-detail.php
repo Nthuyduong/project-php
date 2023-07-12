@@ -70,9 +70,7 @@ session_start();
                                 <li class="breadcrumb-item"><a href="sub-category.php?sid=<?=$productInfo['sid']?>"><?=ucfirst($productInfo['subCategory'])?></a></li>
                             </ol>
                             </nav>
-                            <a href="#">
                             <p class="mdt"><?=$productInfo['pname']?></p>
-                            </a>
                             <p><?=$productInfo['description']?></p>
                             <h5 class="mt-2 mb-4">$<?=number_format($productInfo['price'], 0, '.', '.')?></h5>
                             <div class="d-flex">
