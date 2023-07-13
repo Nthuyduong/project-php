@@ -2,6 +2,9 @@ body{
   background-color: #121317 !important;
   color: #fff !important;
 }
+.offcanvas{
+  background-color: #121317 !important;
+}
 input.black{
   color: #fff;
   background-color: #2E303A !important;

@@ -54,8 +54,7 @@ require_once("../../models/model_subcate.php");
                 <?php
                 $searchct = new model_subcate();
                 $keyword = $_REQUEST["findsubct"];
-                if ($keyword != "")
-                {
+                if ($keyword != "") {
                     $searchct->SearchSubcate($keyword);
                     $rows = $searchct->data;
                 } else {
@@ -97,7 +96,7 @@ require_once("../../models/model_subcate.php");
                     ?>
                         <div class="tb-row">
                             <div class="cell-ssm">
-                                <input type="checkbox" id="" name="" value="">
+                                <input type="checkbox" id="" name="" value="value<?php $row["ID"] ?>">
                             </div>
                             <div class="cell-sm"><?= $row["ID"] ?></div>
                             <div class="cell"><?= $row["Name"] ?></div>
@@ -133,32 +132,40 @@ require_once("../../models/model_subcate.php");
                     <div class="line"></div>
                 </div>
                 <div class="offcanvas-body">
-                    <div class="">
-                        <div class="mdt mb-1">Sub-category's Name</div>
-                        <input class="w-100" name="subcatename" id="subcatename" placeholder="Sub-category's name" />
-                    </div>
-                    <div class="my-3">
-                        <div class="mdt mb-1">Category</div>
-                        <input class="w-100" name="category" id="category" placeholder="Choose category" />
-                    </div>
-                    <div class="">
-                        <div class="mdt mb-1">Sub-category's description</div>
-                        <textarea class="w-100" name="subdesc" id="subdesc" rows="5">
-                        Enter sub-category's description
-                    </textarea>
-                    </div>
-                    <div>
-                        <form class="box" method="post" action="" enctype="multipart/form-data">
-                            <div class="box__input">
-                                <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-                                <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-                                <button class="box__button" type="submit">Upload</button>
+                    <form name="form1" id="form1" method="post" action="?act=xulythem">
+                        <div class="">
+                            <div class="mdt mb-1">Sub-category's Name</div>
+                            <input class="w-100" name="subname" id="subname" placeholder="Sub-category's name" />
+                        </div>
+                        <div class="my-3">
+                            <div class="mdt mb-1">Category</div>
+                            <input class="w-100" name="category" id="category" placeholder="Choose category" />
+                        </div>
+                        <div class="">
+                            <div class="mdt mb-1">Sub-category's description</div>
+                            <textarea class="w-100" name="desc" id="desc" rows="3"></textarea>
+                        </div>
+                        <div>
+                            <form class="box" method="post" action="" enctype="multipart/form-data">
+                                <div class="box__input">
+                                    <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+                                    <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                                    <button class="box__button" type="submit">Upload</button>
+                                </div>
+                                <div class="box__uploading">Uploading…</div>
+                                <div class="box__success">Done!</div>
+                                <div class="box__error">Error! <span></span>.</div>
+                            </form>
+                        </div>
+                        <div class="row mmt-5">
+                            <div class="col-6">
+                                <div type="" name="" id="" class="btn-lg-sc-admin">Cancel</div>
                             </div>
-                            <div class="box__uploading">Uploading…</div>
-                            <div class="box__success">Done!</div>
-                            <div class="box__error">Error! <span></span>.</div>
-                        </form>
-                    </div>
+                            <div class="col-6">
+                                <div type="submit" name="b1" id="b1" class="btn-lg-pr-admin">Add product</div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

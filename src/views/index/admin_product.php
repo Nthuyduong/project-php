@@ -72,19 +72,7 @@ require("../../core/checklogin.php");
                     </div>
                 </div>
                 <!-- Product table -->
-                <?php
-                // $products = new model_product();
-                // $did = $_REQUEST["did"];
-                // if ($did != NULL)
-                //     $products->DeleteProduct($did);
-                // $keyword = $_REQUEST["findProduct"];
-                // if ($ketqua == FALSE) {
-                //     $alert_title = "SQL ERROR!";
-                //     $alert = "Please check again the database";
-                //     require_once("../../views/includes/alert.php");
-                //     die();
-                // }
-                ?>
+                
                 <div class="tbl product-wrapper">
                     <div class="tb-row title-row">
                         <div class="cell-ssm">

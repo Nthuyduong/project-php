@@ -77,8 +77,8 @@ class model_product extends Database
     {
         //Dien cac gia tri trong bang Product o day
         $sql = "INSERT INTO Products VALUE(?,?,?,?,?,?,?,?,?)";
-        $data = [$name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection];
-        $ketqua = $this->set_query($sql, $data);
+        $param = [$name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection];
+        $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }
 
@@ -86,9 +86,9 @@ class model_product extends Database
     function UpdateProduct($name, $description, $price, $category, $Sub_category_ID, $stock)
     {
         $sql = "UPDATE Products SET name=?, description = ?, price=?, category=?, Sub_category_ID=?, stock=? WHERE id=?";
-        $data = [$name, $description, $price, $category, $Sub_category_ID, $stock];
+        $param = [$name, $description, $price, $category, $Sub_category_ID, $stock];
         //Tuong tu voi cac bien khac
-        $ketqua = $this->set_query($sql, $data);
+        $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }
 
@@ -182,4 +182,6 @@ class model_product extends Database
                 echo "<option value='$name'>$name</option>";
         }
     }
+
+
 }

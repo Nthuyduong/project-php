@@ -63,7 +63,7 @@ require("../../core/checklogin.php");
                         </select>
                     </div>
                     <div class="col-3">
-                        <a id="clickbind" href="#" onclick="onClick()" class="btn-lg-pr-admin w-100">Download all order</a>
+                        <button id="clickbind" onclick="onClick()" class="btn-lg-pr-admin w-100">Download all order</button>
                     </div>
                     <div class="col-3"></div>
                     <div class="col-3"></div>
