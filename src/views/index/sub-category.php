@@ -164,29 +164,23 @@ session_start(); ?>
                             </div>
                         </div>
                     </div>
-                    <!--ALL PRODUCT HERE-->
-                    <div>
-                        <div class="row cate-product">
-                            <?php
-                            if ($products != null)
-                                foreach ($products as $product) {
-                            ?>
-                                <div class="col-3 card mb-9">
-                                    <div class="item-card-info">
-                                        <div class="card-prd">
-                                            <div class="img">
-                                                <a href="product-detail.php?pid=<?= $product['pid'] ?>">
-                                                    <img src="../../../public/images/thumb/<?= $product['thumb'] ?>">
-                                                </a>
-                                            </div>
-                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                Quick view
-                                            </div>
-                                        </div>
-                                        <div class="item-inf text-center mt-2">
-                                            <p class="decor-text mb-1"><?= $product['pname'] ?></p>
-                                            <p class="smt item-price">$<?= number_format($product['price'], 0, '.', '.') ?></p>
-                                        </div>
+
+                </div>
+                <!--ALL PRODUCT HERE-->
+                <div>
+                    <div class="row cate-product">
+                        <?php foreach ($products as $product) { ?>
+                            <div class="col-3 card mb-9">
+                                <div class="item-card-info">
+                                <div class="card-prd">
+                                    <div class="img">
+                                    <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                        <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                    </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                        data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                            Quick view
                                     </div>
                                 </div>
                             <?php } ?>
@@ -203,12 +197,14 @@ session_start(); ?>
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        <?php require_once '../includes/footer.php'; ?>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-</body>
 
+        <!-- modal quickview -->
+        <?php require_once '../includes/quickview.php';?>
+
+        <div>
+            <?php require_once '../includes/footer.php';?>
+        </div> 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
 </html>

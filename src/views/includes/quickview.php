@@ -1,82 +1,89 @@
+
 <!--Modal Quick view-->
 <div class="modal fade" id="quickview">
     <div class="modal-dialog modal-dialog-centered quickview">
-        <div class="modal-content row">
-            <?php
-            require('../../models/model_product.php');
-            if (isset($_REQUEST['pid'])) {
-                $pid = intval($_REQUEST['pid']);
-                ?>
-                <div class="col-7 ps-0">
-                    <!--Carousel quick view product-->
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <?php 
-                            $productMedias = new Product();
-                            $getMediasById = $productMedias -> getMediasById($pid);
-                            if ($getMediasById==false) {
-                                echo("<p>Fail to connect database!!</p>");
-                                die();
-                            }
-                            $medias = $productMedias -> data;
-                            ?>
-                            <?php foreach ($medias as $media) { ?>
-                                <div class="carousel-item active" data-bs-interval="2000">
-                                    <img src="../../../public/images/<?=$media['Url']?>">
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-5 pe-0">
-                    <?php
-                    $products = new Product();
-                    $getProductById = $products -> getProductById($pid);
-                    if ($getMediasById==false) {
-                        echo("<p>Fail to connect database!!</p>");
-                        die();
-                    }   
-                    $product = $products -> data;
-                    ?>
-                    <h5><?=$product['Name']?></h5>
-                    <h5 class="my-3">$<?=number_format($product['Price'], 0, '.', '.')?></h5>
-                    <div class="d-flex">
-                        <p class="mdt me-auto">Quantity</p>
-                        <div class="quantity">
-                            <form id='myform' method='POST' class='quantity' action='#'>
-                                <i class="fa fa-minus"></i>
-                                <input type='text' name='quantity' value='1' class='qty' />
-                                <i class="fa fa-plus"></i>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="quick-size my-3">
-                        <select class="form-select smt">
-                            <option selected>Select size</option>
-                            <option value="1">3</option>
-                            <option value="2">3 1/2</option>
-                            <option value="3">4</option>
-                            <option value="3">4 1/2</option>
-                            <option value="3">5</option>
-                            <option value="3">5 1/2</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn btn-pri mb-3 w-100" data-bs-dismiss="modal">Add to bag</button>
-                    <a href="/product-detail?pid=<?=$pid?>">
-                        <p>View more detail</p>
-                    </a>
-                </div>
-            <?php } ?>
+        <div class="modal-content" id="quickviewProduct">
+                <!-- quickview product info here -->
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // quick view
+    function quickview(pid) {
+        // Make an AJAX request to fetch the similarInfo using pid
+        $.ajax({
+            url: '../includes/quickviewAJAX.php',
+            type: 'GET',
+            data: { pid: pid },
+            success: function(response) {
+                console.log('quickviewInfo:', response); // Log the value of quickviewInfo received from the server
+                // Update the quickviewProduct element with the received data
+                var compare = document.getElementById('quickviewProduct');
+                compare.innerHTML = `
+                    <div class="row">
+                        <div class="col-7 ps-0">
+                            <!--Carousel quick view product-->
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" data-bs-interval="1500">
+                                        <img src="../../../public/images/thumb/${response.thumb}">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="1500">
+                                        <img src="../../../public/images/${response.urls.split(',')[0]}">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="1500">
+                                        <img src="../../../public/images/${response.urls.split(',')[1]}">
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="1500">
+                                        <img src="../../../public/images/${response.urls.split(',')[2]}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-5 pe-0">
+                            <h5>${response.pname}</h5>
+                            <h5 class="my-3">$${response.price.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</h5>
+                            <div class="d-flex">
+                                <p class="mdt me-auto">Quantity</p>
+                                <div class="quantity">
+                                    <input type='number' name='quantity' value='1' class='qty' />
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="quick-size my-3">
+                                <select class="form-select smt">
+                                    <option selected>Select size</option>
+                                    <option value="1">3</option>
+                                    <option value="2">3 1/2</option>
+                                    <option value="3">4</option>
+                                    <option value="3">4 1/2</option>
+                                    <option value="3">5</option>
+                                    <option value="3">5 1/2</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-pri mb-3 w-100" data-bs-dismiss="modal">Add to bag</button>
+                            <a href="product-detail.php?pid=${response.pid}">
+                                <p>View more detail</p>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText); // Log any errors
+            }
+        });
+
+        // Return true or perform any other desired operations
+        return true;
+    }
+</script>

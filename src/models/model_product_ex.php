@@ -78,8 +78,9 @@ class Product extends Database {
     // get product info by id
     function getProductInfoById($pid) {
         $sql = "SELECT 
-                tb1.ID AS pid, tb1.Name AS pname, tb1.Price as price, tb1.Description as description, tb1.Thumb as thumb,
-                tb2.ID as sid, tb2.Name as subCategory, tb2.Category as category
+                tb1.ID AS pid, tb1.Name AS pname, tb1.Price AS price, tb1.Description AS description, tb1.Thumb AS thumb,
+                tb1.Material AS material, tb1.Jewelry_type AS jewelry,
+                tb2.ID AS sid, tb2.Name AS subCategory, tb2.Category AS category
                 FROM Products tb1 
                 LEFT JOIN Sub_categories tb2 ON tb1.Sub_category_ID = tb2.ID 
                 WHERE tb1.ID=?";
@@ -93,6 +94,46 @@ class Product extends Database {
     // get new arrivals
     function getNewArrivals() {
         $sql = "SELECT * FROM Products ORDER BY Created_at DESC LIMIT 12";
+ 		$result = $this -> set_query($sql);
+		if ($result == true)
+			$this->data = $this->pdo_stm -> fetchAll();
+		return $result; // return true/false
+    }
+
+    // get similar products
+    function getSimilarProducts($sid, $pid) {
+        $sql = "SELECT 
+            tb1.Name AS pname, tb1.ID AS pid, tb1.Thumb as thumb, tb1.Price as price,
+            tb2.Name AS subCategory, tb2.Category AS category
+            FROM Products tb1 LEFT JOIN Sub_categories tb2 ON tb1.Sub_category_ID = tb2.ID 
+            WHERE tb2.ID=? AND tb1.ID!=?";
+		$params = [$sid, $pid];
+ 		$result = $this -> set_query($sql, $params);
+		if ($result == true)
+			$this->data = $this->pdo_stm -> fetchAll();
+		return $result; // return true/false
+    }
+
+    // get quickview info
+    function getQuickviewInfo($pid) {
+        $sql = "SELECT 
+            tb1.Name AS pname, tb1.ID AS pid, tb1.Thumb as thumb, tb1.Price as price,
+            GROUP_CONCAT(tb2.Url) AS urls
+            FROM Products tb1 LEFT JOIN Medias tb2 ON tb1.ID = tb2.Product_ID 
+            WHERE tb1.ID = ? GROUP BY tb1.Name, tb1.ID, tb1.Thumb, tb1.Price";
+		$params = [$pid];
+ 		$result = $this -> set_query($sql, $params);
+		if ($result == true)
+			$this->data = $this->pdo_stm -> fetch();
+		return $result; // return true/false
+    }
+
+    // get best sellers
+    function getBestSellers() {
+        $sql = "SELECT 
+            tb1.Name AS pname, tb1.ID AS pid, tb1.Thumb as thumb, tb1.Price as price
+            FROM Products tb1 LEFT JOIN Order_items tb2 ON tb1.ID = tb2.Product_ID 
+            order BY tb2.Quantity DESC LIMIT 12";
  		$result = $this -> set_query($sql);
 		if ($result == true)
 			$this->data = $this->pdo_stm -> fetchAll();

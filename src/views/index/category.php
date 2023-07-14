@@ -192,13 +192,14 @@ session_start(); ?>
                         ?>
                             <div class="col-3 card mb-9">
                                 <div class="item-card-info">
-                                    <div class="card-prd">
-                                        <div class="img">
-                                            <a href="product-detail.php?pid=<?= $product['pid'] ?>">
-                                                <img src="../../../public/images/thumb/<?= $product['thumb'] ?>">
-                                            </a>
-                                        </div>
-                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview" data-id="<?php echo $product['pid']; ?>" id="getQuickview">
+                                <div class="card-prd">
+                                    <div class="img">
+                                    <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                        <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                    </a>
+                                    </div>
+                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                        data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
                                             Quick view
                                         </div>
                                     </div>
@@ -281,27 +282,18 @@ session_start(); ?>
                                 </div>
                             </div>
                         </div>
-
-                        <?php
-                        if ($products_line2 != null)
-                            foreach ($products_line2 as $product) {
-                        ?>
-                            <div class="col-3 card mb-9">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                        <div class="img">
-                                            <a href="product-detail.php?pid=<?= $product['pid'] ?>">
-                                                <img src="../../../public/images/thumb/<?= $product['thumb'] ?>">
-                                            </a>
-                                        </div>
-                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
-                                        </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-2">
-                                        <p class="decor-text mb-1"><?= $product['pname'] ?></p>
-                                        <p class="smt item-price">$<?= number_format($product['price'], 0, '.', '.') ?></p>
-                                    </div>
+                        <?php foreach ($products_line2 as $product) {  ?>
+                        <div class="col-3 card mb-9">
+                            <div class="item-card-info">
+                            <div class="card-prd">
+                                <div class="img">
+                                <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                    <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                    data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                        Quick view
                                 </div>
                             </div>
                         <?php } ?>
@@ -313,23 +305,17 @@ session_start(); ?>
 
                     <div class="row cate-product">
                         <?php foreach ($products_line3 as $product) {  ?>
-                            <div class="col-3 card mb-9">
-                                <div class="item-card-info">
-                                    <div class="card-prd">
-                                        <div class="img">
-                                            <a href="product-detail.php?pid=<?= $product['pid'] ?>">
-                                                <img src="../../../public/images/thumb/<?= $product['thumb'] ?>">
-                                            </a>
-                                        </div>
-                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                            Quick view
-                                        </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-2">
-                                        <p class="decor-text mb-1"><?= $product['pname'] ?></p>
-                                        <p class="smt item-price">$<?= number_format($product['price'], 0, '.', '.') ?>
-                                        </p>
-                                    </div>
+                        <div class="col-3 card mb-9">
+                            <div class="item-card-info">
+                            <div class="card-prd">
+                                <div class="img">
+                                <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                    <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                </a>
+                                </div>
+                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                    data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                        Quick view
                                 </div>
                             </div>
                         <?php } ?>
@@ -347,77 +333,19 @@ session_start(); ?>
             </div>
         </div>
     </div>
+        <!-- modal quickview -->
+        <?php require_once '../includes/quickview.php';?>
 
-    <div>
-        <?php require_once '../includes/footer.php'; ?>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-    <script>
-        $(document).ready(function()
-        {
-            $(document).on('click', '#getQuickview', function(e){
-                e.preventDefault();
-                // Get order ID after click
-                var uid = $(this).data('id');
-            
-                // leave modal blank before ajax call
-                $('#qview').html('');
-                //load ajax loader
-                $('#modal-loader').show();
-
-                $.ajax({
-                        url: 'quickviewAJAX.php',
-                        type: 'POST',
-                        data: {
-                            pid: uid
-                        },
-                        dataType: 'html',
-                    })
-                    .done(function(data) {
-                        console.log(data);
-                        $('#qview').html('');
-                        // load response
-                        $('#qview').html(data);
-                        // hide ajax loader
-                        $('#modal-loader').hide();
-                    })
-                    .fail(function() {
-                        $('#qview').html('<p>Something went wrong, please try again!</p>');
-                        $('#modal-loader').hide();
-                    });
-            });
-        });
-    </script>
-
-
-    // <!-- <script>
-    //     function topFunction() {
-    //         document.body.scrollTop = 0;
-    //         document.documentElement.scrollTop = 0;
-    //     }
-
-    //     $(document).ready(() => {
-    //         $(document).on('click', '#getQuickView', (e) => {
-    //             e.preventDefault();
-    //             var pid = $(this).data('id');
-    //             $.ajax({
-    //                     url: '../includes/quickview.php',
-    //                     type: 'POST',
-    //                     data: 'pid=' + pid,
-    //                     dataType: 'html'
-    //                 })
-    //                 .done((data) => {
-    //                     console.log(data);
-    //                 })
-    //                 .fail((error) => {
-    //                     console.log(error);
-    //                 });
-    //         });
-    //     });
-    // </script> -->
-</body>
-
+        <div>
+            <?php require_once '../includes/footer.php';?>
+        </div> 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script>
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+    </body>
 </html>

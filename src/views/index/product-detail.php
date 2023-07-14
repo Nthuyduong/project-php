@@ -70,9 +70,7 @@ session_start();
                                 <li class="breadcrumb-item"><a href="sub-category.php?sid=<?=$productInfo['sid']?>"><?=ucfirst($productInfo['subCategory'])?></a></li>
                             </ol>
                             </nav>
-                            <a href="#">
                             <p class="mdt"><?=$productInfo['pname']?></p>
-                            </a>
                             <p><?=$productInfo['description']?></p>
                             <h5 class="mt-2 mb-4">$<?=number_format($productInfo['price'], 0, '.', '.')?></h5>
                             <div class="d-flex">
@@ -279,67 +277,69 @@ session_start();
                 <!--SIMILAR-PRODUCT-->
                 <div class="simi-prod">
                     <div class="row">
-                    <div class="col-3">
-                        <h5>Similar Products</h5>
-                        <p class="smt">AGURI designs reinvent our iconic AGURI collection with bold profiles and powerful details.</p>
-                    </div>
-                    <div class="col-9">
-                        <div id="simi" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <?php
-                            $subCates = new Product();
-                            $getProductsBySid = $subCates -> getProductsBySid($productInfo['sid']);
-                            if ($getProductsBySid==false) {
-                                echo("<p>Fail to connect database!!</p>");
-                                die();
-                            }
-                            $similarProducts = $subCates -> data;
-                            $similarProducts1 = array_slice($similarProducts, 0, 3);
-                            $similarProducts2 = array_slice($similarProducts, 3, 6);
-                            ?>
-                            <div class="carousel-item active" data-bs-interval="1300">
-                                <div class="row">
-                                    <?php foreach ($similarProducts1 as $similar) { ?>
-                                        <div class="col-4">
-                                            <div class="item-card-info">
-                                                <div class="card-prd">
-                                                <div class="img">
-                                                    <a href="product-detail.php?pid=<?=$similar['pid']?>">
-                                                    <img src="../../../public/images/thumb/<?=$similar['thumb']?>">
-                                                    </a>
+                        <div class="col-3">
+                            <h5>Similar Products</h5>
+                            <p class="smt">AGURI designs reinvent our iconic AGURI collection with bold profiles and powerful details.</p>
+                        </div>
+                        <div class="col-9">
+                            <div id="simi" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <?php
+                                    $similarsDB = new Product();
+                                    $getSimilarProducts = $similarsDB -> getSimilarProducts($productInfo['sid'], $pid);
+                                    if ($getSimilarProducts==false) {
+                                        echo("<p>Fail to connect database!!</p>");
+                                        die();
+                                    }
+                                    $similarProducts = $similarsDB -> data;
+                                    $similarProducts1 = array_slice($similarProducts, 0, 3);
+                                    $similarProducts2 = array_slice($similarProducts, 3, 6);
+                                    ?>
+                                    <div class="carousel-item active" data-bs-interval="1300">
+                                        <div class="row">
+                                            <?php foreach ($similarProducts1 as $similar) { ?>
+                                                <div class="col-4">
+                                                    <div class="item-card-info">
+                                                        <div class="card-prd">
+                                                            <div class="img">
+                                                                <a href="product-detail.php?pid=<?=$similar['pid']?>">
+                                                                    <img src="../../../public/images/thumb/<?=$similar['thumb']?>">
+                                                                </a>
+                                                            </div>
+                                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button"
+                                                                data-bs-target="#compare" onclick="compare(<?=$similar['pid']?>)">
+                                                                    Quick Compare
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
-                                                    Quick Compare
-                                                </div>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <div class="carousel-item" data-bs-interval="1300">
-                                <div class="row">
-                                    <?php foreach ($similarProducts2 as $similar) { ?>
-                                        <div class="col-4">
-                                            <div class="item-card-info">
-                                                <div class="card-prd">
-                                                <div class="img">
-                                                    <a href="product-detail.php?pid=<?=$similar['pid']?>">
-                                                    <img src="../../../public/images/thumb/<?=$similar['thumb']?>">
-                                                    </a>
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="1300">
+                                        <div class="row">
+                                            <?php foreach ($similarProducts2 as $similar) { ?>
+                                                <div class="col-4">
+                                                    <div class="item-card-info">
+                                                        <div class="card-prd">
+                                                            <div class="img">
+                                                                <a href="product-detail.php?pid=<?=$similar['pid']?>">
+                                                                    <img src="../../../public/images/thumb/<?=$similar['thumb']?>">
+                                                                </a>
+                                                            </div>
+                                                            <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                                                data-bs-target="#compare" onclick="compare(<?=$similar['pid']?>)">
+                                                                    Quick Compare
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#compare">
-                                                    Quick Compare
-                                                </div>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <!-- Modal Compare-->
@@ -351,50 +351,29 @@ session_start();
                         <div class="col-6 simi-left">
                             <div class="itm">
                             <a href="#">
-                                <img src="../../../public/images/product-detail/compare1.png">
+                                <img src="../../../public/images/thumb/<?=$productInfo['thumb']?>">
                             </a>
                             <div class="item-inf text-center">
-                                <p class="mdt my-2">Diamond Spark Ring</p>
-                                <p class="mdt">$6,700</p>
+                                <p class="mdt my-2"><?=$productInfo['pname']?></p>
+                                <p class="mdt">$<?=number_format($productInfo['price'], 0, '.', '.')?></p>
                             </div>
                             </div>
                             <div class="jewel">
-                            <p class="compare-title mb-2">Jewellery</p>
-                            <p class="smt my-1">Natural Jewelry</p>
+                            <p class="compare-title mb-2">JEWELLERY</p>
+                            <p class="smt my-1"><?=$productInfo['jewelry']?></p>
                             <p class="smt mb-0">Round brilliant diamonds</p>
                             <p class="smt my-1">4mm width</p>
                             <p class="smt">Carat total weight .48</p>
                             </div>
                             <div class="line mb-2"></div>
                             <div class="mater">
-                            <p class="compare-title mb-2">Material</p>
-                            <p class="smt">16k White gold</p>
+                            <p class="compare-title mb-2">MATERIAL</p>
+                            <p class="smt"><?=$productInfo['material']?></p>
                             </div>
                             <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
                         </div>
-                        <div class="col-6 simi-right">
-                            <div class="itm">
-                            <a href="#">
-                                <img src="../../../public/images/product-detail/compare2.png">
-                            </a>
-                            <div class="item-inf text-center">
-                                <p class="mdt my-2">Enternity Diamond Ring</p>
-                                <p class="mdt">$7,000</p>
-                            </div>
-                            </div>
-                            <div class="jewel">
-                            <p class="compare-title mb-2">Jewellery</p>
-                            <p class="smt my-1">Natural & Lab-grown Jewelry</p>
-                            <p class="smt mb-0">Pear brilliant diamonds</p>
-                            <p class="smt my-1">2.5mm width x2</p>
-                            <p class="smt">Carat total weight .50</p>
-                            </div>
-                            <div class="line mb-2"></div>
-                            <div class="mater">
-                            <p class="compare-title mb-2">Material</p>
-                            <p class="smt">18k Rose gold</p>
-                            </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
+                        <div class="col-6 simi-right" id="comparedProduct">
+                            <!-- compare product info here -->
                         </div>
                         </div>
                     </div>
@@ -430,8 +409,9 @@ session_start();
                                                     <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
                                                 </a>
                                                 </div>
-                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                Quick view
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                        Quick view
                                                 </div>
                                             </div>
                                             <div class="item-inf text-center mt-3">
@@ -454,8 +434,9 @@ session_start();
                                                     <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
                                                 </a>
                                                 </div>
-                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                Quick view
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                        Quick view
                                                 </div>
                                             </div>
                                             <div class="item-inf text-center mt-3">
@@ -478,8 +459,9 @@ session_start();
                                                     <img src="../../../public/images/thumb/<?=$new['Thumb']?>">
                                                 </a>
                                                 </div>
-                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" data-bs-target="#quickview">
-                                                Quick view
+                                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                        Quick view
                                                 </div>
                                             </div>
                                             <div class="item-inf text-center mt-3">
@@ -713,17 +695,70 @@ session_start();
                 </div>
             </div>
         </div>
+
+        <!-- modal quickview -->
+        <?php require_once '../includes/quickview.php';?>
+        
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
+
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
         <script>
+            // zoom in image
             function zoomIn(url) {
                 var clickedImage = document.getElementById('clickedImage');
                 clickedImage.src = "../../../public/images" + url;
             }
 
+            // compare product
+            function compare(pid) {
+                // Make an AJAX request to fetch the similarInfo using pid
+                $.ajax({
+                    url: 'compareAJAX.php',
+                    type: 'GET',
+                    data: { pid: pid },
+                    success: function(response) {
+                        console.log('similarInfo:', response); // Log the value of similarInfo received from the server
+                        // Update the comparedProduct element with the received data
+                        var compare = document.getElementById('comparedProduct');
+                        compare.innerHTML = `
+                            <div class="itm">
+                                <a href="product-detail.php?pid=${response.ID}">
+                                    <img src="../../../public/images/thumb/${response.Thumb}">
+                                </a>
+                                <div class="item-inf text-center">
+                                    <p class="mdt my-2">${response.Name}</p>
+                                    <p class="mdt">$${response.Price.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+                                </div>
+                            </div>
+                            <div class="jewel">
+                                <p class="compare-title mb-2">JEWELLERY</p>
+                                <p class="smt my-1">${response.Jewelry_type}</p>
+                                <p class="smt mb-0">Pear brilliant diamonds</p>
+                                <p class="smt my-1">2.5mm width x2</p>
+                                <p class="smt">Carat total weight .50</p>
+                            </div>
+                            <div class="line mb-2"></div>
+                            <div class="mater">
+                                <p class="compare-title mb-2">MATERIAL</p>
+                                <p class="smt">${response.Material}</p>
+                            </div>
+                            <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
+                        `;
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText); // Log any errors
+                    }
+                });
+
+                // Return true or perform any other desired operations
+                return true;
+            }
+
+            // add to bag
             $(document).ready(function(){
                 $(document).on('click', '#addProduct', (e) => {
                     e.preventDefault();
