@@ -51,7 +51,7 @@ if ($ketqua == false) {
                 <!-- Chuc nang sua san pham -->
                 <a id="getproduct" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#product-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                 <!-- Chuc nang xoa san pham -->
-                <a onclick="deleteProduct(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                <a name="btn" onclick="deleteProduct(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
             </div>
         </div>
         <!-- EDIT PRODUCT INFORMATION -->

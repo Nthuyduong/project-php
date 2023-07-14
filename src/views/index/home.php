@@ -1,47 +1,49 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); 
+<?php define('URLROOT', 'http://localhost:8888/project-php');
 session_start();
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Home</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/fonts.css">
-        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/home.css">
-        <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
-    </head>
-    <body>
-        <div>
-            <?php  error_reporting(E_ALL); ?>
-            <?php require_once '../includes/header.php'; ?>
-            <?php require("../../models/model_product_ex.php"); ?>
-        </div> 
-        <div>
-            <div class="ctg">
-                <div class="row ctg-inner">
-                    <div class="ctg-left col-8">
+
+<head>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/fonts.css">
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/home.css">
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/style.css">
+</head>
+
+<body>
+    <div>
+        <?php error_reporting(E_ALL); ?>
+        <?php require '../includes/header.php'; ?>
+        <?php require("../../models/model_product_ex.php"); ?>
+    </div>
+    <div>
+        <div class="ctg">
+            <div class="row ctg-inner">
+                <div class="ctg-left col-8">
                     <div class="ctg-left-top">
-                            <div class="d-flex">
-                                <div class="left-top">
-                                    <div class="ctg-img-inner">
-                                        <div class="image-ctg">
-                                            <a>
-                                                <img src="../../../public/images/shop-all/ctg1.webp">
-                                            </a>
-                                            <div class="name-ctg text-center">
-                                                <h6 class="mb-2">Beaufille Collection</h6>
-                                                <a class="text-light" href="category.php?category=rings">Shop Rings Now</a>
-                                            </div>
+                        <div class="d-flex">
+                            <div class="left-top">
+                                <div class="ctg-img-inner">
+                                    <div class="image-ctg">
+                                        <a>
+                                            <img src="../../../public/images/shop-all/ctg1.webp">
+                                        </a>
+                                        <div class="name-ctg text-center">
+                                            <h6 class="mb-2">Beaufille Collection</h6>
+                                            <a class="text-light" href="category.php?category=rings">Shop Rings Now</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="center-top">
-                                    <div class="ctg-img-inner">
-                                        <div class="image-ctg">
-                                            <a>
-                                                <img src="../../../public/images/shop-all/ctg2.webp">
-                                            </a>
+                            </div>
+                            <div class="center-top">
+                                <div class="ctg-img-inner">
+                                    <div class="image-ctg">
+                                        <a>
+                                            <img src="../../../public/images/shop-all/ctg2.webp">
+                                        </a>
                                         <div class="name-ctg text-center">
                                             <h6 class="mb-2">Beaufille Collection</h6>
                                             <a class="text-light" href="category.php?category=bracelets">Shop Bracelets Now</a>
@@ -53,48 +55,48 @@ session_start();
                     </div>
                     <div class="ctg-left-btm">
                         <div class="d-flex">
-                        <div class="left-btm">
-                            <div class="ctg-img-inner">
-                            <a>
-                                <img src="../../../public/images/shop-all/ctg4.webp">
-                            </a>
-                            </div>
-                        </div>
-                        <div class="center-btm">
-                            <div class="ctg-img-inner">
-                            <div class="image-ctg">
-                                <a>
-                                <img src="../../../public/images/shop-all/ctg5.webp">
-                                </a>
-                                <div class="name-ctg text-center">
-                                <h6 class="mb-2">Beaufille Collection</h6>
-                                <a class="text-light" href="category.php?category=necklaces">Shop Necklaces Now</a>
+                            <div class="left-btm">
+                                <div class="ctg-img-inner">
+                                    <a>
+                                        <img src="../../../public/images/shop-all/ctg4.webp">
+                                    </a>
                                 </div>
                             </div>
-                            </div>
+                            <div class="center-btm">
+                                <div class="ctg-img-inner">
+                                    <div class="image-ctg">
+                                        <a>
+                                            <img src="../../../public/images/shop-all/ctg5.webp">
+                                        </a>
+                                        <div class="name-ctg text-center">
+                                            <h6 class="mb-2">Beaufille Collection</h6>
+                                            <a class="text-light" href="category.php?category=necklaces">Shop Necklaces Now</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                    <div class="ctg-right col-4">
+                </div>
+                <div class="ctg-right col-4">
                     <div class="right-top">
                         <div class="ctg-img-inner">
-                        <div class="image-ctg">
-                            <a>
-                            <img src="../../../public/images/shop-all/ctg3.webp">
-                            </a>
-                            <div class="name-ctg text-center">
-                            <h6 class="mb-2">Beaufille Collection</h6>
-                            <a class="text-light" href="category.php?category=earrings">Shop Earrings Now</a>
+                            <div class="image-ctg">
+                                <a>
+                                    <img src="../../../public/images/shop-all/ctg3.webp">
+                                </a>
+                                <div class="name-ctg text-center">
+                                    <h6 class="mb-2">Beaufille Collection</h6>
+                                    <a class="text-light" href="category.php?category=earrings">Shop Earrings Now</a>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                     <div class="right-btm">
                         <div class="ctg-img-inner">
-                        <a>
-                            <img src="../../../public/images/shop-all/ctg6.webp">
-                        </a>
+                            <a>
+                                <img src="../../../public/images/shop-all/ctg6.webp">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -141,7 +143,7 @@ session_start();
                                                         Quick view
                                                 </div>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -162,7 +164,7 @@ session_start();
                                                         Quick view
                                                 </div>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -183,14 +185,12 @@ session_start();
                                                         Quick view
                                                 </div>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
 
@@ -375,90 +375,90 @@ session_start();
                 <div class="about row mbt-120">
                     <div class="col-2"></div>
                     <div class="col-8 text-center">
-                    <h4 class="mb-3">We Are More Than Jewels</h4>
-                    <p class="smt mt-40 mb-5">
-                        Aguri is a fine jewelry destination for memorable pieces designed and crafted in New York City.
-                        Our carefully considered selection of rings, necklaces, earrings and bracelets honors mindful production and genuine materials.
-                    </p>
-                    <button class="btn btnlg btn-pri" href="about-us.php">More about us</button>
+                        <h4 class="mb-3">We Are More Than Jewels</h4>
+                        <p class="smt mt-40 mb-5">
+                            Aguri is a fine jewelry destination for memorable pieces designed and crafted in New York City.
+                            Our carefully considered selection of rings, necklaces, earrings and bracelets honors mindful production and genuine materials.
+                        </p>
+                        <button class="btn btnlg btn-pri" href="about-us.php">More about us</button>
                     </div>
                     <div class="col-2"></div>
                 </div>
-                </div>
-                <!--New collection-->
-                <div class="aguri-collection">
+            </div>
+            <!--New collection-->
+            <div class="aguri-collection">
                 <div class=" new-collection mbt-120 container-fluid">
                     <div class="row">
-                    <div class="col-5 new-collection-left ps-0">
-                        <a href="#">
-                        <img src="../../../public/images/home/feature1.png">
-                        </a>
-                    </div>
-                    <div class="col"></div>
-                    <div class="col-6 new-collection-right pe-0">
-                        <div class="row new-collection-top">
-                        <div class="col-6 feature-img2 ps-0 new-collection-img">
-                            <div class="collection-img">
+                        <div class="col-5 new-collection-left ps-0">
                             <a href="#">
-                                <img src="../../../public/images/home/feature2.png">
+                                <img src="../../../public/images/home/feature1.png">
                             </a>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col-6 new-collection-right pe-0">
+                            <div class="row new-collection-top">
+                                <div class="col-6 feature-img2 ps-0 new-collection-img">
+                                    <div class="collection-img">
+                                        <a href="#">
+                                            <img src="../../../public/images/home/feature2.png">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6 pe-0 new-collection-img">
+                                    <div class="collection-img">
+                                        <a href="#">
+                                            <img src="../../../public/images/home/feature3.png">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="new-collection-bottom">
+                                <div class="text-center new-collection-content">
+                                    <p class="mdt mb-1">Less is more</p>
+                                    <h5 class="mb-2">Embody the beauty of impermanence</h5>
+                                    <p class="smt mb-4">Forward-thinking fine jewelry essentials for individuals of all genders that breathe new life into classic
+                                        silhouettes.</p>
+                                    <button class="btn btnlg btn-pri" type="button">Shop now</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-6 pe-0 new-collection-img">
-                            <div class="collection-img">
-                            <a href="#">
-                                <img src="../../../public/images/home/feature3.png">
-                            </a>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="new-collection-bottom">
-                        <div class="text-center new-collection-content">
-                            <p class="mdt mb-1">Less is more</p>
-                            <h5 class="mb-2">Embody the beauty of impermanence</h5>
-                            <p class="smt mb-4">Forward-thinking fine jewelry essentials for individuals of all genders that breathe new life into classic
-                            silhouettes.</p>
-                            <button class="btn btnlg btn-pri" type="button">Shop now</button>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
-                </div>
-                <!--Users Experiences-->
-                <div class="experiences mbt-120">
+            </div>
+            <!--Users Experiences-->
+            <div class="experiences mbt-120">
                 <div class="container-fluid">
                     <h4 class="text-center mb-5">The Aguri Experience</h4>
                     <div class="row">
-                    <div class="col-4 text-center ps-0 experience-user">
-                        <div class="px-4 experience-inner">
-                        <i class="fas fa-truck fa-2xl"></i>
-                        <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
-                        <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
-                        <a class="decor-text" >Learn more <i class="fas fa-arrow-right"></i></a>
+                        <div class="col-4 text-center ps-0 experience-user">
+                            <div class="px-4 experience-inner">
+                                <i class="fas fa-truck fa-2xl"></i>
+                                <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
+                                <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
+                                <a class="decor-text">Learn more <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-4 text-center">
-                        <div class="px-4">
-                        <i class="fas fa-calendar fa-2xl"></i>
-                        <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
-                        <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
-                        <a class="decor-text" >Book now <i class="fas fa-arrow-right"></i></a>
+                        <div class="col-4 text-center">
+                            <div class="px-4">
+                                <i class="fas fa-calendar fa-2xl"></i>
+                                <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
+                                <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
+                                <a class="decor-text">Book now <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-4 text-center pe-0">
-                        <div class="px-4">
-                        <i class="fas fa-gift fa-2xl"></i>
-                        <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
-                        <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
-                        <a class="decor-text" >Explore gift <i class="fas fa-arrow-right"></i></a>
+                        <div class="col-4 text-center pe-0">
+                            <div class="px-4">
+                                <i class="fas fa-gift fa-2xl"></i>
+                                <p class="mdt mb-0 mt-3 mb-2">Complimentary Shipping & Returns</p>
+                                <p class="smt">We offer complimentary shipping and returns on all AGURI's order</p>
+                                <a class="decor-text">Explore gift <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
-                </div>
-                <!--Showroom-->
-                <div class="container-fluid showroom mbt-120">
+            </div>
+            <!--Showroom-->
+            <div class="container-fluid showroom mbt-120">
                 <div class="row">
                     <div class="col-3 ps-0">
                         <h5 class="mb-3">Our Showrooms</h5>
@@ -467,92 +467,91 @@ session_start();
                         <p class="smt mt-3">Email info@AGURI&PIJ2022.com for appointment</p>
                     </div>
                     <div class="col-2 showroom bottom-content">
-                    <div class="bottom-content-inner">
-                        <p class="text-right decor-text mb-0">We're happy to help with in-store or virtual appointments</p>
-                    </div>
+                        <div class="bottom-content-inner">
+                            <p class="text-right decor-text mb-0">We're happy to help with in-store or virtual appointments</p>
+                        </div>
                     </div>
                     <div class="col-7 pe-0">
                         <!--carousel showroom-->
                         <div id="carouselshowroom" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselshowroom" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselshowroom" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselshowroom" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="1000">
-                            <img src="../../../public/images/home/showroom1.webp"/>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselshowroom" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselshowroom" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselshowroom" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             </div>
-                            <div class="carousel-item" data-bs-interval="1000">
-                            <img src="../../../public/images/home/showroom2.webp"/>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="1000">
+                                    <img src="../../../public/images/home/showroom1.webp" />
+                                </div>
+                                <div class="carousel-item" data-bs-interval="1000">
+                                    <img src="../../../public/images/home/showroom2.webp" />
+                                </div>
+                                <div class="carousel-item" data-bs-interval="1000">
+                                    <img src="../../../public/images/home/showroom3.webp" />
+                                </div>
                             </div>
-                            <div class="carousel-item" data-bs-interval="1000">
-                            <img src="../../../public/images/home/showroom3.webp"/>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
-                </div>
-                <!--GET INSPIRATION-->
-                <div class="inspiration mbt-120">
+            </div>
+            <!--GET INSPIRATION-->
+            <div class="inspiration mbt-120">
                 <h5 class="mb-2 text-center">Get Inspiration</h5>
                 <p class="smt mb-4 text-center">Tag us on your insta to get a chance for a feature</p>
                 <div id="inspiration-carousel" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
                     <div class="carousel-inner container-fluid">
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <div class="row">
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow1.webp"/>
+                        <div class="carousel-item active" data-bs-interval="2000">
+                            <div class="row">
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow1.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow2.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow3.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow4.webp" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow2.webp"/>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <div class="row">
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow5.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images//home/follow6.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow7.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow8.webp" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow3.webp"/>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <div class="row">
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow9.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow10.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow11.webp" />
+                                </div>
+                                <div class="col-3 px-0">
+                                    <img src="../../../public/images/home/follow12.webp" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow4.webp"/>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <div class="row">
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow5.webp"/>
-                        </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images//home/follow6.webp"/>
-                        </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow7.webp"/>
-                        </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow8.webp"/>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <div class="row">
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow9.webp"/>
-                        </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow10.webp"/>
-                        </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow11.webp"/>
-                        </div>
-                        <div class="col-3 px-0">
-                            <img src="../../../public/images/home/follow12.webp"/>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div>       
         <!-- modal quickview -->
         <?php require_once '../includes/quickview.php';?>
 
