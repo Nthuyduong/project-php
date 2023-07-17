@@ -1,22 +1,20 @@
 <?php
-require_once("core/base.php");
-//kiem tra xem form da duoc submit/nhap thong tin hay chua
-if(isset($_REQUEST[""])==false)
+require_once("../models/model_subcate.php");
+
+if(isset($_REQUEST["b1"]) == false)
 {
-    $alert = "Chua nhap thong tin";
+    
 }
-else
-{
-    //xem lai thong tin trong bang va thong tin tu offcanvas nhap san pham moi
-    //Lay thong tin tu form
-    $tensp = $_REQUEST["prdname"];
-    $donvi = $_REQUEST["prdunit"];
-    $giasp = $_REQUEST["prdprice"];
-    $mota = $_REQUEST["prddesc"];
-    $soluong = $_REQUEST["prdquan"];
-    $hanh = $_REQUEST[""];
-    $SKU = $_REQUEST["prdsku"];
-    $cate = $_REQUEST["prdcate"];
-    $ketqua = $product->AddProduct($tensp, $donvi, $giasp,$mota,$soluong,$hanh,$chatlieu,$loaida);
-}
+$name = $_REQUEST["prdname"];
+// Material
+// Jewelry type
+// Collection
+$stock = $_REQUEST["prdunit"];
+$price = $_REQUEST["prdprice"];
+$description = $_REQUEST["prddesc"];
+$qtt = $_REQUEST["prdquan"];
+$cate = $_REQUEST["prdcate"];
+$sub = $_REQUEST["prdsub"];
+
+
 ?>

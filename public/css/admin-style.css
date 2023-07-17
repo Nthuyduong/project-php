@@ -2,6 +2,9 @@ body{
   background-color: #121317 !important;
   color: #fff !important;
 }
+.offcanvas{
+  background-color: #121317 !important;
+}
 input.black{
   color: #fff;
   background-color: #2E303A !important;
@@ -568,7 +571,10 @@ ul.progressbar{
   padding: 30px !important;
 }
 #order-detail .modal-dialog{
-  max-width: 800px !important;
+  max-width: 960px !important;
+}
+#order-detail{
+  left: 8% !important;
 }
 #order-detail .modal-body{
   padding: 30px !important;

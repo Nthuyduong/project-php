@@ -73,12 +73,23 @@ class model_product extends Database
     }
 
     //Them san pham
-    function AddProduct($name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection)
+    // stock in table product_detail
+    function AddProduct($name, $stock, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection)
     {
         //Dien cac gia tri trong bang Product o day
         $sql = "INSERT INTO Products VALUE(?,?,?,?,?,?,?,?,?)";
-        $data = [$name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection];
-        $ketqua = $this->set_query($sql, $data);
+        $param = [$name, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection];
+        $ketqua = $this->set_query($sql, $param);
+        if($ketqua)
+        {
+            $productid = $this->get_last_inserted_id();
+            $detailSQL = "INSERT INTO Product_detail (product_ID, stock) VALUE(?,?)";
+            $detailparam = [$product_ID, $stock];
+            $detailresult = $this->set_query($detailSQL, $detailparam);
+
+
+        }
+        
         return $ketqua;
     }
 
@@ -86,9 +97,9 @@ class model_product extends Database
     function UpdateProduct($name, $description, $price, $category, $Sub_category_ID, $stock)
     {
         $sql = "UPDATE Products SET name=?, description = ?, price=?, category=?, Sub_category_ID=?, stock=? WHERE id=?";
-        $data = [$name, $description, $price, $category, $Sub_category_ID, $stock];
+        $param = [$name, $description, $price, $category, $Sub_category_ID, $stock];
         //Tuong tu voi cac bien khac
-        $ketqua = $this->set_query($sql, $data);
+        $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }
 
@@ -150,22 +161,7 @@ class model_product extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
-    //ttmh - getreviewProductDetail ? check lai?
-    function getReviewProductById($id)
-    {
-        $sql = "SELECT r.* ,d.ID, c.Name
-        FROM Reviews r
-        INNER JOIN Products p ON p.ID=r.Product_ID
-        INNER JOIN Product_details d ON d.Product_ID=p.ID
-        INNER JOIN Customers c ON c.ID=r.Customer_ID
-        WHERE d.ID= ?";
-        $param = [$id];
-        $ketqua = $this->set_query($sql, $param);
-        if ($ketqua == true)
-            $this->data = $this->pdo_stm->fetchAll();
-        return $ketqua;
-    }
-
+ 
     // Create select category
     function CateSelect($tbname, $colid, $colname, $selectid)
     {
@@ -182,4 +178,6 @@ class model_product extends Database
                 echo "<option value='$name'>$name</option>";
         }
     }
+
+
 }

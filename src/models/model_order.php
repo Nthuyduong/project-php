@@ -10,6 +10,7 @@ class model_order extends Database
         parent:: __construct();
         $this->data = NULL;
     }
+
     //Lay thong tin trong bang order
     //$rcorder de loc 5 order moi nhat
     function GetOrder()
@@ -81,6 +82,21 @@ class model_order extends Database
             $name = $row["$colname"];
             echo "<option value='$name'>$name</option>";
         }
+    }
+    //get order by customer id
+    function GetOrderByCustomerID($id)
+    {
+        $sql = "SELECT  o.Code, o.Customer_ID, o.Status, o.Created_at, c.Name AS Customer_name, p.Payment_method, gt.Grandtotal AS grandtotal
+        FROM Orders o
+        INNER JOIN Customers c ON o.Customer_ID = c.ID
+        INNER JOIN Payments p ON o.Code = p.Order_code
+        INNER JOIN (
+            SELECT ot.Order_code, SUM(ot.Price * ot.Quantity) AS Grandtotal
+            FROM Order_items ot
+            WHERE ot.Order_code IN (SELECT Code FROM Orders)
+            GROUP BY ot.Order_code) gt ON o.Code = gt.Order_code
+            WHERE o.Customer_ID = ?";
+        $ketqua = $this->set_query($sql);
     }
     
 }

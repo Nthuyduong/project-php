@@ -63,15 +63,15 @@ require("../../core/checklogin.php");
                         </select>
                     </div>
                     <div class="col-3">
-                        <button class="btn-lg-pr-admin w-100">Download all order</button>
+                        <button id="clickbind" onclick="onClick()" class="btn-lg-pr-admin w-100">Download all order</button>
                     </div>
                     <div class="col-3"></div>
                     <div class="col-3"></div>
                 </div>
                 <div class="tbl">
                     <div class="tb-row title-row">
-                        <div class="cell">
-                            ORDER ID
+                        <div class="cell-sm">
+                            ID
                         </div>
                         <div class="cell-md">
                             ORDER DATE
@@ -157,6 +157,23 @@ require("../../core/checklogin.php");
 
             // $("#findOrder").change(ordershow)
         })
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+    <script>
+        function onClick() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        pdf.canvas.height = 72 * 11;
+        pdf.canvas.width = 72 * 8.5;
+
+        pdf.fromHTML(document.body);
+
+        pdf.save('test.pdf');
+        };
+
+        var element = document.getElementById("clickbind");
+        element.addEventListener("click", onClick);
     </script>
 </body>
 

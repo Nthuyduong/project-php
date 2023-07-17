@@ -23,7 +23,7 @@ if ($ketqua == false) {
         foreach ($rows as $row) {
 ?>
         <div class="tb-row">
-            <div class="cell"><?= $row["Code"] ?></div>
+            <div class="cell-sm"><?= $row["Code"] ?></div>
             <div class="cell-md"><?= date("d-m-Y", strtotime($row["Created_at"])) ?></div>
             <div class="cell-md"><?= $row["Customer_name"] ?></div>
             <div class="cell"><?= $row["Payment_method"] ?></div>

@@ -367,6 +367,7 @@ require("../../core/checklogin.php");
                 e.preventDefault();
                 // Get order ID after click
                 var uid = $(this).data('id');
+                echo (uid);
                 // leave modal blank before ajax call
                 $('#dynamic-order').html('');
                 //load ajax loader

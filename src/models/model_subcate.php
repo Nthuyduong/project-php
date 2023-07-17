@@ -29,5 +29,16 @@ class model_subcate extends Database
             $this->data = $this->pdo_stm->fetchAll();
     }
 
+    // Add new sub-category
+    function AddSubcategory($subname, $category, $description)
+    {
+        $sql = "INSERT INTO Sub_categories VALUE(?,?,?)";
+        $param = null;
+        if($subname != "" && $category != "" && $description != "")
+            $param = [$subname, $category, $description];
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
+
 }
 ?>
