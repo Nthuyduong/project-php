@@ -121,7 +121,7 @@ require_once("../../models/model_category.php");
             <div type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">X</div>
         </div>
         <div class="offcanvas-body">
-            <form name="" id="" method="POST" action="../../controllers/controller_category.php#dmodal">
+            <form name="" id="" method="POST" action="../../controllers/controller_category.php">
                 <div class="">
                     <div class="mdt mb-1">Category's Name</div>
                     <input class="w-100" name="catename" id="catename" placeholder="Category's name" />
@@ -142,10 +142,10 @@ require_once("../../models/model_category.php");
                 </form> -->
                 <div class=row>
                     <div class="col-6">
-                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin">Cancel</button>
+                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin w-100">Cancel</button>
                     </div>
                     <div class="col-6">
-                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin">Add Category</button>
+                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin w-100">Add Category</button>
                     </div>
                 </div>
             </form>

@@ -22,13 +22,10 @@ if ($ketqua == FALSE) {
     $ann_title = "SQL ERROR!";
     $ann_content = "Please check the information again";
     include_once("../views/includes/announce.php");
-}
-else {
+} else {
     $row = $cate->data;
-    if ($row != null) {
-        $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
-        $ann_content = "A new category is created!";
-        include_once("../views/includes/announce.php");
-    }
+    $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
+    $ann_content = "A new category is created!";
+    include_once("../views/includes/announce.php");
 }
-header("location:../views/index/admin_category.php");
+// header("location:../views/index/admin_category.php");
