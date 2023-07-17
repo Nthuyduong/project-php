@@ -149,12 +149,12 @@ session_start();
     </div>
     <script>
         document.getElementById("openlogin").onclick = function() {
-            var myModalLogin = new bootstrap5.Modal(document.getElementById('sign-in'));
+            var myModalLogin = new bootstrap.Modal(document.getElementById('sign-in'));
             myModalLogin.show();
         };
 
         document.getElementById("opensignup").onclick = function() {
-            var myModalSignup = new bootstrap5.Modal(document.getElementById('sign-up'));
+            var myModalSignup = new bootstrap.Modal(document.getElementById('sign-up'));
             myModalSignup.show();
         };
     </script>

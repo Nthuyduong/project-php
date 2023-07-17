@@ -13,7 +13,7 @@
                 <form name="frmsignup" id="frmsignup" method="post" action="../../controllers/controller_user_add.php">
                     <div class="my-3">
                         <label for="address">Fullname</label> 
-                        <input class="inpu" type="text" name="txtname" id="txtemail" value="<?=$_SESSION["sign_up_user_name_err"]?>" required>
+                        <input class="inpu" type="text" name="txtname" id="txtname" value="<?=$_SESSION["sign_up_user_name_err"]?>" required>
                     </div>
                     <div class="my-3">
                         <label for="address">Address</label>
