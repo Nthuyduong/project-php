@@ -156,7 +156,7 @@ require_once("../../models/model_category.php");
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <div class="db-title" id="exampleModalLabel">Product Detail</div>
+                        <div class="db-title" id="exampleModalLabel">Category Detail</div>
                         <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                             X
                         </div>

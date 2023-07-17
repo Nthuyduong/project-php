@@ -73,12 +73,23 @@ class model_product extends Database
     }
 
     //Them san pham
-    function AddProduct($name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection)
+    // stock in table product_detail
+    function AddProduct($name, $stock, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection)
     {
         //Dien cac gia tri trong bang Product o day
         $sql = "INSERT INTO Products VALUE(?,?,?,?,?,?,?,?,?)";
-        $param = [$name, $unit, $price, $description, $stock, $thumb, $material, $jewelry_type, $collection];
+        $param = [$name, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection];
         $ketqua = $this->set_query($sql, $param);
+        if($ketqua)
+        {
+            $productid = $this->get_last_inserted_id();
+            $detailSQL = "INSERT INTO Product_detail (product_ID, stock) VALUE(?,?)";
+            $detailparam = [$product_ID, $stock];
+            $detailresult = $this->set_query($detailSQL, $detailparam);
+
+
+        }
+        
         return $ketqua;
     }
 

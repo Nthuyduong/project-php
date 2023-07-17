@@ -72,7 +72,7 @@ require("../../core/checklogin.php");
                     </div>
                 </div>
                 <!-- Product table -->
-                
+
                 <div class="tbl product-wrapper">
                     <div class="tb-row title-row">
                         <div class="cell-ssm">
@@ -143,36 +143,36 @@ require("../../core/checklogin.php");
                     <div class="tab-pane fade show active" id="basis" role="tabpanel" aria-labelledby="basis-tab">
                         <div class="row">
                             <div class="col-6">
-                                <div class="mb-3">
-                                    <div class="mdt mb-1">Product's Name</div>
-                                    <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
-                                </div>
-                                <div>
-                                    <div class="mdt mb-1">Product's Unit</div>
-                                    <input class="" name="prdunit" id="prdunit" placeholder="Product's name/title" />
-                                </div>
-                                <div class="my-3">
-                                    <div class="md mb-1">Product's Price</div>
-                                    <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price" />
-                                </div>
-                                <div>
-                                    <div class="mdt mb-1">Product's Description</div>
-                                    <textarea class="w-100" name="prddesc" id="prddesc" rows="4">
-                                    Enter product's description here
-                                    </textarea>
-                                </div>
-                                <div class="my-3">
-                                    <div class="mdt mb-1">Product's Quantity</div>
-                                    <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity" />
-                                </div>
-                                <div class="mt-3">
-                                    <div class="mdt mb-1">Product's Category</div>
-                                    <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category" />
-                                </div>
-                                <div>
-                                    <div class="mdt mb-1">Product's SKU</div>
-                                    <input class="w-100" name="prdsku" id="prdsku" placeholder="Product's SKU" />
-                                </div>
+                                <form action="" method="POST">
+                                    <div class="mb-3">
+                                        <div class="mdt mb-1">Product's Name</div>
+                                        <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
+                                    </div>
+                                    <div>
+                                        <div class="mdt mb-1">Product's Unit</div>
+                                        <input class="" name="prdunit" id="prdunit" placeholder="Product's name/title" />
+                                    </div>
+                                    <div class="my-3">
+                                        <div class="md mb-1">Product's Price</div>
+                                        <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price" />
+                                    </div>
+                                    <div>
+                                        <div class="mdt mb-1">Product's Description</div>
+                                        <textarea class="w-100" name="prddesc" id="prddesc" rows="4"></textarea>
+                                    </div>
+                                    <div class="my-3">
+                                        <div class="mdt mb-1">Product's Quantity</div>
+                                        <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity" />
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="mdt mb-1">Product's Category</div>
+                                        <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category" />
+                                    </div>
+                                    <div>
+                                        <div class="mdt mb-1">Product's Sub-category</div>
+                                        <input class="w-100" name="prdsub" id="prdsub" placeholder="Product's sub-category" />
+                                    </div>
+                                </form>
                             </div>
                             <div class="col-6">
                                 <div class="mdt mb-1">Product's Image</div>
@@ -210,6 +210,14 @@ require("../../core/checklogin.php");
                                         <div></div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn-lg-sc-admin w-100" type="button" name="b2" id="b2">Cancel</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1">Add new product</button>
                             </div>
                         </div>
                     </div>

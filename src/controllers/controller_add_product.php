@@ -1,31 +1,20 @@
 <?php
-session_start();
 require_once("../models/model_subcate.php");
 
-$ann_title = "";
-$ann_content = "";
-
-//kiem tra xem form da duoc submit/nhap thong tin hay chua
-if (isset($_REQUEST["b1"]) == false) {
-    $ann_title = "CAN'T ADD NEW SUB-CATEGORY!";
-    $ann_content = "You need to enter sub-category information before add new sub-category";
-    require_once("../views/includes/announce.php");
-    die();
-}
-$subname = $_REQUEST["subname"];
-$category = $_REQUEST["category"];
-$desc = $_REQUEST["desc"];
-
-$sub = new model_subcate();
-
-$ketqua = $sub->AddSubcategory($subname, $category, $desc);
-if ($ketqua == FALSE) {
-    $ann_title = "ADD NEW SUB-CATEGORY ERROR!";
-    $ann_content = "Please check the information again";
-    include_once("../views/includes/announce.php");
-} else
+if(isset($_REQUEST["b1"]) == false)
 {
-    $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
-    $ann_content = "A new sub-category is created!";
-    include_once ("../views/includes/announce.php");
+    
 }
+$name = $_REQUEST["prdname"];
+// Material
+// Jewelry type
+// Collection
+$stock = $_REQUEST["prdunit"];
+$price = $_REQUEST["prdprice"];
+$description = $_REQUEST["prddesc"];
+$qtt = $_REQUEST["prdquan"];
+$cate = $_REQUEST["prdcate"];
+$sub = $_REQUEST["prdsub"];
+
+
+?>
