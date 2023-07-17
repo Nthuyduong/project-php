@@ -1,12 +1,17 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php'); ?>
+<?php
+
+use App\Controllers\Controller_admin;
+
+define('URLROOT', 'http://localhost:8888/project-php'); ?>
 <?php
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 session_start();
+// require_once("../../controllers/controller_subcate.php");
 require_once("../../core/checklogin.php");
 require_once("../../models/model_subcate.php");
-
+require_once("../../models/model_product.php")
 
 ?>
 <!DOCTYPE html>
@@ -126,26 +131,29 @@ require_once("../../models/model_subcate.php");
     </div>
     <div class="offcanvas offcanvas-end offcavasmd" tabindex="-1" id="addsubcate" aria-labelledby="addsubcateLabel">
         <div class="offcanvas-header">
-            <div class="">
-                <div class="mb-3 db-title">ADD SUB-CATEGORY<div>
-                    </div>
-                    <div class="line"></div>
+            <h4 class="db-title">ADD SUB-CATEGORY<h4>
+        </div>
+        <div class="offcanvas-body">
+            <form name="form1" id="form1" method="POST" action="../../controllers/controller_subcate.php">
+                <div class="">
+                    <div class="mdt mb-1">Sub-category's Name</div>
+                    <input class="w-100" name="subname" id="subname" placeholder="Sub-category's name" />
                 </div>
-                <div class="offcanvas-body">
-                    <form name="form1" id="form1" method="post" action="?act=xulythem">
-                        <div class="">
-                            <div class="mdt mb-1">Sub-category's Name</div>
-                            <input class="w-100" name="subname" id="subname" placeholder="Sub-category's name" />
-                        </div>
-                        <div class="my-3">
-                            <div class="mdt mb-1">Category</div>
-                            <input class="w-100" name="category" id="category" placeholder="Choose category" />
-                        </div>
-                        <div class="">
-                            <div class="mdt mb-1">Sub-category's description</div>
-                            <textarea class="w-100" name="desc" id="desc" rows="3"></textarea>
-                        </div>
-                        <div>
+                <div class="my-3">
+                    <div class="mdt mb-1">Category</div>
+                    <select class="sl-box" name="ctg" id="ctg">
+                        <option value="" selected>Category</option>
+                        <?php
+                        $cs = new model_product();
+                        $cs->CateSelect("Sub_categories", "ID", "Category", $ctg);
+                        ?>
+                    </select>
+                </div>
+                <div class="">
+                    <div class="mdt mb-1">Sub-category's description</div>
+                    <textarea class="w-100" name="desc" id="desc" rows="3"></textarea>
+                </div>
+                <!-- <div>
                             <form class="box" method="post" action="" enctype="multipart/form-data">
                                 <div class="box__input">
                                     <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
@@ -156,19 +164,20 @@ require_once("../../models/model_subcate.php");
                                 <div class="box__success">Done!</div>
                                 <div class="box__error">Error! <span></span>.</div>
                             </form>
-                        </div>
-                        <div class="row mmt-5">
-                            <div class="col-6">
-                                <div type="" name="" id="" class="btn-lg-sc-admin">Cancel</div>
-                            </div>
-                            <div class="col-6">
-                                <div type="submit" name="b1" id="b1" class="btn-lg-pr-admin">Add product</div>
-                            </div>
-                        </div>
-                    </form>
+                        </div> -->
+                <div class="row mmt-5">
+                    <div class="col-6">
+                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin">Cancel</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin">Add Sub-category</button>
+                    </div>
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 </body>
 

@@ -24,10 +24,9 @@
                         <?= $ann_content ?>
                     </p>
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">confirm</button>
-                </div> -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Try again</button>
+                </div>
             </div>
         </div>
     </div>

@@ -36,7 +36,7 @@ class model_subcate extends Database
         $param = null;
         if($subname != "" && $category != "" && $description != "")
             $param = [$subname, $category, $description];
-        $ketqua = $this->set_query($sql);
+        $ketqua = $this->set_query($sql,$param);
         return $ketqua;
     }
 
