@@ -283,17 +283,19 @@ session_start(); ?>
                             </div>
                         </div>
                         <?php foreach ($products_line2 as $product) {  ?>
-                        <div class="col-3 card mb-9">
-                            <div class="item-card-info">
-                            <div class="card-prd">
-                                <div class="img">
-                                <a href="product-detail.php?pid=<?=$product['pid']?>">
-                                    <img src="../../../public/images/thumb/<?=$product['thumb']?>">
-                                </a>
-                                </div>
-                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                    data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
-                                        Quick view
+                            <div class="col-3 card mb-9">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                        <div class="img">
+                                            <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                                <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                            </a>
+                                        </div>
+                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                                Quick view
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php } ?>
@@ -305,17 +307,19 @@ session_start(); ?>
 
                     <div class="row cate-product">
                         <?php foreach ($products_line3 as $product) {  ?>
-                        <div class="col-3 card mb-9">
-                            <div class="item-card-info">
-                            <div class="card-prd">
-                                <div class="img">
-                                <a href="product-detail.php?pid=<?=$product['pid']?>">
-                                    <img src="../../../public/images/thumb/<?=$product['thumb']?>">
-                                </a>
-                                </div>
-                                <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                    data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
-                                        Quick view
+                            <div class="col-3 card mb-9">
+                                <div class="item-card-info">
+                                    <div class="card-prd">
+                                        <div class="img">
+                                            <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                                <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                            </a>
+                                        </div>
+                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                                Quick view
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php } ?>
