@@ -103,7 +103,7 @@ require_once("../../models/model_category.php");
                                 <div class="stt stt1">Active</div>
                             </div>
                             <div class="cell-sm">
-                                <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                                <a id="editcate" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#cate-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                                 <a href="?cate=<?= $row["U_Category"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
@@ -151,6 +151,33 @@ require_once("../../models/model_category.php");
             </form>
         </div>
     </div>
+    <!-- Category detail -->
+    <div class="modal fade" id="cate-detail" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="db-title" id="exampleModalLabel">Product Detail</div>
+                        <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                            X
+                        </div>
+                    </div>
+                    <div class="modal-body mb-3">
+                        <!-- Content will be load here -->
+                        <div id="dynamic-category">
+
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="btn-lg-sc-admin w-100">Cancel</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-lg-pr-admin w-100">Save edit</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
