@@ -17,15 +17,18 @@ $subct = null;
 
 $cate = new model_category();
 
-$ketqua = $cate->AddCategory($name, $desc, $sub);
+$ketqua = $cate->AddCategory($subct, $name);
 if ($ketqua == FALSE) {
-    $ann_title = "FAIL TO ADD NEW CATEGORY";
+    $ann_title = "SQL ERROR!";
     $ann_content = "Please check the information again";
     include_once("../views/includes/announce.php");
 }
-else
-{
-    $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
-    $ann_content = "A new category is created!";
-    include_once("../views/includes/announce.php");
+else {
+    $row = $cate->data;
+    if ($row != null) {
+        $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
+        $ann_content = "A new category is created!";
+        include_once("../views/includes/announce.php");
+    }
 }
+header("location:../views/index/admin_category.php");

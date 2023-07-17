@@ -19,10 +19,10 @@ class model_category extends Database
     }
 
     //Chuc nang them mot Category va Sub-category la mot???
-    function AddCategory($subcate, $name, $description)
+    function AddCategory($subcate, $name)
     {
-        $sql = "INSERT INTO Sub_categories VALUE(null, ?,?)";
-        $param = [$subcate, $name, $description];
+        $sql = "INSERT INTO Sub_categories VALUE(null, ?)";
+        $param = [$subcate, $name];
         $ketqua = $this->set_query($sql,$param);
         return $ketqua;
     }
