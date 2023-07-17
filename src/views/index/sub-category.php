@@ -165,7 +165,6 @@ session_start(); ?>
                         </div>
                     </div>
 
-                </div>
                 <!--ALL PRODUCT HERE-->
                 <div>
                     <div class="row cate-product">
@@ -174,19 +173,20 @@ session_start(); ?>
                         foreach ($products as $product) { ?>
                             <div class="col-3 card mb-9">
                                 <div class="item-card-info">
-                                <div class="card-prd">
-                                    <div class="img">
-                                    <a href="product-detail.php?pid=<?=$product['pid']?>">
-                                        <img src="../../../public/images/thumb/<?=$product['thumb']?>">
-                                    </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                        data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
-                                            Quick view
+                                    <div class="card-prd">
+                                        <div class="img">
+                                            <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                                <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                            </a>
+                                        </div>
+                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                                Quick view
+                                        </div>
                                     </div>
                                 </div>
-                            <?php } ?>
-                        </div>
+                            </div>
+                        <?php } ?>
                     </div>
                     <!--category-bottom-->
                     <div class="category-bottom pb-5 text-center">
