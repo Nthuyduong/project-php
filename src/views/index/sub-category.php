@@ -169,7 +169,9 @@ session_start(); ?>
                 <!--ALL PRODUCT HERE-->
                 <div>
                     <div class="row cate-product">
-                        <?php foreach ($products as $product) { ?>
+                        <?php
+                        if($products != null)
+                        foreach ($products as $product) { ?>
                             <div class="col-3 card mb-9">
                                 <div class="item-card-info">
                                 <div class="card-prd">
