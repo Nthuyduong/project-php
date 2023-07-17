@@ -82,10 +82,10 @@ class model_product extends Database
         $ketqua = $this->set_query($sql, $param);
         if($ketqua)
         {
-            $productid = $this->get_last_inserted_id();
+            // $productid = $this->get_last_inserted_id();
             $detailSQL = "INSERT INTO Product_detail (product_ID, stock) VALUE(?,?)";
-            $detailparam = [$product_ID, $stock];
-            $detailresult = $this->set_query($detailSQL, $detailparam);
+            // $detailparam = [$product_ID, $stock];
+            // $detailresult = $this->set_query($detailSQL, $detailparam);
 
 
         }
