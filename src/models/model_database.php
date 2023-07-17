@@ -15,7 +15,11 @@
             //local host: ttmh
             //$this->conn = new PDO("mysql:host=localhost;dbname=T2207E_ProjectSem2", "root", "root");
             //local host: hue
+
             // $this->conn = new PDO("mysql:host=localhost;dbname=aguri-project-db-v4", "root", "root");
+
+            // $this->conn = new PDO("mysql:host=localhost;dbname=aguri-project-db-v3", "root", "root");
+
 
             $this->conn->exec("SET NAMES UTF8");
         }
