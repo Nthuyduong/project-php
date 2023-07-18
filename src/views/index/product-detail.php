@@ -9,6 +9,7 @@ session_start();
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/fonts.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/product-detail.css">
         <link rel="stylesheet" href="<?php echo URLROOT?>/public/css/style.css">
+       
     </head>
     <body> 
         <?php  error_reporting(E_ALL); ?>
@@ -485,9 +486,26 @@ session_start();
                 </div>
                 </div>
                 <!--REVIEW-->
+                <?php
+                require_once("../../models/model_review.php");
+                $review=new model_review();
+                $kq=$review->getReviewProductById($pid);
+                if($kq==false){
+                    die("<p>ERROR CONNECT DB</p>");
+                }
+                $rows=$review->data;
+                if($rows!=null) 
+                {
+                    $countReview=count($rows);
+                    $sumRate=0;
+                    foreach($rows as $row){
+                        $sumRate+=$row["Star_rate"];
+                    }
+                    $average=$sumRate/$countReview;
+                ?>
                 <div class="review container-fluid">
                 <div class="d-flex review-start">
-                    <h3>4,9</h3>
+                    <h3><?=$average?>/5</h3>
                     <div class="d-flex mx-3 my-auto">
                     <i class="fa fa-star fa-xl pr-1"></i>
                     <i class="fa fa-star fa-xl pr-1"></i>
@@ -495,207 +513,103 @@ session_start();
                     <i class="fa fa-star fa-xl pr-1"></i>
                     <i class="fa fa-star fa-xl"></i>
                     </div>
-                    <p class="mdt my-auto">16 Reviews</p>
                 </div>
                 <div class="d-flex">
                     <div class="me-auto">
-                    <h5>Reviews</h5>
+                        <h5><?=$countReview?> Reviews</h5>
                     </div>
                     <div class="">
-                    <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
-                    <!-- Modal review -->
-                    <div class="modal fade" id="review">
-                        <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <h5 class="modal-title mb-4">Write A Review</h5>
-                            <p class="mdt">Select your rating</p>
-                            <div class="d-flex mb-5">
-                            <i class="fa fa-star fa-lg"></i>
-                            <i class="fa fa-star fa-lg"></i>
-                            <i class="fa fa-star fa-lg"></i>
-                            <i class="fa fa-star fa-lg"></i>
-                            <i class="fa fa-star fa-lg"></i>
+                        <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
+                        <!-- Modal review -->
+                        <div class="modal fade" id="review">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <h5 class="modal-title mb-4">Write A Review</h5>
+                                    <p class="mdt">Select your rating</p>
+                                    <div class="d-flex mb-5">
+                                        <i class="fa fa-star fa-lg"></i>
+                                        <i class="fa fa-star fa-lg"></i>
+                                        <i class="fa fa-star fa-lg"></i>
+                                        <i class="fa fa-star fa-lg"></i>
+                                        <i class="fa fa-star fa-lg"></i>
+                                    </div>
+                                    <label>Message (*)</label>
+                                    <textarea class="inpu" rows="4" required></textarea>
+                                    <div class="email-user">
+                                        <label>Email address</label>
+                                        <input class="inpu" type="email" required><br>
+                                    </div>
+                                    <div class="review-name">
+                                        <label>Your name</label>
+                                        <input class="inpu" type="text">
+                                    </div>
+                                    <button type="button" class="btn btn-pri" data-bs-dismiss="modal">Send</button>
+                                </div>
                             </div>
-                            <label>Message (*)</label>
-                            <textarea class="inpu" rows="4" required></textarea>
-                            <div class="email-user">
-                            <label>Email address</label>
-                            <input class="inpu" type="email" required><br>
-                            </div>
-                            <div class="review-name">
-                            <label>Your name</label>
-                            <input class="inpu" type="text">
-                            </div>
-                            <button type="button" class="btn btn-pri" data-bs-dismiss="modal">Send</button>
-                        </div>
                         </div>
                     </div>
-                    </div>
+                    
                 </div>
                 <div class="line my-3"></div>
                 <div class="d-flex select-review">
-                    <div class="me-auto">
-                    <h6>16 Reviews</h6>
-                    </div>
                     <div class="">
-                    <select class="form-select smt w-100">
-                        <option selected>Sort by: Newest</option>
-                        <option value="1">Highest Rating</option>
-                        <option value="2">Lowest Rating</option>
-                        <option value="3">Most Votes</option>
-                        <option value="3">Least Votes</option>
-                    </select>
+                        <select class="form-select smt w-100">
+                            <option selected>Sort by: Newest</option>
+                            <option value="1">Highest Rating</option>
+                            <option value="2">Lowest Rating</option>
+                            <option value="3">Most Votes</option>
+                            <option value="3">Least Votes</option>
+                        </select>
                     </div>
                 </div>
                 <div class="review-box">
+                <?php
+                foreach($rows as $row){
+                ?>
                     <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">TTThuy8x</p>
-                        <span class="smt">2022/12/02</span>
+                        <div class="review-ava">
+                            <img src="../../../public/images/product-detail/user1.png">
                         </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa-star fa"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div class="review-content w-100 ms-3">
+                            <div class="d-flex">
+                                <p class="me-auto mb10 user-name mdt"><?=$row["Name"]?></p>
+                                <span class="smt"><?=($row["Updated_at"]==null)?$row["Created_at"]:$row["Updated_at"]?></span>
+                            </div>
+                            <div>
+                                <div class="d-flex rate-start">
+                                    <?php 
+                                    $star_rate=$row["Star_rate"];
+                                    for($i=0;$i<$star_rate;$i++)
+                                    {
+                                    ?>
+                                        <i class="fa-star fa"></i>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <p class="user-cmt smt me-auto"><?=$row["Comments"]?></p>
+                            </div>
                         </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle far fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                     <div class="line mb-3"></div>
-                    <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">Nthduong98</p>
-                        <span class="smt">2022/12/02</span>
-                        </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa-solid fa-star fa"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle far fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="line mb-3"></div>
-                    <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
-                        <span class="smt">2022/12/02</span>
-                        </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle far fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="line mb-3"></div>
-                    <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
-                        <span class="smt">2022/12/02</span>
-                        </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa-star fa"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle far fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="line mb-3"></div>
-                    <div class="d-flex review-inner">
-                    <div class="review-ava">
-                        <img src="../../../public/images/product-detail/user1.png">
-                    </div>
-                    <div class="review-content w-100 ms-3">
-                        <div class="d-flex">
-                        <p class="me-auto mb10 user-name mdt">HueVT99</p>
-                        <span class="smt">2022/12/02</span>
-                        </div>
-                        <div>
-                        <div class="d-flex rate-start">
-                            <i class="fa-star fa"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        </div>
-                        <div class="d-flex">
-                        <p class="user-cmt smt me-auto">Baking time will vary if you change the pan size. Every oven is different so I can’t
-                            say for certain what you’ll need to adjust it to.</p>
-                        <div class="like-review">
-                            <i class="align-middle far fa-heart fa-lg"></i>
-                            <span class="smt ms-2">19</span>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+                <?php
+                }
+                ?>
                 </div>
-            </div>
-        </div>
-
+                <?php
+                }else{
+                        //There are no reviews yet
+                ?>
+                    <div class="d-flex review-start">
+                    <h5>There are no reviews yet</h5>
+                    </div>
+                <?php    
+                }
+                
+                ?>
+       
         <!-- modal quickview -->
         <?php require_once '../includes/quickview.php';?>
         
