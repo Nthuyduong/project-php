@@ -31,8 +31,14 @@ require_once("../../models/model_category.php");
                     <div class="row">
                         <div class="col-4">
                             <div class="search-bar d-flex">
+                                <?php
+                                if (isset($_GET['findcate'])) {
+                                    $findsubctValue = $_GET['findcate'];
+                                    // Now you can use the value of $findsubctValue as needed
+                                }
+                                ?>
                                 <form action="" method="GET" class="w-100">
-                                    <input class="search-input w-100" type="text" id="findcate" name="findcate" placeholder="Enter category name..." />
+                                    <input class="search-input w-100" type="text" id="findcate" name="findcate" placeholder="<?php echo isset($_GET['findcate']) ? $_GET['findcate'] : 'Enter category name...'; ?>" />
                                 </form>
                             </div>
                         </div>
@@ -76,8 +82,8 @@ require_once("../../models/model_category.php");
                         <div class="cell-sm">
                             CATEGORY
                         </div>
-                        <div class="cell-md">
-                            DESCRIPTION
+                        <div class="cell-md alg-center">
+                            SUB-CATEGORY
                         </div>
                         <div class="cell alg-center">
                             STATUS
@@ -98,12 +104,14 @@ require_once("../../models/model_category.php");
                             <div class="cell-sm">
                                 <a href="admin_subcate.php?catename=<?= $row["U_Category"] ?>"><?= $row["U_Category"] ?></a>
                             </div>
-                            <div class="cell-md">Sub-category's description will goes here. Some text will goes here</div>
+                            <div class="cell-md alg-center">
+                                <?= $row["Sub_Count"] ?>
+                            </div>
                             <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>
                             </div>
-                            <div class="cell-sm">
-                                <a id="editcate" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#cate-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                            <div class="cell-sm stt-out">
+                                <a id="editcate" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#cate-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                                 <a href="?cate=<?= $row["U_Category"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
@@ -153,31 +161,31 @@ require_once("../../models/model_category.php");
     </div>
     <!-- Category detail -->
     <div class="modal fade" id="cate-detail" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="db-title" id="exampleModalLabel">Category Detail</div>
-                        <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
-                            X
-                        </div>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="db-title" id="exampleModalLabel">Category Detail</div>
+                    <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                        X
                     </div>
-                    <div class="modal-body mb-3">
-                        <!-- Content will be load here -->
-                        <div id="dynamic-category">
+                </div>
+                <div class="modal-body mb-3">
+                    <!-- Content will be load here -->
+                    <div id="dynamic-category">
 
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="btn-lg-sc-admin w-100">Cancel</div>
                         </div>
-                        <div class="row mt-5">
-                            <div class="col-6">
-                                <div class="btn-lg-sc-admin w-100">Cancel</div>
-                            </div>
-                            <div class="col-6">
-                                <div class="btn-lg-pr-admin w-100">Save edit</div>
-                            </div>
+                        <div class="col-6">
+                            <div class="btn-lg-pr-admin w-100">Save edit</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
