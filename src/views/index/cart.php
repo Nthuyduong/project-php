@@ -18,15 +18,14 @@ session_start();?>
         <?php require("../../models/model_order_ex.php"); ?>
 
         <div class="container-fluid shopping-bag">
-            <?php if (isset($_SESSION['uid'])==FALSE) { ?>
+            <?php if (isset($_SESSION["user_id"])==FALSE) { ?>
                 <div class="my-4">
                     <h4>Please signin/ signup to see your shopping cart.</h4>
                     <a href="home.php">Back to homepage</a>
                 </div>
             <?php } else { ?>
                 <?php 
-                    $uid = $_SESSION['uid']; 
-                    // $uid = 25; // test with uid = 25
+                    $uid = $_SESSION["user_id"]; 
                     $OrderDB = new Order();
                     $getCartProducts = $OrderDB -> getCartProducts($uid);
                     if ($getCartProducts==false) {
@@ -38,7 +37,7 @@ session_start();?>
                 <h4 class="my-4">Shopping Bag</h4>
                     <?php if (count($cartProducts)==0) { ?>
                         <div class="my-4">
-                            <h4>Your shopping cart is empty.</h4>
+                            <h4>Your shopping bag is empty.</h4>
                             <a href="home.php">Back to homepage</a>
                         </div>
                     <?php } else { ?>
@@ -77,6 +76,7 @@ session_start();?>
                                     <div class="col">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </div>
+                                    <div class="line my-3"></div>
                                 </div>
                             <?php } ?>
                             
