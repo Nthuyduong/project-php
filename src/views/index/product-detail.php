@@ -623,7 +623,7 @@ session_start();
                                     <input type="hidden" name="cid" id="cid" value="<?=$_SESSION["user_id"]?>">
 
                                 </div>
-                                <button name="b1" type="submit" class="btn btn-pri btnReview" data-bs-dismiss="modal">Send</button>
+                                <button name="b1" type="submit" class="btn btn-pri btnReview">Send</button>
     
                                 </div>
                         </div>
