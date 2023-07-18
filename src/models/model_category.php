@@ -5,7 +5,7 @@ class model_category extends Database
     public $data;
     function __construct()
     {
-        parent:: __construct();
+        parent::__construct();
         $this->data = NULL;
     }
 
@@ -13,7 +13,7 @@ class model_category extends Database
     {
         $sql = "SELECT s.Category AS U_Category FROM Sub_categories s GROUP BY s.Category";
         $ketqua = $this->set_query($sql);
-        if($ketqua == true)
+        if ($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
@@ -21,9 +21,9 @@ class model_category extends Database
     //Chuc nang them mot Category va Sub-category la mot???
     function AddCategory($subcate, $name)
     {
-        $sql = "INSERT INTO Sub_categories VALUE(null, ?)";
+        $sql = "INSERT INTO Sub_categories VALUE(?, ?)";
         $param = [$subcate, $name];
-        $ketqua = $this->set_query($sql,$param);
+        $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }
 
@@ -39,11 +39,15 @@ class model_category extends Database
     //Search category by name
     function SearchCategory($keyword)
     {
-        $sql = "SELECT s.Category AS U_Category FROM Sub_categories s WHERE Category LIKE '%$keyword%' GROUP BY s.Category";
+        $sql = "SELECT 
+    COUNT(s.Name) AS Sub_Count,
+    s.Category AS U_Category
+    FROM Sub_categories s
+    WHERE Category LIKE '%$keyword%'
+    GROUP BY s.Category;";
         $ketqua = $this->set_query($sql);
-        if($ketqua == true)
+        if ($ketqua == true)
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
 }
-?>

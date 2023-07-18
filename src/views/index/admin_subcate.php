@@ -32,16 +32,28 @@ require_once("../../models/model_product.php")
         <?php require '../includes/ad-header.php' ?>
         <!-- THIS IS ALL CONTENT -->
         <div>
+            <?php
+            if (isset($_GET['catename'])) {
+                $catename = $_GET['catename'];
+                $uppercaseCatename = strtoupper($catename);
+            }
+            ?>
             <!-- Product here -->
-            <div class="db-title mt-4">SUB-CATEGORY</div>
+            <div class="db-title mt-4 mb-2"><?php echo $uppercaseCatename ?> SUB-CATEGORY</div>
             <p>Have a nice day!</p>
-            <div class="my-3">
+            <div class="my-4">
                 <div>
                     <div class="row">
                         <div class="col-4">
                             <div className="search-bar d-flex">
+                                <?php
+                                if (isset($_GET['findsubct'])) {
+                                    $findsubctValue = $_GET['findsubct'];
+                                    // Now you can use the value of $findsubctValue as needed
+                                }
+                                ?>
                                 <form action="" method="GET" class="">
-                                    <input class="search-input w-100" type="text" id="findsubct" name="findsubct" placeholder="Search text..." />
+                                    <input class="search-input w-100" type="text" id="findsubct" name="findsubct" placeholder="<?php echo isset($_GET['findsubct']) ? $_GET['findsubct'] : 'Enter sub-category name...'; ?>" />
                                     <FontAwesomeIcon class="icon-search" icon={faSearch} />
                                 </form>
                             </div>
@@ -83,7 +95,7 @@ require_once("../../models/model_product.php")
                             ID
                         </div>
                         <div class="cell">
-                            SUB-CATEGORY'S NAME
+                            SUB-CATEGORY
                         </div>
                         <div class="cell alg-center">
                             CATEGORY
@@ -105,7 +117,7 @@ require_once("../../models/model_product.php")
                             </div>
                             <div class="cell-sm"><?= $row["ID"] ?></div>
                             <div class="cell"><?= $row["Name"] ?></div>
-                            <div class="cell"><?= $row["Category"] ?></div>
+                            <div class="cell alg-center"><?= $row["Category"] ?></div>
                             <div class="cell-md">Description about sub-category goes here</div>
                             <div class="cell stt-out">
                                 <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
@@ -116,7 +128,7 @@ require_once("../../models/model_product.php")
                         }
                     ?>
                 </div>
-                <div class="d-flex pgn">
+                <!-- <div class="d-flex pgn">
                     <div class="me-auto">Showing 8 of 100</div>
                     <div class="pagination">
                         <a href="#">&laquo;</a>
@@ -125,7 +137,7 @@ require_once("../../models/model_product.php")
                         <a href="#">3</a>
                         <a href="#">&raquo;</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

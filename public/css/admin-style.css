@@ -2,6 +2,9 @@ body{
   background-color: #121317 !important;
   color: #fff !important;
 }
+.offcancas-body{
+  padding: 30px !important;
+}
 .offcanvas{
   background-color: #121317 !important;
 }

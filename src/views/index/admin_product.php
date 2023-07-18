@@ -150,7 +150,7 @@ require("../../core/checklogin.php");
                                     </div>
                                     <div>
                                         <div class="mdt mb-1">Product's Unit</div>
-                                        <input class="" name="prdunit" id="prdunit" placeholder="Product's name/title" />
+                                        <!-- select box -->
                                     </div>
                                     <div class="my-3">
                                         <div class="md mb-1">Product's Price</div>
@@ -165,16 +165,24 @@ require("../../core/checklogin.php");
                                         <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity" />
                                     </div>
                                     <div class="mt-3">
-                                        <div class="mdt mb-1">Product's Category</div>
-                                        <input class="w-100" name="prdcate" id="prdcate" placeholder="Product's category" />
+                                        <div class="mdt mb-1">Material</div>
+                                        <input class="w-100" name="prdcate" id="prdcate" placeholder="Material" />
                                     </div>
                                     <div>
-                                        <div class="mdt mb-1">Product's Sub-category</div>
-                                        <input class="w-100" name="prdsub" id="prdsub" placeholder="Product's sub-category" />
+                                        <div class="mdt mb-1">Jewelry Type</div>
+                                        <input class="w-100" name="prdsub" id="prdsub" placeholder="Jewelry type" />
                                     </div>
                                 </form>
                             </div>
                             <div class="col-6">
+                                <div>
+                                    <div class="mdt mb-1">Product's Sub-category</div>
+                                    <input class="w-100" name="prdsub" id="prdsub" placeholder="Product's sub-category" />
+                                </div>
+                                <div>
+                                    <div class="mdt mb-1">Product's Sub-category</div>
+                                    <input class="w-100" name="prdsub" id="prdsub" placeholder="Product's sub-category" />
+                                </div>
                                 <div class="mdt mb-1">Product's Image</div>
                                 <div class="drag-drop">
                                     <input type="file" id="file-input" />
