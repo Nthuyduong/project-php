@@ -197,13 +197,13 @@ session_start();
                             </div>
                             </div>
                             <div class="bag">
-                            <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" data-bs-target="#addToBag"
-                                data-id="<?=$pid?>" id="addProduct">
+                            <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" 
+                                data-bs-target="#addToBag" onclick="addToBag(<?=$pid?>)">
                                     Add to bag
                             </button>
                         
                             <!--OFFCANVAS ADD BAG-->
-                            <div class="offcanvas offcanvas-end" id="addToBag">
+                            <!-- <div class="offcanvas offcanvas-end" id="addToBag">
                                 <div class="offcanvas-header">
                                     <h5 class="offcanvas-title mt-3">Shopping Bag</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -211,7 +211,7 @@ session_start();
                                 <div class="offcanvas-body" id="bag-body">
                                 
                                 </div>
-                            </div>
+                            </div> -->
                             </div>
 
                             <div class="ask-advisor">
@@ -698,6 +698,9 @@ session_start();
 
         <!-- modal quickview -->
         <?php require_once '../includes/quickview.php';?>
+
+        <!-- modal quickview -->
+        <?php require_once '../includes/offcanvas-bag.php';?>
         
         <div>
             <?php require_once '../includes/footer.php';?>
@@ -759,32 +762,23 @@ session_start();
             }
 
             // add to bag
-            $(document).ready(function(){
-                $(document).on('click', '#addProduct', (e) => {
-                    e.preventDefault();
-                    var pid = $(this).data('id');   // it will get id of clicked row
-                    $('#bag-bodyt').html(''); // leave it blank before ajax call
-                    // $('#modal-loader').show();      // load ajax loader
-                    $.ajax({
-                        url: '../includes/offcanvas-bag.php',
-                        type: 'POST',
-                        data: 'id='+pid,
-                        dataType: 'html'
-                    })
-                    .done(function(data){
-                        console.log(data);	
-                        $('#bag-body').html('');    
-                        $('#bag-body').html(data); // load response 
-                        // $('#modal-loader').hide();		  // hide ajax loader	
-                    })
-                    .fail(function(){
-                        $('#bag-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-                        // $('#modal-loader').hide();
-                    });
-                    
-                });
-                
-            });
+            // $(document).ready(function(){
+            //     $(document).on('click', '#addBag', (e) => {
+            //         e.preventDefault();
+            //         var pid = $(this).data('id');   // it will get id of clicked product
+            //         $.ajax({
+            //             url: 'addBagAJAX.php',
+            //             type: 'POST',
+            //             data: { pid: pid },
+            //             success: function(response) {
+
+            //             },
+            //             error: function(xhr, status, error) {
+            //                 console.error(xhr.responseText); // Log any errors
+            //             }
+            //         });
+            //     });
+            // });
         </script>
     </body>
 </html>
