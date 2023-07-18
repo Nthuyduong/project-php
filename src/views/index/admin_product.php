@@ -36,7 +36,7 @@ require("../../core/checklogin.php");
                         <div class="col-3">
                             <div className="search-bar d-flex">
                                 <!-- <form action="" method="GET"> -->
-                                <input id="findProduct" name="findProduct" class="black search-input w-100" type="text" placeholder="Enter prodcut name..." />
+                                <input id="findProduct" name="findProduct" class="search-input w-100" type="text" placeholder="<?php echo isset($_GET['findProduct']) ? $_GET['findProduct'] : 'Enter product name...'; ?>" />
                                 <FontAwesomeIcon class="icon-search" icon={faSearch} />
                                 <!-- </form> -->
                             </div>
