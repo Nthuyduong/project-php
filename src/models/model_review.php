@@ -22,6 +22,12 @@ class model_review extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
+    function addReview($pid,$customerID,$commemt,$rating){
+        $sql="INSERT INTO Reviews(Product_ID,Customer_ID,Comments,Star_rate) VALUE (?,?,?,?)";
+        $param=[$pid,$customerID,$commemt,$rating];
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
    
 }
 ?>

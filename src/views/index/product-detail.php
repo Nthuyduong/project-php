@@ -502,10 +502,11 @@ session_start();
                         $sumRate+=$row["Star_rate"];
                     }
                     $average=$sumRate/$countReview;
+                    $averageFormat = number_format($average, 2);
                 ?>
                 <div class="review container-fluid">
                 <div class="d-flex review-start">
-                    <h3><?=$average?>/5</h3>
+                    <h3><?=$averageFormat?> /5</h3>
                     <div class="d-flex mx-3 my-auto">
                     <i class="fa fa-star fa-xl pr-1"></i>
                     <i class="fa fa-star fa-xl pr-1"></i>
@@ -520,33 +521,7 @@ session_start();
                     </div>
                     <div class="">
                         <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
-                        <!-- Modal review -->
-                        <div class="modal fade" id="review">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <h5 class="modal-title mb-4">Write A Review</h5>
-                                    <p class="mdt">Select your rating</p>
-                                    <div class="d-flex mb-5">
-                                        <i class="fa fa-star fa-lg"></i>
-                                        <i class="fa fa-star fa-lg"></i>
-                                        <i class="fa fa-star fa-lg"></i>
-                                        <i class="fa fa-star fa-lg"></i>
-                                        <i class="fa fa-star fa-lg"></i>
-                                    </div>
-                                    <label>Message (*)</label>
-                                    <textarea class="inpu" rows="4" required></textarea>
-                                    <div class="email-user">
-                                        <label>Email address</label>
-                                        <input class="inpu" type="email" required><br>
-                                    </div>
-                                    <div class="review-name">
-                                        <label>Your name</label>
-                                        <input class="inpu" type="text">
-                                    </div>
-                                    <button type="button" class="btn btn-pri" data-bs-dismiss="modal">Send</button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                 </div>
@@ -600,15 +575,60 @@ session_start();
                 </div>
                 <?php
                 }else{
-                        //There are no reviews yet
                 ?>
                     <div class="d-flex review-start">
                     <h5>There are no reviews yet</h5>
                     </div>
+                    <!-- OPEN Modal ADD REVIEW - css lại -->
+                    <div style ="text-align: center;">
+                        
+                        <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
+
+                    </div>
+                    <!-- END  Modal ADD REVIEW -->
                 <?php    
                 }
-                
                 ?>
+                <!-- Modal review -->
+                <div class="modal fade" id="review">
+                    <form method="post" name="frmAddReview" id="frmAddReview" action="../../controllers/controller_add_review.php">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <h5 class="modal-title mb-4">Write A Review</h5>
+                                <p class="mdt">Select your rating</p>
+                                <div class="rating-stars">
+                                    <input type="radio" name="rating" id="star-5" value="1">
+                                    <label for="star-5">&#9733;</label>
+                                    <input type="radio" name="rating" id="star-4" value="2">
+                                    <label for="star-4">&#9733;</label>
+                                    <input type="radio" name="rating" id="star-3" value="3">
+                                    <label for="star-3">&#9733;</label>
+                                    <input type="radio" name="rating" id="star-2" value="4">
+                                    <label for="star-2">&#9733;</label>
+                                    <input type="radio" name="rating" id="star-1" value="5">
+                                    <label for="star-1">&#9733;</label>
+                                </div>
+                                <label>Message (*)</label>
+                                <textarea name="message" class="inpu" rows="4" required></textarea>
+                                <div class="email-user">
+                                    <label>Email address</label>
+                                    <input class="inpu" type="email" value="<?=$_SESSION["user_email"]?>" required disabled><br>
+                                </div>
+                                <div class="review-name">
+                                    <label>Your name</label>
+                                    <input class="inpu" type="text" value="<?=$_SESSION["user_name"]?>" required disabled>
+                                </div>
+                                <div>
+                                    <input type="hidden" name="pid" id="pid" value="<?=$pid?>">
+                                    <input type="hidden" name="cid" id="cid" value="<?=$_SESSION["user_id"]?>">
+
+                                </div>
+                                <button name="b1" type="submit" class="btn btn-pri btnReview" data-bs-dismiss="modal">Send</button>
+    
+                                </div>
+                        </div>
+                    </form>
+                </div>
        
         <!-- modal quickview -->
         <?php require_once '../includes/quickview.php';?>
@@ -700,5 +720,6 @@ session_start();
                 
             });
         </script>
+
     </body>
 </html>
