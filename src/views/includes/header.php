@@ -64,11 +64,14 @@ session_start();
                     <!--top-page-right-->
                     <div class="col-3 top-page-end">
                         <ul class="d-flex justify-content-end">
-                            <div class="pe-3">
+                            <!-- <div class="pe-3">
                                 <li class="py-1"><i class="fa fa-shopping-cart fa-lg" data-bs-toggle="offcanvas" data-bs-target="#addbag"></i></li>
+                            </div> -->
+                            <div class="pe-3">
+                                <li class="py-1"><i class="fa fa-shopping-cart fa-lg" onclick="goToCart()"></i></li>
                             </div>
-                            <!--search-button-start-->
 
+                            <!--search-button-start-->
                             <div class=" search-box">
                                 <input type="text" name="keywordprd" placeholder="search...">
                                 <a href="search.php" class="iconsearch">
@@ -76,6 +79,7 @@ session_start();
                                 </a>
                             </div>
                             <!--search-button-end-->
+                            
                             <?php
                             if ($_SESSION["logined_user"] == "OK") {
                             ?>
@@ -169,6 +173,10 @@ session_start();
                 document.getElementById("headnav").style.top = "-150px";
             }
             prevScrollpos = currentScrollPos;
+        }
+
+        function goToCart() {
+            window.location.href = "cart.php";
         }
     </script>
 
