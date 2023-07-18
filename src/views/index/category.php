@@ -192,15 +192,15 @@ session_start(); ?>
                         ?>
                             <div class="col-3 card mb-9">
                                 <div class="item-card-info">
-                                <div class="card-prd">
-                                    <div class="img">
-                                    <a href="product-detail.php?pid=<?=$product['pid']?>">
-                                        <img src="../../../public/images/thumb/<?=$product['thumb']?>">
-                                    </a>
-                                    </div>
-                                    <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                        data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
-                                            Quick view
+                                    <div class="card-prd">
+                                        <div class="img">
+                                            <a href="product-detail.php?pid=<?=$product['pid']?>">
+                                                <img src="../../../public/images/thumb/<?=$product['thumb']?>">
+                                            </a>
+                                        </div>
+                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
+                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                                Quick view
                                         </div>
                                     </div>
                                     <div class="item-inf text-center mt-2">
@@ -296,6 +296,10 @@ session_start(); ?>
                                                 Quick view
                                         </div>
                                     </div>
+                                    <div class="item-inf text-center mt-2">
+                                        <p class="decor-text mb-1"><?= $product['pname'] ?></p>
+                                        <p class="smt item-price">$<?= number_format($product['price'], 0, '.', '.') ?></p>
+                                    </div>
                                 </div>
                             </div>
                         <?php } ?>
@@ -319,6 +323,10 @@ session_start(); ?>
                                             data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
                                                 Quick view
                                         </div>
+                                    </div>
+                                    <div class="item-inf text-center mt-2">
+                                        <p class="decor-text mb-1"><?= $product['pname'] ?></p>
+                                        <p class="smt item-price">$<?= number_format($product['price'], 0, '.', '.') ?></p>
                                     </div>
                                 </div>
                             </div>
