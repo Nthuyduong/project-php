@@ -20,8 +20,8 @@
             success: function(response) {
                 console.log('quickviewInfo:', response); // Log the value of quickviewInfo received from the server
                 // Update the quickviewProduct element with the received data
-                var compare = document.getElementById('quickviewProduct');
-                compare.innerHTML = `
+                var quickview = document.getElementById('quickviewProduct');
+                quickview.innerHTML = `
                     <div class="row">
                         <div class="col-7 ps-0">
                             <!--Carousel quick view product-->
