@@ -72,9 +72,8 @@ session_start();
                             </div>
 
                             <!--search-button-start-->
-                            <div class=" search-box">
-                                <input type="text" name="keywordprd" placeholder="search...">
-                                <a href="search.php" class="iconsearch">
+                            <div class="mt-1">
+                                <a href="search.php">
                                     <i class="fa fa-search fa-lg"></i>
                                 </a>
                             </div>

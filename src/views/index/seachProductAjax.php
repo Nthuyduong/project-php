@@ -16,7 +16,7 @@
         }else{
         $countProduct=count($rows);
         ?>
-        <h5 id="search-result" class="text-center"><?=$countProduct?> RESULTS FOR "<?=$keyword?>" REVEALED THE FOLLOWING:</h5>
+        <h5 id="search-result" class="text-center my-5"><?=$countProduct?> RESULTS FOR "<?=$keyword?>" REVEALED THE FOLLOWING:</h5>
         <?php
         foreach($rows as $row) {
         ?>
