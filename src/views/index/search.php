@@ -24,7 +24,7 @@ session_start();
             <div class="col-6">
                 <div class="d-flex">
                     <input class="inpu" type="text" name="keyword" id="keyword" placeholder="Enter product name..." value="<?= $_SESSION["keywordprd"] ?>">
-                    <i class="fa fa-search fa-lg"></i>
+                    <i class="fa fa-search fa-lg" id="iconSearch" onclick="timkiemAJAX()"></i>
                 </div>
             </div>
             <div class="col-3">
@@ -69,14 +69,10 @@ session_start();
                 }
             });
         }
-        //$(document).ready(function(){...} ); để đảm bảo các lệnh chỉ thực hiện khi nội dung web đã tải xong   
-        $(document).ready(function() {
-            $("#keyword").keypress(function(event) {
-                
-                if (event.keyCode === 13) {
-                    timkiemAJAX();
-                }
-            });
+        $("#keyword").keypress(function(event) {
+            if (event.keyCode === 13) {
+                timkiemAJAX();
+            }
         });
     </script>
 </body>

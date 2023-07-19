@@ -520,8 +520,15 @@ session_start();
                         <h5><?=$countReview?> Reviews</h5>
                     </div>
                     <div class="">
+                    <?php
+                        if(isset($_SESSION["logined_user"])==false || $_SESSION["logined_user"]==""){
+                            echo "<h6> Sign in to write a review</h6>";
+                        }else{
+                        ?>
                         <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
-                        
+                        <?php
+                        }
+                        ?>
                     </div>
                     
                 </div>
@@ -581,9 +588,15 @@ session_start();
                     </div>
                     <!-- OPEN Modal ADD REVIEW - css lại -->
                     <div style ="text-align: center;">
-                        
+                        <?php
+                        if(isset($_SESSION["logined_user"])==false || $_SESSION["logined_user"]==""){
+                            echo "<h6> Sign in to write a review</h6>";
+                        }else{
+                        ?>
                         <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
-
+                        <?php
+                        }
+                        ?>
                     </div>
                     <!-- END  Modal ADD REVIEW -->
                 <?php    
@@ -597,15 +610,15 @@ session_start();
                                 <h5 class="modal-title mb-4">Write A Review</h5>
                                 <p class="mdt">Select your rating</p>
                                 <div class="rating-stars">
-                                    <input type="radio" name="rating" id="star-5" value="1">
+                                    <input type="radio" name="rating" id="star-5" value="5">
                                     <label for="star-5">&#9733;</label>
-                                    <input type="radio" name="rating" id="star-4" value="2">
+                                    <input type="radio" name="rating" id="star-4" value="4">
                                     <label for="star-4">&#9733;</label>
                                     <input type="radio" name="rating" id="star-3" value="3">
                                     <label for="star-3">&#9733;</label>
-                                    <input type="radio" name="rating" id="star-2" value="4">
+                                    <input type="radio" name="rating" id="star-2" value="2">
                                     <label for="star-2">&#9733;</label>
-                                    <input type="radio" name="rating" id="star-1" value="5">
+                                    <input type="radio" name="rating" id="star-1" value="1">
                                     <label for="star-1">&#9733;</label>
                                 </div>
                                 <label>Message (*)</label>
