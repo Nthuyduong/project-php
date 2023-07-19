@@ -4,8 +4,6 @@ require_once '../../models/model_order_ex.php';
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $connection = new Database();
-    
     // Check if the user is authenticated and the user ID is available in the session
     session_start();
     if (!isset($_SESSION['user_id'])) {
@@ -28,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $orderDB = new Order();
     
     // Check if the product is already in the bag
-    $isInBag = $orderDB->isInBag($uid, $pid, $size);
+    $isInBag = $orderDB->isInBag($uid, $pid); // $size
     if ($isInBag == false) {
         echo ("<p>Fail to connect database!!</p>");
         die();
@@ -44,16 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     $openOrderData = $orderDB->data;
+
+    echo json_encode(['isExist' => $isExist, 'openOrderData' => $openOrderData]);
     
     if ($openOrderData) {
         if ($isExist) {
             // Product is already in the bag, update the quantity
-            $existingQuantity = $isExist[0]['Quantity'];
+            $existingQuantity = $isExist['Quantity'];
             $newQuantity = $existingQuantity + $quantity;
         
             // Update the quantity in the Order_items table
             $updateQuery = "UPDATE Order_items SET Quantity = ? WHERE Product_ID = ? AND Order_code = ?";
-            $updateParams = [$newQuantity, $pid, $openOrderData[0]['Code']];
+            $updateParams = [$newQuantity, $pid, $openOrderData['Code']];
             $updateResult = $orderDB->set_query($updateQuery, $updateParams);
         
             // Check if the update was successful
@@ -65,41 +65,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // echo json_encode(['error' => 'Failed to update the quantity in the bag.'], $isExist, $openOrderData);
                 // Return an error response
                 echo json_encode(['error' => 'Failed to update the quantity in the bag.']);
-                echo json_decode(['isExist' => $isExist, 'openOrderData' => $openOrderData]);
-                echo json_decode(['pid' => $pid, 'code' => $openOrderData[0]['Code'], 'quantity' => $newQuantity]);
+                echo json_encode(['isExist' => $isExist, 'openOrderData' => $openOrderData]);
+                echo json_encode(['pid' => $pid, 'code' => $openOrderData['Code'], 'quantity' => $newQuantity]);
             }
         } else {
             // Product is not in the bag, insert a new record into the Order_items table
             $insertQuery = "INSERT INTO Order_items (Order_code, Product_ID, Quantity, Price, Size) VALUES (?, ?, ?, ?, ?)";
-            $insertParams = [$openOrderData[0]['Code'], $pid, $quantity, $price, $size];
+            $insertParams = [$openOrderData['Code'], $pid, $quantity, $price, $size];
             $insertResult = $orderDB->set_query($insertQuery, $insertParams);
-            // update grand total
-            $newGrandTotal = $openOrderData[0]['Grand_total'] + $price * $quantity;
-            $updateGrandTotalQuery = "UPDATE Orders SET Grand_total = ? WHERE Code = ?";
-            $updateGrandTotalParams = [$newGrandTotal, $openOrderData[0]['Code']];
-            $updateGrandTotalResult = $orderDB->set_query($updateGrandTotalQuery, $updateGrandTotalParams);
         
             // Check if the insert was successful
-            if ($insertResult && $updateGrandTotalResult) {
+            if ($insertResult) {
                 // Return a success response
-                echo json_encode(['success' => true]);
-                echo json_decode(['insertParams' => $insertParams, 'updateGrandTotalParams' => $updateGrandTotalParams]);
-                echo json_decode(['oldGrandTotal' => $openOrderData[0]['Grand_total'], 'price' => $price, 'quantity' => $quantity]);
+                echo json_encode(['success' => true, 'insertParams' => $insertParams]);
             } else {
                 // Return an error response
-                echo json_encode(['error' => 'Failed to insert the product into the order.']);
-                echo json_decode(['insertParams' => $insertParams, 'updateGrandTotalParams' => $updateGrandTotalParams]);
-                echo json_decode(['oldGrandTotal' => $openOrderData[0]['Grand_total'], 'price' => $price, 'quantity' => $quantity]);
+                echo json_encode(['error' => 'Failed to insert the product into the order.', 'insertParams' => $insertParams]);
             }
+        }
+        // update grand total
+        $newGrandTotal = $openOrderData['Grand_total'] + $price * $quantity;
+        $updateGrandTotalQuery = "UPDATE Orders SET Grand_total = ? WHERE Code = ?";
+        $updateGrandTotalParams = [$newGrandTotal, $openOrderData['Code']];
+        $updateGrandTotalResult = $orderDB->set_query($updateGrandTotalQuery, $updateGrandTotalParams);
+        if ($updateGrandTotalResult) {
+            // Return a success response
+            echo json_encode(['success' => true]);
+            echo json_encode(['updateGrandTotalParams' => $updateGrandTotalParams]);
+            echo json_encode(['oldGrandTotal' => $openOrderData['Grand_total'], 'price' => $price, 'quantity' => $quantity]);
+        } else {
+            // Return an error response
+            echo json_encode(['error' => 'Failed to insert the product into the order.']);
+            echo json_encode(['updateGrandTotalParams' => $updateGrandTotalParams]);
+            echo json_encode(['oldGrandTotal' => $openOrderData['Grand_total'], 'price' => $price, 'quantity' => $quantity]);
         }
     } else {
         // Product is not in the bag, create a new order and insert a new record into the Order_items table
-        $insertOrderQuery = "INSERT INTO Orders (Customer_ID, Status) VALUES (?, 0)";
-        $insertOrderParams = [$uid];
+        $insertOrderQuery = "INSERT INTO Orders (Customer_ID, Grand_total, Status) VALUES (?, ?, ?)";
+        $insertOrderParams = [$uid, $price*$quantity, 0];
         $insertOrderResult = $orderDB->set_query($insertOrderQuery, $insertOrderParams);
         
         // Get the newly inserted order code
-        $newOrderCode = $connection->conn->lastInsertId();
+        $newOrderCode = $orderDB->conn->lastInsertId();
         
         // Insert a new record into the Order_items table
         $insertOrderItemQuery = "INSERT INTO Order_items (Order_code, Product_ID, Quantity, Price, Size) VALUES (?, ?, ?, ?, ?)";
@@ -110,9 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($insertOrderResult && $insertOrderItemResult) {
             // Return a success response
             echo json_encode(['success' => true]);
+            echo json_encode(['insertOrderResult' => $insertOrderResult, 'insertOrderItemResult' => $insertOrderItemResult]);
+            echo json_encode(['insertOrderParams' => $insertOrderParams, 'insertOrderItemParams' => $insertOrderItemParams]);
         } else {
             // Return an error response
             echo json_encode(['error' => 'Failed to insert the product into the order.']);
+            echo json_encode(['insertOrderResult' => $insertOrderResult, 'insertOrderItemResult' => $insertOrderItemResult]);
+            echo json_encode(['insertOrderParams' => $insertOrderParams, 'insertOrderItemParams' => $insertOrderItemParams]);
         }
     }
 } else {

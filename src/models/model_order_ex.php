@@ -33,11 +33,11 @@ class Order extends Database {
     }
 
     // check if a product is in cart
-    function isInBag($uid, $pid, $size) {
+    function isInBag($uid, $pid) { //$size
         $sql = "SELECT * FROM Order_items tb1 
             LEFT JOIN Orders tb2 ON tb1.Order_code = tb2.Code 
-            WHERE tb2.Customer_ID = ? AND tb2.Status = 0 AND tb1.Product_ID = ? AND tb1.Size = ?";
-		$params = [$uid, $pid, $size];
+            WHERE tb2.Customer_ID = ? AND tb2.Status = 0 AND tb1.Product_ID = ?"; // AND tb1.Size = ?
+		$params = [$uid, $pid]; // $size
  		$result = $this -> set_query($sql, $params);
 		if ($result == true)
 			$this->data = $this->pdo_stm -> fetch();

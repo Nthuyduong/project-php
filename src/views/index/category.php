@@ -1,5 +1,8 @@
-<?php define('URLROOT', 'http://localhost:8888/project-php');
-session_start(); ?>
+<?php 
+define('URLROOT', 'http://localhost:8888/project-php');
+session_start(); 
+$uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+?>
 <!DOCTYPE html>
 <html>
 
@@ -199,7 +202,7 @@ session_start(); ?>
                                             </a>
                                         </div>
                                         <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                            data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$product['pid']?>)">
                                                 Quick view
                                         </div>
                                     </div>
@@ -292,7 +295,7 @@ session_start(); ?>
                                             </a>
                                         </div>
                                         <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                            data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$product['pid']?>)">
                                                 Quick view
                                         </div>
                                     </div>
@@ -320,7 +323,7 @@ session_start(); ?>
                                             </a>
                                         </div>
                                         <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                            data-bs-target="#quickview" onclick="quickview(<?=$product['pid']?>)">
+                                            data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$product['pid']?>)">
                                                 Quick view
                                         </div>
                                     </div>
@@ -346,7 +349,8 @@ session_start(); ?>
         </div>
     </div>
         <!-- modal quickview -->
-        <?php require_once '../includes/quickview.php';?>
+        <?php require_once '../includes/quickviewAJAX.php';?>
+        <?php require_once '../includes/addBagAJAX.php';?>
 
         <div>
             <?php require_once '../includes/footer.php';?>

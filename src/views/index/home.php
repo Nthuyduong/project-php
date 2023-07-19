@@ -1,5 +1,6 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); 
 session_start();
+$uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -137,7 +138,7 @@ session_start();
                                                     </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                                 </div>
@@ -158,7 +159,7 @@ session_start();
                                                     </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                                 </div>
@@ -179,7 +180,7 @@ session_start();
                                                     </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                                 </div>
@@ -297,7 +298,7 @@ session_start();
                                                 </a>
                                             </div>
                                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                data-bs-target="#quickview" onclick="quickview(<?=$bestSeller['pid']?>)">
+                                                data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$bestSeller['pid']?>)">
                                                     Quick view
                                             </div>
                                             </div>
@@ -322,7 +323,7 @@ session_start();
                                                 </a>
                                             </div>
                                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                data-bs-target="#quickview" onclick="quickview(<?=$bestSeller['pid']?>)">
+                                                data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$bestSeller['pid']?>)">
                                                     Quick view
                                             </div>
                                             </div>
@@ -347,7 +348,7 @@ session_start();
                                                 </a>
                                             </div>
                                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                data-bs-target="#quickview" onclick="quickview(<?=$bestSeller['pid']?>)">
+                                                data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$bestSeller['pid']?>)">
                                                     Quick view
                                             </div>
                                             </div>
@@ -554,7 +555,8 @@ session_start();
         </div>
         
         <!-- modal quickview -->
-        <?php require_once '../includes/quickview.php';?>
+        <?php require_once '../includes/quickviewAJAX.php';?>
+        <?php require_once '../includes/addBagAJAX.php';?>
 
         <div>
             <?php require_once '../includes/footer.php';?>

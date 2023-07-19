@@ -311,7 +311,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                                                                 </a>
                                                             </div>
                                                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button"
-                                                                data-bs-target="#compare" onclick="compare(<?=$similar['pid']?>)">
+                                                                data-bs-target="#compare" onclick="compare(<?=$uid?>, <?=$similar['pid']?>)">
                                                                     Quick Compare
                                                             </div>
                                                         </div>
@@ -374,7 +374,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                             <p class="compare-title mb-2">MATERIAL</p>
                             <p class="smt"><?=$productInfo['material']?></p>
                             </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
+                            <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag(<?=$uid?>, <?=$pid?>)">Add to bag</button>
                         </div>
                         <div class="col-6 simi-right" id="comparedProduct">
                             <!-- compare product info here -->
@@ -414,7 +414,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                                                 </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                             </div>
@@ -439,7 +439,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                                                 </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                             </div>
@@ -464,7 +464,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                                                 </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                             </div>
@@ -701,7 +701,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
         </div>
 
         <!-- modal quickview -->
-        <?php require_once '../includes/quickview.php';?>
+        <?php require_once '../includes/quickviewAJAX.php';?>
+        <?php require_once '../includes/addBagAJAX.php';?>
+
 
         <div>
             <?php require_once '../includes/footer.php';?>
@@ -718,12 +720,15 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
             }
 
             // compare product
-            function compare(pid) {
+            function compare(uid, pid) {
                 // Make an AJAX request to fetch the similarInfo using pid
                 $.ajax({
                     url: 'compareAJAX.php',
                     type: 'GET',
-                    data: { pid: pid },
+                    data: { 
+                        uid: uid,
+                        pid: pid 
+                    },
                     success: function(response) {
                         console.log('similarInfo:', response); // Log the value of similarInfo received from the server
                         // Update the comparedProduct element with the received data
@@ -750,7 +755,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                                 <p class="compare-title mb-2">MATERIAL</p>
                                 <p class="smt">${response.Material}</p>
                             </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
+                            <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag(${uid}, ${pid})">Add to bag</button>
                         `;
                     },
                     error: function(xhr, status, error) {
@@ -760,50 +765,6 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 
                 // Return true or perform any other desired operations
                 return true;
-            }
-
-            // add to bag
-            function addToBag(uid, pid) {
-                console.log('uid:', uid);
-                if (uid == 0) {
-                    alert('Please sign in/ sign up to add product to bag!');
-                    return;
-                } else {
-                    var productName = $('.product-name').text();
-                    var quantity = $('.qty').val();
-                    var size = $('.size').val();
-                    var price = $('.price').text().replace('$', '').replace(',', '');
-                    // Create an object to store the product data
-                    var productData = {
-                        pid: pid,
-                        name: productName,
-                        quantity: quantity,
-                        size: size,
-                        price: price
-                    };
-
-                    // Send Ajax request to addBag.php
-                    $.ajax({
-                        url: 'addBag.php', // Replace with the actual URL to addBag.php
-                        type: 'POST',
-                        data: productData,
-                        success: function(response) {
-                            // Handle the response from the server
-                            if (response.success === true) {
-                                alert('Product added to bag successfully!');
-                            } else {
-                                alert('Failed to add product to bag!');
-                            }
-                            // Display a success message or perform any other desired actions
-                            console.log('Adding product to bag: ', response);
-                        },
-                        error: function(xhr, status, error) {
-                            // Handle any error that occurred during the Ajax request
-                            alert('Failed to add product to bag!');
-                            console.error('Adding product to bag: ', xhr.responseText);
-                        }
-                    });
-                }
             }
         </script>
     </body>

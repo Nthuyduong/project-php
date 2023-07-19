@@ -39,7 +39,7 @@ session_start();?>
                         <a href="home.php">Back to homepage</a>
                     </div>
                 <?php } else { ?>
-                    <form ngNativeValidate (submit)="placeOrder()">
+                    <form id="checkoutForm" onsubmit="placeOrder()">
                         <div class="row">
                         <div class="col-6 ps-0 checkout-left">
                             <!--billing address-->
@@ -91,13 +91,13 @@ session_start();?>
                                 <div class="col-8">
                                 <p class="mb-0">Free ship</p>
                                 </div>
-                                <div class="ps-0 mt-4 col-4">
+                                <!-- <div class="ps-0 mt-4 col-4">
                                 <input type="radio" class="check-box" name="shipfee">
                                 <label class="">Express</label>
                                 </div>
                                 <div class="mt-4 col-8">
                                 <p class="mb-0">Flat rate (domestic: $30/ oversea: $100)</p>
-                                </div>
+                                </div> -->
                             </div>
                             </div>
                             <!--payment method-->
@@ -134,7 +134,7 @@ session_start();?>
                             <div class="sticky">
                             <div class="billing-summary">
                                 <h5 class="text-center mb-3">BILLING SUMMARY</h5>
-                                <?php $total = 0; ?>
+                                <?php $subTotal = 0; ?>
                                 <?php foreach ($cartProducts as $cart) { ?>
                                     <div class="row">
                                         <div class="col-10 ps-0">
@@ -145,15 +145,15 @@ session_start();?>
                                         </div>
                                     </div>
                                     <p>x <?=$cart['Quantity']?></p>
-                                    <?php $total += $cart['Price'] * $cart['Quantity']; ?>
+                                    <?php $subTotal += $cart['Price'] * $cart['Quantity']; ?>
                                 <?php } ?>
                                 <div class="line my-3"></div>
                                 <div class="row total-itm">
                                 <div class="col-10 ps-0">
-                                    <p>Items Total</p>
+                                    <p>Sub-total</p>
                                 </div>
                                 <div class="col-2 pe-0">
-                                    <p>$<?=number_format($total)?></p>
+                                    <p>$<?=number_format($subTotal)?></p>
                                 </div>
                                 </div>
                                 <div class="row ship-fee">
@@ -205,7 +205,15 @@ session_start();?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script>
             function placeOrder() {
-                // alert("Your order has been placed!");
+                // Prevent the default form submission
+                event.preventDefault();
+
+                // Perform any necessary form validation here
+
+                // Submit the form
+                document.getElementById("checkoutForm").submit();
+
+                // Redirect the user to the "thank-you.php" page
                 window.location.href = "thank-you.php";
             }
         </script>
