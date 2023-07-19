@@ -1,20 +1,3 @@
-<?php
-require_once('../../models/model_product.php');
-if (isset($_REQUEST["pid"])) {
-    $pid = $_REQUEST["pid"];
-    $products = new Product();
-    $getProductInfoById = $products -> getProductInfoById($pid);
-    if ($getProductInfoById==false) {
-        echo("<p>Fail to connect database!!</p>");
-        die();
-    }
-    $productInfo = $products -> data;
-} else {
-
-}
-    
-?>
-
 <div class="offcanvas offcanvas-end" id="addToBag">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title mt-3">Shopping Bag</h5>
@@ -30,16 +13,18 @@ if (isset($_REQUEST["pid"])) {
     // add to bag
     function addToBag(pid) {
         $.ajax({
-            url: 'addBagAJAX.php',
-            type: 'POST',
-            data: { pid: pid },
+            url: '../includes/offcanvas-bagAJAX.php',
+            type: 'GET',
+            data: { 
+                pid: pid 
+            },
             success: function(response) {
                 console.log('addToBagInfo:', response); // Log the value of addToBagInfo received from the server
                 var offcanvasBag = document.getElementById('offcanvasBag');
                 offcanvasBag.innerHTML = `
                     <div class="row product-add1 mb-3">
                         <div class="col-4 ps-0">
-                        <a href="product-detail.php?pid=${pid}">
+                        <a href="product-detail.php?pid=${response.Product_ID}">
                             <img src="../../../public/images/thumb/${response.Thumb}">
                         </a>
                         </div>
@@ -71,6 +56,7 @@ if (isset($_REQUEST["pid"])) {
                 `;
             },
             error: function(xhr, status, error) {
+                console.error(xhr); // Log any errors
                 console.error(xhr.responseText); // Log any errors
             }
         });

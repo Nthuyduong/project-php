@@ -186,7 +186,7 @@ session_start(); ?>
                                     </div>
                                     <div class="item-inf text-center mt-2">
                                         <p class="decor-text mb-1"><?= $product['pname'] ?></p>
-                                        <p class="smt item-price">$<?= number_format($product['price'], 0, '.', '.') ?></p>
+                                        <p class="smt item-price">$<?= number_format($product['price']) ?></p>
                                     </div>
                                 </div>
                             </div>

@@ -303,7 +303,7 @@ session_start();
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                             <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                            <p>$<?=number_format($bestSeller['thumb'], 0, '.', '.')?></p>
+                                            <p>$<?=number_format($bestSeller['thumb'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -328,7 +328,7 @@ session_start();
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                             <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                            <p>$<?=number_format($bestSeller['thumb'], 0, '.', '.')?></p>
+                                            <p>$<?=number_format($bestSeller['thumb'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -353,7 +353,7 @@ session_start();
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                             <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                            <p>$<?=number_format($bestSeller['thumb'], 0, '.', '.')?></p>
+                                            <p>$<?=number_format($bestSeller['thumb'])?></p>
                                             </div>
                                         </div>
                                     </div>

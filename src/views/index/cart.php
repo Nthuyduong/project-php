@@ -20,7 +20,7 @@ session_start();?>
         <div class="container-fluid shopping-bag">
             <?php if (isset($_SESSION["user_id"])==FALSE) { ?>
                 <div class="my-4">
-                    <h4>Please signin/ signup to see your shopping cart.</h4>
+                    <h4>Please sign in/ sign up to see your shopping cart.</h4>
                     <a href="home.php">Back to homepage</a>
                 </div>
             <?php } else { ?>
@@ -69,7 +69,9 @@ session_start();?>
                                         <p><?=$cart['Name']?></p>
                                     </div>
                                     <div class="col-2"><?=$cart['Size']?></div>
-                                    <div class="col-2">x <?=$cart['Quantity']?></div>
+                                    <div class="col-2">x
+                                        <input type="number" value="<?=$cart['Quantity']?>" class='qty' >
+                                    </div>
                                     <div class="col-2">
                                         <p>$<?=number_format($cart['Price']*$cart['Quantity'])?></p>
                                     </div>
@@ -106,7 +108,7 @@ session_start();?>
                             <div class="col-5 pe-0">
                                 <div class="d-flex mb-4">
                                     <h6 class="me-auto">Subtotal</h6>
-                                    <h6>$<?=number_format($cart['Grand total'])?></h6>
+                                    <h6>$<?=number_format($cart['Grand_total'])?></h6>
                                 </div>
                                 <p class="smt">Receive it in Vietnam in 4 - 6 business day/s with Express Shipping.</p>
                                 <button id="cartCheckoutBtn" class="btn btn-pri btnlg w-100">Check out</button>
@@ -151,7 +153,7 @@ session_start();?>
                                     </div>
                                     <div class="item-inf text-center mt-3">
                                         <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                        <p>$<?=number_format($bestSeller['thumb'], 0, '.', '.')?></p>
+                                        <p>$<?=number_format($bestSeller['thumb'])?></p>
                                     </div>
                                     </div>
                                 </div>
@@ -176,7 +178,7 @@ session_start();?>
                                     </div>
                                     <div class="item-inf text-center mt-3">
                                         <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                        <p>$<?=number_format($bestSeller['thumb'], 0, '.', '.')?></p>
+                                        <p>$<?=number_format($bestSeller['thumb'])?></p>
                                     </div>
                                     </div>
                                 </div>
@@ -201,7 +203,7 @@ session_start();?>
                                     </div>
                                     <div class="item-inf text-center mt-3">
                                         <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                        <p>$<?=number_format($bestSeller['thumb'], 0, '.', '.')?></p>
+                                        <p>$<?=number_format($bestSeller['thumb'])?></p>
                                     </div>
                                     </div>
                                 </div>
@@ -227,6 +229,7 @@ session_start();?>
             <?php require_once '../includes/footer.php';?>
         </div>
 
+        <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <script>
             $(document).ready(function() {
                 $('#cartCheckoutBtn').click(function() {

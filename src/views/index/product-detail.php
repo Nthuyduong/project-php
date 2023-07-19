@@ -1,5 +1,6 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); 
 session_start();
+$uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,9 +71,9 @@ session_start();
                                 <li class="breadcrumb-item"><a href="sub-category.php?sid=<?=$productInfo['sid']?>"><?=ucfirst($productInfo['subCategory'])?></a></li>
                             </ol>
                             </nav>
-                            <p class="mdt"><?=$productInfo['pname']?></p>
+                            <p class="mdt product-name"><?=$productInfo['pname']?></p>
                             <p><?=$productInfo['description']?></p>
-                            <h5 class="mt-2 mb-4">$<?=number_format($productInfo['price'], 0, '.', '.')?></h5>
+                            <h5 class="mt-2 mb-4 price">$<?=number_format($productInfo['price'])?></h5>
                             <div class="d-flex">
                                 <a class="me-auto">
                                     <p class="mdt me-auto">Complimentary Shipping & Returns</p>
@@ -93,14 +94,14 @@ session_start();
                             <div class="line mb-3"></div>
                             <div class=d-flex>
                                 <p class="mdt me-auto mb-0 mt-1">Size</p>
-                                <select class="form-select smt w-50">
-                                    <option selected>Select size</option>
-                                    <option value="1">3</option>
-                                    <option value="2">3 1/2</option>
-                                    <option value="3">4</option>
-                                    <option value="3">4 1/2</option>
-                                    <option value="3">5</option>
-                                    <option value="3">5 1/2</option>
+                                <select class="form-select smt w-50 size">
+                                    <option selected value="0">Select size</option>
+                                    <option value="3">3</option>
+                                    <option value="3.5">3 1/2</option>
+                                    <option value="4">4</option>
+                                    <option value="4.5">4 1/2</option>
+                                    <option value="5">5</option>
+                                    <option value="5.5">5 1/2</option>
                                 </select>
                             </div>
                             <div class="line my-3"></div>
@@ -197,8 +198,11 @@ session_start();
                             </div>
                             </div>
                             <div class="bag">
-                            <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" 
-                                data-bs-target="#addToBag" onclick="addToBag(<?=$pid?>)">
+                            <!-- <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" 
+                                data-bs-target="#addToBag" onclick="addToBag(pid)">
+                                    Add to bag
+                            </button> -->
+                            <button class="add-bag btn btnlg btn-pri w-100" type="submit" onclick="addToBag(<?=$uid?>, <?=$pid?>)">
                                     Add to bag
                             </button>
                         
@@ -295,7 +299,7 @@ session_start();
                                     $similarProducts1 = array_slice($similarProducts, 0, 3);
                                     $similarProducts2 = array_slice($similarProducts, 3, 6);
                                     ?>
-                                    <div class="carousel-item active" data-bs-interval="1300">
+                                    <div class="carousel-item active" data-bs-interval="3000">
                                         <div class="row">
                                             <?php foreach ($similarProducts1 as $similar) { ?>
                                                 <div class="col-4">
@@ -316,7 +320,7 @@ session_start();
                                             <?php } ?>
                                         </div>
                                     </div>
-                                    <div class="carousel-item" data-bs-interval="1300">
+                                    <div class="carousel-item" data-bs-interval="3000">
                                         <div class="row">
                                             <?php foreach ($similarProducts2 as $similar) { ?>
                                                 <div class="col-4">
@@ -355,7 +359,7 @@ session_start();
                             </a>
                             <div class="item-inf text-center">
                                 <p class="mdt my-2"><?=$productInfo['pname']?></p>
-                                <p class="mdt">$<?=number_format($productInfo['price'], 0, '.', '.')?></p>
+                                <p class="mdt">$<?=number_format($productInfo['price'])?></p>
                             </div>
                             </div>
                             <div class="jewel">
@@ -416,7 +420,7 @@ session_start();
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                                 <p class="mdt mb-2"><?=$new['Name']?></p>
-                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                <p>$<?=number_format($new['Price'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -441,7 +445,7 @@ session_start();
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                                 <p class="mdt mb-2"><?=$new['Name']?></p>
-                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                <p>$<?=number_format($new['Price'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -466,7 +470,7 @@ session_start();
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                                 <p class="mdt mb-2"><?=$new['Name']?></p>
-                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                <p>$<?=number_format($new['Price'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -699,9 +703,6 @@ session_start();
         <!-- modal quickview -->
         <?php require_once '../includes/quickview.php';?>
 
-        <!-- modal quickview -->
-        <?php require_once '../includes/offcanvas-bag.php';?>
-        
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
@@ -762,23 +763,48 @@ session_start();
             }
 
             // add to bag
-            // $(document).ready(function(){
-            //     $(document).on('click', '#addBag', (e) => {
-            //         e.preventDefault();
-            //         var pid = $(this).data('id');   // it will get id of clicked product
-            //         $.ajax({
-            //             url: 'addBagAJAX.php',
-            //             type: 'POST',
-            //             data: { pid: pid },
-            //             success: function(response) {
+            function addToBag(uid, pid) {
+                console.log('uid:', uid);
+                if (uid == 0) {
+                    alert('Please sign in/ sign up to add product to bag!');
+                    return;
+                } else {
+                    var productName = $('.product-name').text();
+                    var quantity = $('.qty').val();
+                    var size = $('.size').val();
+                    var price = $('.price').text().replace('$', '').replace(',', '');
+                    // Create an object to store the product data
+                    var productData = {
+                        pid: pid,
+                        name: productName,
+                        quantity: quantity,
+                        size: size,
+                        price: price
+                    };
 
-            //             },
-            //             error: function(xhr, status, error) {
-            //                 console.error(xhr.responseText); // Log any errors
-            //             }
-            //         });
-            //     });
-            // });
+                    // Send Ajax request to addBag.php
+                    $.ajax({
+                        url: 'addBag.php', // Replace with the actual URL to addBag.php
+                        type: 'POST',
+                        data: productData,
+                        success: function(response) {
+                            // Handle the response from the server
+                            if (response.success === true) {
+                                alert('Product added to bag successfully!');
+                            } else {
+                                alert('Failed to add product to bag!');
+                            }
+                            // Display a success message or perform any other desired actions
+                            console.log('Adding product to bag: ', response);
+                        },
+                        error: function(xhr, status, error) {
+                            // Handle any error that occurred during the Ajax request
+                            alert('Failed to add product to bag!');
+                            console.error('Adding product to bag: ', xhr.responseText);
+                        }
+                    });
+                }
+            }
         </script>
     </body>
 </html>

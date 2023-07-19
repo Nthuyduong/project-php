@@ -170,7 +170,7 @@ session_start();?>
                                     <p class="mdt">Order Total</p>
                                 </div>
                                 <div class="col-2 p2-0">
-                                    <p class="mdt">$<?=number_format($cart['Grand total'])?></p>
+                                    <p class="mdt">$<?=number_format($cart['Grand_total'])?></p>
                                 </div>
                                 </div>
                             </div>

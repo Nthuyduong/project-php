@@ -59,7 +59,7 @@ require_once("../../models/model_product_ex.php");
                 $product = $products->data;
                 ?>
                 <h5><?= $product['Name'] ?></h5>
-                <h5 class="my-3">$<?= number_format($product['Price'], 0, '.', '.') ?></h5>
+                <h5 class="my-3">$<?= number_format($product['Price']) ?></h5>
                 <div class="d-flex">
                     <p class="mdt me-auto">Quantity</p>
                     <div class="quantity">
