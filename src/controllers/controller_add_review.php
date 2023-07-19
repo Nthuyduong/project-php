@@ -8,7 +8,6 @@ if(isset($_REQUEST["b1"])==false){
     $commemt=$_REQUEST["message"];
     $pid=$_REQUEST["pid"];
     $cid=$_REQUEST["cid"];
-    echo "$rating -- $commemt -- $pid -- $cid --";
     $review=new model_review();
     $kq=$review->addReview($pid,$cid,$commemt,$rating);
     if($kq==false){

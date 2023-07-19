@@ -24,17 +24,19 @@
                 <div class="product-img col-4 ps-0">
                     <div class="card-prd">
                     <div class="img">
-                        <a href="product-detail.php">
+                        <a href="product-detail.php?pid=<?=$row['ID']?>">
                         <img src="../../../public/images/thumb/<?=$row["Thumb"]?>">
                         </a>
                     </div>
                     <div class="compare card-prd-bt smt">
-                        <a href="product-detail.php">View detail</a>
+                        <a href="product-detail.php?pid=<?=$row['ID']?>">View detail</a>
                     </div>
                     </div>
                 </div>
                 <div class="product-info col-8 pe-0">
-                    <h6 class="mb-2"><?=$row["Name"]?></h6>
+                    <a href="product-detail.php?pid=<?=$row['ID']?>">
+                        <h6 class="mb-2"><?=$row["Name"]?></h6>
+                    </a>
                     <p class="mdt mb-3"><?=$row["Price"]?></p>
                     <p class="smt"><?=$row["Description"]?></p>
                 </div>
