@@ -46,12 +46,6 @@ require_once("../../models/model_product.php")
                     <div class="row">
                         <div class="col-4">
                             <div className="search-bar d-flex">
-                                <?php
-                                if (isset($_GET['findsubct'])) {
-                                    $findsubctValue = $_GET['findsubct'];
-                                    // Now you can use the value of $findsubctValue as needed
-                                }
-                                ?>
                                 <form action="" method="GET" class="">
                                     <input class="search-input w-100" type="text" id="findsubct" name="findsubct" placeholder="<?php echo isset($_GET['findsubct']) ? $_GET['findsubct'] : 'Enter sub-category name...'; ?>" />
                                     <FontAwesomeIcon class="icon-search" icon={faSearch} />

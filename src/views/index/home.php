@@ -128,7 +128,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                             ?>
                             <div class="carousel-item active" data-bs-interval="1300">
                                 <div class="row">
-                                    <?php foreach ($newArrivals1 as $new) {  ?>
+                                    <?php
+                                    if($newArrivals1 != null)
+                                    foreach ($newArrivals1 as $new) {  ?>
                                         <div class="col-4">
                                             <div class="item-card-info">
                                                 <div class="card-prd">
@@ -149,7 +151,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                             </div>
                             <div class="carousel-item" data-bs-interval="1300">
                                 <div class="row">
-                                    <?php foreach ($newArrivals2 as $new) {  ?>
+                                    <?php
+                                    if($newArrivals2 != null)
+                                    foreach ($newArrivals2 as $new) {  ?>
                                         <div class="col-4">
                                             <div class="item-card-info">
                                                 <div class="card-prd">
@@ -170,7 +174,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                             </div>
                             <div class="carousel-item" data-bs-interval="1300">
                                 <div class="row">
-                                    <?php foreach ($newArrivals3 as $new) {  ?>
+                                    <?php
+                                    if($newArrivals3 != null)
+                                    foreach ($newArrivals3 as $new) {  ?>
                                         <div class="col-4">
                                             <div class="item-card-info">
                                                 <div class="card-prd">
@@ -288,7 +294,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                         ?>
                         <div class="carousel-item active" data-bs-interval="3000">
                             <div class="row">
-                                <?php foreach ($bestSellers1 as $bestSeller) {  ?>
+                                <?php
+                                if($bestSellers1 != null)
+                                foreach ($bestSellers1 as $bestSeller) {  ?>
                                     <div class="col-3">
                                         <div class="item-card-info">
                                             <div class="card-prd">
@@ -313,7 +321,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
                             <div class="row">
-                                <?php foreach ($bestSellers2 as $bestSeller) {  ?>
+                                <?php
+                                if($bestSellers2 != null)
+                                foreach ($bestSellers2 as $bestSeller) {  ?>
                                     <div class="col-3">
                                         <div class="item-card-info">
                                             <div class="card-prd">
@@ -338,7 +348,9 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
                             <div class="row">
-                                <?php foreach ($bestSellers3 as $bestSeller) {  ?>
+                                <?php
+                                if($bestSellers3 != null)
+                                foreach ($bestSellers3 as $bestSeller) {  ?>
                                     <div class="col-3">
                                         <div class="item-card-info">
                                             <div class="card-prd">

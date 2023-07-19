@@ -7,8 +7,17 @@
 <body>
 <?php
 session_start();
+// <<<<<<< hue-checkout-process
 // unset($_SESSION["logined_user"]);
 // unset($_SESSION["user_email"]);
+// =======
+// unset($_SESSION["logined_user"]);
+// unset($_SESSION["user_email"]);
+// unset($_SESSION["user_id"]);
+// unset($_SESSION["user_name"]);
+// unset($_SESSION["user_address"]);
+// unset($_SESSION["user_phone"]);
+// >>>>>>> main
 
 //unset($_SESSION["logined"]);//hủy 1 biến $_SESSION["logined"]
 session_destroy();//hủy toàn bộ SESSION

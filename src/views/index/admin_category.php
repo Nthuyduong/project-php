@@ -31,12 +31,6 @@ require_once("../../models/model_category.php");
                     <div class="row">
                         <div class="col-4">
                             <div class="search-bar d-flex">
-                                <?php
-                                if (isset($_GET['findcate'])) {
-                                    $findsubctValue = $_GET['findcate'];
-                                    // Now you can use the value of $findsubctValue as needed
-                                }
-                                ?>
                                 <form action="" method="GET" class="w-100">
                                     <input class="search-input w-100" type="text" id="findcate" name="findcate" placeholder="<?php echo isset($_GET['findcate']) ? $_GET['findcate'] : 'Enter category name...'; ?>" />
                                 </form>
@@ -134,9 +128,22 @@ require_once("../../models/model_category.php");
                     <div class="mdt mb-1">Category's Name</div>
                     <input class="w-100" name="catename" id="catename" placeholder="Category's name" />
                 </div>
-                <div class="">
-                    <div class="mdt mb-1">Category's description</div>
-                    <textarea class="w-100" name="desc" id="desc" rows="5"></textarea>
+                <div class="my-4">
+                    <div class="mdt mb-1">Sub-category</div>
+                    <div class="row">
+                        <form action="" method="POST" onsubmit="return validateInput()">
+                            <div class="col-8">
+                                <input type="number" id="quantity" name="quantity" min="0" max="5">
+                            </div>
+                            <div class="col-4">
+                                <button class="w-100 btn-lg-pr-admin" onclick="generateInputs()">Generate</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Sub-category -->
+                <div id="generatedInputsContainer">
+
                 </div>
                 <!-- <form class="box" method="post" action="" enctype="multipart/form-data">
                     <div class="box__input">
@@ -188,6 +195,48 @@ require_once("../../models/model_category.php");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+        function generateInputs() {
+            var quantityValue = document.getElementById('quantity').value;
+            var numInputs = parseInt(quantityValue);
+
+            if (numInputs >= 0 && numInputs <= 5) {
+                document.getElementById('generatedInputsContainer').innerHTML = '';
+
+                for (var i = 1; i <= numInputs; i++) {
+                    var inputTag = document.createElement('input');
+                    inputTag.type = 'text';
+                    inputTag.name = 'dynamic_input_' + i;
+                    inputTag.placeholder = 'Enter Sub-category name no' + i;
+
+                    // Add an event listener to capture the user input and update both the attribute and visible value
+                    inputTag.addEventListener('input', function() {
+                        this.value = this.value; // Setting the input field's value to itself
+                    });
+
+                    // Append the newly generated input tag to the container
+                    document.getElementById('generatedInputsContainer').appendChild(inputTag);
+                }
+            } else {
+                alert('Please enter a value between 0 and 5.');
+            }
+        }
+    </script>
+    <!-- Set value =0 when the user leaves the field blank -->
+    <script>
+        function validateInput() {
+            var quantityValue = parseInt(document.getElementById('quantity').value);
+
+            if (isNaN(quantityValue) || quantityValue < 0 || quantityValue > 5) {
+                alert('Please enter a valid value between 0 and 5.');
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission if validation passes
+        }
+    </script>
+
+
 </body>
 
 </html>

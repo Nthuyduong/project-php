@@ -28,4 +28,4 @@ if ($ketqua == FALSE) {
     $ann_content = "A new category is created!";
     include_once("../views/includes/announce.php");
 }
-// header("location:../views/index/admin_category.php");
+header("location:../views/index/admin_category.php");
