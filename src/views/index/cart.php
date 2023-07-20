@@ -43,82 +43,79 @@ print_r($uid);
                             <h4>Your shopping bag is empty.</h4>
                             <a href="home.php">Back to homepage</a>
                         </div>
-                    <?php } else { ?>
-                        <div class="table-summary">
-                            <div class="t-head row align-middle py-3 mb-3">
-                                <div class="col-5">
-                                    <p class="mb-0">Product</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="mb-0">Size</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="mb-0">Quantity</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="mb-0">Price</p>
-                                </div>
-                                <div class="col">
-                                    <p class="mb-0">Remove</p>
-                                </div>
-                            </div>
-
-                            <?php foreach ($cartProducts as $cart) { ?>
-                                <div class="t-row1 row">
-                                    <a class="col-2" href="product-detail.php?pid=<?=$cart['ID']?>">
-                                        <img src="../../../public/images/thumb/<?=$cart['Thumb']?>">
-                                    </a>
+                        <?php } else { ?>
+                            <div class="table-summary">
+                                <div class="t-head row align-middle py-3 mb-3">
+                                    <div class="col-5">
+                                        <p class="mb-0">Product</p>
+                                    </div>
                                     <div class="col-3">
-                                        <p><?=$cart['Name']?></p>
+                                        <p class="mb-0">Quantity</p>
                                     </div>
-                                    <div class="col-2"><?=$cart['Size']?></div>
-                                    <div class="col-2">x
-                                        <input type="number" value="<?=$cart['Quantity']?>" class='qty' >
-                                    </div>
-                                    <div class="col-2">
-                                        <p>$<?=number_format($cart['Price']*$cart['Quantity'])?></p>
+                                    <div class="col-3">
+                                        <p class="mb-0">Price</p>
                                     </div>
                                     <div class="col">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                        <p class="mb-0">Remove</p>
                                     </div>
-                                    <div class="line my-3"></div>
                                 </div>
-                            <?php } ?>
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col-3 ps-0">
-                            <button class="btn btn-sec btnlg" type="button" data-bs-toggle="modal" data-bs-target="#personalnote">Send a personal note</button>
-                            <!--Modal personal note-->
-                            <div class="modal fade" id="personalnote">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <form ngNativeValidate onsubmit="alert('We have received your note.')">
-                                        <h5 class="modal-title mb-4">Personal Note</h5>
-                                        <p class="smt">Write below the message you want to include below. Your message will be printed in a cardboard
-                                            that will be shipped with your order. Your personal note will be automatically saved when you click "SEND".</p>
-                                        <div class="my-3">
-                                            <label>Write your personal note here</label>
-                                            <textarea name="standalone" class="inpu" rows="4" required></textarea>
+
+                                <?php foreach ($cartProducts as $cart) { ?>
+                                    <div class="t-row1 row product">
+                                        <a class="col-2" href="product-detail.php?pid=<?= $cart['ID'] ?>">
+                                            <img src="../../../public/images/thumb/<?= $cart['Thumb'] ?>">
+                                        </a>
+                                        <div class="col-3">
+                                            <p><?= $cart['Name'] ?></p>
+                                            <p class="price">$<?= number_format($cart['Price']) ?></p>
                                         </div>
-                                        <button type="submit" class="mt-2 btn btn-pri w-100" data-bs-dismiss="modal">Send</button>
-                                        </form>
+                                        <div class="col-3">
+                                            <input type="number" value="<?= $cart['Quantity'] ?>" class="qty update-cart-qty" data-product-id="<?= $cart['ID'] ?>" min="1">
+                                        </div>
+                                        <div class="col-3">
+                                            <p class="totalPrice">$<?= number_format($cart['Price'] * $cart['Quantity']) ?></p>
+                                        </div>
+                                        <div class="col">
+                                            <i class="fa fa-trash" aria-hidden="true" onclick="deleteFromBag(<?= $uid ?>, <?= $cart['ID'] ?>)"></i>
+                                        </div>
+                                        <div class="line my-3"></div>
+                                    </div>
+                                <?php } ?>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-3 ps-0">
+                                    <button class="btn btn-sec btnlg" type="button" data-bs-toggle="modal" data-bs-target="#personalnote">Send a personal note</button>
+                                    <!--Modal personal note-->
+                                    <div class="modal fade" id="personalnote">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <form ngNativeValidate onsubmit="alert('We have received your note.')">
+                                                    <h5 class="modal-title mb-4">Personal Note</h5>
+                                                    <p class="smt">Write below the message you want to include below. Your message will be printed in a cardboard
+                                                        that will be shipped with your order. Your personal note will be automatically saved when you click "SEND".</p>
+                                                    <div class="my-3">
+                                                        <label>Write your personal note here</label>
+                                                        <textarea name="standalone" class="inpu" rows="4" required></textarea>
+                                                    </div>
+                                                    <button type="submit" class="mt-2 btn btn-pri w-100" data-bs-dismiss="modal">Send</button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-4"></div>
-                            <div class="col-5 pe-0">
-                                <div class="d-flex mb-4">
-                                    <h6 class="me-auto">Subtotal</h6>
-                                    <h6>$<?=number_format($cart['Grand_total'])?></h6>
+                                <div class="col-4"></div>
+                                <div class="col-5 pe-0">
+                                    <div class="d-flex mb-4">
+                                        <h6 class="me-auto">Subtotal</h6>
+                                        <h6 class="subtotal">$<?= number_format($cart['Grand_total']) ?></h6>
+                                    </div>
+                                    <p class="smt">Receive it in Vietnam in 4 - 6 business day/s with Express Shipping.</p>
+                                    <button id="cartCheckoutBtn" class="btn btn-pri btnlg w-100" onclick="editBag(<?= $uid ?>, <?= $cart['Code'] ?>)">Check out</button>
                                 </div>
-                                <p class="smt">Receive it in Vietnam in 4 - 6 business day/s with Express Shipping.</p>
-                                <button id="cartCheckoutBtn" class="btn btn-pri btnlg w-100">Check out</button>
                             </div>
-                        </div>
-                <?php } ?>
-            <!-- </div> -->
+                        <?php } ?>
+<!-- </div> -->
             <?php } ?>
 
             <!--MAY YOU ALSO LIKE-->
@@ -140,26 +137,27 @@ print_r($uid);
                     ?>
                     <div class="carousel-item active" data-bs-interval="3000">
                         <div class="row">
-                            <?php foreach ($bestSellers1 as $bestSeller) { ?>
+                        <?php foreach ($cartProducts as $cart) { ?>
+                            <div class="t-row1 row product">
+                                <a class="col-2" href="product-detail.php?pid=<?=$cart['ID']?>">
+                                <img src="../../../public/images/thumb/<?=$cart['Thumb']?>">
+                                </a>
                                 <div class="col-3">
-                                    <div class="item-card-info">
-                                    <div class="card-prd">
-                                        <div class="img">
-                                        <a href="product-detail.php?pid=<?=$bestSeller['pid']?>">
-                                            <img src="../../../public/images/thumb/<?=$bestSeller['thumb']?>">
-                                        </a>
-                                        </div>
-                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button"
-                                            data-bs-target="#quickview"  onclick="quickview(<?=$uid?>, <?=$bestSeller['pid']?>)">
-                                                Quick view
-                                        </div>
-                                    </div>
-                                    <div class="item-inf text-center mt-3">
-                                        <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
-                                        <p>$<?=number_format($bestSeller['thumb'])?></p>
-                                    </div>
-                                    </div>
+                                <p><?=$cart['Name']?></p>
+                                <p>$<?=number_format($cart['Price'])?></p>
                                 </div>
+                                <div class="col-2"><?=$cart['Size']?></div>
+                                <div class="col-2">x
+                                <input type="number" value="<?=$cart['Quantity']?>" class="qty">
+                                </div>
+                                <div class="col-2">
+                                <p class="price">$<?=number_format($cart['Price']*$cart['Quantity'])?></p>
+                                </div>
+                                <div class="col">
+                                <i class="fa fa-trash" aria-hidden="true" onclick="deleteFromBag(<?=$uid?>, <?=$cart['ID']?>)"></i>
+                                </div>
+                                <div class="line my-3"></div>
+                            </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -228,6 +226,8 @@ print_r($uid);
         <!-- modal quickview -->
         <?php require_once '../includes/quickviewAJAX.php';?>
         <?php require_once '../includes/addBagAJAX.php';?>
+        <?php require_once '../includes/deleteBagAJAX.php';?>
+        <?php require_once '../includes/editBagAJAX.php';?>
 
         <div>
             <?php require_once '../includes/footer.php';?>
@@ -235,12 +235,38 @@ print_r($uid);
 
         <script src="https://kit.fontawesome.com/c813cf59a3.js" crossorigin="anonymous"></script>
         <script>
-            $(document).ready(function() {
-                $('#cartCheckoutBtn').click(function() {
-                    // Navigate to another page when the button is clicked
-                    window.location.href = 'check-out.php';
-                });
+            // Calculate subtotal and update values on quantity change
+            $('.qty').on('input', function() {
+                var product = $(this).closest('.product');
+                var quantity = parseInt($(this).val());
+                var priceString = product.find('.price').text().replace('$', '').replace(',', '');
+                var price = parseInt(priceString);
+                var totalPrice = quantity * price;
+
+                // Update the subtotal value for the current product
+                product.find('.totalPrice').text('$' + formatNumber(totalPrice));
+
+                // Recalculate the total
+                calculateTotal();
             });
+
+            // Calculate the total by summing all subtotals
+            function calculateTotal() {
+                var subTotal = 0;
+
+                $('.totalPrice').each(function() {
+                var totalPrice = parseInt($(this).text().replace('$', '').replace(',', ''));
+                subTotal += totalPrice;
+                });
+
+                // Update the subtotal value
+                $('.subTotal').text('$' + formatNumber(subTotal));
+            }
+
+            // Format a number with commas for thousands separators
+            function formatNumber(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
         </script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->

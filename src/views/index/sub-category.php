@@ -40,12 +40,14 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
         ?>
         <!--category-top-->
         <div class="banner">
+            <div class="overlay-image">
+                <img src="../../../public/images/subcate-deco/<?=$sid?>.png" class="d-block w-100">
+            </div>
             <div class="container-fluid category-top-text">
                 <div class="row">
                     <div class="col-4">
                         <h4 class="mb-3"><?= ucwords($products[0]['subCategory'] . ' ' . $products[0]['category']) ?></h4>
-                        <p>Meticulously crafted with Tiffany’s renowned diamonds, these are rings to wear-and love-for eternity.
-                            Wear one on its own or stacked with an engagement ring</p>
+                        <p><?=$products[0]['subDescription']?></p>
                     </div>
                     <div class="col-8"></div>
                 </div>

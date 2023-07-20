@@ -1,5 +1,6 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); 
-session_start();?>
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,7 +40,7 @@ session_start();?>
                         <a href="home.php">Back to homepage</a>
                     </div>
                 <?php } else { ?>
-                    <form id="checkoutForm" onsubmit="placeOrder()">
+                    <form id="checkoutForm">
                         <div class="row">
                         <div class="col-6 ps-0 checkout-left">
                             <!--billing address-->
@@ -47,27 +48,21 @@ session_start();?>
                             <div class="t-head row align-middle py-3 mb-4">
                                 <p class="mb-0">Shipping Address</p>
                             </div>
-                            <div class="row">
-                                <div class="col-6 ps-0 firstname user-input">
-                                <label for="first">First name</label>
-                                <input class="inpu" type="text" name="txtfirstname" id="txtfirstname" required><br>
-                                </div>
-                                <div class="col-6 pe-0 lastname user-input">
-                                <label>Last name</label>
-                                <input class="inpu" type="text" name="txtlastname" id="txtlastname" required><br>
-                                </div>
+                            <div class="ps-0 firstname user-input">
+                            <label for="first">Fullname</label>
+                            <input class="inpu" type="text" name="txtfirstname" id="txtfirstname" value="<?=$_SESSION['user_name']?>" required><br>
                             </div>
                             <div class="px-0 email-user user-input">
                                 <label>Email address (*)</label>
-                                <input class="inpu" type="text" name="txtmail" required><br>
+                                <input class="inpu" type="text" name="txtmail" value="<?=$_SESSION['user_email']?>" required><br>
                             </div>
                             <div class="px-0 phone-user user-input">
                                 <label>Phone (*)</label>
-                                <input class="inpu" type="tel" name="txtphone" required><br>
+                                <input class="inpu" type="tel" name="txtphone" value="<?=$_SESSION['user_phone']?>" required><br>
                             </div>
                             <div class="px-0 address-user user-input">
                                 <label>Address (*)</label>
-                                <input class="inpu" type="text" required><br>
+                                <input class="inpu" type="text" value="<?=$_SESSION['user_address']?>" required><br>
                             </div>
                             <div class="form-check my-4 ps-0">
                                 <input type="radio" class="check-box" id="dedau" name="address-check" checked>
@@ -91,13 +86,13 @@ session_start();?>
                                 <div class="col-8">
                                 <p class="mb-0">Free ship</p>
                                 </div>
-                                <!-- <div class="ps-0 mt-4 col-4">
+                                <div class="ps-0 mt-4 col-4">
                                 <input type="radio" class="check-box" name="shipfee">
                                 <label class="">Express</label>
                                 </div>
                                 <div class="mt-4 col-8">
-                                <p class="mb-0">Flat rate (domestic: $30/ oversea: $100)</p>
-                                </div> -->
+                                <p class="mb-0">Flat rate ($100)</p>
+                                </div>
                             </div>
                             </div>
                             <!--payment method-->
@@ -141,9 +136,10 @@ session_start();?>
                                             <p><?=$cart['Name']?></p>
                                         </div>
                                         <div class="col-2 pe-0">
-                                            <p>$<?=number_format($cart['Price'])?></p>
+                                            <p>$<?=number_format($cart['Price']*$cart['Quantity'])?></p>
                                         </div>
                                     </div>
+                                    <p>$<?=number_format($cart['Price'])?></p>
                                     <p>x <?=$cart['Quantity']?></p>
                                     <?php $subTotal += $cart['Price'] * $cart['Quantity']; ?>
                                 <?php } ?>
@@ -189,7 +185,7 @@ session_start();?>
                         <div class="row">
                             <div class="col-4"></div>
                             <div class="col-4">
-                                <button type="submit" class="btn btn-pri btnlg w-100">Place order</button>
+                                <button class="btn btn-pri btnlg w-100" onclick="placeOrder(<?=$uid?>, <?=$cartProducts[0]['Code']?>)">Place order</button>
                             </div>
                             <div class="col-4"></div>
                         </div>
@@ -204,17 +200,30 @@ session_start();?>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script>
-            function placeOrder() {
-                // Prevent the default form submission
-                event.preventDefault();
+            function placeOrder(uid, code) {
+                var bagData = {
+                    uid: uid,
+                    code: code
+                };
 
-                // Perform any necessary form validation here
-
-                // Submit the form
-                document.getElementById("checkoutForm").submit();
-
-                // Redirect the user to the "thank-you.php" page
-                window.location.href = "thank-you.php";
+                // Send AJAX request to placeOrder.php
+                $.ajax({
+                    url: '../includes/placeOrder.php',
+                    type: 'POST',
+                    data: bagData,
+                    success: function(response) {
+                        // Handle the response from the server
+                        // Perform any other desired actions
+                        console.log('Place order response: ', response);
+                        // Reload the page or navigate to the checkout page
+                        window.location.href = 'thank-you.php'; // Example: Navigating to the checkout page
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any error that occurred during the AJAX request
+                        alert('Failed to place order!');
+                        console.error('Place order error: ', xhr.responseText);
+                    }
+                });
             }
         </script>
     </body>
