@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once("../models/model_subcate.php");
-require_once("../views/index/admin_subcate.php");
 
 $ann_title = "";
 $ann_content = "";
@@ -31,6 +30,5 @@ if ($ketqua == FALSE) {
     $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
     $ann_content = "A new sub-category is created!";
     include_once ("../views/includes/announce.php");
-    $sub->SearchSub();
     header("location:../views/index/admin_subcate.php");
 }
