@@ -40,7 +40,7 @@ class model_subcate extends Database
     // Add new sub-category
     function AddSubcategory($subname, $category, $description)
     {
-        $sql = "INSERT INTO Sub_categories VALUE(?,?,?)";
+        $sql = "INSERT INTO Sub_categories(Name,Category,Description) VALUE(?,?,?)";
         $param = null;
         if($subname != "" && $category != "" && $description != "")
             $param = [$subname, $category, $description];
@@ -48,5 +48,17 @@ class model_subcate extends Database
         return $ketqua;
     }
 
+    //delete sub-category
+    function DeleSubcategory($id)
+    {
+        $sql = "DELETE FROM Sub_categories WHERE ID = ?";
+        $param = null;
+        if($id != null)
+        {
+            $param = ["$id"];
+        }
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
 }
 ?>

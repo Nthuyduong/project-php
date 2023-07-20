@@ -94,12 +94,11 @@ require_once("../../models/model_category.php");
                             <div class="cell-ssm">
                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="">
                             </div>
-                            <!-- <div class="cell-sm"><?= $row["Category_ID"] ?></div> -->
                             <div class="cell-sm">
                                 <a href="admin_subcate.php?catename=<?= $row["U_Category"] ?>"><?= $row["U_Category"] ?></a>
                             </div>
                             <div class="cell-md alg-center">
-                                <?= $row["Sub_Count"] ?>
+                                <?= $row["Sub_Count"]?>
                             </div>
                             <div class="cell alg-center stt-out">
                                 <div class="stt stt1">Active</div>

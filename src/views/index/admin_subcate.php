@@ -63,6 +63,11 @@ require_once("../../models/model_product.php")
                 </div>
                 <!-- Product table -->
                 <?php
+                $scategory = new model_subcate();
+                $subcate = isset($_REQUEST["subcate"]) ? $_REQUEST["subcate"] : $_REQUEST[""];
+                $scategory->DeleSubcategory($subcate);
+
+
                 $searchct = new model_subcate();
                 $keyword = $_REQUEST["findsubct"];
                 if ($keyword != "") {
@@ -115,7 +120,7 @@ require_once("../../models/model_product.php")
                             <div class="cell-md">Description about sub-category goes here</div>
                             <div class="cell stt-out">
                                 <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
-                                <a href="#"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                                <a href="?subcate=<?= $row["ID"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
                     <?php
@@ -209,6 +214,7 @@ require_once("../../models/model_product.php")
             $("#ctg").on("change", test);
         });
     </script>
+
 </body>
 
 </html>

@@ -13,8 +13,11 @@ if (isset($_REQUEST["b1"]) == false) {
     die();
 }
 $subname = $_REQUEST["subname"];
-$category = $_POST["ctname"];
+// echo ($subname);
+$category = $_REQUEST["ctg"];
+// echo ($category);
 $desc = $_REQUEST["desc"];
+// echo ($desc);
 
 $sub = new model_subcate();
 
