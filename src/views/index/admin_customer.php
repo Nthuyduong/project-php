@@ -49,6 +49,7 @@ require("../../core/checklogin.php");
                 if ($cid != null && is_numeric($cid) == false)
                     $cid = "";
                 $customer->DeleteCustomer($cid);
+                
                 $keyword = isset($_REQUEST["findcustomer"]) ? $_REQUEST["findcustomer"] : "";
                 if ($keyword != null && is_numeric($keyword) == true)
                     $keyword = "";

@@ -2,6 +2,7 @@
 <?php
 session_start();
 require_once("../../models/model_product.php");
+require_once("../../models/model_order.php");
 require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
@@ -123,7 +124,7 @@ require("../../core/checklogin.php");
                 <h4 class="db-title">ADD NEW PRODUCT<h4>
             </div>
             <div class="offcanvas-body">
-                <form name="form1" id="form1" method="POST" action="">
+                <form name="form1" id="form1" method="POST" action="../../controllers//controller_add_product.php">
                     <div class="">
                         <div class="mdt mb-1">Product's Name</div>
                         <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
@@ -150,30 +151,60 @@ require("../../core/checklogin.php");
                         </select>
                     </div>
                     <div class="mb-3">
-                        <div class="mdt mb-1">Product's Quantity</div>
-                        <input class="" type="number" id="prdqtt" name="prdqtt" min="1" max="100" step="1" placeholder="0">
+                        <div class="mdt mb-1">Product's Unit</div>
+                        <select class="sl-box" name="unit" id="unit">
+                            <option value="" selected>Select unit</option>
+                            <?php
+                            $unit = new model_order();
+                            $unit->dropdownName("Products", "Unit");
+                            ?>
+                        </select>
                     </div>
                     <div class="">
-                        <div class="md mb-1">Product's Price</div>
+                        <div class="md mb-1">Product's Price ($)</div>
                         <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price" />
                     </div>
                     <div class="my-3">
                         <div class="mdt mb-1">Material</div>
-                        <input class="w-100" name="prdmat" id="prdmat" placeholder="Material" />
+                        <select class="sl-box" name="material" id="material">
+                            <option value="" selected>Select material</option>
+                            <?php
+                            $mate = new model_order();
+                            $mate->dropdownName("Products", "Material");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="">
+                        <div class="mdt mb-1">Jewelry Type</div>
+                        <select class="sl-box" name="jewel" id="jewel">
+                            <option value="" selected>Select Jewelry type</option>
+                            <?php
+                            $jw = new model_order();
+                            $jw->dropdownName("Products", "Jewelry_type");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="my-3">
+                        <div class="mdt mb-1">Collection</div>
+                        <input class="w-100" name="prdcollec" id="prdcollec" placeholder="Collection" />
+                    </div>
+                    <div class="">
+                        <div class="mdt mb-1">Thumb</div>
+                        <input class="w-100" name="prdimg" id="prdimg" placeholder="Product's image" />
                     </div>
                     <div class="mb-5">
-                        <div class="mdt mb-1">Jewelry Type</div>
-                        <input class="w-100" name="prdjew" id="prdjew" placeholder="Jewelry type" />
+                        <div class="mdt mb-1">Description</div>
+                        <textarea class="w-100" name="desc" id="desc" placeholder="" ></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn-lg-sc-admin w-100" type="button" name="b2" id="b2">Cancel</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1" value="Add">Add new product</button>
+                        </div>
                     </div>
                 </form>
-                <div class="row">
-                    <div class="col-6">
-                        <button class="btn-lg-sc-admin w-100" type="button" name="b2" id="b2">Cancel</button>
-                    </div>
-                    <div class="col-6">
-                        <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1" value="Add">Add new product</button>
-                    </div>
-                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

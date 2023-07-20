@@ -51,7 +51,19 @@ class model_subcate extends Database
     //delete sub-category
     function DeleSubcategory($id)
     {
-        $sql = "DELETE FROM Sub_categories WHERE ID = ?";
+        $sql = "DELETE FROM Sub_categories WHERE Sub_categories.ID = ?";
+        $param = null;
+        if($id != null)
+        {
+            $param = ["$id"];
+        }
+        $ketqua = $this->set_query($sql,$param);
+        return $ketqua;
+    }
+
+    function GetSubbyID($id)
+    {
+        $sql = "SELECT * FROM Sub_categories WHERE Sub_categories.ID = ?";
         $param = null;
         if($id != null)
         {

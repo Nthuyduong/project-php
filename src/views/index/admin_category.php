@@ -104,7 +104,7 @@ require_once("../../models/model_category.php");
                                 <div class="stt stt1">Active</div>
                             </div>
                             <div class="cell-sm stt-out">
-                                <a id="editcate" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#cate-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                                <!-- <a ><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a> -->
                                 <a href="?cate=<?= $row["U_Category"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
