@@ -30,10 +30,10 @@ require_once("../../core/checklogin_user.php");
             <div class="d-flex user-title w-150">
                 <!-- User's Avata here -->
                 <div class="d-flex me-auto">
-                    <div class="my-2">
-                        <img class="w-100 user-img rounded-circle" src="../../../public/images/user/user.png" />
+                    <div class="">
+                        <img class="w-100 user-img" src="../../../public/images/user/user.png" />
                     </div>
-                    <div class="w-150 p-4">
+                    <div class="w-150">
                         <h6><?= $_SESSION["user_name"] ?></h6>
                         <p><?= $_SESSION["user_email"] ?></p>
                     </div>
