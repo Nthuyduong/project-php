@@ -20,7 +20,7 @@ require("../../core/checklogin.php");
     <div id="main">
         <?php require_once '../includes/ad-header.php' ?>
         <div class="db-title mt-4">ADMIN ACCOUNT</div>
-        <div class="mb-5">Welcome you back! <?php $_SESSION[""] ?></div>
+        <div class="mb-5">Welcome you back!</div>
         <div></div>
         <!-- Admin tabs -->
 

@@ -7,7 +7,8 @@
 <body>
 <?php
 session_start();
-//unset($_SESSION["logined"]);//hủy 1 biến $_SESSION["logined"]
+unset($_SESSION["logined_admin"]);
+
 session_destroy();//hủy toàn bộ SESSION
 
 $alert_title="Notification";

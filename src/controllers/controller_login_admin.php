@@ -29,7 +29,6 @@ else{
         if($row["Active_status"]==1)
         {
             $_SESSION["logined_admin"] = "OK";
-            $_SESSION["user"] = $row["Email"];
             $alert_title="Notification";
             $alert = "Login successfully, welcome to admin dashboard!";
             $link_tieptuc="../views/index/admin_dashboard.php";
