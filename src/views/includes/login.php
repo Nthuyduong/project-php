@@ -10,23 +10,14 @@
                 <div class="modal-content first-steps-inner">
                     
                     <h5 class="modal-title mb-4 text-center">Welcome to AGURI!</h5>
-                    <?php
-                        if($_SESSION["logined_fail"]!="")
-                        {
-            
-                    ?>   
-                            <p style="color:red"><?=$_SESSION["logined_fail"]?> </p> 
-                    <?php
-                        }
-                    ?>
                     <form method="post" name="frmlogin" id="frmlogin" action="../../controllers/controller_login_user.php">
                         <div class="mb-3">
                             <label for="email">Email address *</label>
-                            <input class="inpu" type="text" name="temail" id="temail" value="<?=$_SESSION["user_email_fail"]?>" required>
+                            <input class="inpu" type="text" name="temail" id="temail"  required>
                         </div>
                         <div>
                             <label for="psw">Password *</label>
-                            <input class="inpu" type="password" name="tpass" id="tpass" value="<?=$_SESSION["user_pass_fail"]?>" required>
+                            <input class="inpu" type="password" name="tpass" id="tpass"  required>
                         </div>
                         <button type="submit" class="btn btn-pri my-4 w-100" name="b1" id="id" value="Dong y">Sign in</button>
                         <div class="d-flex sign-in-content">

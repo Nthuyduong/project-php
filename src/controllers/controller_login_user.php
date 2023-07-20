@@ -5,24 +5,23 @@ require_once("../models/model_user.php");
 
 if(isset($_REQUEST["b1"])==false)
 {   
-    $alert_title="Ban chua dang nhap";
-    $alert = "Moi dang nhap lai";
+    $alert_title="Notification";
+    $alert = "You have not submitted the login form! Please try again";
     $link_tieptuc="../views/includes/login.php";
     require_once("../views/includes/alert.php");
     die();
 } 
 $user = $_REQUEST["temail"];
-$pass = $_REQUEST["tpass"];
-$passmd5 = md5($pass);
+$pass = md5($_REQUEST["tpass"]);
 $login = new model_login();
 $customer= new model_user();
 //kiem tra tai khoan xem da login hay chua? Ham kiem tra?
-$ketqua = $login->CheckLoginUser($user,$passmd5);
+$ketqua = $login->CheckLoginUser($user,$pass);
 $checkMail=$customer->CheckUserAccountByEmail($user);
 if($ketqua == false || $checkMail==false)
 {   
-    $alert_title="Loi truy van CSDL";
-    $alert = "Loi truy van CSDL";
+    $alert_title="Notification";
+    $alert = "ERROR CONNECT DATABASE";
     include_once("../views/includes/alert.php");
 }
 else{
@@ -41,35 +40,34 @@ else{
             $_SESSION["user_phone"]=$row["Phone"];
             
 
-            $_SESSION["logined_fail"] = "";
-            // if(isset($_SESSION["user_email_fail"]))
-            //     unset($_SESSION["user_email_fail"]);
-            // if(isset($_SESSION["user_pass_fail"]))
-            //     unset($_SESSION["user_pass_fail"]);    
+            $_SESSION["logined_fail"] = "";   
+            $alert_title="Notification";
+            $alert = "Login successfully, welcome to AGURI!";
+            $link_tieptuc="../views/index/home.php";
         }
         else
         {   
-            $_SESSION["logined_fail"] = "Tên tài khoản của bạn đã bị khoá, vui lòng liên hệ 1900**** để được hỗ trợ";
-            $_SESSION["user_email_fail"]=$user;
-            $_SESSION["user_pass_fail"]=$pass;
+            $alert_title="Notification";
+            $alert = "Your account has been locked";
+            $link_tieptuc="../views/index/home.php";
         }
     }
     else
     {   
         if($rowcheckMail== null)
         {
-            $_SESSION["logined_fail"] = "Tài khoản này chưa được đăng ký, vui lòng thử lại";
-            $_SESSION["user_email_fail"]=$user;
-            $_SESSION["user_pass_fail"]=$pass;
+            $alert_title="Notification";
+            $alert = "This account wasn't registered, please try again";
+            $link_tieptuc="../views/index/home.php";
         }else
         {
-            $_SESSION["logined_fail"] = "Tên tài khoản của bạn hoặc Mật khẩu không đúng, vui lòng thử lại";
-            $_SESSION["user_email_fail"]=$user;
-            $_SESSION["user_pass_fail"]=$pass;
+            $alert_title="Notification";
+            $alert = "Username or Password is incorrect, please try again";
+            $link_tieptuc="../views/index/home.php";
         }
         
              
     }
 }    
-header("location:../views/index/home.php");
+require_once("../views/includes/alert.php")
 ?>

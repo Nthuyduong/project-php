@@ -31,11 +31,11 @@
                     </div>
                     <div class="">
                         <label for="psw">Create Password</label>
-                        <input class="inpu" type="password" name="txtpass" id="txtpass" value="<?=$_SESSION["sign_up_user_pass_err"]?>" required>
+                        <input class="inpu" type="password" name="txtpass" id="txtpass" required>
                     </div>
                     <div class="my-3">
                         <label for="psw-repeat">Re-type Password</label>
-                        <input class="inpu" type="password" name="txt_repass" id="txt_repass" value="<?=$_SESSION["sign_up_user_repass_err"]?>" required>
+                        <input class="inpu" type="password" name="txt_repass" id="txt_repass" required>
                         <p style="color: red" ><?=$_SESSION["sign_up_user_repass_fail"]?></p>
                     </div>
                         <button type="submit" name="b2" id="b2" class="registerbtn signin btn btn-pri my-4 w-100">Sign up</button>
