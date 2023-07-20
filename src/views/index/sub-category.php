@@ -2,6 +2,8 @@
 define('URLROOT', 'http://localhost:8888/project-php');
 session_start(); 
 $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+require("../../models/model_library.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,87 +56,105 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
         <div class="container-fluid body-main">
             <div class="row">
                 <!--category-side-->
+                <?php
+                $library=new model_library();
+                ?>
                 <div class="category-side-bar col-2">
-                    <div class="sticky ">
-                        <div class="mb-1">
-                            <p class="side-bar-title mb-3">Collection</p>
+                    <form name="sortProInSubcate" id="sortProInSubcate" action="" method="post">
+                        <div class="sticky ">
                             <div class="mb-1">
-                                <input type="checkbox" class="check-box" id="collection-1" name="collection-1" value="Sping Collection">
-                                <label for="collection-1">Spring Vibe</label><br>
+                                <p class="side-bar-title mb-3">Collection</p>
+                                <?php
+                                $colname="Collection";
+                                $rows1=$library->createSelect("Products",$colname);
+                                if($rows1!=null){
+                                    foreach($rows1 as $row)
+                                    {
+                                        $value = $row[$colname];
+                                        ?>
+                                        <div class="mb-1">
+                                            <input type="checkbox" class="check-box" name="<?=$colname?>[]" value="<?=$value?>">
+                                            <label><?=$value?></label><br>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box" id="collection-2" name="collection-2" value="Aguri Minimalism">
-                                <label for="collection-2">Minimalism</label><br>
+                            <div class="mt-3 mb-1">
+                                <p class="side-bar-title">Jewellery</p>
+                                <!--  -->
+                                <?php
+                                $colname="Jewelry_type";
+                                $rows2=$library->createSelect("Products",$colname);
+                                if($rows2!=null){
+                                    foreach($rows2 as $row)
+                                    {
+                                        $value = $row[$colname];
+                                        ?>
+                                        <div class="mb-1">
+                                            <input type="checkbox" class="check-box" name="<?=$colname?>[]" value="<?=$value?>">
+                                            <label><?=$value?></label><br>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                <!--  -->
                             </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box" id="collection-3" name="collection-3" value="Aguri's Eternity Magic">
-                                <label for="collection-3">Eternity Magic</label><br>
+                            <div class="mt-3 mb-1">
+                                <p class="side-bar-title">Materials</p>
+                                <!--  -->
+                                <?php
+                                $colname="Material";
+                                $rows3=$library->createSelect("Products",$colname);
+                                if($rows3!=null){
+                                    foreach($rows3 as $row)
+                                    {
+                                        $value = $row[$colname];
+                                        ?>
+                                        <div class="mb-1">
+                                            <input type="checkbox" class="check-box" name="<?=$colname?>[]" value="<?=$value?>">
+                                            <label><?=$value?></label><br>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                <!--  -->
                             </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box" id="collection-4" name="collection-4" value="End-Off-Year Collection">
-                                <label for="collection-4">End-Off-Year</label>
+                            <div class="mt-3 mb-1">
+                                <p class="side-bar-title">Price</p>
+                                <div class="mb-1">
+                                    <input type="checkbox" class="check-box check-cate" id="price-1" name="price-1" value="$500 & Under">
+                                    <label for="price-1">$0 - $500</label><br>
+                                </div>
+                                <div class="mb-1">
+                                    <input type="checkbox" class="check-box check-cate" id="price-2" name="price-2" value="$500 - $1,000">
+                                    <label for="price-2">$500 - $1,000</label><br>
+                                </div>
+                                <div class="mb-1">
+                                    <input type="checkbox" class="check-box check-cate" id="price-3" name="price-3" value="$1,000 - $2,000">
+                                    <label for="price-3">$1,000 - $2,000</label><br>
+                                </div>
+                                <div class="mb-1">
+                                    <input type="checkbox" class="check-box check-cate" id="price-4" name="price-4" value="$2,000 - $5,000">
+                                    <label for="price-4">$2,000 - $5,000</label><br>
+                                </div>
+                                <div class="mb-1">
+                                    <input type="checkbox" class="check-box check-cate" id="price-5" name="price-5" value="$5,000 & More">
+                                    <label for="price-5">$5,000 +</label><br><br>
+                                </div>
+                                <div>
+                                    <input type="number" placeholder="Min" class="col-5 price-box">
+                                    <span> ～ </span>
+                                    <input type="text" placeholder="Max" class="col-5 price-box">
+                                </div>
                             </div>
+                            <input type="hidden" name="sid" value="<?=$sid?>">
+                            <button type="submit" name ="b1" id="b1" class="btn btn-pri btnsm mt-3">Apply</button>
                         </div>
-                        <div class="mt-3 mb-1">
-                            <p class="side-bar-title">Jewellery</p>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="jewellery-1" name="jewellery-1" value="Natural Jewellery">
-                                <label for="jewellery-1">Natural</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="jewellery-2" name="jewellery-2" value="Lab-grown Jewellery">
-                                <label for="jewellery-2">Lab-grown</label>
-                            </div>
-                        </div>
-                        <div class="mt-3 mb-1">
-                            <p class="side-bar-title">Materials</p>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="materials-1" name="materials-1" value="Gold">
-                                <label for="materials-1">Gold</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="materials-2" name="materials-2" value="Rose Gold">
-                                <label for="materials-2">Rose Gold</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="materials-3" name="materials-3" value="White Gold">
-                                <label for="materials-3">White Gold</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="materials-4" name="materials-4" value="Sterling Silver">
-                                <label for="materials-4">Sterling Silver</label>
-                            </div>
-                        </div>
-                        <div class="mt-3 mb-1">
-                            <p class="side-bar-title">Price</p>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="price-1" name="price-1" value="$500 & Under">
-                                <label for="price-1">$0 - $500</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="price-2" name="price-2" value="$500 - $1,000">
-                                <label for="price-2">$500 - $1,000</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="price-3" name="price-3" value="$1,000 - $2,000">
-                                <label for="price-3">$1,000 - $2,000</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="price-4" name="price-4" value="$2,000 - $5,000">
-                                <label for="price-4">$2,000 - $5,000</label><br>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" class="check-box check-cate" id="price-5" name="price-5" value="$5,000 & More">
-                                <label for="price-5">$5,000 +</label><br><br>
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Min" class="col-5 price-box">
-                                <span> ～ </span>
-                                <input type="text" placeholder="Max" class="col-5 price-box">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-pri btnsm mt-3" onclick="alert('Loading...')">Apply</button>
-                    </div>
+                    </form>
                 </div>
                 <!--category-main-->
                 <div class="category-main px-0 col-10">
