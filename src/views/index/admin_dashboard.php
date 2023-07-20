@@ -244,7 +244,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="featured-info">
                                 <h6 class="my-2"><?= $row["Product_Name"] ?></h6>
-                                <div>$ <?= $row["Price"] ?></div>
+                                <div>$ <?= number_format($row["Price"])?></div>
                             </div>
                         </div>
                     </div>
