@@ -7,15 +7,20 @@
 <body>
 <?php
 session_start();
-unset($_SESSION["logined_user"]);
-unset($_SESSION["user_email"]);
-unset($_SESSION["user_id"]);
-unset($_SESSION["user_name"]);
-unset($_SESSION["user_address"]);
-unset($_SESSION["user_phone"]);
+// <<<<<<< hue-checkout-process
+// unset($_SESSION["logined_user"]);
+// unset($_SESSION["user_email"]);
+// =======
+// unset($_SESSION["logined_user"]);
+// unset($_SESSION["user_email"]);
+// unset($_SESSION["user_id"]);
+// unset($_SESSION["user_name"]);
+// unset($_SESSION["user_address"]);
+// unset($_SESSION["user_phone"]);
+// >>>>>>> main
 
 //unset($_SESSION["logined"]);//hủy 1 biến $_SESSION["logined"]
-//session_destroy();//hủy toàn bộ SESSION
+session_destroy();//hủy toàn bộ SESSION
 
 $alert_title="Đăng xuất thành công";
 $alert = "Quay về trang Home";

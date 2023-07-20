@@ -1,5 +1,6 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); 
 session_start();
+$uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,9 +72,9 @@ session_start();
                                 <li class="breadcrumb-item"><a href="sub-category.php?sid=<?=$productInfo['sid']?>"><?=ucfirst($productInfo['subCategory'])?></a></li>
                             </ol>
                             </nav>
-                            <p class="mdt"><?=$productInfo['pname']?></p>
+                            <p class="mdt product-name"><?=$productInfo['pname']?></p>
                             <p><?=$productInfo['description']?></p>
-                            <h5 class="mt-2 mb-4">$<?=number_format($productInfo['price'], 0, '.', '.')?></h5>
+                            <h5 class="mt-2 mb-4 price">$<?=number_format($productInfo['price'])?></h5>
                             <div class="d-flex">
                                 <a class="me-auto">
                                     <p class="mdt me-auto">Complimentary Shipping & Returns</p>
@@ -94,14 +95,14 @@ session_start();
                             <div class="line mb-3"></div>
                             <div class=d-flex>
                                 <p class="mdt me-auto mb-0 mt-1">Size</p>
-                                <select class="form-select smt w-50">
-                                    <option selected>Select size</option>
-                                    <option value="1">3</option>
-                                    <option value="2">3 1/2</option>
-                                    <option value="3">4</option>
-                                    <option value="3">4 1/2</option>
-                                    <option value="3">5</option>
-                                    <option value="3">5 1/2</option>
+                                <select class="form-select smt w-50 size">
+                                    <option selected value="0">Select size</option>
+                                    <option value="3">3</option>
+                                    <option value="3.5">3 1/2</option>
+                                    <option value="4">4</option>
+                                    <option value="4.5">4 1/2</option>
+                                    <option value="5">5</option>
+                                    <option value="5.5">5 1/2</option>
                                 </select>
                             </div>
                             <div class="line my-3"></div>
@@ -198,13 +199,16 @@ session_start();
                             </div>
                             </div>
                             <div class="bag">
-                            <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" data-bs-target="#addToBag"
-                                data-id="<?=$pid?>" id="addProduct">
+                            <!-- <button class="add-bag btn btnlg btn-pri w-100" type="submit" data-bs-toggle="offcanvas" 
+                                data-bs-target="#addToBag" onclick="addToBag(pid)">
+                                    Add to bag
+                            </button> -->
+                            <button class="add-bag btn btnlg btn-pri w-100" type="submit" onclick="addToBag(<?=$uid?>, <?=$pid?>)">
                                     Add to bag
                             </button>
                         
                             <!--OFFCANVAS ADD BAG-->
-                            <div class="offcanvas offcanvas-end" id="addToBag">
+                            <!-- <div class="offcanvas offcanvas-end" id="addToBag">
                                 <div class="offcanvas-header">
                                     <h5 class="offcanvas-title mt-3">Shopping Bag</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -212,7 +216,7 @@ session_start();
                                 <div class="offcanvas-body" id="bag-body">
                                 
                                 </div>
-                            </div>
+                            </div> -->
                             </div>
 
                             <div class="ask-advisor">
@@ -296,7 +300,7 @@ session_start();
                                     $similarProducts1 = array_slice($similarProducts, 0, 3);
                                     $similarProducts2 = array_slice($similarProducts, 3, 6);
                                     ?>
-                                    <div class="carousel-item active" data-bs-interval="1300">
+                                    <div class="carousel-item active" data-bs-interval="3000">
                                         <div class="row">
                                             <?php foreach ($similarProducts1 as $similar) { ?>
                                                 <div class="col-4">
@@ -308,7 +312,7 @@ session_start();
                                                                 </a>
                                                             </div>
                                                             <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button"
-                                                                data-bs-target="#compare" onclick="compare(<?=$similar['pid']?>)">
+                                                                data-bs-target="#compare" onclick="compare(<?=$uid?>, <?=$similar['pid']?>)">
                                                                     Quick Compare
                                                             </div>
                                                         </div>
@@ -317,7 +321,7 @@ session_start();
                                             <?php } ?>
                                         </div>
                                     </div>
-                                    <div class="carousel-item" data-bs-interval="1300">
+                                    <div class="carousel-item" data-bs-interval="3000">
                                         <div class="row">
                                             <?php foreach ($similarProducts2 as $similar) { ?>
                                                 <div class="col-4">
@@ -356,7 +360,7 @@ session_start();
                             </a>
                             <div class="item-inf text-center">
                                 <p class="mdt my-2"><?=$productInfo['pname']?></p>
-                                <p class="mdt">$<?=number_format($productInfo['price'], 0, '.', '.')?></p>
+                                <p class="mdt">$<?=number_format($productInfo['price'])?></p>
                             </div>
                             </div>
                             <div class="jewel">
@@ -371,7 +375,7 @@ session_start();
                             <p class="compare-title mb-2">MATERIAL</p>
                             <p class="smt"><?=$productInfo['material']?></p>
                             </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
+                            <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag(<?=$uid?>, <?=$pid?>)">Add to bag</button>
                         </div>
                         <div class="col-6 simi-right" id="comparedProduct">
                             <!-- compare product info here -->
@@ -411,13 +415,13 @@ session_start();
                                                 </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                                 <p class="mdt mb-2"><?=$new['Name']?></p>
-                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                <p>$<?=number_format($new['Price'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -436,13 +440,13 @@ session_start();
                                                 </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                                 <p class="mdt mb-2"><?=$new['Name']?></p>
-                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                <p>$<?=number_format($new['Price'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -461,13 +465,13 @@ session_start();
                                                 </a>
                                                 </div>
                                                 <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button" 
-                                                    data-bs-target="#quickview" onclick="quickview(<?=$new['ID']?>)">
+                                                    data-bs-target="#quickview" onclick="quickview(<?=$uid?>, <?=$new['ID']?>)">
                                                         Quick view
                                                 </div>
                                             </div>
                                             <div class="item-inf text-center mt-3">
                                                 <p class="mdt mb-2"><?=$new['Name']?></p>
-                                                <p>$<?=number_format($new['Price'], 0, '.', '.')?></p>
+                                                <p>$<?=number_format($new['Price'])?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -644,8 +648,10 @@ session_start();
                 </div>
        
         <!-- modal quickview -->
-        <?php require_once '../includes/quickview.php';?>
-        
+        <?php require_once '../includes/quickviewAJAX.php';?>
+        <?php require_once '../includes/addBagAJAX.php';?>
+
+
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
@@ -661,12 +667,15 @@ session_start();
             }
 
             // compare product
-            function compare(pid) {
+            function compare(uid, pid) {
                 // Make an AJAX request to fetch the similarInfo using pid
                 $.ajax({
                     url: 'compareAJAX.php',
                     type: 'GET',
-                    data: { pid: pid },
+                    data: { 
+                        uid: uid,
+                        pid: pid 
+                    },
                     success: function(response) {
                         console.log('similarInfo:', response); // Log the value of similarInfo received from the server
                         // Update the comparedProduct element with the received data
@@ -693,7 +702,7 @@ session_start();
                                 <p class="compare-title mb-2">MATERIAL</p>
                                 <p class="smt">${response.Material}</p>
                             </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" data-bs-dismiss="modal">Add to bag</button>
+                            <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag(${uid}, ${pid})">Add to bag</button>
                         `;
                     },
                     error: function(xhr, status, error) {
@@ -704,34 +713,6 @@ session_start();
                 // Return true or perform any other desired operations
                 return true;
             }
-
-            // add to bag
-            $(document).ready(function(){
-                $(document).on('click', '#addProduct', (e) => {
-                    e.preventDefault();
-                    var pid = $(this).data('id');   // it will get id of clicked row
-                    $('#bag-bodyt').html(''); // leave it blank before ajax call
-                    // $('#modal-loader').show();      // load ajax loader
-                    $.ajax({
-                        url: '../includes/offcanvas-bag.php',
-                        type: 'POST',
-                        data: 'id='+pid,
-                        dataType: 'html'
-                    })
-                    .done(function(data){
-                        console.log(data);	
-                        $('#bag-body').html('');    
-                        $('#bag-body').html(data); // load response 
-                        // $('#modal-loader').hide();		  // hide ajax loader	
-                    })
-                    .fail(function(){
-                        $('#bag-body').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-                        // $('#modal-loader').hide();
-                    });
-                    
-                });
-                
-            });
         </script>
 
     </body>
