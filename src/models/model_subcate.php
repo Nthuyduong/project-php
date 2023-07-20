@@ -63,13 +63,15 @@ class model_subcate extends Database
 
     function GetSubbyID($id)
     {
-        $sql = "SELECT * FROM Sub_categories WHERE Sub_categories.ID = ?";
+        $sql = "SELECT Sub_categories.Name, Sub_categories.Category, Sub_categories.Description FROM Sub_categories WHERE Sub_categories.ID = ?";
         $param = null;
         if($id != null)
         {
             $param = ["$id"];
         }
         $ketqua = $this->set_query($sql,$param);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetch();
         return $ketqua;
     }
 }

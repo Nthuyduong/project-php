@@ -49,9 +49,9 @@ if ($ketqua == false) {
             </div> -->
             <div class="cell-sm stt-out">
                 <!-- Chuc nang sua san pham -->
-                <a id="getproduct" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#product-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                <a id="getproduct" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#product-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
                 <!-- Chuc nang xoa san pham -->
-                <a name="btn" onclick="deleteProduct(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                <a name="btn" onclick="showConfirmationAndRedirect(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
             </div>
         </div>
         <!-- EDIT PRODUCT INFORMATION -->
@@ -82,6 +82,20 @@ if ($ketqua == false) {
                 </div>
             </div>
         </div>
+        <script>
+            function showConfirmationAndRedirect(prdname) {
+                // Display the confirmation dialog
+                var confirmation = window.confirm("Are you sure you want to delete this product?");
+
+                // Check the user's response
+                if (confirmation) {
+                    // If the user clicks "OK," proceed with the deletion action
+                    deleteProduct(prdname);
+                } else {
+                    // If the user clicks "Cancel," do nothing
+                }
+            }
+        </script>
         <!-- AJAX DELETE PRODUCT -->
         <script>
             function deleteProduct(id) {
@@ -103,9 +117,9 @@ if ($ketqua == false) {
 
         <!-- AJAX DISPLAY AND EDIT PRODUCT INFROMATION -->
         <script>
-            $(document).ready(function(){
+            $(document).ready(function() {
 
-                $(document).on('click', '#getproduct', function(e){
+                $(document).on('click', '#getproduct', function(e) {
 
                     e.preventDefault();
                     // Get customer ID after click
@@ -115,22 +129,22 @@ if ($ketqua == false) {
                     $('#dynamic-product').html('');
 
                     $.ajax({
-                        url: 'showproductAJAX.php',
-                        type: 'POST',
-                        data: {
-                            id: id
-                        },
-                        dataType: 'html',
-                    })
-                    .done(function(data){
-                        console.log(data);
-                        $('#dynamic-product').html('');
-                        // load response
-                        $('#dynamic-product').html(data);
-                    })
-                    .fail(function(){
-                        $('#dynamic-product').html('<p>Something went wrong, please try again!</p>');
-                    });
+                            url: 'showproductAJAX.php',
+                            type: 'POST',
+                            data: {
+                                id: id
+                            },
+                            dataType: 'html',
+                        })
+                        .done(function(data) {
+                            console.log(data);
+                            $('#dynamic-product').html('');
+                            // load response
+                            $('#dynamic-product').html(data);
+                        })
+                        .fail(function() {
+                            $('#dynamic-product').html('<p>Something went wrong, please try again!</p>');
+                        });
                 });
             });
         </script>

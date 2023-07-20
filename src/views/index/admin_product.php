@@ -2,7 +2,6 @@
 <?php
 session_start();
 require_once("../../models/model_product.php");
-require_once("../../models/model_order.php");
 require("../../core/checklogin.php");
 ?>
 <!DOCTYPE html>
@@ -124,7 +123,7 @@ require("../../core/checklogin.php");
                 <h4 class="db-title">ADD NEW PRODUCT<h4>
             </div>
             <div class="offcanvas-body">
-                <form name="form1" id="form1" method="POST" action="../../controllers//controller_add_product.php">
+                <form name="form1" id="form1" method="POST" action="../../controllers/controller_add_product.php">
                     <div class="">
                         <div class="mdt mb-1">Product's Name</div>
                         <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
@@ -155,8 +154,8 @@ require("../../core/checklogin.php");
                         <select class="sl-box" name="unit" id="unit">
                             <option value="" selected>Select unit</option>
                             <?php
-                            $unit = new model_order();
-                            $unit->dropdownName("Products", "Unit");
+                            $unit = new model_product();
+                            $unit->ddName("Products", "Unit");
                             ?>
                         </select>
                     </div>
@@ -169,8 +168,8 @@ require("../../core/checklogin.php");
                         <select class="sl-box" name="material" id="material">
                             <option value="" selected>Select material</option>
                             <?php
-                            $mate = new model_order();
-                            $mate->dropdownName("Products", "Material");
+                            $mate = new model_product();
+                            $mate->ddName("Products", "Material");
                             ?>
                         </select>
                     </div>
@@ -179,8 +178,8 @@ require("../../core/checklogin.php");
                         <select class="sl-box" name="jewel" id="jewel">
                             <option value="" selected>Select Jewelry type</option>
                             <?php
-                            $jw = new model_order();
-                            $jw->dropdownName("Products", "Jewelry_type");
+                            $jw = new model_product();
+                            $jw->ddName("Products", "Jewelry_type");
                             ?>
                         </select>
                     </div>

@@ -70,7 +70,7 @@ require("../../core/checklogin.php");
                 </div>
                 <div class="tbl">
                     <div class="tb-row title-row">
-                        <div class="cell-sm">
+                        <div class="cell-sm alg-center">
                             ID
                         </div>
                         <div class="cell-md">
@@ -79,10 +79,10 @@ require("../../core/checklogin.php");
                         <div class="cell-md">
                             CUSTOMER'S NAME
                         </div>
-                        <div class="cell">
+                        <div class="cell alg-center">
                             METHOD
                         </div>
-                        <div class="cell">
+                        <div class="cell alg-center">
                             GRAND TOTAL
                         </div>
                         <div class="cell stt-out">
@@ -91,7 +91,7 @@ require("../../core/checklogin.php");
                         <!-- <div class="cell">
                             ACTION
                         </div> -->
-                        <div class="cell"></div>
+                        <div class="cell stt-out"></div>
                     </div>
 
                     <!-- All Order will show here -->
@@ -99,7 +99,7 @@ require("../../core/checklogin.php");
 
                     </div>
                 </div>
-                <div class="d-flex pgn">
+                <!-- <div class="d-flex pgn">
                     <div class="me-auto">Showing 8 of 100</div>
                     <div class="pagination">
                         <a href="#">&laquo;</a>
@@ -108,7 +108,7 @@ require("../../core/checklogin.php");
                         <a href="#">3</a>
                         <a href="#">&raquo;</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

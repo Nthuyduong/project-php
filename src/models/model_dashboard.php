@@ -188,9 +188,10 @@ class model_dashboard extends Database
     function getOrderCounts() {
         $sql = "SELECT
                     (SELECT COUNT(Code) FROM Orders) AS total_order,
-                    (SELECT COUNT(Code) FROM Orders WHERE Status = 'Pending') AS pending_order,
-                    (SELECT COUNT(Code) FROM Orders WHERE Status = 'Processing') AS processing_order,
-                    (SELECT COUNT(Code) FROM Orders WHERE Status = 'Delivered') AS delivered_order";
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '1') AS pending_order,
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '2') AS processing_order,
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '3') AS delivered_order,
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '4') AS cancel_order";
         
         $ketqua = $this->set_query($sql);
         if ($ketqua == true) {

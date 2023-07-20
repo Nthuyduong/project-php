@@ -49,7 +49,7 @@ require("../../core/checklogin.php");
                 if ($cid != null && is_numeric($cid) == false)
                     $cid = "";
                 $customer->DeleteCustomer($cid);
-                
+
                 $keyword = isset($_REQUEST["findcustomer"]) ? $_REQUEST["findcustomer"] : "";
                 if ($keyword != null && is_numeric($keyword) == true)
                     $keyword = "";
@@ -68,7 +68,7 @@ require("../../core/checklogin.php");
                 <div class="table-customer">
                     <div class="tbl">
                         <div class="tb-row title-row">
-                            <div class="cell-sm alg-center">
+                            <div class="cell-ssm alg-center">
                                 ID
                             </div>
                             <div class="cell">
@@ -84,7 +84,7 @@ require("../../core/checklogin.php");
                                 ADDRESS
                             </div>
                             <div class="cell-sm">
-                                ACTION
+                                
                             </div>
                         </div>
                         <?php
@@ -92,7 +92,7 @@ require("../../core/checklogin.php");
                             foreach ($rows as $row) {
                         ?>
                             <div class="tb-row">
-                                <div class="cell-sm alg-center"><?= $row["ID"] ?></div>
+                                <div class="cell-ssm alg-center"><?= $row["ID"] ?></div>
                                 <div class="cell">
                                     <?= $row["Name"] ?>
                                 </div>
@@ -100,7 +100,7 @@ require("../../core/checklogin.php");
                                 <div class="cell-sm"><?= $row["Phone"] ?></div>
                                 <div class="cell-md"><?= $row["Address"] ?></div>
                                 <div class="cell-sm action-icon stt-out">
-                                    <a href="#" id="getCustomer" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#customer-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                                    <a href="#" id="getCustomer" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#customer-detail"><i class="me-3 fas fa-search-plus" style="color: #ffffff;"></i></a>
                                     <a href="?cid=<?= $row["ID"] ?>"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
@@ -143,21 +143,6 @@ require("../../core/checklogin.php");
                     <!-- Content will be load here -->
                     <div id="dynamic-content">
 
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="button" class="w-100 btn-lg-sc-admin">Cancel</button>
-                                </div>
-                                <div class="col-6">
-                                    <button type="submit" class="w-100 btn-lg-pr-admin w-100">Save edit</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

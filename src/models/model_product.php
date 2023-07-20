@@ -56,15 +56,15 @@ class model_product extends Database
 
         $param = null;
         // if ($sort != null) {
-            if ($sort == "lowtohigh") {
-                $sql .= " ORDER BY tb1.Price ASC";
-                $param = ["$sort"];
-            }
-            if ($sort == "hightolow") {
-                $sql .=  " ORDER BY tb1.Price DESC";
-                $param = ["$sort"];
-            }
-            // $param = "$sort";
+        if ($sort == "lowtohigh") {
+            $sql .= " ORDER BY tb1.Price ASC";
+            $param = ["$sort"];
+        }
+        if ($sort == "hightolow") {
+            $sql .=  " ORDER BY tb1.Price DESC";
+            $param = ["$sort"];
+        }
+        // $param = "$sort";
         // }
         $ketqua = $this->set_query($sql, $param);
         if ($ketqua == true)
@@ -78,8 +78,8 @@ class model_product extends Database
     {
         $sql = "INSERT INTO Products(Name,Unit,Price,Description,Material,Jewelry_type,Sub_category_ID,Collection,Thumb) VALUE(?,?,?,?,?,?,?,?,?)";
         $param = null;
-        if($name != "" && $unit != "" && $price != "" && $description != "" && $material != "" && $jewelry_type != "" && $subcate = "" && $collection != "" && $thummb != "")
-        $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thummb];
+        if ($name != "" && $unit != "" && $price != "" && $description != "" && $material != "" && $jewelry_type != "" && $subcate = "" && $collection != "" && $thummb != "")
+            $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thummb];
         $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }
@@ -152,7 +152,7 @@ class model_product extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
- 
+
     // Create select category
     function CateSelect($tbname, $colid, $colname, $selectid)
     {
@@ -170,5 +170,15 @@ class model_product extends Database
         }
     }
 
-
+    function ddName($tbname, $colname)
+    {
+        $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
+        $ketqua = $this->set_query($sql);
+        if ($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach ($rows as $row) {
+            $name = $row["$colname"];
+            echo "<option value='$name'>$name</option>";
+        }
+    }
 }

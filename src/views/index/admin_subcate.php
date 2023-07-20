@@ -120,7 +120,7 @@ require_once("../../models/model_product.php")
                             <div class="cell-md">Description about sub-category goes here</div>
                             <div class="cell stt-out">
                                 <a id="editScate" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#cate-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
-                                <a href="?subcate=<?= $row["ID"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                                <a href="#" onclick="showConfirmationAndRedirect(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
                     <?php
@@ -179,10 +179,10 @@ require_once("../../models/model_product.php")
                         </div> -->
                 <div class="row mt-5">
                     <div class="col-6">
-                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin">Cancel</button>
+                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin w-100">Cancel</button>
                     </div>
                     <div class="col-6">
-                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin">Add Sub-category</button>
+                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin w-100">Add Sub-category</button>
                     </div>
                 </div>
             </form>
@@ -288,6 +288,26 @@ require_once("../../models/model_product.php")
             });
         });
     </script>
+
+    <!-- confirm delete product -->
+    <script>
+        function showConfirmationAndRedirect(productId) {
+            // Display the confirmation dialog
+            var confirmation = window.confirm("Are you sure you want to delete this sub-category?");
+            // Check the user's response
+            if (confirmation) {
+                // If the user clicks "OK," proceed with the deletion action
+                deleteProduct(productId);
+            } else {
+                // If the user clicks "Cancel," do nothing
+            }
+        }
+
+        function deleteProduct(productId) {
+            window.location.href = "?subcate=" + productId;
+        }
+    </script>
+
 
 </body>
 

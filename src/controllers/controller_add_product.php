@@ -13,7 +13,6 @@ if(isset($_REQUEST["b1"]) == false)
 }
 $name = $_REQUEST["prdname"];
 $cate = $_REQUEST["ctg2"];
-
 $sub = $_REQUEST["subctg2"];
 $unit = $_REQUEST["unit"];
 $price = $_REQUEST["prdprice"];
