@@ -15,7 +15,7 @@ require("../../core/checklogin.php");
 </head>
 
 <body>
-    <?php require_once '../includes/sidebar.php'; ?>
+    <?php require_once '../includes/sidebar.php';?>
 
     <div id="main">
         <!-- THIS IS HEADER -->
@@ -85,12 +85,12 @@ require("../../core/checklogin.php");
                         <div class="cell">
                             GRAND TOTAL
                         </div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             STATUS
                         </div>
-                        <div class="cell">
+                        <!-- <div class="cell">
                             ACTION
-                        </div>
+                        </div> -->
                         <div class="cell"></div>
                     </div>
 

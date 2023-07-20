@@ -31,15 +31,15 @@ if ($ketqua == false) {
             <div class="cell stt-out">
                 <div class="stt stt1"><?= $row["Status"] ?></div>
             </div>
-            <div class="cell">
+            <!-- <div class="cell">
                 <select class="w-100">
                     <option>Status</option>
                     <?php
-                    $pm = new model_order();
-                    $pm->dropdownName("Orders", "Status");
+                    // $pm = new model_order();
+                    // $pm->dropdownName("Orders", "Status");
                     ?>
                 </select>
-            </div>
+            </div> -->
             <div class="cell action-icon">
                 <i class="fas fa-print me-3" style="color: #ffffff;"></i>
                 <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus" style="color: #ffffff;"></i></a>

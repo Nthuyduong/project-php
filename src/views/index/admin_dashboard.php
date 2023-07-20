@@ -239,7 +239,7 @@ require("../../core/checklogin.php");
                     <div class="col-3">
                         <div class="featured_item">
                             <div class="featured-img">
-                                <img src="../../../public/images/<?= $row["Thumb"] ?>" />
+                                <img src="../../../public/images/thumb/<?= $row["Thumb"] ?>" />
                             </div>
                             <div class="featured-info">
                                 <div>Product name <?= $row["Product_Name"] ?></div>
@@ -285,9 +285,9 @@ require("../../core/checklogin.php");
                     <div class="cell alg-center">
                         STATUS
                     </div>
-                    <div class="cell alg-center">
+                    <!-- <div class="cell alg-center">
                         ACTION
-                    </div>
+                    </div> -->
                     <div class="cell"></div>
                 </div>
                 <!-- 5 recently order here -->
@@ -304,15 +304,15 @@ require("../../core/checklogin.php");
                         <div class="cell stt-out">
                             <div class="stt stt3"><?= $row["Status"] ?></div>
                         </div>
-                        <div class="cell">
+                        <!-- <div class="cell">
                             <select class="w-100" id="paymentMethod" name="paymentMethod">
                                 <option value="">Payment method</option>
                                 <?php
-                                $pm = new model_order();
-                                $pm->dropdownName("Orders", "Status");
+                                // $pm = new model_order();
+                                // $pm->dropdownName("Orders", "Status");
                                 ?>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="cell alg-center">
                             <i class="fas fa-print" style="color: #ffffff;"></i>
                             <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"];?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
@@ -322,7 +322,7 @@ require("../../core/checklogin.php");
                     }
                 ?>
             </div>
-            <div class="d-flex pgn">
+            <!-- <div class="d-flex pgn">
                 <div class="me-auto">Showing 8 of 100</div>
                 <div class="pagination">
                     <a href="#">&laquo;</a>
@@ -331,7 +331,7 @@ require("../../core/checklogin.php");
                     <a href="#">3</a>
                     <a href="#">&raquo;</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- ORDER INFORMATION -->

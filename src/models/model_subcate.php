@@ -10,6 +10,14 @@ class model_subcate extends Database
         $this->data = NULL;
     }
 
+    //get all sub-category
+    function SearchSub()
+    {
+        $sql = "SELECT * FROM Sub_categories";
+        $ketqua = $this->set_query($sql);
+        if($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+    }
     //Get list Sub-category by Category
     function GetSubcate($category)
     {

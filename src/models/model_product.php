@@ -44,8 +44,8 @@ class model_product extends Database
     //Lay danh sach san pham theo sub-category name
     function GetListBySub($subname, $keyword, $sort)
     {
-        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
-        FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
+        $sql = "SELECT tb1.Material, tb1.Jewelry_type, tb1.Unit, tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        FROM (SELECT p.Jewelry_type, p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
         AS Sub_category, d.Stock FROM Products p
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
         INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
@@ -74,11 +74,11 @@ class model_product extends Database
 
     //Them san pham
     // stock in table product_detail
-    function AddProduct($name, $stock, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection)
+    function AddProduct($name, $stock, $price, $description, $material, $jewelry_type, $subcate)
     {
         //Dien cac gia tri trong bang Product o day
-        $sql = "INSERT INTO Products VALUE(?,?,?,?,?,?,?,?,?)";
-        $param = [$name, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection];
+        $sql = "INSERT INTO Products VALUE(?,?,?,?,?,?,?)";
+        $param = [$name, $stock, $price, $description, $material, $jewelry_type, $subcate];
         $ketqua = $this->set_query($sql, $param);
         if($ketqua)
         {

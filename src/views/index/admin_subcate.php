@@ -171,7 +171,7 @@ require_once("../../models/model_product.php")
                                 <div class="box__error">Error! <span></span>.</div>
                             </form>
                         </div> -->
-                <div class="row mmt-5">
+                <div class="row mt-5">
                     <div class="col-6">
                         <button type="button" name="b2" id="b2" class="btn-lg-sc-admin">Cancel</button>
                     </div>
@@ -184,7 +184,31 @@ require_once("../../models/model_product.php")
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        function test() {
+            let ctValue = document.getElementById("ctg").value;
+            console.log(ctValue);
+            $.ajax({
+                    url: 'productAJAX.php',
+                    type: 'POST',
+                    data: {
+                        ctname: ctValue
+                    },
+                    dataType: 'html',
+                })
+                .done(function(data) {
+                    $("#subctg").empty().append(data);
+                })
+                .fail(function() {
+                    console.error("AJAX request failed!");
+                });
+        }
 
+        $(document).ready(function() {
+            $("#ctg").on("change", test);
+        });
+    </script>
 </body>
 
 </html>

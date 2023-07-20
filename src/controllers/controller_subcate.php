@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../models/model_subcate.php");
+require_once("../views/index/admin_subcate.php");
 
 $ann_title = "";
 $ann_content = "";
@@ -13,7 +14,7 @@ if (isset($_REQUEST["b1"]) == false) {
     die();
 }
 $subname = $_REQUEST["subname"];
-$category = $_POST["ctg"];
+$category = $_POST["ctname"];
 $desc = $_REQUEST["desc"];
 
 $sub = new model_subcate();
@@ -30,4 +31,6 @@ if ($ketqua == FALSE) {
     $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
     $ann_content = "A new sub-category is created!";
     include_once ("../views/includes/announce.php");
+    $sub->SearchSub();
+    header("location:../views/index/admin_subcate.php");
 }

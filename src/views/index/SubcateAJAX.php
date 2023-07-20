@@ -29,24 +29,24 @@ if ($ketqua == false) {
         foreach ($rows as $row) {
 ?>
         <div class="tb-row">
-            <div class="cell-ssm">
-                <input type="checkbox" id="" name="check[]" value="">
-            </div>
-            <div class="cell-sm">img</div>
+            <div class="cell-sm alg-center"><?= $row["ID"] ?></div>
             <div class="cell"><?= $row["Name"] ?></div>
-            <div class="cell alg-center"><?= $row["Category"] ?></div>
+            <div class="cell-sm alg-center"><?= $row["Category"] ?></div>
             <div class="cell alg-center"><?= $row["Sub_category"] ?></div>
+            <div class="cell-sm alg-center"><?= $row["Material"] ?></div>
+            <div class="cell alg-center"><?= $row["Jewelry_type"] ?></div>
             <div class="cell-sm alg-center"><?= $row["Price"] ?></div>
             <div class="cell-sm alg-center"><?= $row["TotalStock"] ?></div>
-            <div class="cell-sm stt-out">
+            <div class="cell-sm alg-center"><?= $row["Unit"] ?></div>
+            <!-- <div class="cell-sm stt-out">
                 <div class="stt-sm stt3">Status</div>
-            </div>
-            <div class="cell-sm togglebtn stt-out">
+            </div> -->
+            <!-- <div class="cell-sm togglebtn stt-out">
                 <label class="switch">
                     <input type="checkbox" checked>
                     <span class="slider round"></span>
                 </label>
-            </div>
+            </div> -->
             <div class="cell-sm stt-out">
                 <!-- Chuc nang sua san pham -->
                 <a id="getproduct" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"];?>" data-bs-target="#product-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
