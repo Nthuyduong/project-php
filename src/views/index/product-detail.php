@@ -375,7 +375,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                             <p class="compare-title mb-2">MATERIAL</p>
                             <p class="smt"><?=$productInfo['material']?></p>
                             </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag(<?=$uid?>, <?=$pid?>)">Add to bag</button>
+                            <!-- <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag()">Add to bag</button> -->
                         </div>
                         <div class="col-6 simi-right" id="comparedProduct">
                             <!-- compare product info here -->
@@ -702,7 +702,6 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                                 <p class="compare-title mb-2">MATERIAL</p>
                                 <p class="smt">${response.Material}</p>
                             </div>
-                            <button type="button" class="btn btn-pri btnsm w-100" onclick="addToBag(${uid}, ${pid})">Add to bag</button>
                         `;
                     },
                     error: function(xhr, status, error) {

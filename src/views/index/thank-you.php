@@ -62,10 +62,10 @@ session_start();?>
                         <div class="your-bill">
                             <div>
                             <p class="mdt">Shipping adress</p>
-                            <p class="">Thuy Duong Nguyen</p>
-                            <p class="">98 Hue Street, Pho Hue Ward, Hai Ba Trung</p>
-                            <p class="">Tel: 0339898989</p>
-                            <p class="mb-0">Nthduong198@gmail.com</p>
+                            <p class="">Fullname: <?=$_SESSION['user_name']?></p>
+                            <p class="">Address: <?=$_SESSION['user_address']?></p>
+                            <p class="">Tel: <?=$_SESSION['user_phone']?></p>
+                            <p class="mb-0">Email: <?=$_SESSION['user_email']?></p>
                             </div>
                             <div class="line my-4"></div>
                             <div class="">
@@ -89,9 +89,10 @@ session_start();?>
                                         <p><?=$cart['Name']?></p>
                                     </div>
                                     <div class="col-3 pe-0">
-                                        <p>$<?=number_format($cart['Price'])?></p>
+                                        <p>$<?=number_format($cart['Price']*$cart['Quantity'])?></p>
                                     </div>
                                 </div>
+                                <p>$<?=number_format($cart['Price'])?></p>
                                 <p>x <?=$cart['Quantity']?></p>
                                 <?php $subTotal += $cart['Price'] * $cart['Quantity']; ?>
                             <?php } ?>

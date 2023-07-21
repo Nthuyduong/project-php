@@ -35,11 +35,12 @@
                 </div>
                 <div class="product-info col-8 pe-0">
                     <a href="product-detail.php?pid=<?=$row['ID']?>">
-                        <h6 class="mb-2"><?=$row["Name"]?></h6>
+                        <h5 class="mb-2"><?=$row["Name"]?></h5>
                     </a>
-                    <p class="mdt mb-3"><?=$row["Price"]?></p>
+                    <p class="mdt mb-3">$<?=number_format($row["Price"])?></p>
                     <p class="smt"><?=$row["Description"]?></p>
                 </div>
+                <div class="line my-3"></div>
             </div>
         <?php    
         }}}

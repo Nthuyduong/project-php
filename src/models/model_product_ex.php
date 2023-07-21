@@ -45,7 +45,7 @@ class Product extends Database {
     function getProductsBySid($sid) {
         $sql = "SELECT 
             tb1.Name AS pname, tb1.ID AS pid, tb1.Thumb as thumb, tb1.Price as price,
-            tb2.Name AS subCategory, tb2.Category AS category
+            tb2.Name AS subCategory, tb2.Category AS category, tb2.Description AS subDescription
             FROM Products tb1 LEFT JOIN Sub_categories tb2 ON tb1.Sub_category_ID = tb2.ID 
             WHERE tb2.ID=?";
 		$params = [$sid];
