@@ -9,7 +9,7 @@ if (isset($_REQUEST["id"])) {
     $product->GetProductByID($id);
     $rows = $product->data;
 ?>
-    <!-- Product information will goes here -->
+    <!-- EDIT PRODUCT INFORMATION -->
     <div class="table-product">
         <form method="POST" action="../../controllers/controller_edit_product.php">
             <div class="row">
@@ -37,7 +37,7 @@ if (isset($_REQUEST["id"])) {
                     <div class="tb-row">
                         <div class="cell-sm">PRICE ($)</div>
                         <div class="cell">
-                            <input class="ad-input" name="prprice" id="prprice" value="<?php echo number_format($rows["Price"]) ?>">
+                            <input class="ad-input" name="prprice" id="prprice" value="<?php echo ($rows["Price"]) ?>">
                         </div>
                     </div>
                     <div class="tb-row">
