@@ -35,7 +35,7 @@ if ($ketqua == false) {
             <div class="cell alg-center"><?= $row["Sub_category"] ?></div>
             <div class="cell-sm alg-center"><?= $row["Material"] ?></div>
             <div class="cell alg-center"><?= $row["Jewelry_type"] ?></div>
-            <div class="cell-sm alg-center"><?= number_format($row["Price"])?></div>
+            <div class="cell-sm alg-center"><?= number_format($row["Price"]) ?></div>
             <div class="cell-sm alg-center"><?= $row["TotalStock"] ?></div>
             <div class="cell-sm alg-center"><?= $row["Unit"] ?></div>
             <!-- <div class="cell-sm stt-out">
@@ -72,10 +72,17 @@ if ($ketqua == false) {
                         </div>
                         <div class="row mt-5">
                             <div class="col-6">
-                                <div class="btn-lg-sc-admin w-100">Cancel</div>
+
                             </div>
                             <div class="col-6">
-                                <div class="btn-lg-pr-admin w-100">Save edit</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="btn-lg-sc-admin w-100">Cancel</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="btn-lg-pr-admin w-100">Save edit</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

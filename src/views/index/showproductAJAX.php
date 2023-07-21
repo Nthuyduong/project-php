@@ -13,12 +13,12 @@ if (isset($_REQUEST["id"])) {
     <div class="table-product">
         <div class="row">
             <div class="col-6">
-                <div class="tbl">
+                <!-- <div class="tbl"> -->
                     <div class="tb-title mb-3">Basic Information</div>
                     <div class="tb-row">
                         <div class="cell-sm">ID</div>
                         <div class="cell">
-                            <input class="ad-input" name="" id="" value="<?php echo $rows["ID"] ?>">
+                            <input class="ad-input" name="" id="" value="<?php echo $rows["ID"] ?>" disabled>
                         </div>
                     </div>
                     <div class="tb-row">
@@ -74,10 +74,10 @@ if (isset($_REQUEST["id"])) {
                             <input class="ad-input" name="" id="" value="<?php echo $rows["TotalStock"] ?>">
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
             <div class="col-6">
-                <div class="tbl">
+                <!-- <div class="tbl"> -->
                     <div class="tb-title mb-3">Combination Information</div>
                     <div class="tb-row">
                         <div class="cell-sm">JEWELRY TYPE</div>
@@ -104,10 +104,18 @@ if (isset($_REQUEST["id"])) {
                         </div>
                     </div>
                     <div class="tb-row">
-                        <div class="cell">SIZE</div>
-                        <div class="cell"></div>
+                        <div class="cell-sm">UNIT</div>
+                        <div class="cell">
+                            <select class="sl-box" name="Unit" id="Unit">
+                                <option value="0">Select Unit</option>
+                                <?php
+                                $unit = new model_product();
+                                $unit->TaoSelect("Products", "Unit", $rows["Unit"]);
+                                ?>
+                            </select>
+                        </div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

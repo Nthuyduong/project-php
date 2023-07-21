@@ -122,7 +122,7 @@ class model_product extends Database
     // Display information of a Product
     function GetProductByID($id)
     {
-        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Material, tb1.Jewelry_type, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        $sql = "SELECT tb1.Unit, tb1.ID, tb1.Name, tb1.Price, tb1.Material, tb1.Jewelry_type, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
         FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Jewelry_type, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
         AS Sub_category, d.Stock FROM Products p
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
