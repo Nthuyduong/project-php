@@ -19,7 +19,7 @@ if (isset($_REQUEST["id"])) {
                     <div class="tb-row">
                         <div class="cell-sm">ID</div>
                         <div class="cell">
-                            <input class="ad-input" name="prid" id="prid" value="<?php echo $rows["ID"] ?>" disabled>
+                            <input class="ad-input" name="prid" id="prid" value="<?php echo $rows["ID"] ?>">
                         </div>
                     </div>
                     <div class="tb-row">

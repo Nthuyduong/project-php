@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once("../models/model_product.php");
 $ann_title = "";
 $ann_content = "";

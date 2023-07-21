@@ -1,12 +1,10 @@
 /*category-top*/
 .banner{
-    background-image: url("../../../assets/img/subcate-deco/1.1.png");
-    background-size: cover;
-    position: relative;
+    
   }
   .category-top-text {
-    padding-top:140px;
-    padding-bottom:80px;
+    position: absolute;
+    top: 30%;
     z-index: 1;
   }
   
