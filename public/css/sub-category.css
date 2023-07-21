@@ -2,21 +2,14 @@
 .banner{
     background-image: url("../../../assets/img/subcate-deco/1.1.png");
     background-size: cover;
-    position: relative;
   }
   .category-top-text {
     padding-top:140px;
     padding-bottom:80px;
-    z-index: 1;
   }
   
   .body-main{
     margin-top: 80px;
-  }
-
-  /* overlay */
-  .overlay-image {
-    position: absolute;
   }
   /*CATEGORY*/
   .sub-cate-box:hover > .sub-cate-img{

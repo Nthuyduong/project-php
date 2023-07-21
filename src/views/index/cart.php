@@ -1,7 +1,6 @@
 <?php define('URLROOT', 'http://localhost:8888/project-php'); 
 session_start();
 $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
-print_r($uid);
 ?>
 <!DOCTYPE html>
 <html>
@@ -137,27 +136,26 @@ print_r($uid);
                     ?>
                     <div class="carousel-item active" data-bs-interval="3000">
                         <div class="row">
-                        <?php foreach ($cartProducts as $cart) { ?>
-                            <div class="t-row1 row product">
-                                <a class="col-2" href="product-detail.php?pid=<?=$cart['ID']?>">
-                                <img src="../../../public/images/thumb/<?=$cart['Thumb']?>">
-                                </a>
+                            <?php foreach ($bestSellers1 as $bestSeller) { ?>
                                 <div class="col-3">
-                                <p><?=$cart['Name']?></p>
-                                <p>$<?=number_format($cart['Price'])?></p>
+                                    <div class="item-card-info">
+                                    <div class="card-prd">
+                                        <div class="img">
+                                        <a href="product-detail.php?pid=<?=$bestSeller['pid']?>">
+                                            <img src="../../../public/images/thumb/<?=$bestSeller['thumb']?>">
+                                        </a>
+                                        </div>
+                                        <div class="compare card-prd-bt smt" data-bs-toggle="modal" type="button"
+                                            data-bs-target="#quickview"  onclick="quickview(<?=$uid?>, <?=$bestSeller['pid']?>)">
+                                                Quick view
+                                        </div>
+                                    </div>
+                                    <div class="item-inf text-center mt-3">
+                                        <p class="mdt mb-2"><?=$bestSeller['pname']?></p>
+                                        <p>$<?=number_format($bestSeller['thumb'])?></p>
+                                    </div>
+                                    </div>
                                 </div>
-                                <div class="col-2"><?=$cart['Size']?></div>
-                                <div class="col-2">x
-                                <input type="number" value="<?=$cart['Quantity']?>" class="qty">
-                                </div>
-                                <div class="col-2">
-                                <p class="price">$<?=number_format($cart['Price']*$cart['Quantity'])?></p>
-                                </div>
-                                <div class="col">
-                                <i class="fa fa-trash" aria-hidden="true" onclick="deleteFromBag(<?=$uid?>, <?=$cart['ID']?>)"></i>
-                                </div>
-                                <div class="line my-3"></div>
-                            </div>
                             <?php } ?>
                         </div>
                     </div>

@@ -1,4 +1,35 @@
 <script>
+    // Function to show a custom alert
+    function showAlert(message) {
+        var alertTemplate = `
+        <div class="modal fade" id="customAlert" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                <p class="mb-0">${message}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        `;
+
+        // Add the alert template to the body
+        $('body').append(alertTemplate);
+
+        // Show the alert
+        $('#customAlert').modal('show');
+
+        // Hide the alert after 1 second
+        setTimeout(function() {
+        $('#customAlert').modal('hide');
+        }, 1000);
+
+        // Remove the alert from the DOM after it's hidden
+        $('#customAlert').on('hidden.bs.modal', function(e) {
+        $(this).remove();
+        });
+    }
+
     // add to bag
     function addToBag(uid, pid) {
         console.log('uid:', uid);
@@ -27,7 +58,7 @@
                 data: productData,
                 success: function(response) {
                     // Handle the response from the server
-                    alert('Product added to bag successfully!');
+                    showAlert('Product added to bag successfully!');
                     // Display a success message or perform any other desired actions
                     console.log('Adding product to bag: ', response);
                 },

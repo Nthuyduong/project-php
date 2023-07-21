@@ -7,12 +7,14 @@
             var quantity = parseInt($(this).val());
             quantities[productId] = quantity;
         });
+        var subTotal = $('.subtotal').text();
 
         // Create an object to store the updated bag data
         var bagData = {
             uid: uid,
             code: code,
-            quantities: quantities
+            cartData: quantities,
+            subTotal: subTotal
         };
 
         // Send AJAX request to editBag.php
@@ -20,6 +22,7 @@
             url: '../includes/editBag.php',
             type: 'POST',
             data: bagData,
+            dataType: 'json',
             success: function(response) {
                 // Handle the response from the server
                 // Perform any other desired actions
@@ -29,9 +32,9 @@
             },
             error: function(xhr, status, error) {
                 // Handle any error that occurred during the AJAX request
-                console.log('quantities',quantities);
+                console.log('Bag update response: ', bagData);
                 alert('Failed to update bag!');
-                console.error('Bag update error: ', xhr.responseText);
+                // console.error('Bag update error: ', xhr.responseText);
             }
         });
     }
