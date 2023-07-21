@@ -13,8 +13,11 @@ if (isset($_REQUEST["b1"]) == false) {
     die();
 }
 $subname = $_REQUEST["subname"];
-$category = $_POST["ctg"];
+// echo ($subname);
+$category = $_REQUEST["ctg"];
+// echo ($category);
 $desc = $_REQUEST["desc"];
+// echo ($desc);
 
 $sub = new model_subcate();
 
@@ -30,4 +33,5 @@ if ($ketqua == FALSE) {
     $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
     $ann_content = "A new sub-category is created!";
     include_once ("../views/includes/announce.php");
+    header("location:../views/index/admin_subcate.php");
 }

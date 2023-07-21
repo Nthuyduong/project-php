@@ -12,7 +12,7 @@ class model_dashboard extends Database
     function GrandTotalDay()
     {
         $currentDate = date('Y-m-d');
-        $sql = "SELECT SUM(o.Grand_total) AS Day_total FROM Orders o
+        $sql = "SELECT o.Grand_total AS Day_total FROM Orders o
         WHERE DATE(o.Created_at) = '$currentDate'";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
@@ -93,7 +93,7 @@ class model_dashboard extends Database
         $Mday = date('Y-m-d');
         $sql = "SELECT SUM(o.Grand_total) AS MasterDay_total FROM Orders o
         INNER JOIN Payments p ON p.Order_code = o.Code
-        WHERE DATE(o.Created_at) = '$Mday' AND p.Payment_method = 'Master Card'";
+        WHERE DATE(o.Created_at) = '$Mday' AND p.Payment_method = 'MasterCard'";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
@@ -125,7 +125,7 @@ class model_dashboard extends Database
         }
         $sql = "SELECT SUM(o.Grand_total) AS VisaMonth_total FROM Orders o
         INNER JOIN Payments p ON p.Order_code = o.Code
-        WHERE MONTH(o.Created_at) = '$Vmonth' AND p.Payment_method = 'Visa'";
+        WHERE MONTH(o.Created_at) = '$Pmonth' AND p.Payment_method = 'Visa'";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
@@ -141,7 +141,7 @@ class model_dashboard extends Database
         }
         $sql = "SELECT SUM(o.Grand_total) AS MasterMonth_total FROM Orders o
         INNER JOIN Payments p ON p.Order_code = o.Code
-        WHERE MONTH(o.Created_at) = '$Mmonth' AND p.Payment_method = 'Master Card'";
+        WHERE MONTH(o.Created_at) = '$Pmonth' AND p.Payment_method = 'MasterCard'";
         $ketqua = $this->set_query($sql);
         if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
@@ -177,7 +177,7 @@ class model_dashboard extends Database
         $Myear = date('Y');
          $sql = "SELECT SUM(o.Grand_total) AS MasterYear_total FROM Orders o
          INNER JOIN Payments p ON p.Order_code = o.Code
-         WHERE YEAR(o.Created_at) = '$Myear' AND p.Payment_method = 'Master Card'";
+         WHERE YEAR(o.Created_at) = '$Myear' AND p.Payment_method = 'MasterCard'";
          $ketqua = $this->set_query($sql);
          if($ketqua == true)
             $this->data = $this->pdo_stm->fetch();
@@ -188,9 +188,10 @@ class model_dashboard extends Database
     function getOrderCounts() {
         $sql = "SELECT
                     (SELECT COUNT(Code) FROM Orders) AS total_order,
-                    (SELECT COUNT(Code) FROM Orders WHERE Status = 'Pending') AS pending_order,
-                    (SELECT COUNT(Code) FROM Orders WHERE Status = 'Processing') AS processing_order,
-                    (SELECT COUNT(Code) FROM Orders WHERE Status = 'Delivered') AS delivered_order";
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '1') AS pending_order,
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '2') AS processing_order,
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '3') AS delivered_order,
+                    (SELECT COUNT(Code) FROM Orders WHERE Status = '4') AS cancel_order";
         
         $ketqua = $this->set_query($sql);
         if ($ketqua == true) {

@@ -63,6 +63,11 @@ require_once("../../models/model_product.php")
                 </div>
                 <!-- Product table -->
                 <?php
+                $scategory = new model_subcate();
+                $subcate = isset($_REQUEST["subcate"]) ? $_REQUEST["subcate"] : $_REQUEST[""];
+                $scategory->DeleSubcategory($subcate);
+
+
                 $searchct = new model_subcate();
                 $keyword = $_REQUEST["findsubct"];
                 if ($keyword != "") {
@@ -114,8 +119,8 @@ require_once("../../models/model_product.php")
                             <div class="cell alg-center"><?= $row["Category"] ?></div>
                             <div class="cell-md">Description about sub-category goes here</div>
                             <div class="cell stt-out">
-                                <a href=""><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
-                                <a href="#"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                                <a id="editScate" href="#" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#cate-detail"><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a>
+                                <a href="#" onclick="showConfirmationAndRedirect(<?= $row['ID'] ?>)"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
                     <?php
@@ -135,6 +140,7 @@ require_once("../../models/model_product.php")
             </div>
         </div>
     </div>
+    <!-- ADD SUB-CATEGORY -->
     <div class="offcanvas offcanvas-end offcavasmd" tabindex="-1" id="addsubcate" aria-labelledby="addsubcateLabel">
         <div class="offcanvas-header">
             <h4 class="db-title">ADD SUB-CATEGORY<h4>
@@ -171,19 +177,137 @@ require_once("../../models/model_product.php")
                                 <div class="box__error">Error! <span></span>.</div>
                             </form>
                         </div> -->
-                <div class="row mmt-5">
+                <div class="row mt-5">
                     <div class="col-6">
-                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin">Cancel</button>
+                        <button type="button" name="b2" id="b2" class="btn-lg-sc-admin w-100">Cancel</button>
                     </div>
                     <div class="col-6">
-                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin">Add Sub-category</button>
+                        <button type="submit" name="b1" id="b1" class="btn-lg-pr-admin w-100">Add Sub-category</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <!-- EDIT SUB-CATEGORY -->
+    <div class="modal fade" id="cate-detail" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="db-title" id="exampleModalLabel">Sub-category Detail</div>
+                    <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
+                        X
+                    </div>
+                </div>
+                <div class="modal-body mb-3">
+                    <!-- Content will be load here -->
+                    <div id="dynamic-sub">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="btn-lg-sc-admin w-100">Cancel</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="btn-lg-pr-admin w-100">Save edit</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        function test() {
+            let ctValue = document.getElementById("ctg").value;
+            console.log(ctValue);
+            $.ajax({
+                    url: 'productAJAX.php',
+                    type: 'POST',
+                    data: {
+                        ctname: ctValue
+                    },
+                    dataType: 'html',
+                })
+                .done(function(data) {
+                    $("#subctg").empty().append(data);
+                })
+                .fail(function() {
+                    console.error("AJAX request failed!");
+                });
+        }
+
+        $(document).ready(function() {
+            $("#ctg").on("change", test);
+        });
+    </script>
+
+    <!-- EDIT PRODUCT -->
+    <script>
+        $(document).ready(function() {
+
+            $(document).on('click', '#editScate', function(e) {
+
+                e.preventDefault();
+                // Get customer ID after click
+                var uid = $(this).data('id');
+
+                // leave modal blank before ajax call
+                $('#dynamic-sub').html('');
+                //load ajax loader
+                $('#modal-loader').show();
+
+                $.ajax({
+                        url: 'getsubcate.php',
+                        type: 'POST',
+                        data: {
+                            id: uid
+                        },
+                        dataType: 'html',
+                    })
+                    .done(function(data) {
+                        console.log(data);
+                        $('#dynamic-sub').html('');
+                        // load response
+                        $('#dynamic-sub').html(data);
+                        // hide ajax loader
+                        $('#modal-loader').hide();
+                    })
+                    .fail(function() {
+                        $('#dynamic-sub').html('<p>Something went wrong, please try again!</p>');
+                        $('#modal-loader').hide();
+                    });
+            });
+        });
+    </script>
+
+    <!-- confirm delete product -->
+    <script>
+        function showConfirmationAndRedirect(productId) {
+            // Display the confirmation dialog
+            var confirmation = window.confirm("Are you sure you want to delete this sub-category?");
+            // Check the user's response
+            if (confirmation) {
+                // If the user clicks "OK," proceed with the deletion action
+                deleteProduct(productId);
+            } else {
+                // If the user clicks "Cancel," do nothing
+            }
+        }
+
+        function deleteProduct(productId) {
+            window.location.href = "?subcate=" + productId;
+        }
+    </script>
+
 
 </body>
 

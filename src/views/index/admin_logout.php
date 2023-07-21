@@ -7,11 +7,12 @@
 <body>
 <?php
 session_start();
-//unset($_SESSION["logined"]);//hủy 1 biến $_SESSION["logined"]
+unset($_SESSION["logined_admin"]);
+
 session_destroy();//hủy toàn bộ SESSION
 
-$alert_title="Đăng xuất thành công";
-$alert = "Quay về trang Login";
+$alert_title="Notification";
+$alert = "Log-out succes.Log-in again to come back";
 $link_tieptuc="admin_login.php";
 require_once("../includes/alert.php");
 ?>

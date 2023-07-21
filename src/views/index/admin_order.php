@@ -63,14 +63,14 @@ require("../../core/checklogin.php");
                         </select>
                     </div>
                     <div class="col-3">
-                        <button id="clickbind" onclick="onClick()" class="btn-lg-pr-admin w-100">Download all order</button>
+                        <button id="clickbind" onclick="confirmPrint()" class="btn-lg-pr-admin w-100">Download all order</button>
                     </div>
                     <div class="col-3"></div>
                     <div class="col-3"></div>
                 </div>
                 <div class="tbl">
                     <div class="tb-row title-row">
-                        <div class="cell-sm">
+                        <div class="cell-sm alg-center">
                             ID
                         </div>
                         <div class="cell-md">
@@ -79,19 +79,19 @@ require("../../core/checklogin.php");
                         <div class="cell-md">
                             CUSTOMER'S NAME
                         </div>
-                        <div class="cell">
+                        <div class="cell alg-center">
                             METHOD
                         </div>
-                        <div class="cell">
-                            GRAND TOTAL
+                        <div class="cell alg-center">
+                            GRAND TOTAL ($)
                         </div>
-                        <div class="cell">
+                        <div class="cell stt-out">
                             STATUS
                         </div>
-                        <div class="cell">
+                        <!-- <div class="cell">
                             ACTION
-                        </div>
-                        <div class="cell"></div>
+                        </div> -->
+                        <div class="cell stt-out"></div>
                     </div>
 
                     <!-- All Order will show here -->
@@ -99,7 +99,7 @@ require("../../core/checklogin.php");
 
                     </div>
                 </div>
-                <div class="d-flex pgn">
+                <!-- <div class="d-flex pgn">
                     <div class="me-auto">Showing 8 of 100</div>
                     <div class="pagination">
                         <a href="#">&laquo;</a>
@@ -108,7 +108,7 @@ require("../../core/checklogin.php");
                         <a href="#">3</a>
                         <a href="#">&raquo;</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -163,17 +163,24 @@ require("../../core/checklogin.php");
 
     <script>
         function onClick() {
-        var pdf = new jsPDF('p', 'pt', 'letter');
-        pdf.canvas.height = 72 * 11;
-        pdf.canvas.width = 72 * 8.5;
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            pdf.canvas.height = 72 * 11;
+            pdf.canvas.width = 72 * 8.5;
 
-        pdf.fromHTML(document.body);
+            pdf.fromHTML(document.body);
 
-        pdf.save('test.pdf');
-        };
+            pdf.save('test.pdf');
+        }
+
+        function confirmPrint() {
+            var confirmation = confirm("Are you sure you want to download all orders?");
+            if (confirmation) {
+                onClick(); // Call the print function if the user confirms
+            }
+        }
 
         var element = document.getElementById("clickbind");
-        element.addEventListener("click", onClick);
+        element.addEventListener("click", confirmPrint);
     </script>
 </body>
 

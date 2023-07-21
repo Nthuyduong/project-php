@@ -23,25 +23,69 @@ if ($ketqua == false) {
         foreach ($rows as $row) {
 ?>
         <div class="tb-row">
-            <div class="cell-sm"><?= $row["Code"] ?></div>
+            <div class="cell-sm alg-center"><?= $row["Code"] ?></div>
             <div class="cell-md"><?= date("d-m-Y", strtotime($row["Created_at"])) ?></div>
             <div class="cell-md"><?= $row["Customer_name"] ?></div>
-            <div class="cell"><?= $row["Payment_method"] ?></div>
-            <div class="cell"><?= $row["grandtotal"] ?></div>
+            <div class="cell alg-center"><?= $row["Payment_method"] ?></div>
+            <div class="cell alg-center"><?=number_format($row["grandtotal"])?></div>
             <div class="cell stt-out">
-                <div class="stt stt1"><?= $row["Status"] ?></div>
+                <?php
+                // Define the color mapping for each status value
+                $color = array(
+                    1 => "red",
+                    2 => "green",
+                    3 => "blue",
+                    4 => "orange",
+                    // Add more status-value/color pairs as needed
+                );
+
+                // Assume $row["Status"] contains the status value
+                if (isset($row["Status"])) {
+                    $status = $row["Status"];
+                    $statusText = "";
+
+                    switch ($status) {
+                        case 1:
+                            $statusText = "Pending";
+                            break;
+                        case 2:
+                            $statusText = "Processing";
+                            break;
+                        case 3:
+                            $statusText = "Delivered";
+                            break;
+                        case 4:
+                            $statusText = "Cancel";
+                            break;
+                        default:
+                            $statusText = "Unknown Status";
+                            break;
+                    }
+
+                    // Set the appropriate class based on the status value
+                    $statusColor = isset($color[$status]) ? $color[$status] : "unknown";
+                } else {
+                    // Default values if $row["Status"] is not set
+                    $statusText = "Unknown Status";
+                    $statusColor = "unknown";
+                }
+                ?>
+
+                <div class="stt stt3 <?= $statusColor ?>">
+                    <?= $statusText ?>
+                </div>
             </div>
-            <div class="cell">
+            <!-- <div class="cell">
                 <select class="w-100">
                     <option>Status</option>
                     <?php
-                    $pm = new model_order();
-                    $pm->dropdownName("Orders", "Status");
+                    // $pm = new model_order();
+                    // $pm->dropdownName("Orders", "Status");
                     ?>
                 </select>
-            </div>
-            <div class="cell action-icon">
-                <i class="fas fa-print me-3" style="color: #ffffff;"></i>
+            </div> -->
+            <div class="cell action-icon stt-out">
+                <i onclick="printPage()" class="fas fa-print me-3" style="color: #ffffff;"></i>
                 <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus" style="color: #ffffff;"></i></a>
             </div>
         </div>
@@ -56,9 +100,6 @@ if ($ketqua == false) {
                         </div>
                     </div>
                     <div class="modal-body mb-3">
-                        <!-- <div id="modal-loader">
-                            <img src="../../../public/images/ajax-loader.gif"/>
-                        </div> -->
                         <!-- Content will be load here -->
                         <div id="dynamic-order">
 
@@ -68,42 +109,48 @@ if ($ketqua == false) {
             </div>
         </div>
         <!-- View order detail -->
-    <script>
-        $(document).ready(function() {
+        <script>
+            $(document).ready(function() {
 
-            $(document).on('click', '#getorder', function(e) {
+                $(document).on('click', '#getorder', function(e) {
 
-                e.preventDefault();
-                // Get order ID after click
-                var uid = $(this).data('id');
-                // leave modal blank before ajax call
-                $('#dynamic-order').html('');
-                //load ajax loader
-                $('#modal-loader').show();
+                    e.preventDefault();
+                    // Get order ID after click
+                    var uid = $(this).data('id');
+                    // leave modal blank before ajax call
+                    $('#dynamic-order').html('');
+                    //load ajax loader
+                    $('#modal-loader').show();
 
-                $.ajax({
-                        url: 'orderdetailAJAX.php',
-                        type: 'POST',
-                        data: {
-                            id: uid
-                        },
-                        dataType: 'html',
-                    })
-                    .done(function(data) {
-                        console.log(data);
-                        $('#dynamic-order').html('');
-                        // load response
-                        $('#dynamic-order').html(data);
-                        // hide ajax loader
-                        $('#modal-loader').hide();
-                    })
-                    .fail(function() {
-                        $('#dynamic-order').html('<p>Something went wrong, please try again!</p>');
-                        // $('#modal-loader').hide();
-                    });
+                    $.ajax({
+                            url: 'orderdetailAJAX.php',
+                            type: 'POST',
+                            data: {
+                                id: uid
+                            },
+                            dataType: 'html',
+                        })
+                        .done(function(data) {
+                            console.log(data);
+                            $('#dynamic-order').html('');
+                            // load response
+                            $('#dynamic-order').html(data);
+                            // hide ajax loader
+                            $('#modal-loader').hide();
+                        })
+                        .fail(function() {
+                            $('#dynamic-order').html('<p>Something went wrong, please try again!</p>');
+                            // $('#modal-loader').hide();
+                        });
+                });
             });
-        });
-    </script>
+        </script>
+
+        <script>
+            function printPage() {
+                window.print();
+            }
+        </script>
 <?php
         }
 }

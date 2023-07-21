@@ -54,9 +54,6 @@ require_once("../../core/checklogin_user.php");
                             <a class="nav-link" id="pass-tab" data-bs-toggle="tab" data-bs-target="#pass" type="button" role="tab" aria-controls="pass" aria-selected="false">
                                 Password
                             </a>
-                            <a class="nav-link" id="notify-tab" data-bs-toggle="tab" data-bs-target="#notify" type="button" role="tab" aria-controls="notify" aria-selected="false">
-                                Notification
-                            </a>
                         </div>
                     </div>
                     <div class="col-10">
@@ -191,10 +188,6 @@ require_once("../../core/checklogin_user.php");
                                 <div class="col-2"></div>
                             </div>
                         </div>
-                        <!-- Notification for user -->
-                        <div class="tab-pane fade" id="notify" role="tabpanel" aria-labelledby="notify-tab">
-                            <div></div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -223,7 +216,7 @@ require_once("../../core/checklogin_user.php");
                     },
                     success: function(responseData, status) {
                         if (status == "success") {
-                            alert("Thành công");
+                            alert("Success");
                         } else
                             alert("ERROR");
                     }

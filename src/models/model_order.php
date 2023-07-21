@@ -80,6 +80,7 @@ class model_order extends Database
         foreach($rows as $row)
         {
             $name = $row["$colname"];
+            $name = ucfirst($name);
             echo "<option value='$name'>$name</option>";
         }
     }

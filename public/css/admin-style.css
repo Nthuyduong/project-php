@@ -2,8 +2,12 @@ body{
   background-color: #121317 !important;
   color: #fff !important;
 }
-.offcancas-body{
-  padding: 30px !important;
+.offcancas-body.canvasbody{
+  padding: 0px 40px 40px 40px !important;
+}
+.offcanvas-header
+{
+  padding: 40px 40px 20px 40px !important;
 }
 .offcanvas{
   background-color: #121317 !important;
@@ -276,10 +280,10 @@ ul a{
 .pagination a:hover:not(.active) {background-color: #ddd;}
 /* Status */
 .stt{
-  width: 94px;
+  width: 100px;
   text-align: center;
   border-radius: 16px;
-  padding:4px 10px;
+  padding:4px 12px;
 }
 .stt-sm{
   text-align: center;
@@ -442,9 +446,6 @@ select{
   border-left: none;
   border-right: none;
 }
-.offcanvas-body{
-  padding: 30px 0px 0px 0px !important;
-}
 /* STYLE FOR ORDER DETAIL DIV */
 .detail-div{
   padding: 20px 20px;
@@ -568,10 +569,13 @@ ul.progressbar{
 }
 /* PRODUCT INFORMATION */
 #product-detail .modal-dialog{
-  max-width: 750px !important;
+  max-width: 960px !important;
 }
 #product-detail .modal-body{
   padding: 30px !important;
+}
+#product-detail{
+  left: 8% !important;
 }
 #order-detail .modal-dialog{
   max-width: 960px !important;
@@ -585,4 +589,22 @@ ul.progressbar{
 /* INPUT ADMIN PAGE */
 .ad-input{
   
+}
+.red {
+  background-color: #6A7CE9;
+}
+
+.green {
+  background-color: #55BF9C;
+}
+
+.blue {
+  background-color: #F0905A;
+}
+
+.orange {
+  background-color: #E96A6A;
+}
+.modal.fade.show{
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }

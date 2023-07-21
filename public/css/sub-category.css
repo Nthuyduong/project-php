@@ -1,15 +1,20 @@
 /*category-top*/
 .banner{
-    background-image: url("../../../assets/img/subcate-deco/1.1.png");
-    background-size: cover;
+    
   }
   .category-top-text {
-    padding-top:140px;
-    padding-bottom:80px;
+    position: absolute;
+    top: 30%;
+    z-index: 1;
   }
   
   .body-main{
     margin-top: 80px;
+  }
+
+  /* overlay */
+  .overlay-image {
+    position: absolute;
   }
   /*CATEGORY*/
   .sub-cate-box:hover > .sub-cate-img{

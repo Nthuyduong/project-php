@@ -28,7 +28,7 @@ require("../../core/checklogin.php");
             <div>
                 <div>
                     <div class="d-flex">
-                        <a href="#offcanvasRight" class="ms-auto btn-lg-pr-admin" role="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight">Add new product</a>
+                        <a href="#addsubcate" class="ms-auto btn-lg-pr-admin" data-bs-toggle="offcanvas" role="button" data-bs-target="#addsubcate" aria-controls="addsubcate">Add new product</a>
                         <a class="ms-3 btn-lg-sc-admin">Delete product</a>
                     </div>
                     <div class="line my-3"></div>
@@ -75,373 +75,179 @@ require("../../core/checklogin.php");
 
                 <div class="tbl product-wrapper">
                     <div class="tb-row title-row">
-                        <div class="cell-ssm">
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                        </div>
-                        <div class="cell-sm">
-                            IMAGE
+                        <div class="cell-sm alg-center">
+                            ID
                         </div>
                         <div class="cell">
                             PRODUCT'S NAME
                         </div>
-                        <div class="cell alg-center">
+                        <div class="cell-sm alg-center">
                             CATEGORY
                         </div>
                         <div class="cell alg-center">
                             SUB-CATEGORY
                         </div>
                         <div class="cell-sm alg-center">
-                            PRICE
+                            MATERIAL
+                        </div>
+                        <div class="cell alg-center">
+                            JEWELRY TYPE
+                        </div>
+                        <div class="cell-sm alg-center">
+                            PRICE ($)
                         </div>
                         <div class="cell-sm alg-center">
                             STOCK
                         </div>
                         <div class="cell-sm alg-center">
+                            UNIT
+                        </div>
+                        <!-- <div class="cell-sm alg-center">
                             STATUS
-                        </div>
-                        <div class="cell-sm">
-                            PUBLISHED
-                        </div>
+                        </div> -->
                         <div class="cell-sm">
 
                         </div>
                     </div>
 
-                    <div id="subsort"></div>
-                    <!-- Dong vong lap for each -->
+                    <div id="subsort">
+                        <!-- product list here -->
+                    </div>
 
                 </div>
             </div>
         </div>
-        <!-- ADD NEW PRODUCT HERE -->
-        <div class="offcanvas offcanvas-end offcanvasfull" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <!-- ADD PRODUCT -->
+        <div class="offcanvas offcanvas-end offcavasmd" tabindex="-1" id="addsubcate" aria-labelledby="addsubcateLabel">
             <div class="offcanvas-header">
-                <div>
-                    <div class="db-title mt-4">ADD NEW PRODUCT</div>
-                    <p>Upload Product's Information Here!</p>
-                </div>
-                <div type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-                    <i class="fa-solid fa-circle-x fa-xl text-light"></i>
-                </div>
+                <h4 class="db-title">ADD NEW PRODUCT<h4>
             </div>
-            <div class="offcanvas-body">
-                <div class="nav nav-tabs mb-5" id="myTab" role="tablist">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="basis-tab" data-bs-toggle="tab" data-bs-target="#basis" type="button" role="tab" aria-controls="basis" aria-selected="true">
-                                Basis Information
-                            </a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="combination-tab" data-bs-toggle="tab" data-bs-target="#combination" type="button" role="tab" aria-controls="combination" aria-selected="false">
-                                Combination
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="basis" role="tabpanel" aria-labelledby="basis-tab">
-                        <div class="row">
-                            <div class="col-6">
-                                <form action="" method="POST">
-                                    <div class="mb-3">
-                                        <div class="mdt mb-1">Product's Name</div>
-                                        <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
-                                    </div>
-                                    <div>
-                                        <div class="mdt mb-1">Product's Unit</div>
-                                        <!-- select box -->
-                                    </div>
-                                    <div class="my-3">
-                                        <div class="md mb-1">Product's Price</div>
-                                        <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price" />
-                                    </div>
-                                    <div>
-                                        <div class="mdt mb-1">Product's Description</div>
-                                        <textarea class="w-100" name="prddesc" id="prddesc" rows="4"></textarea>
-                                    </div>
-                                    <div class="my-3">
-                                        <div class="mdt mb-1">Product's Quantity</div>
-                                        <input class="w-100" name="prdquan" id="prdquan" placeholder="Product's quantity" />
-                                    </div>
-                                    <div class="mt-3">
-                                        <div class="mdt mb-1">Material</div>
-                                        <input class="w-100" name="prdcate" id="prdcate" placeholder="Material" />
-                                    </div>
-                                    <div>
-                                        <div class="mdt mb-1">Jewelry Type</div>
-                                        <input class="w-100" name="prdsub" id="prdsub" placeholder="Jewelry type" />
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <div class="mdt mb-1">Product's Sub-category</div>
-                                    <input class="w-100" name="prdsub" id="prdsub" placeholder="Product's sub-category" />
-                                </div>
-                                <div>
-                                    <div class="mdt mb-1">Product's Sub-category</div>
-                                    <input class="w-100" name="prdsub" id="prdsub" placeholder="Product's sub-category" />
-                                </div>
-                                <div class="mdt mb-1">Product's Image</div>
-                                <div class="drag-drop">
-                                    <input type="file" id="file-input" />
-                                    <div class="drag-drop-text">
-                                        <p class="alg-center">Drag and drop an image file here</p>
-                                        <p class="alg-center">Only *.png, *,webp, *.jpeg will be accepted</p>
-                                    </div>
-                                </div>
-                                <!-- image drag will goes here -->
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div>
-                                            <img src="#">
-                                        </div>
-                                        <div>Default image</div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div>
-                                            <img src="#">
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div>
-                                            <img src="#">
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div>
-                                            <img src="#">
-                                        </div>
-                                        <div></div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="offcanvas-body canvasbody">
+                <form name="form" id="form" method="POST" action="../../controllers/controller_add_product.php">
+                    <div class="">
+                        <div class="mdt mb-1">Product's Name</div>
+                        <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
+                    </div>
+                    <div class="mt-3">
+                        <div class="mdt mb-1">Product's Category</div>
+                        <select class="sl-box" name="ctg2" id="ctg2">
+                            <option value="" selected>Category</option>
+                            <?php
+                            $cs = new model_product();
+                            $cs->CateSelect("Sub_categories", "ID", "Category", $ctg2);
+                            ?>
+                        </select>
+                    </div>
+                    <div class="my-3">
+                        <?php
+                        $subct2 = 0;
+                        if (isset($_REQUEST["subctg2"]))
+                            $subct2 = $_REQUEST["subctg2"];
+                        ?>
+                        <div class="mdt mb-1">Product's Sub-category</div>
+                        <select class="sl-box" name="subctg2" id="subctg2">
+                            <option value="">Sub-category</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <div class="mdt mb-1">Product's Unit</div>
+                        <select class="sl-box" name="unit" id="unit">
+                            <option value="" selected>Select unit</option>
+                            <?php
+                            $unit = new model_product();
+                            $unit->ddName("Products", "Unit");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="">
+                        <div class="md mb-1">Product's Price ($)</div>
+                        <input class="w-100" name="prdprice" id="prdprice" placeholder="Product's price" />
+                    </div>
+                    <div class="my-3">
+                        <div class="mdt mb-1">Material</div>
+                        <select class="sl-box" name="material" id="material">
+                            <option value="" selected>Select material</option>
+                            <?php
+                            $mate = new model_product();
+                            $mate->ddName("Products", "Material");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="">
+                        <div class="mdt mb-1">Jewelry Type</div>
+                        <select class="sl-box" name="jewel" id="jewel">
+                            <option value="" selected>Select Jewelry type</option>
+                            <?php
+                            $jw = new model_product();
+                            $jw->ddName("Products", "Jewelry_type");
+                            ?>
+                        </select>
+                    </div>
+                    <div class="my-3">
+                        <div class="mdt mb-1">Collection</div>
+                        <input class="w-100" name="prdcollec" id="prdcollec" placeholder="Collection" />
+                    </div>
+                    <div class="mb-3">
+                        <div class="mdt mb-1">Thumb</div>
+                        <input class="w-100" name="prdimg" id="prdimg" placeholder="Product's image" />
+                    </div>
+                    <div class="mb-5">
+                        <div class="mdt mb-1">Description</div>
+                        <textarea class="w-100" name="desc" id="desc" placeholder="" ></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn-lg-sc-admin w-100" type="button" name="b2" id="b2">Cancel</button>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <button class="btn-lg-sc-admin w-100" type="button" name="b2" id="b2">Cancel</button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1">Add new product</button>
-                            </div>
+                        <div class="col-6">
+                            <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1" value="Add">Add new product</button>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="combination" role="tabpanel" aria-labelledby="combination-tab">
-                        <div class="row">
-                            <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option value="" disabled selected>Choose Combination</option>
-                                    <option>Jewelry Type</option>
-                                    <option>Material</option>
-                                    <option>Size</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option value="" disabled selected>Jewelry Type</option>
-                                    <option>Natural Diamond</option>
-                                    <option>Lab-grown Diamond</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option value="" disabled selected>Material</option>
-                                    <option>Gold</option>
-                                    <option>Rose Gold</option>
-                                    <option>White Gold</option>
-                                    <option>Sterling Silver</option>
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <select class="sl-box" name="ctg" id="ctg">
-                                    <option value="" disabled selected>Size</option>
-                                    <option></option>
-                                    <option>Earring</option>
-                                    <option>Necklace</option>
-                                    <option>Bracelet</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="line my-3"></div>
-                        <div class="d-flex">
-                            <button class="ms-auto btn-lg-pr-admin">Generate</button>
-                            <button class="ms-3 btn-lg-sc-admin">Clear</button>
-                        </div>
-                        <div class="tbl">
-                            <div class="tb-row title-row">
-                                <div class="cell-ssm">
-                                    IMAGE
-                                </div>
-                                <div class="cell">
-                                    PRODUCT'S NAME
-                                </div>
-                                <div class="cell-sm">
-                                    MATERIAL
-                                </div>
-                                <div class="cell">
-                                    JEWELRY TYPE
-                                </div>
-                                <div class="cell-sm">
-                                    SKU
-                                </div>
-                                <div class="cell-sm">
-                                    PRICE ($)
-                                </div>
-                                <div class="cell-sm">
-                                    QUANTITY
-                                </div>
-                                <div class="cell-sm">
-                                    ACTION
-                                </div>
-                            </div>
-                            <div class="tb-row">
-                                <div class="cell-ssm">
-
-                                </div>
-                                <div class="cell">Amee Diamnond Ring</div>
-                                <div class="cell-sm">Gold</div>
-                                <div class="cell">Natural Diamond</div>
-                                <div class="cell-sm">123</div>
-                                <div class="cell-sm">$20.000</div>
-                                <div class="cell-sm">5</div>
-                                <div class="cell-sm">
-                                    <i class="fas fa-trash" style="color: #ffffff;"></i>
-                                </div>
-                            </div>
-                            <div class="tb-row">
-                                <div class="cell-ssm">
-
-                                </div>
-                                <div class="cell">Amee Diamnond Ring</div>
-                                <div class="cell-sm">Gold</div>
-                                <div class="cell">Natural Diamond</div>
-                                <div class="cell-sm">123</div>
-                                <div class="cell-sm">$20.000</div>
-                                <div class="cell-sm">5</div>
-                                <div class="cell-sm">
-                                    <i class="fas fa-trash" style="color: #ffffff;"></i>
-                                </div>
-                            </div>
-                            <div class="tb-row">
-                                <div class="cell-ssm">
-
-                                </div>
-                                <div class="cell">Amee Diamnond Ring</div>
-                                <div class="cell-sm">Gold</div>
-                                <div class="cell">Natural Diamond</div>
-                                <div class="cell-sm">123</div>
-                                <div class="cell-sm">$20.000</div>
-                                <div class="cell-sm">5</div>
-                                <div class="cell-sm">
-                                    <i class="fas fa-trash" style="color: #ffffff;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+        
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- <script>
-            $(document).ready(function() {
-            // Hide all options in the second dropdown
-            $("#subctg option").hide();
 
-            // Handle change event on the first dropdown
-            $("#ctg").change(function() {
-                var selectedOption = $(this).val();
-                console.log(selectedOption);
-                // Hide all options in the second dropdown
-                $("#subctg option").hide();
-                
-                // Show only the options that match the selected category
-                $("#subctg option[data-category='" + selectedOption + "']").show();
-                
-                // Reset the selected option in the second dropdown
-                $("#subctg").val("");
-                });
-            });
-        </script> -->
         <script>
-            function test() {
-                let ct = this.value;
-                console.log(ct);
+            function test(id) {
+                let ctValue = document.getElementById(id).value;
+                // console.log(ctValue);
                 $.ajax({
                         url: 'productAJAX.php',
                         type: 'POST',
                         data: {
-                            ctname: ct
+                            ctname: ctValue,
+                            elementId: id // Send the element's ID as a parameter
                         },
                         dataType: 'html',
                     })
                     .done(function(data) {
                         // console.log(data);
-                        $("#subctg").empty().append(data);
-
+                        if (data !== "ERROR!") {
+                            $("#sub" + id).empty().append(data);
+                        } else {
+                            console.error("An error occurred!");
+                        }
                     })
-                    .fail(function() {});
+                    .fail(function() {
+                        console.error("AJAX request failed!");
+                    });
             }
+
             $(document).ready(function() {
+                $("#ctg").on("change", function() {
+                    test("ctg");
+                });
 
-                $("#ctg").on("change", test);
-
-                // $(document).onchange('onchange', '#ctg', function(e) {
-
-                //     e.preventDefault();
-                //     // Get customer ID after click
-                //     var uid = $(this).val;
-                //     console.log(uid);
-
-                //     // // leave modal blank before ajax call
-                //     // $('#dynamic-content').html('');
-                //     // //load ajax loader
-                //     // $('#modal-loader').show();
-
-                //     // $.ajax({
-                //     //         url: 'getcustomer.php',
-                //     //         type: 'POST',
-                //     //         data: {
-                //     //             id: uid
-                //     //         },
-                //     //         dataType: 'html',
-                //     //     })
-                //     //     .done(function(data) {
-                //     //         console.log(data);
-                //     //         $('#dynamic-content').html('');
-                //     //         // load response
-                //     //         $('#dynamic-content').html(data);
-                //     //         // hide ajax loader
-                //     //         $('#modal-loader').hide();
-                //     //     })
-                //     //     .fail(function() {
-                //     //         $('#dynamic-content'), html('<p>Something went wrong, please try again!</p>');
-                //     //         $('#modal-loader').hide();
-                //     //     });
-                // });
+                $("#ctg2").on("change", function() {
+                    test("ctg2");
+                });
             });
         </script>
 
-        <!-- selected attribute appear automatically -->
-        <!-- <script>
-            let sortValue;
-        
-            $(document).ready(function() {
-                $("#price").change(function() {
-                    // Remove 'selected' attribute from all options
-                    $("#price option").removeAttr("selected");
-
-                    // Add 'selected' attribute to the chosen option
-                    $("#price option:selected").attr("selected", "selected");
-                    sortValue = $(this).val();
-                    console.log(sortValue);
-                });
-            });
-        </script> -->
 
         <script>
             function subctsort() {

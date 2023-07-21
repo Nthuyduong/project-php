@@ -44,8 +44,8 @@ class model_product extends Database
     //Lay danh sach san pham theo sub-category name
     function GetListBySub($subname, $keyword, $sort)
     {
-        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
-        FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
+        $sql = "SELECT tb1.Material, tb1.Jewelry_type, tb1.Unit, tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        FROM (SELECT p.Jewelry_type, p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
         AS Sub_category, d.Stock FROM Products p
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
         INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
@@ -56,15 +56,15 @@ class model_product extends Database
 
         $param = null;
         // if ($sort != null) {
-            if ($sort == "lowtohigh") {
-                $sql .= " ORDER BY tb1.Price ASC";
-                $param = ["$sort"];
-            }
-            if ($sort == "hightolow") {
-                $sql .=  " ORDER BY tb1.Price DESC";
-                $param = ["$sort"];
-            }
-            // $param = "$sort";
+        if ($sort == "lowtohigh") {
+            $sql .= " ORDER BY tb1.Price ASC";
+            $param = ["$sort"];
+        }
+        if ($sort == "hightolow") {
+            $sql .=  " ORDER BY tb1.Price DESC";
+            $param = ["$sort"];
+        }
+        // $param = "$sort";
         // }
         $ketqua = $this->set_query($sql, $param);
         if ($ketqua == true)
@@ -74,30 +74,29 @@ class model_product extends Database
 
     //Them san pham
     // stock in table product_detail
-    function AddProduct($name, $stock, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection)
+    function AddProduct($name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thumb)
     {
-        //Dien cac gia tri trong bang Product o day
-        $sql = "INSERT INTO Products VALUE(?,?,?,?,?,?,?,?,?)";
-        $param = [$name, $unit, $price, $description, $thumb, $material, $jewelry_type, $collection];
+        $sql = "INSERT INTO Products(Name,Unit,Price,Description,Material,Jewelry_type,Sub_category_ID,Collection,Thumb) VALUE(?,?,?,?,?,?,?,?,?)";
+        $param = null;
+        // if ($name != "" && $unit != "" && $price != "" && $description != "" && $material != "" && $jewelry_type != "" && $subcate = "" && $collection != "" && $thumb != "")
+        $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thumb];
         $ketqua = $this->set_query($sql, $param);
-        if($ketqua)
-        {
-            // $productid = $this->get_last_inserted_id();
-            $detailSQL = "INSERT INTO Product_detail (product_ID, stock) VALUE(?,?)";
-            // $detailparam = [$product_ID, $stock];
-            // $detailresult = $this->set_query($detailSQL, $detailparam);
-
-
-        }
-        
         return $ketqua;
     }
 
     //Sua san pham
-    function UpdateProduct($name, $description, $price, $category, $Sub_category_ID, $stock)
+    function UpdateProduct($id, $name, $description, $price, $subid, $type, $material, $unit)
     {
-        $sql = "UPDATE Products SET name=?, description = ?, price=?, category=?, Sub_category_ID=?, stock=? WHERE id=?";
-        $param = [$name, $description, $price, $category, $Sub_category_ID, $stock];
+        $sql = "UPDATE Products SET Name=?, Description = ?, Price=?, Sub_category_ID=?, Jewelry_type=?, Material=?, Unit=? WHERE ID=?";
+        
+        $param[] = $id;
+        $param[] = $name;
+        $param[] = $description;
+        $param[] = $price;
+        $param[] = $subid;
+        $param[] = $type;
+        $param[] = $material;
+        $param[] = $unit;
         //Tuong tu voi cac bien khac
         $ketqua = $this->set_query($sql, $param);
         return $ketqua;
@@ -131,7 +130,7 @@ class model_product extends Database
     // Display information of a Product
     function GetProductByID($id)
     {
-        $sql = "SELECT tb1.ID, tb1.Name, tb1.Price, tb1.Material, tb1.Jewelry_type, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
+        $sql = "SELECT tb1.Unit, tb1.ID, tb1.Name, tb1.Price, tb1.Material, tb1.Jewelry_type, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
         FROM (SELECT p.ID, p.Unit, p.Name, p.Material, p.Jewelry_type, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
         AS Sub_category, d.Stock FROM Products p
         INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
@@ -161,9 +160,25 @@ class model_product extends Database
             $this->data = $this->pdo_stm->fetchAll();
         return $ketqua;
     }
- 
+
     // Create select category
     function CateSelect($tbname, $colid, $colname, $selectid)
+    {
+        $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
+        $ketqua = $this->set_query($sql);
+        if ($ketqua) {
+            $rows = $this->pdo_stm->fetchAll();
+            foreach ($rows as $row) {
+                $id = $row["$colid"];
+                $name = $row["$colname"];
+                $name = ucfirst($name);
+                echo "<option value='$name'>$name</option>";
+            }
+        }
+    }
+
+
+    function CateSelect2($tbname, $colid, $colname, $selectid)
     {
         $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
         $ketqua = $this->set_query($sql);
@@ -172,12 +187,53 @@ class model_product extends Database
         foreach ($rows as $row) {
             $id = $row["$colid"];
             $name = $row["$colname"];
+            $name = ucfirst($name);
             if ($id == $selectid)
-                echo "<option value='$name'>$name</option>";
+                echo "<option value='$name' selected>$name</option>";
             else
                 echo "<option value='$name'>$name</option>";
         }
     }
 
+    function ddName($tbname, $colname)
+    {
+        $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
+        $ketqua = $this->set_query($sql);
+        if ($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach ($rows as $row) {
+            $name = $row["$colname"];
+            $name = ucfirst($name);
+            echo "<option value='$name'>$name</option>";
+        }
+    }
 
+    function TaoSelect($tenbang, $cotname, $selectedid)
+    {
+        $sql = "SELECT DISTINCT $tenbang.$cotname FROM $tenbang";
+        $ketqua = $this->set_query($sql);
+        if ($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach ($rows as $row) {
+            // $id = $row[$cotid];
+            $ten = $row[$cotname];
+            if ($ten == $selectedid)
+                echo "<option value='$ten' selected> $ten </option>\n";
+            else
+                echo "<option value='$ten' > $ten </option>\n";
+        }
+    }
+
+    function GetIDbySub($name)
+    {
+        $sql = "SELECT id FROM Sub_categories";
+        if($name != "")
+        {
+            $sql .= " WHERE Name LIKE '%$name%' ";
+        }
+        $ketqua = $this->set_query($sql);
+        if ($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
+    }
 }

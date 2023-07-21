@@ -24,8 +24,8 @@ require("../../core/checklogin.php");
         <div>
             <!-- Dashboard here -->
             <div class="db-title mt-4">DASHBOARD</div>
-            <p>Have a nice day!</p>
-            <div class="mt-4">
+            <div class="mt-2">Have a nice day!</div>
+            <div class="mt-5">
                 <?php
                 $gtd = new model_dashboard();
                 $ketqua = $gtd->GrandTotalDay();
@@ -66,81 +66,81 @@ require("../../core/checklogin.php");
                     die();
                 }
                 ?>
-                <h6 class="mb-2">Overview</h3>
-                    <div class="row">
-                        <div class="col-4 overview-card">
-                            <div class="card-1">
-                                <div class="overview-inner">
-                                    <div class="mb-3">
-                                        <h4>Today order</h4>
-                                        <h2>$<?= $gtd->data["Day_total"] ?></h2>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="cell">
-                                            <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$ <?= $ptd->data["PaypalDay_total"] ?></p>
-                                        </div>
-                                        <div class="cell">
-                                            <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$ <?= $vtd->data["VisaDay_total"] ?></p>
-                                        </div>
-                                        <div class="cell">
-                                            <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$ <?= $mtd->data["MasterDay_total"] ?></p>
-                                        </div>
-                                    </div>
+                <h4 class="mb-3">Overview</h4>
+                <div class="row">
+                    <div class="col-4 overview-card">
+                        <div class="card-1">
+                            <div class="overview-inner">
+                                <div class="mb-3">
+                                    <h4>Today order</h4>
+                                    <h2>$<?= number_format($gtd->data["Day_total"]) ?></h2>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-4 overview-card">
-                            <div class="card-2">
-                                <div class="overview-inner">
-                                    <div class="mb-3">
-                                        <h4>This Month Order</h4>
-                                        <h2>$<?= $gtm->data["Month_total"] ?></h2>
+                                <div class="d-flex">
+                                    <div class="cell">
+                                        <p class="mb-2">Paypal</p>
+                                        <p class="mb-0">$ <?= number_format($ptd->data["PaypalDay_total"]) ?></p>
                                     </div>
-                                    <div class="d-flex">
-                                        <div class="cell">
-                                            <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$ <?= $ptm->data["PaypalMonth_total"] ?></p>
-                                        </div>
-                                        <div class="cell">
-                                            <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$ <?= $vtm->data["VisaMonth_total"] ?></p>
-                                        </div>
-                                        <div class="cell">
-                                            <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$ <?= $mtm->data["MasterMonth_total"] ?></p>
-                                        </div>
+                                    <div class="cell">
+                                        <p class="mb-2">Visa</p>
+                                        <p class="mb-0">$ <?= number_format($vtd->data["VisaDay_total"]) ?></p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 overview-card">
-                            <div class="card-3">
-                                <div class="overview-inner">
-                                    <div class="mb-3">
-                                        <h4>This Year Order</h4>
-                                        <h2>$<?= $gty->data["Year_total"] ?></h2>
-                                    </div>
-                                    <div class="d-flex">
-                                        <div class="cell">
-                                            <p class="mb-2">Paypal</p>
-                                            <p class="mb-0">$ <?= $pty->data["PaypalYear_total"] ?></p>
-                                        </div>
-                                        <div class="cell">
-                                            <p class="mb-2">Visa</p>
-                                            <p class="mb-0">$ <?= $vty->data["VisaYear_total"] ?></p>
-                                        </div>
-                                        <div class="cell">
-                                            <p class="mb-2">Master Card</p>
-                                            <p class="mb-0">$ <?= $mty->data["MasterYear_total"] ?></p>
-                                        </div>
+                                    <div class="cell">
+                                        <p class="mb-2">Master Card</p>
+                                        <p class="mb-0">$<?= number_format($mtd->data["MasterDay_total"]) ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-4 overview-card">
+                        <div class="card-2">
+                            <div class="overview-inner">
+                                <div class="mb-3">
+                                    <h4>This Month Order</h4>
+                                    <h2>$<?= number_format($gtm->data["Month_total"]) ?></h2>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="cell">
+                                        <p class="mb-2">Paypal</p>
+                                        <p class="mb-0">$ <?= number_format($ptm->data["PaypalMonth_total"]) ?></p>
+                                    </div>
+                                    <div class="cell">
+                                        <p class="mb-2">Visa</p>
+                                        <p class="mb-0">$ <?= number_format($vtm->data["VisaMonth_total"]) ?></p>
+                                    </div>
+                                    <div class="cell">
+                                        <p class="mb-2">Master Card</p>
+                                        <p class="mb-0">$ <?= number_format($mtm->data["MasterMonth_total"]) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 overview-card">
+                        <div class="card-3">
+                            <div class="overview-inner">
+                                <div class="mb-3">
+                                    <h4>This Year Order</h4>
+                                    <h2>$<?= number_format($gty->data["Year_total"]) ?></h2>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="cell">
+                                        <p class="mb-2">Paypal</p>
+                                        <p class="mb-0">$ <?= number_format($pty->data["PaypalYear_total"]) ?></p>
+                                    </div>
+                                    <div class="cell">
+                                        <p class="mb-2">Visa</p>
+                                        <p class="mb-0">$ <?= number_format($vty->data["VisaYear_total"]) ?></p>
+                                    </div>
+                                    <div class="cell">
+                                        <p class="mb-2">Master Card</p>
+                                        <p class="mb-0">$ <?= number_format($mty->data["MasterYear_total"]) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <?php
@@ -154,68 +154,69 @@ require("../../core/checklogin.php");
         } else {
             $counts = $order->data;
 
-            $totalOrderCount = $counts['total_order'];
+            // $totalOrderCount = $counts['total_order'];
             $pendingOrderCount = $counts['pending_order'];
             $processingOrderCount = $counts['processing_order'];
             $deliveredOrderCount = $counts['delivered_order'];
+            $cancelOrderCount = $counts['cancel_order'];
         }
         ?>
         <div class="my-5">
-            <h6 class="mb-2">Order View</h3>
-                <div class="row">
-                    <div class="col-3">
-                        <div class="order-div">
-                            <div class="d-flex order-inner">
-                                <div class="order-icon ic1">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
-                                <div class="w-100">
-                                    <p>Order total</p>
-                                    <h4 class="mb-0"><?= $totalOrderCount["total_order"] ?></h5>
-                                </div>
+            <h4 class="mb-3">Order View</h4>
+            <div class="row">
+                <div class="col-3">
+                    <div class="order-div">
+                        <div class="d-flex order-inner">
+                            <div class="order-icon ic2">
+                                <i class="fas fa-sync-alt"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="order-div">
-                            <div class="d-flex order-inner">
-                                <div class="order-icon ic2">
-                                    <i class="fas fa-sync-alt"></i>
-                                </div>
-                                <div class="w-100">
-                                    <p>Order Pending</p>
-                                    <h4 class="mb-0"><?= $pendingOrderCount["pending_order"] ?></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="order-div">
-                            <div class="d-flex order-inner">
-                                <div class="order-icon ic3">
-                                    <i class="far fa-truck" style="color: #ffffff;"></i>
-                                </div>
-                                <div class="w-100">
-                                    <p>Order Processing</p>
-                                    <h4 class="mb-0"><?= $processingOrderCount["processing_order"] ?></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="order-div">
-                            <div class="d-flex order-inner">
-                                <div class="order-icon ic4">
-                                    <i class="far fa-check-circle"></i>
-                                </div>
-                                <div class="w-100">
-                                    <p>Order Delivered</p>
-                                    <h4 class="mb-0"><?= $deliveredOrderCount["delivered_order"] ?></h5>
-                                </div>
+                            <div class="w-100">
+                                <p>Order Pending</p>
+                                <h4 class="mb-0"><?= $pendingOrderCount["pending_order"] ?></h5>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-3">
+                    <div class="order-div">
+                        <div class="d-flex order-inner">
+                            <div class="order-icon ic3">
+                                <i class="fa fa-truck" style="color: #ffffff;"></i>
+                            </div>
+                            <div class="w-100">
+                                <p>Order Processing</p>
+                                <h4 class="mb-0"><?= $processingOrderCount["processing_order"] ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="order-div">
+                        <div class="d-flex order-inner">
+                            <div class="order-icon ic4">
+                                <i class="far fa-check-circle"></i>
+                            </div>
+                            <div class="w-100">
+                                <p>Order Delivered</p>
+                                <h4 class="mb-0"><?= $deliveredOrderCount["delivered_order"] ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="order-div">
+                        <div class="d-flex order-inner">
+                            <div class="order-icon ic1">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="w-100">
+                                <p>Order Cancel</p>
+                                <h4 class="mb-0"><?= $cancelOrderCount["cancel_order"] ?></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Top Product -->
         <?php
@@ -230,7 +231,7 @@ require("../../core/checklogin.php");
         $rows = $top->data;
         ?>
         <div class="my-5">
-            <h6 class="mb-2">Top 4 featured Items</h6>
+            <h4 class="mb-3">Top 4 featured Items</h4>
             <div class="row">
                 <?php
                 if ($rows != NULL)
@@ -239,11 +240,11 @@ require("../../core/checklogin.php");
                     <div class="col-3">
                         <div class="featured_item">
                             <div class="featured-img">
-                                <img src="../../../public/images/<?= $row["Thumb"] ?>" />
+                                <img class="w-100" src="../../../public/images/thumb/<?= $row["Thumb"] ?>" />
                             </div>
                             <div class="featured-info">
-                                <div>Product name <?= $row["Product_Name"] ?></div>
-                                <div>$ <?= $row["Price"] ?></div>
+                                <h6 class="my-2"><?= $row["Product_Name"] ?></h6>
+                                <div>$ <?= number_format($row["Price"]) ?></div>
                             </div>
                         </div>
                     </div>
@@ -253,7 +254,7 @@ require("../../core/checklogin.php");
             </div>
         </div>
         <div>
-            <h6>Recently Orders</h6>
+            <h4>Recently Orders</h4>
             <?php
             $dashb = new model_dashboard();
             $ketqua = $dashb->RecentlyOrder();
@@ -285,9 +286,9 @@ require("../../core/checklogin.php");
                     <div class="cell alg-center">
                         STATUS
                     </div>
-                    <div class="cell alg-center">
+                    <!-- <div class="cell alg-center">
                         ACTION
-                    </div>
+                    </div> -->
                     <div class="cell"></div>
                 </div>
                 <!-- 5 recently order here -->
@@ -302,27 +303,71 @@ require("../../core/checklogin.php");
                         <div class="cell alg-center"><?= $row["Payment_method"] ?></div>
                         <div class="cell alg-center"><?= $row["grandtotal"] ?></div>
                         <div class="cell stt-out">
-                            <div class="stt stt3"><?= $row["Status"] ?></div>
+                            <?php
+                            // Define the color mapping for each status value
+                            $color = array(
+                                1 => "red",
+                                2 => "green",
+                                3 => "blue",
+                                4 => "orange",
+                                // Add more status-value/color pairs as needed
+                            );
+
+                            // Assume $row["Status"] contains the status value
+                            if (isset($row["Status"])) {
+                                $status = $row["Status"];
+                                $statusText = "";
+
+                                switch ($status) {
+                                    case 1:
+                                        $statusText = "Pending";
+                                        break;
+                                    case 2:
+                                        $statusText = "Processing";
+                                        break;
+                                    case 3:
+                                        $statusText = "Delivered";
+                                        break;
+                                    case 4:
+                                        $statusText = "Cancel";
+                                        break;
+                                    default:
+                                        $statusText = "Unknown Status";
+                                        break;
+                                }
+
+                                // Set the appropriate class based on the status value
+                                $statusColor = isset($color[$status]) ? $color[$status] : "unknown";
+                            } else {
+                                // Default values if $row["Status"] is not set
+                                $statusText = "Unknown Status";
+                                $statusColor = "unknown";
+                            }
+                            ?>
+
+                            <div class="stt stt3 <?= $statusColor ?>">
+                                <?= $statusText ?>
+                            </div>
                         </div>
-                        <div class="cell">
+                        <!-- <div class="cell">
                             <select class="w-100" id="paymentMethod" name="paymentMethod">
                                 <option value="">Payment method</option>
                                 <?php
-                                $pm = new model_order();
-                                $pm->dropdownName("Orders", "Status");
+                                // $pm = new model_order();
+                                // $pm->dropdownName("Orders", "Status");
                                 ?>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="cell alg-center">
-                            <i class="fas fa-print" style="color: #ffffff;"></i>
-                            <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"];?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
+                            <i class="fas fa-print" style="color: #ffffff;" onclick="printPage()"></i>
+                            <a href="#" id="getorder2" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
                         </div>
                     </div>
                 <?php
                     }
                 ?>
             </div>
-            <div class="d-flex pgn">
+            <!-- <div class="d-flex pgn">
                 <div class="me-auto">Showing 8 of 100</div>
                 <div class="pagination">
                     <a href="#">&laquo;</a>
@@ -331,7 +376,7 @@ require("../../core/checklogin.php");
                     <a href="#">3</a>
                     <a href="#">&raquo;</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- ORDER INFORMATION -->
@@ -349,7 +394,7 @@ require("../../core/checklogin.php");
                             <img src="../../../public/images/ajax-loader.gif"/>
                         </div> -->
                     <!-- Content will be load here -->
-                    <div id="dynamic-order">
+                    <div id="dynamic-order2">
 
                     </div>
                 </div>
@@ -362,14 +407,14 @@ require("../../core/checklogin.php");
     <script>
         $(document).ready(function() {
 
-            $(document).on('click', '#getorder', function(e) {
+            $(document).on('click', '#getorder2', function(e) {
 
                 e.preventDefault();
                 // Get order ID after click
                 var uid = $(this).data('id');
-                echo (uid);
+
                 // leave modal blank before ajax call
-                $('#dynamic-order').html('');
+                $('#dynamic-order2').html('');
                 //load ajax loader
                 $('#modal-loader').show();
 
@@ -383,23 +428,26 @@ require("../../core/checklogin.php");
                     })
                     .done(function(data) {
                         console.log(data);
-                        $('#dynamic-order').html('');
+                        $('#dynamic-order2').html('');
                         // load response
-                        $('#dynamic-order').html(data);
+                        $('#dynamic-order2').html(data);
                         // hide ajax loader
                         $('#modal-loader').hide();
                     })
                     .fail(function() {
-                        $('#dynamic-order').html('<p>Something went wrong, please try again!</p>');
+                        $('#dynamic-order2').html('<p>Something went wrong, please try again!</p>');
                         // $('#modal-loader').hide();
                     });
             });
         });
     </script>
-    
+
     <script>
-        
+        function printPage() {
+            window.print();
+        }
     </script>
+
 
 </body>
 </body>

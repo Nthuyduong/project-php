@@ -1,50 +1,41 @@
 <?php
-require_once("models/model_database.php");
-//tao bien chua noi dung tong bao
-$alert = "";
-//tao bien chuwa tieu de thong bao
-$alert_title = "Tieu de thong bao";
-$act = isset($_REQUEST["act"])?$_REQUEST["act"]:"";
-//Tao doi tuong san pham moi
-$product = new model_product();
+session_start();
+require_once("../models/model_product.php");
+require_once("../views/index/admin_product.php");
 
-if($act == "them")
-{
-    //hien thi form them san pham
-    require("views/");
-}
-//xu ly them san pham
-else if($act == "xulythem")
-{
-    require("xulythem.php");
-}
-else if($act == "sua")
-{
-    //Hien thi phan sua san pham
-    require("views/");
-}
-//Xu ly sua san pham
-else if($act ==  "xulysua")
-{
-    require("xulysua.php");
-}
-else if($act == "xoa")
-{
-    //hien thi phan xoa san pham
-    require("views/");
-}
-//xu ly xoa san pham
-else if($act == "xulyxoa")
-{
-    require("xulyxoa.php");
-}
-//neu $act khong co gia tri khac thi se hien thi trang dashboard - danh sach san pham
-else
-{
+$ann_title = "";
+$ann_content = "";
 
-    $ketqua = $product->GetListProducts();
-    //hien thi trang chua danh sach san pham
-    require("/views/");
+//kiem tra xem form da duoc submit/nhap thong tin hay chua
+if (isset($_REQUEST["b1"]) == false) {
+    $ann_title = "CAN'T ADD NEW SUB-CATEGORY!";
+    $ann_content = "You need to enter sub-category information before add new sub-category";
+    require_once("../views/includes/announce.php");
+    die();
 }
+$prd = $_POST["prdname"];
+$category = $_POST["ctg2"];
+$subcate = $_POST["subctg2"];
+$desc = $_POST["prddes"];
+$quantity = $_POST["prdqtt"];
+$price = $_POST["prdprice"];
+$material = $_POST["prdmat"];
+$jewelry = $_POST["prdjew"];
 
-?>
+$prd = new model_product();
+
+$ketqua = $sub->AddSubcategory($subname, $category, $desc);
+if ($ketqua == FALSE) {
+    $_SESSION["add_cate"] = "";
+    $ann_title = "ADD NEW SUB-CATEGORY ERROR!";
+    $ann_content = "Please check the information again";
+    include_once("../views/includes/announce.php");
+} else
+{
+    $_SESSION["add_cate"] = "OK";
+    $ann_title = "ADD NEW SUB-CATEGORY SUCCESS!";
+    $ann_content = "A new sub-category is created!";
+    include_once ("../views/includes/announce.php");
+    $sub->SearchSub();
+    header("location:../views/index/admin_product.php");
+}
