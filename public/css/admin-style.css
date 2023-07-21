@@ -442,9 +442,6 @@ select{
   border-left: none;
   border-right: none;
 }
-.offcanvas-body{
-  padding: 30px 0px 0px 0px !important;
-}
 /* STYLE FOR ORDER DETAIL DIV */
 .detail-div{
   padding: 20px 20px;

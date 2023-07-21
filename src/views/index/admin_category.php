@@ -96,7 +96,7 @@ require_once("../../models/model_category.php");
                             </div>
                             <div class="cell-sm stt-out">
                                 <!-- <a ><i class="me-3 fas fa-edit" style="color: #ffffff;"></i></a> -->
-                                <a href="?cate=<?= $row["U_Category"] ?>"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
+                                <a href="?cate=<?= $row["U_Category"] ?>" onclick="return confirmDelete()"><i class="fas fa-trash" style="color: #ffffff;"></i></a>
                             </div>
                         </div>
                     <?php
@@ -144,10 +144,17 @@ require_once("../../models/model_category.php");
                 alert('Please enter a valid value between 0 and 5.');
                 return false; // Prevent form submission
             }
-
             return true; // Allow form submission if validation passes
         }
     </script>
+
+    <script>
+        function confirmDelete() {
+            var confirmation = confirm("Are you sure you want to delete this category?");
+            return confirmation; // Return true if the user confirms, and false if canceled
+        }
+    </script>
+
 
 
 </body>

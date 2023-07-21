@@ -27,7 +27,7 @@ if ($ketqua == false) {
             <div class="cell-md"><?= date("d-m-Y", strtotime($row["Created_at"])) ?></div>
             <div class="cell-md"><?= $row["Customer_name"] ?></div>
             <div class="cell alg-center"><?= $row["Payment_method"] ?></div>
-            <div class="cell alg-center"><?= $row["grandtotal"] ?></div>
+            <div class="cell alg-center"><?=number_format($row["grandtotal"])?></div>
             <div class="cell stt-out">
                 <?php
                 // Define the color mapping for each status value
@@ -85,7 +85,7 @@ if ($ketqua == false) {
                 </select>
             </div> -->
             <div class="cell action-icon stt-out">
-                <i class="fas fa-print me-3" style="color: #ffffff;"></i>
+                <i onclick="printPage()" class="fas fa-print me-3" style="color: #ffffff;"></i>
                 <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus" style="color: #ffffff;"></i></a>
             </div>
         </div>
@@ -144,6 +144,12 @@ if ($ketqua == false) {
                         });
                 });
             });
+        </script>
+
+        <script>
+            function printPage() {
+                window.print();
+            }
         </script>
 <?php
         }

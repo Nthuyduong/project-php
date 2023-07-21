@@ -15,7 +15,7 @@ require("../../core/checklogin.php");
 </head>
 
 <body>
-    <?php require_once '../includes/sidebar.php';?>
+    <?php require_once '../includes/sidebar.php'; ?>
 
     <div id="main">
         <!-- THIS IS HEADER -->
@@ -63,7 +63,7 @@ require("../../core/checklogin.php");
                         </select>
                     </div>
                     <div class="col-3">
-                        <button id="clickbind" onclick="onClick()" class="btn-lg-pr-admin w-100">Download all order</button>
+                        <button id="clickbind" onclick="confirmPrint()" class="btn-lg-pr-admin w-100">Download all order</button>
                     </div>
                     <div class="col-3"></div>
                     <div class="col-3"></div>
@@ -83,7 +83,7 @@ require("../../core/checklogin.php");
                             METHOD
                         </div>
                         <div class="cell alg-center">
-                            GRAND TOTAL
+                            GRAND TOTAL ($)
                         </div>
                         <div class="cell stt-out">
                             STATUS
@@ -163,17 +163,24 @@ require("../../core/checklogin.php");
 
     <script>
         function onClick() {
-        var pdf = new jsPDF('p', 'pt', 'letter');
-        pdf.canvas.height = 72 * 11;
-        pdf.canvas.width = 72 * 8.5;
+            var pdf = new jsPDF('p', 'pt', 'letter');
+            pdf.canvas.height = 72 * 11;
+            pdf.canvas.width = 72 * 8.5;
 
-        pdf.fromHTML(document.body);
+            pdf.fromHTML(document.body);
 
-        pdf.save('test.pdf');
-        };
+            pdf.save('test.pdf');
+        }
+
+        function confirmPrint() {
+            var confirmation = confirm("Are you sure you want to download all orders?");
+            if (confirmation) {
+                onClick(); // Call the print function if the user confirms
+            }
+        }
 
         var element = document.getElementById("clickbind");
-        element.addEventListener("click", onClick);
+        element.addEventListener("click", confirmPrint);
     </script>
 </body>
 

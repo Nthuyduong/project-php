@@ -244,7 +244,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="featured-info">
                                 <h6 class="my-2"><?= $row["Product_Name"] ?></h6>
-                                <div>$ <?= number_format($row["Price"])?></div>
+                                <div>$ <?= number_format($row["Price"]) ?></div>
                             </div>
                         </div>
                     </div>
@@ -359,8 +359,8 @@ require("../../core/checklogin.php");
                             </select>
                         </div> -->
                         <div class="cell alg-center">
-                            <i class="fas fa-print" style="color: #ffffff;"></i>
-                            <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
+                            <i class="fas fa-print" style="color: #ffffff;" onclick="printPage()"></i>
+                            <a href="#" id="getorder2" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus ms-3" style="color: #ffffff;"></i></a>
                         </div>
                     </div>
                 <?php
@@ -394,7 +394,7 @@ require("../../core/checklogin.php");
                             <img src="../../../public/images/ajax-loader.gif"/>
                         </div> -->
                     <!-- Content will be load here -->
-                    <div id="dynamic-order">
+                    <div id="dynamic-order2">
 
                     </div>
                 </div>
@@ -407,14 +407,14 @@ require("../../core/checklogin.php");
     <script>
         $(document).ready(function() {
 
-            $(document).on('click', '#getorder', function(e) {
+            $(document).on('click', '#getorder2', function(e) {
 
                 e.preventDefault();
                 // Get order ID after click
                 var uid = $(this).data('id');
-                echo(uid);
+
                 // leave modal blank before ajax call
-                $('#dynamic-order').html('');
+                $('#dynamic-order2').html('');
                 //load ajax loader
                 $('#modal-loader').show();
 
@@ -428,14 +428,14 @@ require("../../core/checklogin.php");
                     })
                     .done(function(data) {
                         console.log(data);
-                        $('#dynamic-order').html('');
+                        $('#dynamic-order2').html('');
                         // load response
-                        $('#dynamic-order').html(data);
+                        $('#dynamic-order2').html(data);
                         // hide ajax loader
                         $('#modal-loader').hide();
                     })
                     .fail(function() {
-                        $('#dynamic-order').html('<p>Something went wrong, please try again!</p>');
+                        $('#dynamic-order2').html('<p>Something went wrong, please try again!</p>');
                         // $('#modal-loader').hide();
                     });
             });
@@ -443,8 +443,11 @@ require("../../core/checklogin.php");
     </script>
 
     <script>
-
+        function printPage() {
+            window.print();
+        }
     </script>
+
 
 </body>
 </body>

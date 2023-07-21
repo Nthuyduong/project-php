@@ -32,7 +32,7 @@ require("../../core/checklogin.php");
                     </div>
                     <div class="col-6">
                         <div className="search-bar d-flex">
-                          
+
                             <form action="" method="GET">
                                 <input name="findcustomer" id="findcustomer" class="search-input w-100" type="text" placeholder="<?php echo isset($_GET['findcustomer']) ? $_GET['findcustomer'] : 'Enter customer name...'; ?>" value="<?= $keyword ?>" />
                                 <FontAwesomeIcon class="icon-search" icon={faSearch} />
@@ -62,8 +62,6 @@ require("../../core/checklogin.php");
                 }
                 $rows = $customer->data;
 
-                $ketqua = $customer->DeleteCustomer($cid);
-
                 ?>
                 <div class="table-customer">
                     <div class="tbl">
@@ -84,7 +82,7 @@ require("../../core/checklogin.php");
                                 ADDRESS
                             </div>
                             <div class="cell-sm">
-                                
+
                             </div>
                         </div>
                         <?php
@@ -101,7 +99,7 @@ require("../../core/checklogin.php");
                                 <div class="cell-md"><?= $row["Address"] ?></div>
                                 <div class="cell-sm action-icon stt-out">
                                     <a href="#" id="getCustomer" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#customer-detail"><i class="me-3 fas fa-search-plus" style="color: #ffffff;"></i></a>
-                                    <a href="?cid=<?= $row["ID"] ?>"><i class="fas fa-trash"></i></a>
+                                    <a href="?cid=<?= $row["ID"] ?>" onclick="return confirmDelete()"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
                         <?php
@@ -188,6 +186,12 @@ require("../../core/checklogin.php");
                     });
             });
         });
+    </script>
+    <script>
+        function confirmDelete() {
+            var confirmation = confirm("Are you sure you want to delete this category?");
+            return confirmation; // Return true if the user confirms, and false if canceled
+        }
     </script>
 </body>
 

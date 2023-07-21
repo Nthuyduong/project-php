@@ -66,7 +66,7 @@ if (isset($_REQUEST["id"])) {
                             <?php echo date('d-m-Y', strtotime($row["Created_at"])); ?>
                         </div>
                         <div class="cell">
-                            <?php echo $row["Grand_total"] ?>
+                            <?php echo number_format($row["Grand_total"])?>
                         </div>
                         <div class="cell">
                             <?php

@@ -163,6 +163,7 @@ class model_product extends Database
         foreach ($rows as $row) {
             $id = $row["$colid"];
             $name = $row["$colname"];
+            $name = ucfirst($name);
             if ($id == $selectid)
                 echo "<option value='$name'>$name</option>";
             else
@@ -178,6 +179,7 @@ class model_product extends Database
             $rows = $this->pdo_stm->fetchAll();
         foreach ($rows as $row) {
             $name = $row["$colname"];
+            $name = ucfirst($name);
             echo "<option value='$name'>$name</option>";
         }
     }
