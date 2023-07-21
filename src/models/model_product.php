@@ -89,7 +89,6 @@ class model_product extends Database
     {
         $sql = "UPDATE Products SET Name=?, Description = ?, Price=?, Sub_category_ID=?, Jewelry_type=?, Material=?, Unit=? WHERE ID=?";
         
-        $param[] = $id;
         $param[] = $name;
         $param[] = $description;
         $param[] = $price;
@@ -97,6 +96,7 @@ class model_product extends Database
         $param[] = $type;
         $param[] = $material;
         $param[] = $unit;
+        $param[] = $id;
         //Tuong tu voi cac bien khac
         $ketqua = $this->set_query($sql, $param);
         return $ketqua;

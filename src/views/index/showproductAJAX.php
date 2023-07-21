@@ -120,7 +120,7 @@ if (isset($_REQUEST["id"])) {
                 <div class="col-6">
                     <div class="row">
                         <div class="col-6">
-                            <button class="btn-lg-sc-admin w-100">Cancel</button>
+                            <button type="button" name="" id="" class="btn-lg-sc-admin w-100">Cancel</button>
                         </div>
                         <div class="col-6">
                             <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1" value="Add">Save edit</button>

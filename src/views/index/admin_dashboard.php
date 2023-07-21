@@ -172,7 +172,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="w-100">
                                 <p>Order Pending</p>
-                                <h4 class="mb-0"><?= $pendingOrderCount["pending_order"] ?></h5>
+                                <h4 class="mb-0"><?= $pendingOrderCount["pending_order"] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="w-100">
                                 <p>Order Processing</p>
-                                <h4 class="mb-0"><?= $processingOrderCount["processing_order"] ?></h5>
+                                <h4 class="mb-0"><?= $processingOrderCount["processing_order"] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="w-100">
                                 <p>Order Delivered</p>
-                                <h4 class="mb-0"><?= $deliveredOrderCount["delivered_order"] ?></h5>
+                                <h4 class="mb-0"><?= $deliveredOrderCount["delivered_order"] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -211,7 +211,7 @@ require("../../core/checklogin.php");
                             </div>
                             <div class="w-100">
                                 <p>Order Cancel</p>
-                                <h4 class="mb-0"><?= $cancelOrderCount["cancel_order"] ?></h5>
+                                <h4 class="mb-0"><?= $cancelOrderCount["cancel_order"] ?></h4>
                             </div>
                         </div>
                     </div>
