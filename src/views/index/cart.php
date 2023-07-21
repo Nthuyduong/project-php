@@ -258,7 +258,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                 });
 
                 // Update the subtotal value
-                $('.subTotal').text('$' + formatNumber(subTotal));
+                $('.subtotal').text('$' + formatNumber(subTotal));
             }
 
             // Format a number with commas for thousands separators

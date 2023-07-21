@@ -43,4 +43,17 @@ class Order extends Database {
 			$this->data = $this->pdo_stm -> fetch();
 		return $result; // return true/false
     }
+
+    // get order details
+    function getOrderDetails($code) {
+        $sql = "SELECT * FROM Order_items tb1 
+            LEFT JOIN Orders tb2 ON tb1.Order_code = tb2.Code 
+            LEFT JOIN Products tb3 ON tb1.Product_ID = tb3.ID 
+            WHERE tb2.Code = ?";
+		$params = [$code];
+ 		$result = $this -> set_query($sql, $params);
+		if ($result == true)
+			$this->data = $this->pdo_stm -> fetchAll();
+		return $result; // return true/false
+    }
 }
