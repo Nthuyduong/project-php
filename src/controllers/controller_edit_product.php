@@ -25,15 +25,6 @@ $type = $_REQUEST["jewelelry_type"];
 $material = $_REQUEST["Material"];
 $unit = $_REQUEST["Unit"];
 
-// echo ($name);
-// echo ($id);
-// echo ($unit);
-// echo ($price);
-// echo ($material);
-// echo ($type);
-// echo ($sid);
-// echo ($description);
-
 $prd = new model_product();
 
 $ketqua = $prd->UpdateProduct($id, $name, $description, $price, $sid, $type, $material, $unit);

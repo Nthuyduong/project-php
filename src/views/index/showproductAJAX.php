@@ -11,7 +11,7 @@ if (isset($_REQUEST["id"])) {
 ?>
     <!-- EDIT PRODUCT INFORMATION -->
     <div class="table-product">
-        <form method="POST" action="../../controllers/controller_edit_product.php">
+        <form name="" id="" method="POST" action="../../controllers/controller_edit_product.php">
             <div class="row">
                 <div class="col-6">
                     <!-- <div class="tbl"> -->
