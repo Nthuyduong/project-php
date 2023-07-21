@@ -115,7 +115,6 @@ if (isset($_REQUEST["id"])) {
             </div>
             <div class="row mt-5">
                 <div class="col-6">
-
                 </div>
                 <div class="col-6">
                     <div class="row">

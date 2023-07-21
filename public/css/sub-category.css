@@ -1,11 +1,11 @@
 /*category-top*/
+.category-top-text {
+  position: absolute;
+  top: 30%;
+  z-index: 1;
+}
 .banner{
     
-  }
-  .category-top-text {
-    position: absolute;
-    top: 30%;
-    z-index: 1;
   }
   
   .body-main{

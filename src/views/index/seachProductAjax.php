@@ -35,7 +35,7 @@
                 </div>
                 <div class="product-info col-8 pe-0">
                     <a href="product-detail.php?pid=<?=$row['ID']?>">
-                        <h5 class="mb-2"><?=$row["Name"]?></h5>
+                        <h3 class="mb-2"><?=$row["Name"]?></h3>
                     </a>
                     <p class="mdt mb-3">$<?=number_format($row["Price"])?></p>
                     <p class="smt"><?=$row["Description"]?></p>

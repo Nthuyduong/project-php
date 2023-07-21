@@ -594,7 +594,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                     <div style ="text-align: center;">
                         <?php
                         if(isset($_SESSION["logined_user"])==false || $_SESSION["logined_user"]==""){
-                            echo "<h6> Sign in to write a review</h6>";
+                            echo "<p> Sign in to write a review</p>";
                         }else{
                         ?>
                         <button class="advisor btn btnlg btn-pri w-100" data-bs-toggle="modal" type="button" data-bs-target="#review">Write a review</button>
