@@ -1,5 +1,5 @@
 /*category-top*/
-.category-top-text {
+.container-fluid.category-top-text {
   position: absolute;
   top: 30%;
   z-index: 1;
