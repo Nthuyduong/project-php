@@ -11,17 +11,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['error' => 'User is not authenticated.']);
         exit;
     }
-    
+
     // Retrieve the user ID and order code from the POST data
     $uid = $_POST['uid'];
     $code = $_POST['code'];
-    
+    $subTotal = $_POST['subTotal'];
+
     // Retrieve the updated cart data from the POST data
     $cartData = $_POST['cartData'];
-    
+
     // Create an instance of the Order class
     $orderDB = new Order();
-    
+
     // Get the open order for the user
     $openOrder = $orderDB->getOpenOrder($uid);
     if ($openOrder == false) {
@@ -29,51 +30,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
     $openOrderData = $orderDB->data;
-    
-    // Start a transaction to update the cart
-    $orderDB->startTransaction();
-    
+
     try {
-        // Clear the existing cart items for the order
-        $clearCartQuery = "DELETE FROM Order_items WHERE Order_code = ?";
-        $clearCartParams = [$code];
-        $clearCartResult = $orderDB->set_query($clearCartQuery, $clearCartParams);
-        
-        if (!$clearCartResult) {
+        // Update order
+        $updateOrderQuery = "UPDATE Orders SET Grand_total = ? WHERE Code = ?";
+        $updateOrderParams = [$subTotal, $code];
+        $updateOrderResult = $orderDB->set_query($updateOrderQuery, $updateOrderParams);
+
+        if (!$updateOrderResult) {
             // Rollback the transaction and return an error response if clearing the cart fails
-            $orderDB->rollbackTransaction();
-            echo json_encode(['error' => 'Failed to clear the cart.']);
+            echo json_encode(['error' => 'Failed to update the order.']);
             exit;
         }
-        
+
         // Insert the updated cart items into the Order_items table
-        $insertItemQuery = "INSERT INTO Order_items (Order_code, Product_ID, Quantity, Price, Size) VALUES (?, ?, ?, ?, ?)";
-        
-        foreach ($cartData as $product) {
-            $productId = $product['id'];
-            $quantity = $product['quantity'];
-            $price = $product['price'];
-            $size = $product['size'];
-            
-            $insertItemParams = [$code, $productId, $quantity, $price, $size];
-            $insertItemResult = $orderDB->set_query($insertItemQuery, $insertItemParams);
-            
-            if (!$insertItemResult) {
+        $updateItemsQuery = "UPDATE Order_items SET Quantity = ? WHERE Order_code = ? AND Product_ID = ?";
+
+        foreach ($cartData as $productId => $quantity) {
+            $updateItemsParams = [$quantity, $code, $productId];
+            $updateItemsResult = $orderDB->set_query($updateItemsQuery, $updateItemsParams);
+
+            if (!$updateItemsResult) {
                 // Rollback the transaction and return an error response if inserting an item fails
-                $orderDB->rollbackTransaction();
                 echo json_encode(['error' => 'Failed to update the cart items.']);
                 exit;
             }
         }
-        
-        // Commit the transaction if all updates were successful
-        $orderDB->commitTransaction();
-        
+
         // Return a success response
         echo json_encode(['success' => true]);
     } catch (Exception $e) {
-        // Rollback the transaction and return an error response if an exception occurs
-        $orderDB->rollbackTransaction();
         echo json_encode(['error' => 'An error occurred while updating the cart.']);
     }
 } else {

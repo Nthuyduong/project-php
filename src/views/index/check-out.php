@@ -40,7 +40,7 @@ session_start();
                         <a href="home.php">Back to homepage</a>
                     </div>
                 <?php } else { ?>
-                    <form id="checkoutForm">
+                    <form id="checkoutForm" onsubmit="placeOrder()">
                         <div class="row">
                         <div class="col-6 ps-0 checkout-left">
                             <!--billing address-->
@@ -185,7 +185,7 @@ session_start();
                         <div class="row">
                             <div class="col-4"></div>
                             <div class="col-4">
-                                <button class="btn btn-pri btnlg w-100" onclick="placeOrder(<?=$uid?>, <?=$cartProducts[0]['Code']?>)">Place order</button>
+                                <button type="submit" class="btn btn-pri btnlg w-100">Place order</button>
                             </div>
                             <div class="col-4"></div>
                         </div>
@@ -200,30 +200,43 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script>
-            function placeOrder(uid, code) {
-                var bagData = {
-                    uid: uid,
-                    code: code
-                };
+            // function placeOrder(uid, code) {
+            //     var bagData = {
+            //         uid: uid,
+            //         code: code
+            //     };
 
-                // Send AJAX request to placeOrder.php
-                $.ajax({
-                    url: '../includes/placeOrder.php',
-                    type: 'POST',
-                    data: bagData,
-                    success: function(response) {
-                        // Handle the response from the server
-                        // Perform any other desired actions
-                        console.log('Place order response: ', response);
-                        // Reload the page or navigate to the checkout page
-                        window.location.href = 'thank-you.php'; // Example: Navigating to the checkout page
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle any error that occurred during the AJAX request
-                        alert('Failed to place order!');
-                        console.error('Place order error: ', xhr.responseText);
-                    }
-                });
+            //     // Send AJAX request to placeOrder.php
+            //     $.ajax({
+            //         url: '../includes/placeOrder.php',
+            //         type: 'POST',
+            //         data: bagData,
+            //         success: function(response) {
+            //             // Handle the response from the server
+            //             // Perform any other desired actions
+            //             console.log('Place order response: ', response);
+            //             // Reload the page or navigate to the checkout page
+            //             window.location.href = 'thank-you.php'; // Example: Navigating to the checkout page
+            //         },
+            //         error: function(xhr, status, error) {
+            //             // Handle any error that occurred during the AJAX request
+            //             alert('Failed to place order!');
+            //             console.error('Place order error: ', xhr.responseText);
+            //         }
+            //     });
+            // }
+
+            function placeOrder() {
+                // Prevent the default form submission
+                event.preventDefault();
+
+                // Perform any necessary form validation here
+
+                // Submit the form
+                document.getElementById("checkoutForm").submit();
+
+                // Redirect the user to the "thank-you.php" page
+                window.location.href = "thank-you.php";
             }
         </script>
     </body>
