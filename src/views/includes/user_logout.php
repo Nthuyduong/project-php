@@ -7,23 +7,19 @@
 <body>
 <?php
 session_start();
-// <<<<<<< hue-checkout-process
-// unset($_SESSION["logined_user"]);
-// unset($_SESSION["user_email"]);
-// =======
-// unset($_SESSION["logined_user"]);
-// unset($_SESSION["user_email"]);
-// unset($_SESSION["user_id"]);
-// unset($_SESSION["user_name"]);
-// unset($_SESSION["user_address"]);
-// unset($_SESSION["user_phone"]);
-// >>>>>>> main
+unset($_SESSION["logined_user"]);
+unset($_SESSION["user_email"]);
+unset($_SESSION["logined_user"]);
+unset($_SESSION["user_email"]);
+unset($_SESSION["user_id"]);
+unset($_SESSION["user_name"]);
+unset($_SESSION["user_address"]);
+unset($_SESSION["user_phone"]);
 
-//unset($_SESSION["logined"]);//hủy 1 biến $_SESSION["logined"]
-session_destroy();//hủy toàn bộ SESSION
+//session_destroy();//hủy toàn bộ SESSION
 
-$alert_title="Đăng xuất thành công";
-$alert = "Quay về trang Home";
+$alert_title="Notification";
+$alert = "Log-out succes.Back to Home";
 $link_tieptuc="../index/home.php";
 require_once("../includes/alert.php");
 ?>

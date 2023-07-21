@@ -11,33 +11,13 @@ session_start();
 <body>
     <div>
         <?php include 'login.php'; ?>
-        <?php
-        if ($_SESSION["logined_fail"] != "") {
-        ?>
-            <script>
-                var myModalLogin = new bootstrap.Modal(document.getElementById('sign-in'));
-                myModalLogin.show();
-            </script>
-        <?php
-        }
-        ?>
     </div>
     <div>
         <?php include 'forgot-pass.php'; ?>
     </div>
     <div>
         <?php include 'sign-up.php'; ?>
-        <?php
-        if ($_SESSION["sign_up_user_fail"] != "") {
-        ?>
-            <script>
-                var myModalSignup = new bootstrap.Modal(document.getElementById('sign-up'));
-                myModalSignup.show();
-            </script>
-        <?php
-        }
-        ?>
-    </div>
+        </div>
     <div>
         <?php include 'bag.php'; ?>
     </div>
@@ -85,14 +65,6 @@ session_start();
                                 <!--Log out if user logined succes-->
                                 <!-- dropdown -->
                                 <div class="ms-3">
-                                    <!-- <div class="usericon dropdown" id="usericon"> Thêm lớp "dropdown" vào đây -->
-                                    <!-- =$_SESSION["user_email"] -->
-                                    <!-- <div class="dropdown-menu"> Thêm lớp "dropdown-menu" vào đây -->
-                                    <!-- <a class="dropdown-item" href="../index/user-account.php">User's account</a> -->
-                                    <!-- <a class="dropdown-item" href="../includes/user_logout.php">Sign out</a> -->
-                                    <!-- </div> -->
-                                    <!-- </div> -->
-
                                     <!-- NTD  -->
                                     <div class="user-icon">
                                         <div class="textover">
@@ -179,35 +151,10 @@ session_start();
         }
     </script>
 
-    <!-- Xử lý dropdown menu khi click vào icon user
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var userIcon = document.querySelector(".usericon");
-    var dropdownMenu = userIcon.querySelector(".dropdown-menu");
-
-    userIcon.addEventListener("mouseenter", function() {
-        dropdownMenu.style.display = "block";
-    });
-
-    userIcon.addEventListener("mouseleave", function() {
-        dropdownMenu.style.display = "none";
-    });
-});
-</script> -->
-
-
-
-
 </body>
 
 </html>
 <?php
-if (isset($_SESSION["logined_fail"]))
-    unset($_SESSION["logined_fail"]);
-if (isset($_SESSION["user_email_fail"]))
-    unset($_SESSION["user_email_fail"]);
-if (isset($_SESSION["user_pass_fail"]))
-    unset($_SESSION["user_pass_fail"]);
 
 if (isset($_SESSION["sign_up_user_name_err"]))
     unset($_SESSION["sign_up_user_name_err"]);
@@ -217,13 +164,6 @@ if (isset($_SESSION["sign_up_user_phone_err"]))
     unset($_SESSION["sign_up_user_phone_err"]);
 if (isset($_SESSION["sign_up_user_email_err"]))
     unset($_SESSION["sign_up_user_email_err"]);
-if (isset($_SESSION["sign_up_user_pass_err"]))
-    unset($_SESSION["sign_up_user_pass_err"]);
-if (isset($_SESSION["sign_up_user_repass_err"]))
-    unset($_SESSION["sign_up_user_repass_err"]);
-
-if (isset($_SESSION["sign_up_user_fail"]))
-    unset($_SESSION["sign_up_user_fail"]);
 
 if (isset($_SESSION["sign_up_user_email_fail"]))
     unset($_SESSION["sign_up_user_email_fail"]);
@@ -231,6 +171,4 @@ if (isset($_SESSION["sign_up_user_phone_fail"]))
     unset($_SESSION["sign_up_user_phone_fail"]);
 if (isset($_SESSION["sign_up_user_repass_fail"]))
     unset($_SESSION["sign_up_user_repass_fail"]);
-
-
 ?>
