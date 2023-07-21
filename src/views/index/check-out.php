@@ -40,7 +40,7 @@ session_start();
                         <a href="home.php">Back to homepage</a>
                     </div>
                 <?php } else { ?>
-                    <form id="checkoutForm" onsubmit="placeOrder()">
+                    <form id="checkoutForm" onsubmit="placeOrder(<?=$uid?>, <?=$cartProducts[0]['Code']?>)">
                         <div class="row">
                         <div class="col-6 ps-0 checkout-left">
                             <!--billing address-->
@@ -197,6 +197,7 @@ session_start();
         <div>
             <?php require_once '../includes/footer.php';?>
         </div> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script>
@@ -226,17 +227,56 @@ session_start();
             //     });
             // }
 
-            function placeOrder() {
+            // function placeOrder() {
+            //     // Prevent the default form submission
+            //     event.preventDefault();
+
+            //     // Perform any necessary form validation here
+
+            //     // Submit the form
+            //     document.getElementById("checkoutForm").submit();
+
+            //     // Redirect the user to the "thank-you.php" page
+            //     window.location.href = "thank-you.php";
+            // }
+
+            function placeOrder(uid, code) {
                 // Prevent the default form submission
                 event.preventDefault();
 
                 // Perform any necessary form validation here
 
-                // Submit the form
-                document.getElementById("checkoutForm").submit();
+                // Create an object to store the order data
+                var orderData = {
+                    uid: uid,
+                    code: code
+                };
 
-                // Redirect the user to the "thank-you.php" page
-                window.location.href = "thank-you.php";
+                // Send an AJAX request to change the order status to 1
+                $.ajax({
+                    url: '../includes/placeOrder.php', // Replace with the correct URL to update the order status
+                    type: 'POST',
+                    data: orderData,
+                    dataType: 'json',
+                    success: function(response) {
+                        // Check if the order status was successfully updated
+                        if (response.success) {
+                            // Order status changed, now submit the form
+                            document.getElementById("checkoutForm").submit();
+
+                            // Redirect the user to the "thank-you.php" page
+                            window.location.href = "thank-you.php";
+                        } else {
+                            // Display an error message if the order status update failed
+                            alert('Failed to update order status.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any error that occurred during the AJAX request
+                        alert('Failed to update order status.');
+                        console.error('Order status update error: ', xhr.responseText);
+                    }
+                });
             }
         </script>
     </body>
