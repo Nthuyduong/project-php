@@ -123,7 +123,7 @@ require("../../core/checklogin.php");
                 <h4 class="db-title">ADD NEW PRODUCT<h4>
             </div>
             <div class="offcanvas-body canvasbody">
-                <form name="form1" id="form1" method="POST" action="../../controllers/controller_add_product.php">
+                <form name="form" id="form" method="POST" action="../../controllers/controller_add_product.php">
                     <div class="">
                         <div class="mdt mb-1">Product's Name</div>
                         <input class="" name="prdname" id="prdname" placeholder="Product's name/title" />
@@ -187,7 +187,7 @@ require("../../core/checklogin.php");
                         <div class="mdt mb-1">Collection</div>
                         <input class="w-100" name="prdcollec" id="prdcollec" placeholder="Collection" />
                     </div>
-                    <div class="">
+                    <div class="mb-3">
                         <div class="mdt mb-1">Thumb</div>
                         <input class="w-100" name="prdimg" id="prdimg" placeholder="Product's image" />
                     </div>

@@ -74,12 +74,12 @@ class model_product extends Database
 
     //Them san pham
     // stock in table product_detail
-    function AddProduct($name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thummb)
+    function AddProduct($name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thumb)
     {
         $sql = "INSERT INTO Products(Name,Unit,Price,Description,Material,Jewelry_type,Sub_category_ID,Collection,Thumb) VALUE(?,?,?,?,?,?,?,?,?)";
         $param = null;
-        if ($name != "" && $unit != "" && $price != "" && $description != "" && $material != "" && $jewelry_type != "" && $subcate = "" && $collection != "" && $thummb != "")
-            $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thummb];
+        if ($name != "" && $unit != "" && $price != "" && $description != "" && $material != "" && $jewelry_type != "" && $subcate = "" && $collection != "" && $thumb != "")
+            $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thumb];
         $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }
@@ -214,5 +214,18 @@ class model_product extends Database
             else
                 echo "<option value='$ten' > $ten </option>\n";
         }
+    }
+
+    function GetIDbySub($name)
+    {
+        $sql = "SELECT id FROM Sub_categories";
+        if($name != "")
+        {
+            $sql .= " WHERE Name LIKE '%$name%' ";
+        }
+        $ketqua = $this->set_query($sql);
+        if ($ketqua == true)
+            $this->data = $this->pdo_stm->fetchAll();
+        return $ketqua;
     }
 }

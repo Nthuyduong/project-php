@@ -12,8 +12,11 @@ if(isset($_REQUEST["b1"]) == false)
     die();
 }
 $name = $_REQUEST["prdname"];
-$cate = $_REQUEST["ctg2"];
 $sub = $_REQUEST["subctg2"];
+
+$subid = new model_product();
+$id = intval($subid->GetIDbySub($sub));
+
 $unit = $_REQUEST["unit"];
 $price = $_REQUEST["prdprice"];
 $material = $_REQUEST["material"];
@@ -22,9 +25,20 @@ $collection = $_REQUEST["prdcollec"];
 $thumb = $_REQUEST["prdimg"];
 $description = $_REQUEST["desc"];
 
+echo ($name);
+echo ($id);
+echo ($unit);
+echo ($price);
+echo ($material);
+echo ($type);
+echo ($collection);
+echo ($thumb);
+echo ($description);
+
+
 $prd = new model_product();
 
-$ketqua = $sub->AddProduct($name, $unit, $price, $description, $material, $type, $sub, $collection, $thumb);
+$ketqua = $prd->AddProduct($name, $unit, $price, $description, $material, $type, $id, $collection, $thumb);
 if ($ketqua == FALSE) {
     $_SESSION["add_cate"] = "";
     $ann_title = "ADD NEW PRODUCT ERROR!";
