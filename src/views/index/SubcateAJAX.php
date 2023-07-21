@@ -70,21 +70,6 @@ if ($ketqua == false) {
                         <div id="dynamic-product">
 
                         </div>
-                        <div class="row mt-5">
-                            <div class="col-6">
-
-                            </div>
-                            <div class="col-6">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="btn-lg-sc-admin w-100">Cancel</div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="btn-lg-pr-admin w-100">Save edit</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -85,10 +85,18 @@ class model_product extends Database
     }
 
     //Sua san pham
-    function UpdateProduct($name, $description, $price, $category, $Sub_category_ID, $stock)
+    function UpdateProduct($id, $name, $description, $price, $subid, $type, $material, $unit)
     {
-        $sql = "UPDATE Products SET name=?, description = ?, price=?, category=?, Sub_category_ID=?, stock=? WHERE id=?";
-        $param = [$name, $description, $price, $category, $Sub_category_ID, $stock];
+        $sql = "UPDATE Products SET Name=?, Description = ?, Price=?, Sub_category_ID=?, Jewelry_type=?, Material=?, Unit=? WHERE ID=?";
+        
+        $param[] = $id;
+        $param[] = $name;
+        $param[] = $description;
+        $param[] = $price;
+        $param[] = $subid;
+        $param[] = $type;
+        $param[] = $material;
+        $param[] = $unit;
         //Tuong tu voi cac bien khac
         $ketqua = $this->set_query($sql, $param);
         return $ketqua;

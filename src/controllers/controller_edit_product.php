@@ -11,19 +11,18 @@ if(isset($_REQUEST["b1"]) == false)
     require_once("../views/includes/announce.php");
     die();
 }
-$name = $_REQUEST["prdname"];
+$id = $_REQUEST["prid"];
+$name = $_REQUEST["prname"];
+$description = $_REQUEST["prdes"];
+$price = $_REQUEST["prprice"];
 $sub = $_REQUEST["subctg2"];
 
 $subid = new model_product();
-$id = intval($subid->GetIDbySub($sub));
+$sid = intval($subid->GetIDbySub($sub));
 
-$unit = $_REQUEST["unit"];
-$price = $_REQUEST["prdprice"];
-$material = $_REQUEST["material"];
-$type = $_REQUEST["jewel"];
-$collection = $_REQUEST["prdcollec"];
-$thumb = $_REQUEST["prdimg"];
-$description = $_REQUEST["desc"];
+$type = $_REQUEST["jewelelry_type"];
+$material = $_REQUEST["Material"];
+$unit = $_REQUEST["Unit"];
 
 // echo ($name);
 // echo ($id);
@@ -31,13 +30,12 @@ $description = $_REQUEST["desc"];
 // echo ($price);
 // echo ($material);
 // echo ($type);
-// echo ($collection);
-// echo ($thumb);
+// echo ($sid);
 // echo ($description);
 
 $prd = new model_product();
 
-$ketqua = $prd->AddProduct($name, $unit, $price, $description, $material, $type, $id, $collection, $thumb);
+$ketqua = $prd->UpdateProduct($id, $name, $description, $price, $sid, $type, $material, $unit);
 if ($ketqua == FALSE) {
     $_SESSION["add_cate"] = "";
     $ann_title = "ADD NEW PRODUCT ERROR!";

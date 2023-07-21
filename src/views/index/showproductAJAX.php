@@ -11,32 +11,33 @@ if (isset($_REQUEST["id"])) {
 ?>
     <!-- Product information will goes here -->
     <div class="table-product">
-        <div class="row">
-            <div class="col-6">
-                <!-- <div class="tbl"> -->
+        <form method="POST" action="../../controllers/controller_edit_product.php">
+            <div class="row">
+                <div class="col-6">
+                    <!-- <div class="tbl"> -->
                     <div class="tb-title mb-3">Basic Information</div>
                     <div class="tb-row">
                         <div class="cell-sm">ID</div>
                         <div class="cell">
-                            <input class="ad-input" name="" id="" value="<?php echo $rows["ID"] ?>" disabled>
+                            <input class="ad-input" name="prid" id="prid" value="<?php echo $rows["ID"] ?>" disabled>
                         </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell-sm">PRODUCT'S NAME</div>
                         <div class="cell">
-                            <input class="ad-input" name="" id="" value="<?php echo $rows["Name"] ?>">
+                            <input class="ad-input" name="prname" id="prname" value="<?php echo $rows["Name"] ?>">
                         </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell-sm">DESCRIPTION</div>
                         <div class="cell">
-                            <input class="ad-input" name="" id="" value="<?php echo $rows["Description"] ?>">
+                            <input class="ad-input" name="prdes" id="prdes" value="<?php echo $rows["Description"] ?>">
                         </div>
                     </div>
                     <div class="tb-row">
                         <div class="cell-sm">PRICE ($)</div>
                         <div class="cell">
-                            <input class="ad-input" name="" id="" value="<?php echo number_format($rows["Price"]) ?>">
+                            <input class="ad-input" name="prprice" id="prprice" value="<?php echo number_format($rows["Price"]) ?>">
                         </div>
                     </div>
                     <div class="tb-row">
@@ -68,16 +69,10 @@ if (isset($_REQUEST["id"])) {
                             </select>
                         </div>
                     </div>
-                    <div class="tb-row tb-row2">
-                        <div class="cell-sm">QUANTITY</div>
-                        <div class="cell">
-                            <input class="ad-input" name="" id="" value="<?php echo $rows["TotalStock"] ?>">
-                        </div>
-                    </div>
-                <!-- </div> -->
-            </div>
-            <div class="col-6">
-                <!-- <div class="tbl"> -->
+                    <!-- </div> -->
+                </div>
+                <div class="col-6">
+                    <!-- <div class="tbl"> -->
                     <div class="tb-title mb-3">Combination Information</div>
                     <div class="tb-row">
                         <div class="cell-sm">JEWELRY TYPE</div>
@@ -115,9 +110,25 @@ if (isset($_REQUEST["id"])) {
                             </select>
                         </div>
                     </div>
-                <!-- </div> -->
+                    <!-- </div> -->
+                </div>
             </div>
-        </div>
+            <div class="row mt-5">
+                <div class="col-6">
+
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn-lg-sc-admin w-100">Cancel</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-lg-pr-admin w-100" type="submit" name="b1" id="b1" value="Add">Save edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 
     <script>
