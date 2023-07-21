@@ -47,8 +47,8 @@ class model_product extends Database
         $sql = "SELECT tb1.Material, tb1.Jewelry_type, tb1.Unit, tb1.ID, tb1.Name, tb1.Price, tb1.Description, tb1.Category, tb1.Sub_category, SUM(tb1.Stock) AS TotalStock
         FROM (SELECT p.Jewelry_type, p.ID, p.Unit, p.Name, p.Material, p.Price, p.Description, p.Deleted_at, s.Category, s.Name
         AS Sub_category, d.Stock FROM Products p
-        INNER JOIN Sub_categories s ON p.Sub_category_ID = s.ID
-        INNER JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
+        LEFT JOIN Sub_categories s ON p.Sub_category_ID = s.ID
+        LEFT JOIN Product_details d ON p.ID = d.Product_ID) AS tb1
         WHERE tb1.Sub_category LIKE '%$subname%'
         AND tb1.Deleted_at IS NULL
         AND tb1.Name LIKE '%$keyword%'
