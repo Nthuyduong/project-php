@@ -78,8 +78,7 @@ class model_product extends Database
     {
         $sql = "INSERT INTO Products(Name,Unit,Price,Description,Material,Jewelry_type,Sub_category_ID,Collection,Thumb) VALUE(?,?,?,?,?,?,?,?,?)";
         $param = null;
-        if ($name != "" && $unit != "" && $price != "" && $description != "" && $material != "" && $jewelry_type != "" && $subcate = "" && $collection != "" && $thumb != "")
-            $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thumb];
+        $param = [$name, $unit, $price, $description, $material, $jewelry_type, $subcate, $collection, $thumb];
         $ketqua = $this->set_query($sql, $param);
         return $ketqua;
     }

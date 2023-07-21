@@ -35,7 +35,6 @@ echo ($collection);
 echo ($thumb);
 echo ($description);
 
-
 $prd = new model_product();
 
 $ketqua = $prd->AddProduct($name, $unit, $price, $description, $material, $type, $id, $collection, $thumb);
