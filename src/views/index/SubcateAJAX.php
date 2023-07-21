@@ -60,7 +60,7 @@ if ($ketqua == false) {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <div class="db-title" id="exampleModalLabel">Product Detail</div>
+                        <div class="db-title" id="exampleModalLabel">Edit Product Information</div>
                         <div type="button" class="" data-bs-dismiss="modal" aria-label="Close">
                             X
                         </div>

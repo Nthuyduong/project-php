@@ -214,7 +214,7 @@ require("../../core/checklogin.php");
         <script>
             function test(id) {
                 let ctValue = document.getElementById(id).value;
-                console.log(ctValue);
+                // console.log(ctValue);
                 $.ajax({
                         url: 'productAJAX.php',
                         type: 'POST',

@@ -565,10 +565,13 @@ ul.progressbar{
 }
 /* PRODUCT INFORMATION */
 #product-detail .modal-dialog{
-  max-width: 750px !important;
+  max-width: 960px !important;
 }
 #product-detail .modal-body{
   padding: 30px !important;
+}
+#product-detail{
+  left: 8% !important;
 }
 #order-detail .modal-dialog{
   max-width: 960px !important;

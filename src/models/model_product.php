@@ -158,6 +158,22 @@ class model_product extends Database
     {
         $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
         $ketqua = $this->set_query($sql);
+        if ($ketqua) {
+            $rows = $this->pdo_stm->fetchAll();
+            foreach ($rows as $row) {
+                $id = $row["$colid"];
+                $name = $row["$colname"];
+                $name = ucfirst($name);
+                echo "<option value='$name'>$name</option>";
+            }
+        }
+    }
+
+
+    function CateSelect2($tbname, $colid, $colname, $selectid)
+    {
+        $sql = "SELECT $tbname.$colname FROM $tbname GROUP BY $tbname.$colname";
+        $ketqua = $this->set_query($sql);
         if ($ketqua == true)
             $rows = $this->pdo_stm->fetchAll();
         foreach ($rows as $row) {
@@ -165,7 +181,7 @@ class model_product extends Database
             $name = $row["$colname"];
             $name = ucfirst($name);
             if ($id == $selectid)
-                echo "<option value='$name'>$name</option>";
+                echo "<option value='$name' selected>$name</option>";
             else
                 echo "<option value='$name'>$name</option>";
         }
@@ -181,6 +197,22 @@ class model_product extends Database
             $name = $row["$colname"];
             $name = ucfirst($name);
             echo "<option value='$name'>$name</option>";
+        }
+    }
+
+    function TaoSelect($tenbang, $cotname, $selectedid)
+    {
+        $sql = "SELECT DISTINCT $tenbang.$cotname FROM $tenbang";
+        $ketqua = $this->set_query($sql);
+        if ($ketqua == true)
+            $rows = $this->pdo_stm->fetchAll();
+        foreach ($rows as $row) {
+            // $id = $row[$cotid];
+            $ten = $row[$cotname];
+            if ($ten == $selectedid)
+                echo "<option value='$ten' selected> $ten </option>\n";
+            else
+                echo "<option value='$ten' > $ten </option>\n";
         }
     }
 }
