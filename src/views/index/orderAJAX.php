@@ -24,7 +24,7 @@ if ($ketqua == false) {
 ?>
         <div class="tb-row">
             <div class="cell-sm alg-center"><?= $row["Code"] ?></div>
-            <div class="cell-md"><?= date("d-m-Y", strtotime($row["Created_at"])) ?></div>
+            <div class="cell"><?= date("d-m-Y", strtotime($row["Created_at"])) ?></div>
             <div class="cell-md"><?= $row["Customer_name"] ?></div>
             <div class="cell alg-center"><?= $row["Payment_method"] ?></div>
             <div class="cell alg-center"><?=number_format($row["grandtotal"])?></div>
@@ -75,15 +75,15 @@ if ($ketqua == false) {
                     <?= $statusText ?>
                 </div>
             </div>
-            <!-- <div class="cell">
+            <div class="cell">
                 <select class="w-100">
                     <option>Status</option>
                     <?php
-                    // $pm = new model_order();
-                    // $pm->dropdownName("Orders", "Status");
+                    $pm = new model_order();
+                    $pm->dropdownName("Orders", "Status");
                     ?>
                 </select>
-            </div> -->
+            </div>
             <div class="cell action-icon stt-out">
                 <i onclick="printPage()" class="fas fa-print me-3" style="color: #ffffff;"></i>
                 <a href="#" id="getorder" data-bs-toggle="modal" data-id="<?php echo $row["Code"]; ?>" data-bs-target="#order-detail"><i class="fas fa-search-plus" style="color: #ffffff;"></i></a>

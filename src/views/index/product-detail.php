@@ -613,7 +613,7 @@ $uid = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
                             <div class="modal-content">
                                 <h5 class="modal-title mb-4">Write A Review</h5>
                                 <p class="mdt">Select your rating</p>
-                                <div class="rating-stars">
+                                <div class="rating-stars mb-3">
                                     <input type="radio" name="rating" id="star-5" value="5">
                                     <label for="star-5">&#9733;</label>
                                     <input type="radio" name="rating" id="star-4" value="4">

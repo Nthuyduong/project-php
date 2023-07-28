@@ -73,7 +73,7 @@ require("../../core/checklogin.php");
                         <div class="cell-sm alg-center">
                             ID
                         </div>
-                        <div class="cell-md">
+                        <div class="cell">
                             ORDER DATE
                         </div>
                         <div class="cell-md">
@@ -88,9 +88,9 @@ require("../../core/checklogin.php");
                         <div class="cell stt-out">
                             STATUS
                         </div>
-                        <!-- <div class="cell">
+                        <div class="cell">
                             ACTION
-                        </div> -->
+                        </div>
                         <div class="cell stt-out"></div>
                     </div>
 

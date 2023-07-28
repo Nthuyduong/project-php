@@ -99,7 +99,7 @@ require("../../core/checklogin.php");
                                 <div class="cell-md"><?= $row["Address"] ?></div>
                                 <div class="cell-sm action-icon stt-out">
                                     <a href="#" id="getCustomer" data-bs-toggle="modal" data-id="<?php echo $row["ID"]; ?>" data-bs-target="#customer-detail"><i class="me-3 fas fa-search-plus" style="color: #ffffff;"></i></a>
-                                    <a href="?cid=<?= $row["ID"] ?>" onclick="return confirmDelete()"><i class="fas fa-trash"></i></a>
+                                    
                                 </div>
                             </div>
                         <?php
